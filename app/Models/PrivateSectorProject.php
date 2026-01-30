@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 // 民間參與計畫
 class PrivateSectorProject extends Model
@@ -56,5 +57,21 @@ class PrivateSectorProject extends Model
     public function curationNatures(): BelongsToMany
     {
         return $this->belongsToMany(CurationNature::class, 'psp_curation_nature');
+    }
+
+    /**
+     * Get the images for the article.
+     */
+    public function images(): HasMany
+    {
+        return $this->hasMany(PrivateSectorProjectImage::class);
+    }
+
+    /**
+     * Get the images for the article.
+     */
+    public function contents(): HasMany
+    {
+        return $this->hasMany(PrivateSectorProjectContent::class);
     }
 }

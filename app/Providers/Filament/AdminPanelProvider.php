@@ -56,6 +56,7 @@ class AdminPanelProvider extends PanelProvider
                 Authenticate::class,
             ])
             ->navigationGroups([
+                'Projects',
                 'News',
                 'Booking System',
             ]);

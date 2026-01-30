@@ -25,6 +25,8 @@ class ArticleResource extends Resource
 
     protected static ?string $recordTitleAttribute = '最新消息';
 
+    protected static ?string $modelLabel = '最新消息';
+
     protected static UnitEnum|string|null $navigationGroup = 'News';
 
     public static function form(Schema $schema): Schema

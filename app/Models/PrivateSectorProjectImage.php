@@ -15,7 +15,7 @@ class PrivateSectorProjectImage extends Model
         'sort_order'
     ];
 
-    public function article(): BelongsTo
+    public function privateSectorProject(): BelongsTo
     {
         return $this->belongsTo(PrivateSectorProject::class);
     }

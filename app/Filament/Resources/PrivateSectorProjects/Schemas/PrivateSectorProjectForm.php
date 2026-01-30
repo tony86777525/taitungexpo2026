@@ -1,69 +1,92 @@
 <?php
 
-namespace App\Filament\Resources\Articles\Schemas;
+namespace App\Filament\Resources\PrivateSectorProjects\Schemas;
 
-use Filament\Forms\Components\DateTimePicker;
+use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Repeater;
+use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Schema;
-use Filament\Forms\Components\FileUpload;
 use Illuminate\Database\Eloquent\Builder;
 
-class ArticleForm
+class PrivateSectorProjectForm
 {
     public static function configure(Schema $schema): Schema
     {
         return $schema
             ->components([
-                DateTimePicker::make('published_at')
+                Select::make('executing_unit_id')
+                    ->label('執行單位')
+                    ->relationship(
+                        name: 'executingUnit',
+                        titleAttribute: 'name_zh_TW',
+                        modifyQueryUsing: fn (Builder $query) => $query->orderBy('id'),
+                    )
+                    ->allowHtml(),
+                TextInput::make('project_name_zh_TW')
+                    ->label('計畫名稱（中）')
+                    ->required(),
+                TextInput::make('project_name_en')
+                    ->label('計畫名稱（英）')
+                    ->required(),
+                DatePicker::make('project_date')
+                    ->label('執行日期')
                     ->required()
                     ->maxWidth('sm'),
+                TextInput::make('project_location_zh_TW')
+                    ->label('地點（中）'),
+                TextInput::make('project_location_en')
+                    ->label('地點（英）'),
+                TextInput::make('map_link')
+                    ->label('地圖連結'),
                 FileUpload::make('featured_image_url')
+                    ->label('主視覺')
                     ->disk('public')
-                    ->directory('article-featured_image')
+                    ->directory('private_sector_project-featured_image')
                     ->visibility('public')
                     ->image()
                     ->required(),
                 FileUpload::make('thumbnail_url')
+                    ->label('縮略圖')
                     ->disk('public')
-                    ->directory('article-thumbnails')
+                    ->directory('private_sector_project-thumbnails')
                     ->visibility('public')
                     ->image()
                     ->required(),
-                TextInput::make('title')
-                    ->required(),
                 Repeater::make('contents')
+                    ->label('計畫內容')
                     ->relationship('contents')
                     ->schema([
                         TextInput::make('title')
-                            ->label('Title')
+                            ->label('標題')
                             ->required(),
-                        TextInput::make('content')
-                            ->label('Content')
+                        RichEditor::make('content')
+                            ->label('內文')
                             ->required(),
                         Repeater::make('links')
+                            ->label('連結')
                             ->relationship('links')
-                            ->label('links')
                             ->schema([
-                                TextInput::make('name')
+                                TextInput::make('名稱')
                                     ->label('name')
                                     ->required(),
-                                TextInput::make('url')
+                                TextInput::make('網址')
                                     ->label('url')
                                     ->required(),
                             ])
                             ->defaultItems(0)
                             ->grid(3),
                         Repeater::make('images')
-                            ->label('images')
+                            ->label('計畫相簿')
                             ->relationship('images')
                             ->schema([
                                 FileUpload::make('url')
                                     ->label('Image')
                                     ->disk('public')
-                                    ->directory('article_content-images')
+                                    ->directory('private_sector_project_content-images')
                                     ->visibility('public')
                                     ->image()
                                     ->required(),
@@ -78,22 +101,14 @@ class ArticleForm
                     ->defaultItems(0)
                     ->grid(1)
                     ->columnSpanFull(),
-                Select::make('tags')
-                    ->relationship(
-                        name: 'tags',
-                        titleAttribute: 'name',
-                        modifyQueryUsing: fn (Builder $query) => $query->orderBy('id'),
-                    )
-                    ->multiple()
-                    ->preload()
-                    ->maxItems(3),
                 Repeater::make('images')
+                    ->label('計畫相簿')
                     ->relationship('images')
                     ->schema([
                         FileUpload::make('url')
                             ->label('Image')
                             ->disk('public')
-                            ->directory('article-images')
+                            ->directory('private_sector_project-images')
                             ->visibility('public')
                             ->image()
                             ->required(),
@@ -105,7 +120,17 @@ class ArticleForm
                     ->defaultItems(0)
                     ->grid(1)
                     ->columnSpanFull(),
+                Select::make('participatingUnits')
+                    ->label('單位')
+                    ->relationship(
+                        name: 'participatingUnits',
+                        titleAttribute: 'name_zh_TW',
+                        modifyQueryUsing: fn (Builder $query) => $query->orderBy('id'),
+                    )
+                    ->multiple()
+                    ->preload(),
                 Toggle::make('is_active')
+                    ->label('開關')
                     ->required()
                     ->default(1),
             ])
