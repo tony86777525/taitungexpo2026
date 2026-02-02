@@ -16,21 +16,30 @@ class ArticlesTable
     {
         return $table
             ->columns([
-                IconColumn::make('is_active')
-                    ->boolean(),
+                TextColumn::make('title_zh_TW')
+                    ->label('消息標題（中）')
+                    ->searchable(),
+                TextColumn::make('title_en')
+                    ->label('消息標題（英）')
+                    ->searchable(),
                 TextColumn::make('published_at')
-                    ->dateTime()
+                    ->label('日期')
+                    ->date('Y年m月d日')
                     ->sortable(),
-                TextColumn::make('thumbnail')
-                    ->searchable(),
-                TextColumn::make('title')
-                    ->searchable(),
+//                ImageColumn::make('thumbnail_url')
+//                    ->label('縮略圖')
+//                    ->disk('public'),
+                IconColumn::make('is_active')
+                    ->label('啟用狀態')
+                    ->boolean(),
                 TextColumn::make('created_at')
-                    ->dateTime()
+                    ->label('建立時間')
+                    ->dateTime('Y年m月d日 H:i:s')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('updated_at')
-                    ->dateTime()
+                    ->label('最後更新時間')
+                    ->dateTime('Y年m月d日 H:i:s')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])

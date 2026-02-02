@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Units\Schemas;
 
+use App\Models\Unit;
 use Filament\Infolists\Components\IconEntry;
 use Filament\Infolists\Components\ImageEntry;
 use Filament\Infolists\Components\TextEntry;
@@ -14,18 +15,22 @@ class UnitInfolist
         return $schema
             ->components([
                 TextEntry::make('name_zh_TW')
-                    ->label('單位名稱（中）'),
+                    ->label('單位名稱（中）')
+                    ->placeholder('-'),
                 TextEntry::make('name_en')
-                    ->label('單位名稱（英）'),
+                    ->label('單位名稱（英）')
+                    ->placeholder('-'),
                 ImageEntry::make('image_url')
                     ->label('單位圖檔')
                     ->disk('public')
                     ->placeholder('-'),
                 TextEntry::make('link')
                     ->label('單位連結')
+                    ->url(fn (Unit $record): string => $record->link ?? '')
+                    ->openUrlInNewTab()
                     ->placeholder('-'),
                 IconEntry::make('is_active')
-                    ->label('開關')
+                    ->label('啟用狀態')
                     ->boolean(),
                 TextEntry::make('created_at')
                     ->label('建立時間')

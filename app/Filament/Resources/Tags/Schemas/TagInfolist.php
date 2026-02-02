@@ -12,15 +12,24 @@ class TagInfolist
     {
         return $schema
             ->components([
-                TextEntry::make('name'),
+                TextEntry::make('name_zh_TW')
+                    ->label('消息分類（中）')
+                    ->placeholder('-'),
+                TextEntry::make('name_en')
+                    ->label('消息分類（英）')
+                    ->placeholder('-'),
                 IconEntry::make('is_active')
+                    ->label('啟用狀態')
                     ->boolean(),
                 TextEntry::make('created_at')
-                    ->dateTime()
+                    ->label('建立時間')
+                    ->dateTime('Y年m月d日 H:i:s')
                     ->placeholder('-'),
                 TextEntry::make('updated_at')
-                    ->dateTime()
+                    ->label('最後更新時間')
+                    ->dateTime('Y年m月d日 H:i:s')
                     ->placeholder('-'),
-            ]);
+            ])
+            ->columns(1);
     }
 }

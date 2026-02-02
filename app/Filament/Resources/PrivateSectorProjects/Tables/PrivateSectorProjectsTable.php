@@ -7,7 +7,6 @@ use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\IconColumn;
-use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
@@ -20,6 +19,9 @@ class PrivateSectorProjectsTable
                 TextColumn::make('executingUnit.name_zh_TW')
                     ->label('執行單位')
                     ->searchable(),
+                TextColumn::make('project_number')
+                    ->label('計畫編號')
+                    ->searchable(),
                 TextColumn::make('project_name_zh_TW')
                     ->label('計畫名稱（中）')
                     ->searchable(),
@@ -28,25 +30,9 @@ class PrivateSectorProjectsTable
                     ->searchable(),
                 TextColumn::make('project_date')
                     ->label('執行日期')
-                    ->date('Y年m月d日')
-                    ->sortable(),
-//                TextColumn::make('project_location_zh_TW')
-//                    ->label('地點（中）')
-//                    ->searchable(),
-//                TextColumn::make('project_location_en')
-//                    ->label('地點（英）')
-//                    ->searchable(),
-//                TextColumn::make('map_link')
-//                    ->label('地圖連結')
-//                    ->searchable(),
-//                ImageColumn::make('featured_image_url')
-//                    ->label('主視覺')
-//                    ->disk('public'),
-//                ImageColumn::make('thumbnail_url')
-//                    ->label('縮略圖')
-//                    ->disk('public'),
+                    ->getStateUsing(fn ($record) => "{$record->project_start_date} ~ {$record->project_end_date}"),
                 IconColumn::make('is_active')
-                    ->label('開關')
+                    ->label('啟用狀態')
                     ->boolean(),
                 TextColumn::make('created_at')
                     ->label('建立時間')

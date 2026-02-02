@@ -9,25 +9,28 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class Article extends Model
 {
     protected $fillable = [
-        'title',
-        // 主視覺
-        'featured_image_url',
+        // 消息標題（中）
+        'title_zh_TW',
+        // 消息標題（英）
+        'title_en',
+        // 日期
+        'published_at',
         // 縮略圖
         'thumbnail_url',
-        'published_at',
+        // 啟用狀態
         'is_active',
     ];
 
-    /**
-     * Get the images for the article.
-     */
-    public function images(): HasMany
-    {
-        return $this->hasMany(ArticleImage::class);
-    }
+    protected $casts = [
+        'published_at' => 'date',
+        'is_active' => 'boolean',
+    ];
 
     /**
-     * Get the images for the article.
+     * Get the contents for the article.
+     * 消息內容
+     *
+     * @return HasMany
      */
     public function contents(): HasMany
     {
@@ -35,7 +38,21 @@ class Article extends Model
     }
 
     /**
+     * Get the images for the article.
+     * 相簿
+     *
+     * @return HasMany
+     */
+    public function images(): HasMany
+    {
+        return $this->hasMany(ArticleImage::class);
+    }
+
+    /**
      * Get the tags for the article.
+     * 消息分類
+     *
+     * @return BelongsToMany
      */
     public function tags(): BelongsToMany
     {

@@ -11,12 +11,15 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class PrivateSectorProject extends Model
 {
     protected $fillable = [
-        // 執行單位（中）
+        // 計畫編號
+        'project_number',
+        // 計畫名稱（中）
         'project_name_zh_TW',
-        // 執行單位（英）
+        // 計畫名稱（英）
         'project_name_en',
         // 執行日期
-        'project_date',
+        'project_start_date',
+        'project_end_date',
         // 地點（中）
         'project_location_zh_TW',
         // 地點（英）
@@ -29,6 +32,7 @@ class PrivateSectorProject extends Model
         'thumbnail_url',
         // 執行單位
         'executing_unit_id',
+        // 啟用狀態
         'is_active',
     ];
 
@@ -37,30 +41,44 @@ class PrivateSectorProject extends Model
         'is_active' => 'boolean',
     ];
 
+    /**
+     * Get the executing unit for the private sector project.
+     * 執行單位
+     *
+     * @return BelongsTo
+     */
     public function executingUnit(): BelongsTo
     {
         return $this->belongsTo(Unit::class, 'executing_unit_id');
     }
 
+    /**
+     * Get the project natures for the private sector project.
+     * 計畫性質
+     *
+     * @return BelongsToMany
+     */
     public function projectNatures(): BelongsToMany
     {
         return $this->belongsToMany(ProjectNature::class, 'psp_project_nature');
     }
 
-    public function participatingUnits(): BelongsToMany
+    /**
+     * Get the units for the private sector project.
+     * 單位
+     *
+     * @return BelongsToMany
+     */
+    public function units(): BelongsToMany
     {
-        return $this->belongsToMany(Unit::class, 'psp_unit')
-            ->withPivot('type')
-            ->wherePivot('type', 'participating');
-    }
-
-    public function curationNatures(): BelongsToMany
-    {
-        return $this->belongsToMany(CurationNature::class, 'psp_curation_nature');
+        return $this->belongsToMany(Unit::class, 'psp_unit');
     }
 
     /**
-     * Get the images for the article.
+     * Get the images for the private sector project.
+     * 計畫相簿
+     *
+     * @return HasMany
      */
     public function images(): HasMany
     {
@@ -68,7 +86,10 @@ class PrivateSectorProject extends Model
     }
 
     /**
-     * Get the images for the article.
+     * Get the contents for the private sector project.
+     * 計畫內容
+     *
+     * @return HasMany
      */
     public function contents(): HasMany
     {

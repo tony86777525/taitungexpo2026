@@ -2,8 +2,9 @@
 
 namespace App\Filament\Resources\Articles\Schemas;
 
-use Filament\Forms\Components\DateTimePicker;
+use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Repeater;
+use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
@@ -17,59 +18,85 @@ class ArticleForm
     {
         return $schema
             ->components([
-                DateTimePicker::make('published_at')
+                TextInput::make('title_zh_TW')
+                    ->label('消息標題（中）')
+                    ->required(),
+                TextInput::make('title_en')
+                    ->label('消息標題（英）')
+                    ->required(),
+                DatePicker::make('published_at')
+                    ->label('日期')
                     ->required()
                     ->maxWidth('sm'),
-                FileUpload::make('featured_image_url')
-                    ->disk('public')
-                    ->directory('article-featured_image')
-                    ->visibility('public')
-                    ->image()
-                    ->required(),
+                Select::make('tags')
+                    ->label('消息分類')
+                    ->relationship(
+                        name: 'tags',
+                        titleAttribute: 'name_zh_TW',
+                        modifyQueryUsing: fn (Builder $query) => $query->orderBy('id'),
+                    )
+                    ->multiple()
+                    ->preload()
+                    ->maxItems(1),
                 FileUpload::make('thumbnail_url')
+                    ->label('縮略圖')
                     ->disk('public')
                     ->directory('article-thumbnails')
                     ->visibility('public')
                     ->image()
                     ->required(),
-                TextInput::make('title')
-                    ->required(),
                 Repeater::make('contents')
+                    ->label('消息內容')
                     ->relationship('contents')
                     ->schema([
-                        TextInput::make('title')
-                            ->label('Title')
+                        TextInput::make('title_zh_TW')
+                            ->label('標題（中）'),
+                        TextInput::make('title_en')
+                            ->label('標題（英）'),
+                        RichEditor::make('content_zh_TW')
+                            ->label('內文（中）')
                             ->required(),
-                        TextInput::make('content')
-                            ->label('Content')
+                        RichEditor::make('content_en')
+                            ->label('內文（英）')
                             ->required(),
+                        TextInput::make('item_text_zh_TW')
+                            ->label('項目文字（中）'),
+                        TextInput::make('item_text_en')
+                            ->label('項目文字（英）'),
                         Repeater::make('links')
+                            ->label('連結按鈕')
                             ->relationship('links')
-                            ->label('links')
                             ->schema([
-                                TextInput::make('name')
-                                    ->label('name')
+                                TextInput::make('name_zh_TW')
+                                    ->label('連結按鈕（中）')
                                     ->required(),
-                                TextInput::make('url')
-                                    ->label('url')
+                                TextInput::make('name_en')
+                                    ->label('連結按鈕（英）')
+                                    ->required(),
+                                TextInput::make('url_zh_TW')
+                                    ->label('連結（中）')
+                                    ->url()
+                                    ->required(),
+                                TextInput::make('url_en')
+                                    ->label('連結（英）')
+                                    ->url()
                                     ->required(),
                             ])
                             ->defaultItems(0)
                             ->grid(3),
                         Repeater::make('images')
-                            ->label('images')
+                            ->label('輪播圖片')
                             ->relationship('images')
                             ->schema([
                                 FileUpload::make('url')
-                                    ->label('Image')
+                                    ->label('圖片')
                                     ->disk('public')
                                     ->directory('article_content-images')
                                     ->visibility('public')
                                     ->image()
                                     ->required(),
                                 TextInput::make('alt_text')
-                                    ->label('Alt Text')
-                                    ->nullable(),
+                                    ->label('Alt文字'),
                             ])
                             ->orderColumn('sort_order')
                             ->defaultItems(0)
@@ -78,34 +105,26 @@ class ArticleForm
                     ->defaultItems(0)
                     ->grid(1)
                     ->columnSpanFull(),
-                Select::make('tags')
-                    ->relationship(
-                        name: 'tags',
-                        titleAttribute: 'name',
-                        modifyQueryUsing: fn (Builder $query) => $query->orderBy('id'),
-                    )
-                    ->multiple()
-                    ->preload()
-                    ->maxItems(3),
                 Repeater::make('images')
+                    ->label('相簿')
                     ->relationship('images')
                     ->schema([
                         FileUpload::make('url')
-                            ->label('Image')
+                            ->label('圖片')
                             ->disk('public')
                             ->directory('article-images')
                             ->visibility('public')
                             ->image()
                             ->required(),
                         TextInput::make('alt_text')
-                            ->label('Alt Text')
-                            ->nullable(),
+                            ->label('Alt文字'),
                     ])
                     ->orderColumn('sort_order')
                     ->defaultItems(0)
-                    ->grid(1)
+                    ->grid(3)
                     ->columnSpanFull(),
                 Toggle::make('is_active')
+                    ->label('啟用狀態')
                     ->required()
                     ->default(1),
             ])

@@ -27,9 +27,10 @@ class UnitForm
                     ->image()
                     ->required(),
                 TextInput::make('link')
-                    ->label('單位連結'),
+                    ->label('單位連結')
+                    ->url(),
                 Toggle::make('is_active')
-                    ->label('開關')
+                    ->label('啟用狀態')
                     ->required()
                     ->default(1),
             ])

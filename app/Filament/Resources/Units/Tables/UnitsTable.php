@@ -30,14 +30,16 @@ class UnitsTable
                     ->label('單位連結')
                     ->searchable(),
                 IconColumn::make('is_active')
-                    ->label('開關')
+                    ->label('啟用狀態')
                     ->boolean(),
                 TextColumn::make('created_at')
-                    ->dateTime()
+                    ->label('建立時間')
+                    ->dateTime('Y年m月d日 H:i:s')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('updated_at')
-                    ->dateTime()
+                    ->label('最後更新時間')
+                    ->dateTime('Y年m月d日 H:i:s')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])

@@ -16,16 +16,23 @@ class TagsTable
     {
         return $table
             ->columns([
-                TextColumn::make('name')
+                TextColumn::make('name_zh_TW')
+                    ->label('消息分類（中）')
+                    ->searchable(),
+                TextColumn::make('name_en')
+                    ->label('消息分類（英）')
                     ->searchable(),
                 IconColumn::make('is_active')
+                    ->label('啟用狀態')
                     ->boolean(),
                 TextColumn::make('created_at')
-                    ->dateTime()
+                    ->label('建立時間')
+                    ->dateTime('Y年m月d日 H:i:s')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('updated_at')
-                    ->dateTime()
+                    ->label('最後更新時間')
+                    ->dateTime('Y年m月d日 H:i:s')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])

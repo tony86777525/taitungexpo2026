@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 // 單位
 class Unit extends Model
@@ -16,10 +18,22 @@ class Unit extends Model
         'image_url',
         // 單位連結
         'link',
+        // 啟用狀態
         'is_active',
     ];
 
     protected $casts = [
         'is_active' => 'boolean',
     ];
+
+    /**
+     * Get the private sector project for the unit.
+     * 民間參與計畫
+     *
+     * @return BelongsToMany
+     */
+    public function privateSectorProjects(): BelongsToMany
+    {
+        return $this->belongsToMany(PrivateSectorProject::class, 'psp_unit');
+    }
 }
