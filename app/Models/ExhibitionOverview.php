@@ -38,8 +38,6 @@ class ExhibitionOverview extends Model
     ];
 
     protected $casts = [
-        'project_date' => 'date',
-        'project_time' => 'datetime:H:i',
         'is_active' => 'boolean',
     ];
 
@@ -74,6 +72,17 @@ class ExhibitionOverview extends Model
     public function units(): BelongsToMany
     {
         return $this->belongsToMany(Unit::class, 'eo_unit');
+    }
+
+    /**
+     * Get the featured images for the exhibition overview.
+     * 主視覺
+     *
+     * @return HasMany
+     */
+    public function featuredImages(): HasMany
+    {
+        return $this->hasMany(ExhibitionOverviewFeaturedImage::class);
     }
 
     /**

@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class ExhibitionOverviewImage extends Model
+class ExhibitionOverviewFeaturedImage extends Model
 {
     protected $fillable = [
         'exhibition_overview_id',

@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
             ActivityNatureSeeder::class,
             CurationNatureSeeder::class,
             ProjectNatureSeeder::class,
+            ProjectCategorySeeder::class,
             ProjectTypeSeeder::class,
             TagSeeder::class,
             ZoneSeeder::class,

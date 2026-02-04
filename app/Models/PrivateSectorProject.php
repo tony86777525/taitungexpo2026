@@ -37,7 +37,6 @@ class PrivateSectorProject extends Model
     ];
 
     protected $casts = [
-        'project_date' => 'date',
         'is_active' => 'boolean',
     ];
 
@@ -50,6 +49,17 @@ class PrivateSectorProject extends Model
     public function executingUnit(): BelongsTo
     {
         return $this->belongsTo(Unit::class, 'executing_unit_id');
+    }
+
+    /**
+     * Get the project categories for the private sector project.
+     * 計畫分類
+     *
+     * @return BelongsToMany
+     */
+    public function projectCategories(): BelongsToMany
+    {
+        return $this->belongsToMany(ProjectCategory::class, 'psp_project_category');
     }
 
     /**
@@ -72,6 +82,17 @@ class PrivateSectorProject extends Model
     public function units(): BelongsToMany
     {
         return $this->belongsToMany(Unit::class, 'psp_unit');
+    }
+
+    /**
+     * Get the featured images for the private sector project.
+     * 主視覺
+     *
+     * @return HasMany
+     */
+    public function featuredImages(): HasMany
+    {
+        return $this->hasMany(PrivateSectorProjectFeaturedImage::class);
     }
 
     /**

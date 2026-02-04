@@ -39,8 +39,6 @@ class Activity extends Model
     ];
 
     protected $casts = [
-        'activity_date' => 'json',
-        'activity_time' => 'datetime:H:i',
         'is_active' => 'boolean',
     ];
 

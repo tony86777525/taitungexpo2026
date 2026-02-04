@@ -26,13 +26,13 @@ class ExhibitionOverviewContent extends Model
 
     /**
      * Get the exhibition overview for the exhibition overview content.
-     * 最新消息
+     * 展覽概覽
      *
      * @return BelongsTo
      */
-    public function article(): BelongsTo
+    public function exhibitionOverview(): BelongsTo
     {
-        return $this->belongsTo(Article::class);
+        return $this->belongsTo(ExhibitionOverview::class);
     }
 
     /**

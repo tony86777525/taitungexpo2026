@@ -59,6 +59,15 @@ class PrivateSectorProjectForm
                 TextInput::make('map_link')
                     ->label('地圖連結')
                     ->url(),
+                Select::make('projectCategories')
+                    ->label('計劃性質')
+                    ->relationship(
+                        name: 'projectCategories',
+                        titleAttribute: 'name_zh_TW',
+                        modifyQueryUsing: fn (Builder $query) => $query->orderBy('id'),
+                    )
+                    ->multiple()
+                    ->preload(),
                 Select::make('projectNatures')
                     ->label('計劃性質')
                     ->relationship(
@@ -68,13 +77,23 @@ class PrivateSectorProjectForm
                     )
                     ->multiple()
                     ->preload(),
-                FileUpload::make('featured_image_url')
+                Repeater::make('featured_images')
                     ->label('主視覺')
-                    ->disk('public')
-                    ->directory('private_sector_project-featured_image')
-                    ->visibility('public')
-                    ->image()
-                    ->required(),
+                    ->relationship('featuredImages')
+                    ->schema([
+                        FileUpload::make('url')
+                            ->label('圖片')
+                            ->disk('public')
+                            ->directory('private_sector_project-feature_images')
+                            ->visibility('public')
+                            ->image(),
+                        TextInput::make('alt_text')
+                            ->label('Alt文字'),
+                    ])
+                    ->orderColumn('sort_order')
+                    ->defaultItems(0)
+                    ->grid(3)
+                    ->columnSpanFull(),
                 FileUpload::make('thumbnail_url')
                     ->label('縮略圖')
                     ->disk('public')

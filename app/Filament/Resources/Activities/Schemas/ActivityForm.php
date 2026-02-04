@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Activities\Schemas;
 
+use Carbon\Carbon;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Repeater;
@@ -29,6 +30,9 @@ class ActivityForm
                         modifyQueryUsing: fn (Builder $query) => $query->orderBy('id'),
                     )
                     ->requiredWithout('exhibitionOverview')
+                    ->live() // 必須加這行，讓變更即時生效
+                    // 當「展覽概覽」有值時，禁用此欄位
+                    ->disabled(fn (Get $get): bool => filled($get('exhibitionOverview')))
                     ->preload(),
                 Select::make('exhibitionOverview')
                     ->label('展覽概覽')
@@ -38,6 +42,8 @@ class ActivityForm
                         modifyQueryUsing: fn (Builder $query) => $query->orderBy('id'),
                     )
                     ->requiredWithout('privateSectorProject')
+                    ->live() // 必須加這行，讓變更即時生效
+                    ->disabled(fn (Get $get): bool => filled($get('privateSectorProject')))
                     ->preload(),
                 TextInput::make('title_zh_TW')
                     ->label('活動標題（中）')
@@ -63,12 +69,14 @@ class ActivityForm
                             ->label('活動開始時間')
                             ->seconds(false)
                             ->required()
+                            ->default(Carbon::parse('09:00'))
                             ->maxWidth('sm'),
                         TimePicker::make('activity_end_time')
                             ->label('活動結束時間')
                             ->afterOrEqual('activity_start_time')
                             ->seconds(false)
                             ->required()
+                            ->default(Carbon::parse('15:00'))
                             ->maxWidth('sm'),
                     ]),
                 TextInput::make('activity_location_zh_TW')

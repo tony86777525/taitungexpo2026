@@ -58,10 +58,13 @@ class ExhibitionOverviewInfolist
                     ])
                     ->grid(6)
                     ->placeholder('-'),
-                ImageEntry::make('featured_image_url')
+                RepeatableEntry::make('featuredImages')
                     ->label('主視覺')
-                    ->disk('public')
-                    ->placeholder('-'),
+                    ->schema([
+                        ImageEntry::make('url')->disk('public')->label('圖片'),
+                        TextEntry::make('alt_text')->label('Alt文字')->placeholder('-'),
+                    ])
+                    ->grid(3),
                 ImageEntry::make('thumbnail_url')
                     ->label('縮略圖')
                     ->disk('public')

@@ -21,7 +21,6 @@ return new class extends Migration
             $table->string('project_location_zh_TW')->nullable()->comment('地點（中）');
             $table->string('project_location_en')->nullable()->comment('地點（英）');
             $table->string('map_link')->nullable()->comment('地圖連結');
-            $table->string('featured_image_url')->nullable()->comment('主視覺');
             $table->string('thumbnail_url')->nullable()->comment('縮略圖');
             $table->foreignId('executing_unit_id')->nullable()->constrained('units')->nullOnDelete();
             $table->boolean('is_active')->default(true)->comment('啟用狀態');

@@ -38,6 +38,14 @@ class PrivateSectorProjectInfolist
                     ->label('地圖連結')
                     ->openUrlInNewTab()
                     ->placeholder('-'),
+                RepeatableEntry::make('projectCategories')
+                    ->label('計劃類型')
+                    ->schema([
+                        TextEntry::make('name_zh_TW')->label('（中）'),
+                        TextEntry::make('name_en')->label('（英）'),
+                    ])
+                    ->grid(6)
+                    ->placeholder('-'),
                 RepeatableEntry::make('projectNatures')
                     ->label('計劃性質')
                     ->schema([
@@ -50,6 +58,13 @@ class PrivateSectorProjectInfolist
                     ->label('主視覺')
                     ->disk('public')
                     ->placeholder('-'),
+                RepeatableEntry::make('featuredImages')
+                    ->label('主視覺')
+                    ->schema([
+                        ImageEntry::make('url')->disk('public')->label('圖片'),
+                        TextEntry::make('alt_text')->label('Alt文字')->placeholder('-'),
+                    ])
+                    ->grid(3),
                 ImageEntry::make('thumbnail_url')
                     ->label('縮略圖')
                     ->disk('public')

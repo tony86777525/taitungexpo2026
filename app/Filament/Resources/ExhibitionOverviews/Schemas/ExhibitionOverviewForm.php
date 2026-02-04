@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\ExhibitionOverviews\Schemas;
 
+use Carbon\Carbon;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Repeater;
@@ -60,12 +61,14 @@ class ExhibitionOverviewForm
                             ->label('計畫開始時間')
                             ->seconds(false)
                             ->required()
+                            ->default(Carbon::parse('09:00'))
                             ->maxWidth('sm'),
                         TimePicker::make('project_end_time')
                             ->label('計畫結束時間')
                             ->afterOrEqual('project_start_time')
                             ->seconds(false)
                             ->required()
+                            ->default(Carbon::parse('15:00'))
                             ->maxWidth('sm'),
                     ]),
                 TextInput::make('project_location_zh_TW')
@@ -95,13 +98,19 @@ class ExhibitionOverviewForm
                     )
                     ->multiple()
                     ->preload(),
-                FileUpload::make('featured_image_url')
+                Repeater::make('featured_images')
                     ->label('主視覺')
-                    ->disk('public')
-                    ->directory('exhibition_overview-featured_image')
-                    ->visibility('public')
-                    ->image()
-                    ->required(),
+                    ->relationship('featuredImages')
+                    ->schema([
+                        FileUpload::make('url')
+                            ->label('圖片')
+                            ->disk('public')
+                            ->directory('exhibition_overview-feature_images')
+                            ->visibility('public')
+                            ->image(),
+                        TextInput::make('alt_text')
+                            ->label('Alt文字'),
+                    ]),
                 FileUpload::make('thumbnail_url')
                     ->label('縮略圖')
                     ->disk('public')
