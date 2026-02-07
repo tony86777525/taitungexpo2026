@@ -14,7 +14,7 @@ class ExhibitionOverview extends Model
         // LOGO
         'logo_url',
         // 計畫名稱（中）
-        'project_name_zh_TW',
+        'project_name_tw',
         // 計畫名稱（英）
         'project_name_en',
         // 活動日期
@@ -24,7 +24,7 @@ class ExhibitionOverview extends Model
         'project_start_time',
         'project_end_time',
         // 計畫地點（中）
-        'project_location_zh_TW',
+        'project_location_tw',
         // 計畫地點（英）
         'project_location_en',
         // 地圖連結
@@ -40,17 +40,6 @@ class ExhibitionOverview extends Model
     protected $casts = [
         'is_active' => 'boolean',
     ];
-
-    /**
-     * Get the venue for the exhibition overview.
-     * 場館
-     *
-     * @return BelongsTo
-     */
-    public function venue(): BelongsTo
-    {
-        return $this->belongsTo(Venue::class);
-    }
 
     /**
      * Get the project natures for the exhibition overview.

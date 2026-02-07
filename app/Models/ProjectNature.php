@@ -9,7 +9,7 @@ class ProjectNature extends Model
 {
     protected $fillable = [
         // 計畫性質（中）
-        'name_zh_TW',
+        'name_tw',
         // 計畫性質（英）
         'name_en',
         // 啟用狀態

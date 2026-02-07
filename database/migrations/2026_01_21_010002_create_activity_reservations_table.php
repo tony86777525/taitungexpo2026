@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('activity_reservations', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('activity_session_id')->constrained('activity_sessions')->cascadeOnDelete();
+            $table->foreignId('activity_session_id')->constrained('activity_sessions')->onDelete('cascade');
             $table->string('contact_name')->nullable()->comment('聯絡人姓名');
             $table->string('contact_phone')->nullable()->comment('聯絡電話');
             $table->string('contact_email')->nullable()->comment('電子郵件');

@@ -9,7 +9,7 @@ class Tag extends Model
 {
     protected $fillable = [
         // 消息分類（中）
-        'name_zh_TW',
+        'name_tw',
         // 消息分類（英）
         'name_en',
         // 啟用狀態

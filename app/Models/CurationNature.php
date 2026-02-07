@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class CurationNature extends Model
 {
     protected $fillable = [
-        'name_zh_TW',
+        'name_tw',
         'name_en',
         'is_active',
     ];

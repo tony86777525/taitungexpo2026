@@ -48,6 +48,6 @@ class ActivitySession extends Model
      */
     public function getDisplayTitleAttribute(): string
     {
-        return "{$this->activity->title_zh_TW} ： {$this->date} - {$this->start_time} ~ {$this->end_time}";
+        return "{$this->activity->title_tw} ： {$this->date} - {$this->start_time} ~ {$this->end_time}";
     }
 }

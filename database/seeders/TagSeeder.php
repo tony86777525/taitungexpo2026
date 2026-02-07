@@ -15,22 +15,22 @@ class TagSeeder extends Seeder
     {
         $tags = [
             [
-                'name_zh_TW' => '官方公告',
+                'name_tw' => '官方公告',
                 'name_en' => 'Official',
             ],
             [
-                'name_zh_TW' => '活動消息',
+                'name_tw' => '活動消息',
                 'name_en' => 'Events',
             ],
             [
-                'name_zh_TW' => '媒體報導',
+                'name_tw' => '媒體報導',
                 'name_en' => 'Media',
             ],
         ];
 
         foreach ($tags as $tag) {
             DB::table('tags')->insert([
-                'name_zh_TW' => $tag['name_zh_TW'],
+                'name_tw' => $tag['name_tw'],
                 'name_en' => $tag['name_en'],
                 'is_active' => 1,
                 'created_at' => now(),

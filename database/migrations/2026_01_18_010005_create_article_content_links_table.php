@@ -13,13 +13,10 @@ return new class extends Migration
     {
         Schema::create('article_content_links', function (Blueprint $table) {
             $table->id();
-            $table
-                ->foreignId('article_content_id')
-                ->constrained('article_contents')
-                ->onDelete('cascade');
-            $table->string('name_zh_TW')->nullable()->comment('連結按鈕（中）');
+            $table->foreignId('article_content_id')->constrained('article_contents')->onDelete('cascade');
+            $table->string('name_tw')->nullable()->comment('連結按鈕（中）');
             $table->string('name_en')->nullable()->comment('連結按鈕（英）');
-            $table->string('url_zh_TW')->nullable()->comment('連結（中）');
+            $table->string('url_tw')->nullable()->comment('連結（中）');
             $table->string('url_en')->nullable()->comment('連結（英）');
             $table->timestamps();
         });

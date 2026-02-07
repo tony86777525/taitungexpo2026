@@ -11,12 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('private_sector_project_content_images', function (Blueprint $table) {
+        Schema::create('activity_images', function (Blueprint $table) {
             $table->id();
-            $table
-                ->foreignId('private_sector_project_content_id')
-                ->constrained('private_sector_project_contents', 'id', 'psp_content_images_content_id_fk')
-                ->onDelete('cascade');
+            $table->foreignId('activity_id')->constrained('activities')->onDelete('cascade');
             $table->string('url')->nullable()->comment('圖片');
             $table->string('alt_text')->nullable()->comment('Alt文字');
             $table->tinyInteger('sort_order')->comment('排序順序');
@@ -29,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('private_sector_project_content_images');
+        Schema::dropIfExists('activity_images');
     }
 };

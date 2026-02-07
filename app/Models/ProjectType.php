@@ -9,7 +9,7 @@ class ProjectType extends Model
 {
     protected $fillable = [
         // 計畫類型（中）
-        'name_zh_TW',
+        'name_tw',
         // 計畫類型（英）
         'name_en',
         // 啟用狀態

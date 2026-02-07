@@ -13,10 +13,7 @@ return new class extends Migration
     {
         Schema::create('article_content_images', function (Blueprint $table) {
             $table->id();
-            $table
-                ->foreignId('article_content_id')
-                ->constrained('article_contents')
-                ->onDelete('cascade');
+            $table->foreignId('article_content_id')->constrained('article_contents')->onDelete('cascade');
             $table->string('url')->nullable()->comment('圖片');
             $table->string('alt_text')->nullable()->comment('Alt文字');
             $table->tinyInteger('sort_order')->comment('排序順序');

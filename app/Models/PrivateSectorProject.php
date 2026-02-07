@@ -14,14 +14,14 @@ class PrivateSectorProject extends Model
         // 計畫編號
         'project_number',
         // 計畫名稱（中）
-        'project_name_zh_TW',
+        'project_name_tw',
         // 計畫名稱（英）
         'project_name_en',
         // 執行日期
         'project_start_date',
         'project_end_date',
         // 地點（中）
-        'project_location_zh_TW',
+        'project_location_tw',
         // 地點（英）
         'project_location_en',
         // 地圖連結

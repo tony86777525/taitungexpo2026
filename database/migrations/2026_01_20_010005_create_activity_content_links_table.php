@@ -11,15 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('exhibition_overview_content_links', function (Blueprint $table) {
+        Schema::create('activity_content_links', function (Blueprint $table) {
             $table->id();
             $table
-                ->foreignId('exhibition_overview_content_id')
-                ->constrained('exhibition_overview_contents', 'id', 'eo_content_links_content_id_fk')
+                ->foreignId('activity_content_id')
+                ->constrained('activity_contents', 'id', 'activity_content_links_content_id_fk')
                 ->onDelete('cascade');
-            $table->string('name_zh_TW')->nullable()->comment('連結按鈕（中）');
+            $table->string('name_tw')->nullable()->comment('連結按鈕（中）');
             $table->string('name_en')->nullable()->comment('連結按鈕（英）');
-            $table->string('url_zh_TW')->nullable()->comment('連結（中）');
+            $table->string('url_tw')->nullable()->comment('連結（中）');
             $table->string('url_en')->nullable()->comment('連結（英）');
             $table->timestamps();
         });
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('exhibition_overview_content_links');
+        Schema::dropIfExists('activity_content_links');
     }
 };

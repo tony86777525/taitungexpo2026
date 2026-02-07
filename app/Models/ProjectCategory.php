@@ -9,7 +9,7 @@ class ProjectCategory extends Model
 {
     protected $fillable = [
         // 計畫分類（中）
-        'name_zh_TW',
+        'name_tw',
         // 計畫分類（英）
         'name_en',
         // 啟用狀態

@@ -10,7 +10,7 @@ class Article extends Model
 {
     protected $fillable = [
         // 消息標題（中）
-        'title_zh_TW',
+        'title_tw',
         // 消息標題（英）
         'title_en',
         // 日期

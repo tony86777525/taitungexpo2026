@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('psp_project_category', function (Blueprint $table) {
+        Schema::create('p_curation_nature', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('private_sector_project_id')->constrained('private_sector_projects')->onDelete('cascade');
-            $table->foreignId('project_category_id')->constrained('project_categories')->onDelete('cascade');
+            $table->foreignId('project_id')->constrained('projects')->onDelete('cascade');
+            $table->foreignId('curation_nature_id')->constrained('curation_natures')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('psp_project_category');
+        Schema::dropIfExists('p_curation_nature');
     }
 };

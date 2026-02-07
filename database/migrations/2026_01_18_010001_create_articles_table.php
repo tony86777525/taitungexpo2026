@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
-            $table->string('title_zh_TW')->nullable()->comment('消息標題（中）');
+            $table->string('title_tw')->nullable()->comment('消息標題（中）');
             $table->string('title_en')->nullable()->comment('消息標題（英）');
             $table->date('published_at')->nullable()->comment('日期');
             $table->string('thumbnail_url')->nullable()->comment('縮略圖');

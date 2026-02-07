@@ -15,50 +15,50 @@ class ProjectNatureSeeder extends Seeder
     {
         $tags = [
             [
-                'name_zh_TW' => '展覽',
+                'name_tw' => '展覽',
                 'name_en' => 'Exhibition',
             ],
             [
-                'name_zh_TW' => '展演',
+                'name_tw' => '展演',
                 'name_en' => 'Performance',
             ],
             [
-                'name_zh_TW' => '遊程',
+                'name_tw' => '遊程',
                 'name_en' => 'Tour',
             ],
             [
-                'name_zh_TW' => '論壇',
+                'name_tw' => '論壇',
                 'name_en' => 'Forum',
             ],
             [
-                'name_zh_TW' => '講座',
+                'name_tw' => '講座',
                 'name_en' => 'Talk',
             ],
             [
-                'name_zh_TW' => '工作坊',
+                'name_tw' => '工作坊',
                 'name_en' => 'Workshop',
             ],
             [
-                'name_zh_TW' => '市集',
+                'name_tw' => '市集',
                 'name_en' => 'Market',
             ],
             [
-                'name_zh_TW' => '銷售',
+                'name_tw' => '銷售',
                 'name_en' => 'Sales',
             ],
             [
-                'name_zh_TW' => '競賽',
+                'name_tw' => '競賽',
                 'name_en' => 'Competition',
             ],
             [
-                'name_zh_TW' => '徵選',
+                'name_tw' => '徵選',
                 'name_en' => 'Open Call',
             ],
         ];
 
         foreach ($tags as $tag) {
             DB::table('project_natures')->insert([
-                'name_zh_TW' => $tag['name_zh_TW'],
+                'name_tw' => $tag['name_tw'],
                 'name_en' => $tag['name_en'],
                 'is_active' => 1,
                 'created_at' => now(),

@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('psp_unit', function (Blueprint $table) {
+        Schema::create('p_project_nature', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('private_sector_project_id')->constrained('private_sector_projects')->onDelete('cascade');
-            $table->foreignId('unit_id')->constrained()->onDelete('cascade');
+            $table->foreignId('project_id')->constrained('projects')->onDelete('cascade');
+            $table->foreignId('project_nature_id')->constrained('project_natures')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('psp_unit');
+        Schema::dropIfExists('p_project_nature');
     }
 };

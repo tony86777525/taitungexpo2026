@@ -11,7 +11,7 @@ class Unit extends Model
 {
     protected $fillable = [
         // 單位文字（中）
-        'name_zh_TW',
+        'name_tw',
         // 單位文字（英）
         'name_en',
         // 單位圖檔

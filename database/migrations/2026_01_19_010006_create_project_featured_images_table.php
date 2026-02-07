@@ -11,13 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('exhibition_overview_featured_images', function (Blueprint $table) {
+        Schema::create('project_featured_images', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('exhibition_overview_id');
-            $table->foreign('exhibition_overview_id', 'eo_fi_eo_id_foreign')
-                ->references('id')
-                ->on('exhibition_overviews')
-                ->onDelete('cascade');
+            $table->foreignId('project_id')->constrained('projects')->onDelete('cascade');
             $table->string('url')->nullable()->comment('圖片');
             $table->string('alt_text')->nullable()->comment('Alt文字');
             $table->tinyInteger('sort_order')->comment('排序順序');
@@ -30,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('exhibition_overview_featured_images');
+        Schema::dropIfExists('project_featured_images');
     }
 };

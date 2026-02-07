@@ -11,7 +11,7 @@ class Activity extends Model
 {
     protected $fillable = [
         // 活動標題（中）
-        'title_zh_TW',
+        'title_tw',
         // 活動標題（英）
         'title_en',
         // 活動日期
@@ -21,17 +21,17 @@ class Activity extends Model
         'activity_start_time',
         'activity_end_time',
         // 活動地點（中）
-        'activity_location_zh_TW',
+        'activity_location_tw',
         // 活動地點（英）
         'activity_location_en',
         // 地圖連結
         'map_link',
         // 報名資訊（中）
-        'registration_info_zh_TW',
+        'registration_info_tw',
         // 報名資訊（英）
         'registration_info_en',
         // 導覽預約資訊（中）
-        'tour_info_zh_TW',
+        'tour_info_tw',
         // 導覽預約資訊（英）
         'tour_info_en',
         // 啟用狀態

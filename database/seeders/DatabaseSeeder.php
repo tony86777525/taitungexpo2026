@@ -25,8 +25,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             ActivityNatureSeeder::class,
             CurationNatureSeeder::class,
-            ProjectNatureSeeder::class,
             ProjectCategorySeeder::class,
+            ProjectNatureSeeder::class,
             ProjectTypeSeeder::class,
             TagSeeder::class,
             ZoneSeeder::class,

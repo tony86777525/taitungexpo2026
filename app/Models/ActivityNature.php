@@ -9,7 +9,7 @@ class ActivityNature extends Model
 {
     protected $fillable = [
         // 活動性質（中）
-        'name_zh_TW',
+        'name_tw',
         // 活動性質（英）
         'name_en',
         // 啟用狀態

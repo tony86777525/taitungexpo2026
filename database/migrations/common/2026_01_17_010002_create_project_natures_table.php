@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('project_natures', function (Blueprint $table) {
             $table->id();
-            $table->string('name_zh_TW')->nullable()->comment('計畫性質（中）');
+            $table->string('name_tw')->nullable()->comment('計畫性質（中）');
             $table->string('name_en')->nullable()->comment('計畫性質（英）');
             $table->boolean('is_active')->default(true)->comment('啟用狀態');
             $table->timestamps();

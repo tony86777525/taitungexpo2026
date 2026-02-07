@@ -10,11 +10,11 @@ class ExhibitionOverviewContentLink extends Model
     protected $fillable = [
         'exhibition_overview_content_id',
         // 連結按鈕（中）
-        'name_zh_TW',
+        'name_tw',
         // 連結按鈕（英）
         'name_en',
         // 連結（中）
-        'url_zh_TW',
+        'url_tw',
         // 連結（英）
         'url_en',
     ];

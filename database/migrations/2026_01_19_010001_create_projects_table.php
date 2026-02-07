@@ -11,14 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('private_sector_projects', function (Blueprint $table) {
+        Schema::create('projects', function (Blueprint $table) {
             $table->id();
+            // 1展覽概覽、2民間參與計畫
+            $table->tinyInteger('type')->comment('計畫類型');
+            $table->string('logo_url')->nullable()->comment('LOGO');
             $table->string('project_number')->nullable()->comment('計畫編號');
-            $table->string('project_name_zh_TW')->nullable()->comment('計畫名稱（中）');
+            $table->string('project_name_tw')->nullable()->comment('計畫名稱（中）');
             $table->string('project_name_en')->nullable()->comment('計畫名稱（英）');
-            $table->date('project_start_date')->nullable()->comment('執行開始日期');
-            $table->date('project_end_date')->nullable()->comment('執行結束日期');
-            $table->string('project_location_zh_TW')->nullable()->comment('地點（中）');
+            $table->string('project_location_tw')->nullable()->comment('地點（中）');
             $table->string('project_location_en')->nullable()->comment('地點（英）');
             $table->string('map_link')->nullable()->comment('地圖連結');
             $table->string('thumbnail_url')->nullable()->comment('縮略圖');
@@ -33,6 +34,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('private_sector_projects');
+        Schema::dropIfExists('projects');
     }
 };
