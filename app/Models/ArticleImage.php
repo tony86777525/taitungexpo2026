@@ -18,7 +18,7 @@ class ArticleImage extends Model
     ];
 
     /**
-     * Get the private sector project for the private sector project image.
+     * Get the article for the article image.
      * 最新消息
      *
      * @return BelongsTo

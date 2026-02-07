@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class PrivateSectorProjectContentLink extends Model
+class ProjectContentLink extends Model
 {
     protected $fillable = [
-        'private_sector_project_content_id',
+        'project_content_id',
         // 連結按鈕（中）
         'name_tw',
         // 連結按鈕（英）
@@ -20,13 +20,13 @@ class PrivateSectorProjectContentLink extends Model
     ];
 
     /**
-     * Get the content for the private sector project content link.
+     * Get the content for the project content link.
      * 內文
      *
      * @return BelongsTo
      */
     public function content(): BelongsTo
     {
-        return $this->belongsTo(PrivateSectorProjectContent::class);
+        return $this->belongsTo(ProjectContent::class);
     }
 }

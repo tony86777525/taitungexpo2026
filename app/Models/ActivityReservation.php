@@ -42,7 +42,6 @@ class ActivityReservation extends Model
         return $this->belongsTo(ActivitySession::class);
     }
 
-
     /**
      * @return string
      */

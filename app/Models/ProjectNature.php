@@ -21,13 +21,13 @@ class ProjectNature extends Model
     ];
 
     /**
-     * Get the private sector project for the project nature.
+     * Get the project for the project nature.
      * 民間參與計畫
      *
      * @return BelongsToMany
      */
-    public function privateSectorProjects(): BelongsToMany
+    public function projects(): BelongsToMany
     {
-        return $this->belongsToMany(PrivateSectorProject::class, 'psp_project_nature');
+        return $this->belongsToMany(Project::class, 'p_project_nature');
     }
 }

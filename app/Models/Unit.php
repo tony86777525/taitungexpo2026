@@ -27,13 +27,13 @@ class Unit extends Model
     ];
 
     /**
-     * Get the private sector project for the unit.
+     * Get the project for the unit.
      * 民間參與計畫
      *
      * @return BelongsToMany
      */
-    public function privateSectorProjects(): BelongsToMany
+    public function projects(): BelongsToMany
     {
-        return $this->belongsToMany(PrivateSectorProject::class, 'psp_unit');
+        return $this->belongsToMany(Project::class, 'p_unit');
     }
 }

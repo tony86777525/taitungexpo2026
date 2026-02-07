@@ -15,9 +15,9 @@ class ActivityContent extends Model
         // 標題（英）
         'title_en',
         // 項目文字（中）
-        'item_text_en',
-        // 項目文字（英）
         'item_text_tw',
+        // 項目文字（英）
+        'item_text_en',
         // 內文（中）
         'content_tw',
         // 內文（英）

@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Activity extends Model
 {
     protected $fillable = [
+        'project_id',
         // 活動標題（中）
         'title_tw',
         // 活動標題（英）
@@ -43,25 +44,14 @@ class Activity extends Model
     ];
 
     /**
-     * Get the private sector project for the activity.
-     * 民間參與計畫
+     * Get the project for the activity.
+     * 計畫
      *
      * @return BelongsTo
      */
-    public function privateSectorProject(): BelongsTo
+    public function project(): BelongsTo
     {
-        return $this->belongsTo(PrivateSectorProject::class);
-    }
-
-    /**
-     * Get the exhibition overview for the activity.
-     * 展覽概覽
-     *
-     * @return BelongsTo
-     */
-    public function exhibitionOverview(): BelongsTo
-    {
-        return $this->belongsTo(ExhibitionOverview::class);
+        return $this->belongsTo(Project::class);
     }
 
     /**
@@ -106,11 +96,6 @@ class Activity extends Model
     public function contents(): HasMany
     {
         return $this->hasMany(ActivityContent::class);
-    }
-
-    public function getCurrentProjectAttribute()
-    {
-        return $this->privateSectorProject ?? $this->exhibitionOverview;
     }
 
     // 2. 為了保險，顯式定義它為字串，阻止 Carbon 介入

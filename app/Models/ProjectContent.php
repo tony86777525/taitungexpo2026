@@ -6,10 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class PrivateSectorProjectContent extends Model
+class ProjectContent extends Model
 {
     protected $fillable = [
-        'private_sector_project_id',
+        'project_id',
         // 標題（中）
         'title_tw',
         // 標題（英）
@@ -25,7 +25,7 @@ class PrivateSectorProjectContent extends Model
     ];
 
     /**
-     * Get the private sector project for the private sector project content.
+     * Get the project for the project content.
      * 最新消息
      *
      * @return BelongsTo
@@ -36,24 +36,24 @@ class PrivateSectorProjectContent extends Model
     }
 
     /**
-     * Get the images for the private sector project content.
+     * Get the images for the project content.
      * 輪播圖片
      *
      * @return HasMany
      */
     public function images(): HasMany
     {
-        return $this->hasMany(PrivateSectorProjectContentImage::class);
+        return $this->hasMany(ProjectContentImage::class);
     }
 
     /**
-     * Get the links for the private sector project content.
+     * Get the links for the project content.
      * 連結按鈕
      *
      * @return HasMany
      */
     public function links(): HasMany
     {
-        return $this->hasMany(PrivateSectorProjectContentLink::class);
+        return $this->hasMany(ProjectContentLink::class);
     }
 }

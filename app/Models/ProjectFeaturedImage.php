@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class ExhibitionOverviewFeaturedImage extends Model
+class ProjectFeaturedImage extends Model
 {
     protected $fillable = [
-        'exhibition_overview_id',
+        'project_id',
         // 圖片
         'url',
         // Alt 文字
@@ -18,13 +18,13 @@ class ExhibitionOverviewFeaturedImage extends Model
     ];
 
     /**
-     * Get the exhibition overview for the exhibition overview image.
-     * 展覽概覽
+     * Get the project for the project image.
+     * 最新消息
      *
      * @return BelongsTo
      */
-    public function exhibitionOverview(): BelongsTo
+    public function project(): BelongsTo
     {
-        return $this->belongsTo(ExhibitionOverview::class);
+        return $this->belongsTo(Project::class);
     }
 }
