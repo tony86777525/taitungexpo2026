@@ -35,8 +35,7 @@ class ActivityReservationForm
                     ->required(),
                 TextInput::make('contact_email')
                     ->label('電子郵件')
-                    ->required()
-                    ->default(1),
+                    ->required(),
                 TextInput::make('contact_group_name')
                     ->label('預約團體名稱')
                     ->required(),

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\ActivityReservationStatus;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
@@ -25,6 +26,13 @@ class ActivityReservation extends Model
         // 狀態 (1:confirmed, 0:cancelled, 2:pending)
         'status',
     ];
+
+    protected function casts(): array
+    {
+        return [
+            'status' => ActivityReservationStatus::class,
+        ];
+    }
 
     /**
      * Get the activity session for the activity reservation.

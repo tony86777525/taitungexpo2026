@@ -108,6 +108,11 @@ class Activity extends Model
         return $this->hasMany(ActivityContent::class);
     }
 
+    public function getCurrentProjectAttribute()
+    {
+        return $this->privateSectorProject ?? $this->exhibitionOverview;
+    }
+
     // 2. 為了保險，顯式定義它為字串，阻止 Carbon 介入
     public function setActivityDateAttribute($value)
     {
