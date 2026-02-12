@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\ActivitySessions\Schemas;
 
 use App\Models\Activity;
+use App\Models\Project;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Placeholder;
 use Filament\Forms\Components\Select;
@@ -12,9 +13,11 @@ use Filament\Forms\Components\Toggle;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Utilities\Get;
+use Filament\Schemas\Components\Utilities\Set;
 use Filament\Schemas\Schema;
 use Filament\Tables\Grouping\Group;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 
 class ActivitySessionForm
 {
@@ -26,39 +29,50 @@ class ActivitySessionForm
                     ->label('活動')
                     ->relationship(
                         name: 'activity',
-                        titleAttribute: 'title_zh_TW',
                         modifyQueryUsing: fn (Builder $query) => $query->orderBy('id'),
                     )
-                    ->required()
-                    ->reactive()
-                    ->preload(),
-                DatePicker::make('date')
-                    ->label('預約日期')
-                    ->required()
-                    ->helperText(function (Get $get) {
-                        // 1. 取得選擇的 product_id
-                        $activityId = $get('activity_id');
-
-                        if (!$activityId) {
-                            return '請先選擇活動';
+                    ->getOptionLabelFromRecordUsing(fn (Model $record) => "{$record->project->display_name}")
+                    ->live()
+                    ->afterStateUpdated(function (string|int|null $state, Set $set) {
+                        if (! $state) {
+                            return;
                         }
 
-                        // 2. 根據 ID 查詢資料庫取得關聯資料
-                        $activity = Activity::find($activityId);
+                        // 讀取關聯資料
+                        $activity = Activity::find($state);
 
-                        // 3. 回傳動態文字
-                        return $activity ? "活動期間：{$activity->activity_start_date} - {$activity->activity_end_date}" : '';
+                        if ($activity) {
+                            // 將關聯資料設定到其他欄位
+                            $set('start_time', $activity->activity_start_time);
+                            $set('end_time', $activity->activity_end_time);
+                        }
+                    })
+                    ->required(),
+                DatePicker::make('date')
+                    ->label('場次日期')
+                    ->required()
+                    ->minDate(function (Get $get) {
+                        $activityId = $get('activity_id');
+                        if (! $activityId) return null;
+
+                        return Activity::find($activityId)?->activity_start_date;
+                    })
+                    ->maxDate(function (Get $get) {
+                        $activityId = $get('activity_id');
+                        if (! $activityId) return null;
+
+                        return Activity::find($activityId)?->activity_end_date;
                     })
                     ->maxWidth('sm'),
                 Grid::make(6)
                     ->schema([
                         TimePicker::make('start_time')
-                            ->label('預約開始時段')
+                            ->label('場次開始時段')
                             ->seconds(false)
                             ->required()
                             ->maxWidth('sm'),
                         TimePicker::make('end_time')
-                            ->label('預約結束時段')
+                            ->label('場次結束時段')
                             ->afterOrEqual('start_time')
                             ->seconds(false)
                             ->required()
@@ -77,7 +91,7 @@ class ActivitySessionForm
                                 if (! $activity) return '';
 
                                 // 使用 Html 字串或是直接回傳文字
-                                return "活動時間：{$activity->activity_start_time} 至 {$activity->activity_end_time}";
+                                return "場次可選時間區間：{$activity->display_time_range}";
                             })
                     ]),
                 Grid::make(6)

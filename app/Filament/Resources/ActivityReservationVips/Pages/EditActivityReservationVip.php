@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Filament\Resources\Venues\Pages;
+namespace App\Filament\Resources\ActivityReservationVips\Pages;
 
-use App\Filament\Resources\Venues\VenueResource;
+use App\Filament\Resources\ActivityReservationVips\ActivityReservationVipResource;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\ViewAction;
 use Filament\Resources\Pages\EditRecord;
 
-class EditVenue extends EditRecord
+class EditActivityReservationVip extends EditRecord
 {
-    protected static string $resource = VenueResource::class;
+    protected static string $resource = ActivityReservationVipResource::class;
 
     protected function getHeaderActions(): array
     {

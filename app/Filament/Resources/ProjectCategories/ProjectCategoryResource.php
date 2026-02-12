@@ -29,6 +29,8 @@ class ProjectCategoryResource extends Resource
 
     protected static UnitEnum|string|null $navigationGroup = 'Projects';
 
+    protected static ?int $navigationSort = 130;
+
     public static function form(Schema $schema): Schema
     {
         return ProjectCategoryForm::configure($schema);

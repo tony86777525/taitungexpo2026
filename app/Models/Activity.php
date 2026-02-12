@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -98,11 +99,40 @@ class Activity extends Model
         return $this->hasMany(ActivityContent::class);
     }
 
-    // 2. 為了保險，顯式定義它為字串，阻止 Carbon 介入
-    public function setActivityDateAttribute($value)
+    /**
+     * Get the images for the activity.
+     * 活動相簿
+     *
+     * @return HasMany
+     */
+    public function activitySessions(): HasMany
     {
-        // 如果是陣列（來自 dehydrate），就轉 json
-        // 如果是字串，直接存
-        $this->attributes['activity_date'] = is_array($value) ? json_encode($value) : $value;
+        return $this->hasMany(ActivitySession::class);
+    }
+
+    /**
+     * 活動期間-日期
+     *
+     * @return string
+     */
+    public function getDisplayDateRangeAttribute(): string
+    {
+        $startDate = Carbon::create($this->activity_start_date)->translatedFormat('n/j D');
+        $endDate = Carbon::create($this->activity_end_date)->translatedFormat('n/j D');
+
+        return "{$startDate} ~ {$endDate}";
+    }
+
+    /**
+     * 活動期間-每日開放時間
+     *
+     * @return string
+     */
+    public function getDisplayTimeRangeAttribute(): string
+    {
+        $startTime = Carbon::create($this->activity_start_time)->translatedFormat('H:i');
+        $endTime = Carbon::create($this->activity_end_time)->translatedFormat('H:i');
+
+        return "{$startTime} ~ {$endTime}";
     }
 }

@@ -16,21 +16,18 @@ class PrivateSectorProjectsTable
     {
         return $table
             ->columns([
-                TextColumn::make('executingUnit.name_zh_TW')
+                TextColumn::make('venue_number')
+                    ->label('場館編號')
+                    ->searchable(),
+                TextColumn::make('executingUnit.name_tw')
                     ->label('執行單位')
                     ->searchable(),
-                TextColumn::make('project_number')
-                    ->label('計畫編號')
-                    ->searchable(),
-                TextColumn::make('project_name_zh_TW')
+                TextColumn::make('project_name_tw')
                     ->label('計畫名稱（中）')
                     ->searchable(),
                 TextColumn::make('project_name_en')
                     ->label('計畫名稱（英）')
                     ->searchable(),
-                TextColumn::make('project_date')
-                    ->label('執行日期')
-                    ->getStateUsing(fn ($record) => "{$record->project_start_date} ~ {$record->project_end_date}"),
                 IconColumn::make('is_active')
                     ->label('啟用狀態')
                     ->boolean(),

@@ -13,12 +13,17 @@ return new class extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('zone_id')->nullable()->constrained('zones')->nullOnDelete();
             // 1展覽概覽、2民間參與計畫
             $table->tinyInteger('type')->comment('計畫類型');
             $table->string('logo_url')->nullable()->comment('LOGO');
             $table->string('project_number')->nullable()->comment('計畫編號');
             $table->string('project_name_tw')->nullable()->comment('計畫名稱（中）');
             $table->string('project_name_en')->nullable()->comment('計畫名稱（英）');
+            $table->date('project_start_date')->nullable()->comment('計畫開始日期');
+            $table->date('project_end_date')->nullable()->comment('計畫結束日期');
+            $table->time('project_start_time')->nullable()->comment('計畫開始時間');
+            $table->time('project_end_time')->nullable()->comment('計畫結束時間');
             $table->string('project_location_tw')->nullable()->comment('地點（中）');
             $table->string('project_location_en')->nullable()->comment('地點（英）');
             $table->string('map_link')->nullable()->comment('地圖連結');

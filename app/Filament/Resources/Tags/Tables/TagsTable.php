@@ -16,7 +16,7 @@ class TagsTable
     {
         return $table
             ->columns([
-                TextColumn::make('name_zh_TW')
+                TextColumn::make('name_tw')
                     ->label('消息分類（中）')
                     ->searchable(),
                 TextColumn::make('name_en')

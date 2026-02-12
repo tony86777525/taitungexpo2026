@@ -18,7 +18,7 @@ class ArticleForm
     {
         return $schema
             ->components([
-                TextInput::make('title_zh_TW')
+                TextInput::make('title_tw')
                     ->label('消息標題（中）')
                     ->required(),
                 TextInput::make('title_en')
@@ -32,7 +32,7 @@ class ArticleForm
                     ->label('消息分類')
                     ->relationship(
                         name: 'tags',
-                        titleAttribute: 'name_zh_TW',
+                        titleAttribute: 'name_tw',
                         modifyQueryUsing: fn (Builder $query) => $query->orderBy('id'),
                     )
                     ->multiple()
@@ -49,17 +49,17 @@ class ArticleForm
                     ->label('消息內容')
                     ->relationship('contents')
                     ->schema([
-                        TextInput::make('title_zh_TW')
+                        TextInput::make('title_tw')
                             ->label('標題（中）'),
                         TextInput::make('title_en')
                             ->label('標題（英）'),
-                        RichEditor::make('content_zh_TW')
+                        RichEditor::make('content_tw')
                             ->label('內文（中）')
                             ->required(),
                         RichEditor::make('content_en')
                             ->label('內文（英）')
                             ->required(),
-                        TextInput::make('item_text_zh_TW')
+                        TextInput::make('item_text_tw')
                             ->label('項目文字（中）'),
                         TextInput::make('item_text_en')
                             ->label('項目文字（英）'),
@@ -67,13 +67,13 @@ class ArticleForm
                             ->label('連結按鈕')
                             ->relationship('links')
                             ->schema([
-                                TextInput::make('name_zh_TW')
+                                TextInput::make('name_tw')
                                     ->label('連結按鈕（中）')
                                     ->required(),
                                 TextInput::make('name_en')
                                     ->label('連結按鈕（英）')
                                     ->required(),
-                                TextInput::make('url_zh_TW')
+                                TextInput::make('url_tw')
                                     ->label('連結（中）')
                                     ->url()
                                     ->required(),

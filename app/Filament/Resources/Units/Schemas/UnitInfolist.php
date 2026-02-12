@@ -14,7 +14,7 @@ class UnitInfolist
     {
         return $schema
             ->components([
-                TextEntry::make('name_zh_TW')
+                TextEntry::make('name_tw')
                     ->label('單位名稱（中）')
                     ->placeholder('-'),
                 TextEntry::make('name_en')

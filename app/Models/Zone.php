@@ -20,4 +20,20 @@ class Zone extends Model
     protected $casts = [
         'is_active' => 'boolean',
     ];
+
+    /**
+     * @return string
+     */
+    public function getDisplayNameAttribute(): string
+    {
+        return "{$this->code}{$this->name_tw}";
+    }
+
+    /**
+     * @return string
+     */
+    public function getDisplayNameEnAttribute(): string
+    {
+        return "{$this->code}{$this->name_en}";
+    }
 }

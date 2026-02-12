@@ -16,7 +16,7 @@ class ArticlesTable
     {
         return $table
             ->columns([
-                TextColumn::make('title_zh_TW')
+                TextColumn::make('title_tw')
                     ->label('消息標題（中）')
                     ->searchable(),
                 TextColumn::make('title_en')

@@ -16,7 +16,7 @@ class ProjectCategoriesTable
     {
         return $table
             ->columns([
-                TextColumn::make('name_zh_TW')
+                TextColumn::make('name_tw')
                     ->label('計畫分類（中）')
                     ->searchable(),
                 TextColumn::make('name_en')

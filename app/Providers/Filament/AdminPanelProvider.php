@@ -61,7 +61,7 @@ class AdminPanelProvider extends PanelProvider
                 'Activities',
                 'Projects',
                 'News',
-                'Booking System',
-            ]);
+            ])
+            ->viteTheme('resources/css/app.css');
     }
 }

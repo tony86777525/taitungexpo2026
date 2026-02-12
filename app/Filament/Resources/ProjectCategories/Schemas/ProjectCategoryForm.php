@@ -12,7 +12,7 @@ class ProjectCategoryForm
     {
         return $schema
             ->components([
-                TextInput::make('name_zh_TW')
+                TextInput::make('name_tw')
                     ->label('計畫性質（中）')
                     ->required(),
                 TextInput::make('name_en')

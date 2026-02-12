@@ -12,7 +12,7 @@ class TagForm
     {
         return $schema
             ->components([
-                TextInput::make('name_zh_TW')
+                TextInput::make('name_tw')
                     ->label('消息分類（中）')
                     ->required(),
                 TextInput::make('name_en')

@@ -2,8 +2,12 @@
 
 namespace App\Filament\Resources\PrivateSectorProjects\Schemas;
 
+use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
@@ -12,7 +16,7 @@ use Filament\Forms\Components\TimePicker;
 use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Schema;
-use Illuminate\Database\Eloquent\Builder;
+use App\Enums\ProjectType;
 
 class PrivateSectorProjectForm
 {
@@ -20,11 +24,22 @@ class PrivateSectorProjectForm
     {
         return $schema
             ->components([
+                Hidden::make('type')
+                    ->default(ProjectType::PRIVATE_SECTOR_PROJECT->value),
+                Select::make('zone_id')
+                    ->label('展區')
+                    ->relationship(
+                        name: 'zone',
+                        modifyQueryUsing: fn (Builder $query) => $query->orderBy('id'),
+                    )
+                    ->getOptionLabelFromRecordUsing(fn (Model $record) => "{$record->display_name}")
+                    ->required()
+                    ->allowHtml(),
                 Select::make('executing_unit_id')
                     ->label('執行單位')
                     ->relationship(
                         name: 'executingUnit',
-                        titleAttribute: 'name_zh_TW',
+                        titleAttribute: 'name_tw',
                         modifyQueryUsing: fn (Builder $query) => $query->orderBy('id'),
                     )
                     ->required()
@@ -32,7 +47,7 @@ class PrivateSectorProjectForm
                 TextInput::make('project_number')
                     ->label('計畫編號')
                     ->required(),
-                TextInput::make('project_name_zh_TW')
+                TextInput::make('project_name_tw')
                     ->label('計畫名稱（中）')
                     ->required(),
                 TextInput::make('project_name_en')
@@ -41,16 +56,16 @@ class PrivateSectorProjectForm
                 Grid::make(6)
                     ->schema([
                         DatePicker::make('project_start_date')
-                            ->label('執行開始日期')
+                            ->label('計畫開始日期')
                             ->required()
                             ->maxWidth('sm'),
                         DatePicker::make('project_end_date')
-                            ->label('執行結束日期')
+                            ->label('計畫結束日期')
                             ->afterOrEqual('project_start_date')
                             ->required()
                             ->maxWidth('sm'),
                     ]),
-                TextInput::make('project_location_zh_TW')
+                TextInput::make('project_location_tw')
                     ->label('地點（中）')
                     ->required(),
                 TextInput::make('project_location_en')
@@ -60,10 +75,10 @@ class PrivateSectorProjectForm
                     ->label('地圖連結')
                     ->url(),
                 Select::make('projectCategories')
-                    ->label('計劃性質')
+                    ->label('計劃分類')
                     ->relationship(
                         name: 'projectCategories',
-                        titleAttribute: 'name_zh_TW',
+                        titleAttribute: 'name_tw',
                         modifyQueryUsing: fn (Builder $query) => $query->orderBy('id'),
                     )
                     ->multiple()
@@ -72,7 +87,7 @@ class PrivateSectorProjectForm
                     ->label('計劃性質')
                     ->relationship(
                         name: 'projectNatures',
-                        titleAttribute: 'name_zh_TW',
+                        titleAttribute: 'name_tw',
                         modifyQueryUsing: fn (Builder $query) => $query->orderBy('id'),
                     )
                     ->multiple()
@@ -84,7 +99,7 @@ class PrivateSectorProjectForm
                         FileUpload::make('url')
                             ->label('圖片')
                             ->disk('public')
-                            ->directory('private_sector_project-feature_images')
+                            ->directory('project-feature_images')
                             ->visibility('public')
                             ->image(),
                         TextInput::make('alt_text')
@@ -92,12 +107,13 @@ class PrivateSectorProjectForm
                     ])
                     ->orderColumn('sort_order')
                     ->defaultItems(0)
+                    ->maxItems(5)
                     ->grid(3)
                     ->columnSpanFull(),
                 FileUpload::make('thumbnail_url')
                     ->label('縮略圖')
                     ->disk('public')
-                    ->directory('private_sector_project-thumbnails')
+                    ->directory('project-thumbnails')
                     ->visibility('public')
                     ->image()
                     ->required(),
@@ -105,17 +121,17 @@ class PrivateSectorProjectForm
                     ->label('計畫內容')
                     ->relationship('contents')
                     ->schema([
-                        TextInput::make('title_zh_TW')
+                        TextInput::make('title_tw')
                             ->label('標題（中）'),
                         TextInput::make('title_en')
                             ->label('標題（英）'),
-                        RichEditor::make('content_zh_TW')
+                        RichEditor::make('content_tw')
                             ->label('內文（中）')
                             ->required(),
                         RichEditor::make('content_en')
                             ->label('內文（英）')
                             ->required(),
-                        TextInput::make('item_text_zh_TW')
+                        TextInput::make('item_text_tw')
                             ->label('項目文字（中）'),
                         TextInput::make('item_text_en')
                             ->label('項目文字（英）'),
@@ -123,13 +139,13 @@ class PrivateSectorProjectForm
                             ->label('連結按鈕')
                             ->relationship('links')
                             ->schema([
-                                TextInput::make('name_zh_TW')
+                                TextInput::make('name_tw')
                                     ->label('連結按鈕（中）')
                                     ->required(),
                                 TextInput::make('name_en')
                                     ->label('連結按鈕（英）')
                                     ->required(),
-                                TextInput::make('url_zh_TW')
+                                TextInput::make('url_tw')
                                     ->label('連結（中）')
                                     ->url()
                                     ->required(),
@@ -147,7 +163,7 @@ class PrivateSectorProjectForm
                                 FileUpload::make('url')
                                     ->label('圖片')
                                     ->disk('public')
-                                    ->directory('private_sector_project_content-images')
+                                    ->directory('project_content-images')
                                     ->visibility('public')
                                     ->image()
                                     ->required(),
@@ -168,7 +184,7 @@ class PrivateSectorProjectForm
                         FileUpload::make('url')
                             ->label('圖片')
                             ->disk('public')
-                            ->directory('private_sector_project-images')
+                            ->directory('project-images')
                             ->visibility('public')
                             ->image()
                             ->required(),
@@ -183,7 +199,7 @@ class PrivateSectorProjectForm
                     ->label('單位')
                     ->relationship(
                         name: 'units',
-                        titleAttribute: 'name_zh_TW',
+                        titleAttribute: 'name_tw',
                         modifyQueryUsing: fn (Builder $query) => $query->orderBy('id'),
                     )
                     ->multiple()

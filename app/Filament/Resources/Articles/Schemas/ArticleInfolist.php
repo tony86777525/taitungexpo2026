@@ -14,7 +14,7 @@ class ArticleInfolist
     {
         return $schema
             ->components([
-                TextEntry::make('title_zh_TW')
+                TextEntry::make('title_tw')
                     ->label('消息標題（中）')
                     ->placeholder('-'),
                 TextEntry::make('title_en')
@@ -27,7 +27,7 @@ class ArticleInfolist
                 RepeatableEntry::make('tags')
                     ->label('消息分類')
                     ->schema([
-                        TextEntry::make('name_zh_TW')->label('（中）'),
+                        TextEntry::make('name_tw')->label('（中）'),
                         TextEntry::make('name_en')->label('（英）'),
                     ])
                     ->columns()
@@ -39,18 +39,18 @@ class ArticleInfolist
                 RepeatableEntry::make('contents')
                     ->label('消息內容')
                     ->schema([
-                        TextEntry::make('title_zh_TW')->label('標題（中）')->placeholder('-'),
+                        TextEntry::make('title_tw')->label('標題（中）')->placeholder('-'),
                         TextEntry::make('title_en')->label('標題（英）')->placeholder('-'),
-                        TextEntry::make('content_zh_TW')->label('內文（中）')->placeholder('-'),
+                        TextEntry::make('content_tw')->label('內文（中）')->placeholder('-'),
                         TextEntry::make('content_en')->label('內文（英）')->placeholder('-'),
-                        TextEntry::make('item_text_zh_TW')->label('項目文字（中）')->placeholder('-'),
+                        TextEntry::make('item_text_tw')->label('項目文字（中）')->placeholder('-'),
                         TextEntry::make('item_text_en')->label('項目文字（英）')->placeholder('-'),
                         RepeatableEntry::make('links')
                             ->label('連結按鈕')
                             ->schema([
-                                TextEntry::make('name_zh_TW')->label('連結按鈕（中）'),
+                                TextEntry::make('name_tw')->label('連結按鈕（中）'),
                                 TextEntry::make('name_en')->label('連結按鈕（英）'),
-                                TextEntry::make('url_zh_TW')->label('連結（中）'),
+                                TextEntry::make('url_tw')->label('連結（中）'),
                                 TextEntry::make('url_en')->label('連結（英）'),
                             ])
                             ->grid(3),

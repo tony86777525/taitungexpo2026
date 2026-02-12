@@ -2,6 +2,8 @@
 
 namespace App\Filament\Resources\ActivityReservations;
 
+use App\Enums\ActivityReservationType;
+use App\Enums\ProjectType;
 use App\Filament\Resources\ActivityReservations\Pages\CreateActivityReservation;
 use App\Filament\Resources\ActivityReservations\Pages\EditActivityReservation;
 use App\Filament\Resources\ActivityReservations\Pages\ListActivityReservations;
@@ -11,6 +13,7 @@ use App\Filament\Resources\ActivityReservations\Schemas\ActivityReservationInfol
 use App\Filament\Resources\ActivityReservations\Tables\ActivityReservationsTable;
 use App\Models\ActivityReservation;
 use BackedEnum;
+use Illuminate\Database\Eloquent\Builder;
 use UnitEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
@@ -59,5 +62,11 @@ class ActivityReservationResource extends Resource
             'view' => ViewActivityReservation::route('/{record}'),
             'edit' => EditActivityReservation::route('/{record}/edit'),
         ];
+    }
+
+    public static function getEloquentQuery(): Builder
+    {
+        // 這會影響列表、編輯頁面、刪除操作等
+        return parent::getEloquentQuery()->where('type', ActivityReservationType::NORMAL->value);
     }
 }

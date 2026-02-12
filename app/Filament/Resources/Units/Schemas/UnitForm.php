@@ -13,7 +13,7 @@ class UnitForm
     {
         return $schema
             ->components([
-                TextInput::make('name_zh_TW')
+                TextInput::make('name_tw')
                     ->label('單位名稱（中）')
                     ->required(),
                 TextInput::make('name_en')

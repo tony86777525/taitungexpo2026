@@ -12,7 +12,7 @@ class ProjectCategoryInfolist
     {
         return $schema
             ->components([
-                TextEntry::make('name_zh_TW')
+                TextEntry::make('name_tw')
                     ->label('計畫分類（中）')
                     ->placeholder('-'),
                 TextEntry::make('name_en')

@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-// 策展性質
+// 策展議題
 class CurationNature extends Model
 {
     protected $fillable = [

@@ -12,7 +12,7 @@ class TagInfolist
     {
         return $schema
             ->components([
-                TextEntry::make('name_zh_TW')
+                TextEntry::make('name_tw')
                     ->label('消息分類（中）')
                     ->placeholder('-'),
                 TextEntry::make('name_en')

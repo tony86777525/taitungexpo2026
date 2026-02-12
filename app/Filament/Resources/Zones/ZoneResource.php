@@ -25,9 +25,11 @@ class ZoneResource extends Resource
 
     protected static ?string $recordTitleAttribute = '展區';
 
-    protected static UnitEnum|string|null $navigationGroup = 'Booking System';
+    protected static ?string $modelLabel = '展區';
 
-    protected static ?int $navigationSort = 1;
+    protected static UnitEnum|string|null $navigationGroup = 'Projects';
+
+    protected static ?int $navigationSort = 120;
 
     public static function form(Schema $schema): Schema
     {

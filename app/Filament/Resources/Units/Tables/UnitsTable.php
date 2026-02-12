@@ -17,7 +17,7 @@ class UnitsTable
     {
         return $table
             ->columns([
-                TextColumn::make('name_zh_TW')
+                TextColumn::make('name_tw')
                     ->label('單位名稱（中）')
                     ->searchable(),
                 TextColumn::make('name_en')

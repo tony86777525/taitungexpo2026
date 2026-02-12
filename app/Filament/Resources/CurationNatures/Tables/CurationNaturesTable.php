@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Resources\Venues\Tables;
+namespace App\Filament\Resources\CurationNatures\Tables;
 
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
@@ -10,20 +10,15 @@ use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
-class VenuesTable
+class CurationNaturesTable
 {
     public static function configure(Table $table): Table
     {
         return $table
             ->columns([
-                TextColumn::make('zone.name')
-                    ->numeric()
-                    ->sortable(),
-                TextColumn::make('name')
+                TextColumn::make('name_tw')
                     ->searchable(),
-                TextColumn::make('code')
-                    ->searchable(),
-                TextColumn::make('location')
+                TextColumn::make('name_en')
                     ->searchable(),
                 IconColumn::make('is_active')
                     ->boolean(),

@@ -13,7 +13,7 @@ class ProjectNatureForm
     {
         return $schema
             ->components([
-                TextInput::make('name_zh_TW')
+                TextInput::make('name_tw')
                     ->label('計畫分類（中）')
                     ->required(),
                 TextInput::make('name_en')

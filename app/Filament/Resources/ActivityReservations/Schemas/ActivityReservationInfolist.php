@@ -12,8 +12,10 @@ class ActivityReservationInfolist
     {
         return $schema
             ->components([
-                TextEntry::make('activitySession.display_title')
-                    ->label('活動預約場次'),
+                TextEntry::make('activitySession.activity.project.display_name')
+                    ->label('計畫活動'),
+                TextEntry::make('activitySession.display_info')
+                    ->label('場次資訊'),
                 TextEntry::make('contact_name')
                     ->label('聯絡人姓名'),
                 TextEntry::make('contact_phone')

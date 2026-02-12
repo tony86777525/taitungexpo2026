@@ -16,7 +16,7 @@ class ProjectNaturesTable
     {
         return $table
             ->columns([
-                TextColumn::make('name_zh_TW')
+                TextColumn::make('name_tw')
                     ->label('計畫性質（中）')
                     ->searchable(),
                 TextColumn::make('name_en')

@@ -2,15 +2,19 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+use App\Enums\ProjectType;
 
 // 民間參與計畫
 class Project extends Model
 {
     protected $fillable = [
+        'zone_id',
         // 計畫類型
         'type',
         // LOGO
@@ -21,6 +25,14 @@ class Project extends Model
         'project_name_tw',
         // 計畫名稱（英）
         'project_name_en',
+        // 計畫開始日期
+        'project_start_date',
+        // 計畫結束日期
+        'project_end_date',
+        // 計畫開始時間
+        'project_start_time',
+        // 計畫結束時間
+        'project_end_time',
         // 地點（中）
         'project_location_tw',
         // 地點（英）
@@ -37,7 +49,19 @@ class Project extends Model
 
     protected $casts = [
         'is_active' => 'boolean',
+        'type' => ProjectType::class,
     ];
+
+    /**
+     * Get the zone for the project.
+     * 展區
+     *
+     * @return BelongsTo
+     */
+    public function zone(): BelongsTo
+    {
+        return $this->belongsTo(Zone::class);
+    }
 
     /**
      * Get the executing unit for the project.
@@ -62,6 +86,17 @@ class Project extends Model
     }
 
     /**
+     * Get the activity for the project.
+     * 活動
+     *
+     * @return HasOne
+     */
+    public function activity(): HasOne
+    {
+        return $this->hasOne(Activity::class);
+    }
+
+    /**
      * Get the project categories for the project.
      * 計畫分類
      *
@@ -82,7 +117,6 @@ class Project extends Model
     {
         return $this->belongsToMany(ProjectNature::class, 'p_project_nature');
     }
-
 
     /**
      * Get the curation natures for the project.
@@ -126,5 +160,61 @@ class Project extends Model
     public function contents(): HasMany
     {
         return $this->hasMany(ProjectContent::class);
+    }
+
+    /**
+     * 計畫展場編號
+     *
+     * @return string
+     */
+    public function getVenueNumberAttribute(): string
+    {
+        return "{$this->zone->code}{$this->project_number}{$this->project_name_tw}";
+    }
+
+    /**
+     * 計畫展場編號
+     *
+     * @return string
+     */
+    public function getTypeNameAttribute(): string
+    {
+        return $this->type?->label() ?? '';
+    }
+
+    /**
+     * 計畫名稱
+     *
+     * @return string
+     */
+    public function getDisplayNameAttribute(): string
+    {
+        return "{$this->type_name} - {$this->venue_number}";
+    }
+
+    /**
+     * 活動期間-日期
+     *
+     * @return string
+     */
+    public function getDisplayDateRangeAttribute(): string
+    {
+        $startDate = Carbon::create($this->project_start_date)->translatedFormat('n/j D');
+        $endDate = Carbon::create($this->project_end_date)->translatedFormat('n/j D');
+
+        return "{$startDate} ~ {$endDate}";
+    }
+
+    /**
+     * 活動期間-每日開放時間
+     *
+     * @return string
+     */
+    public function getDisplayTimeRangeAttribute(): string
+    {
+        $startTime = Carbon::create($this->project_start_time)->translatedFormat('H:i');
+        $endTime = Carbon::create($this->project_end_time)->translatedFormat('H:i');
+
+        return "{$startTime} ~ {$endTime}";
     }
 }

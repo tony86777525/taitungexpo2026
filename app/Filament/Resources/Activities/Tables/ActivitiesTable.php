@@ -18,8 +18,8 @@ class ActivitiesTable
             ->columns([
                 TextColumn::make('project')
                     ->label('計畫名稱')
-                    ->getStateUsing(fn ($record) => $record->privateSectorProject?->project_name_zh_TW ?? $record->exhibitionOverview?->project_name_zh_TW),
-                TextColumn::make('title_zh_TW')
+                    ->getStateUsing(fn ($record) => $record->project->display_name),
+                TextColumn::make('title_tw')
                     ->label('活動標題（中）')
                     ->searchable(),
                 TextColumn::make('title_en')
@@ -31,7 +31,7 @@ class ActivitiesTable
                 TextColumn::make('activity_time')
                     ->label('活動時間')
                     ->getStateUsing(fn ($record) => "{$record->activity_start_time} ~ {$record->activity_end_time}"),
-                TextColumn::make('activity_location_zh_TW')
+                TextColumn::make('activity_location_tw')
                     ->label('活動地點（中）')
                     ->searchable(),
                 TextColumn::make('activity_location_en')

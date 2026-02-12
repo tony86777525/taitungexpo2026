@@ -16,16 +16,17 @@ class ActivitySessionsTable
     {
         return $table
             ->columns([
-                TextColumn::make('activity.id')
-                    ->label('活動標題')
+                TextColumn::make('activity.project.display_name')
+                    ->label('計畫')
                     ->searchable(),
-                TextColumn::make('date')
-                    ->label('預約日期')
-                    ->date('Y-m-d')
+                TextColumn::make('activity.title_tw')
+                    ->label('活動')
+                    ->searchable(),
+                TextColumn::make('display_date')
+                    ->label('場次日期')
                     ->sortable(),
-                TextColumn::make('time')
-                    ->label('預約時段')
-                    ->getStateUsing(fn ($record) => "{$record->start_time} ~ {$record->end_time}")
+                TextColumn::make('display_time_range')
+                    ->label('場次時段')
                     ->sortable(),
                 TextColumn::make('quota')
                     ->label('建議人數')

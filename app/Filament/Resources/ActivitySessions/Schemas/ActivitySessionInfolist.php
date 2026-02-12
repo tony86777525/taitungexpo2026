@@ -12,14 +12,16 @@ class ActivitySessionInfolist
     {
         return $schema
             ->components([
-                TextEntry::make('activity.title_zh_TW')
-                    ->label('活動標題'),
+                TextEntry::make('activity.project.display_name')
+                    ->label('計畫'),
+                TextEntry::make('activity.title_tw')
+                    ->label('活動'),
                 TextEntry::make('date')
-                    ->label('預約日期')
-                    ->date('Y-m-d'),
+                    ->label('場次日期')
+                    ->getStateUsing(fn ($record) => "{$record->display_date}"),
                 TextEntry::make('time')
-                    ->label('預約時段')
-                    ->getStateUsing(fn ($record) => "{$record->start_time} ~ {$record->end_time}"),
+                    ->label('場次時段')
+                    ->getStateUsing(fn ($record) => "{$record->display_time_range}"),
                 TextEntry::make('quota')
                     ->label('建議人數')
                     ->getStateUsing(fn ($record) => "{$record->quota_min} ~ {$record->quota_max}"),
