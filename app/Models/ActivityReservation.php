@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Enums\ActivityReservationStatus;
+use App\Enums\ActivityReservationType;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOneThrough;
@@ -33,6 +34,7 @@ class ActivityReservation extends Model
     protected function casts(): array
     {
         return [
+            'type' => ActivityReservationType::class,
             'status' => ActivityReservationStatus::class,
         ];
     }
@@ -63,14 +65,22 @@ class ActivityReservation extends Model
     /**
      * @return string
      */
+    public function getDisplayTypeAttribute(): string
+    {
+        return $this->type->label();
+    }
+
+    /**
+     * @return string
+     */
     public function getDisplayStatusAttribute(): string
     {
-        switch ($this->status->value) {
-            case ActivityReservationStatus::CONFIRMED->value:
+        switch ($this->status) {
+            case ActivityReservationStatus::CONFIRMED:
                 return "已核准";
-            case ActivityReservationStatus::PENDING->value:
+            case ActivityReservationStatus::PENDING:
                 return "待審核";
-            case ActivityReservationStatus::CANCELLED->value:
+            case ActivityReservationStatus::CANCELLED:
                 return "已取消";
         }
 

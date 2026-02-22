@@ -13,7 +13,11 @@ class ListActivityReservations extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            CreateAction::make(),
+            CreateAction::make()
+                ->label('新增一般預約'),
+            CreateAction::make('create_vip')
+                ->label('新增VIP預約')
+                ->url(ActivityReservationResource::getUrl('create_vip')),
         ];
     }
 }

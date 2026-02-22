@@ -2,7 +2,10 @@
 
 namespace App\Filament\Resources\ActivitySessions\Widgets;
 
+use App\Enums\ActivityReservationStatus;
+use App\Enums\ActivityReservationType;
 use App\Filament\Resources\ActivityReservations\ActivityReservationResource;
+use App\Models\ActivityReservation;
 use App\Models\ActivitySession;
 use Carbon\Carbon;
 use Guava\Calendar\Filament\CalendarWidget;
@@ -12,6 +15,7 @@ use Guava\Calendar\ValueObjects\FetchInfo;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\DB;
 
 class ActivitySessionCalendar extends CalendarWidget
 {
@@ -20,20 +24,39 @@ class ActivitySessionCalendar extends CalendarWidget
 
     protected function getEvents(FetchInfo $info): Collection | array | Builder
     {
+        $activityReservationCounts = ActivityReservation::query()
+            ->select('activity_session_id', 'type', DB::raw('count(*) as count'))
+            ->where('status', ActivityReservationStatus::CONFIRMED->value)
+            ->groupBy('activity_session_id', 'type')
+            ->get();
+
         return ActivitySession::query()
             ->with([
                 'activity',
                 'activityReservations',
             ])
             ->get()
-            ->map(function (ActivitySession $session) {
-                return CalendarEvent::make($session)
-                    ->title("{$session->activity->project->venue_number}")
+            ->map(function (ActivitySession $activitySession) use ($activityReservationCounts) {
+                $currentNormalGroupCount = $activityReservationCounts->first(function ($count) use ($activitySession) {
+                    return $activitySession->id === $count->activity_session_id && $count->type === ActivityReservationType::NORMAL;
+                })?->count ?? 0;
+
+                $normalText = "{$currentNormalGroupCount}/{$activitySession->normal_group_count}";
+
+                $currentVipGroupCount = $activityReservationCounts->first(function ($count) use ($activitySession) {
+                    return $activitySession->id === $count->activity_session_id && $count->type === ActivityReservationType::VIP;
+                })?->count ?? 0;
+
+                $vipText = "{$activitySession->vip_group_count}/{$currentVipGroupCount}";
+
+                return CalendarEvent::make($activitySession)
+                    ->title("{$normalText}\n內部貴賓{$vipText}\n{$activitySession->activity->project->venue_number}")
                     // 設定開始與結束時間 (需為 Carbon 物件或字串)
-                    ->start(Carbon::parse($session->date . ' ' . $session->start_time))
-                    ->end(Carbon::parse($session->date . ' ' . $session->end_time))
+                    ->start(Carbon::parse($activitySession->date . ' ' . $activitySession->start_time))
+                    ->end(Carbon::parse($activitySession->date . ' ' . $activitySession->end_time))
                     // 根據狀態設定顏色
-                    ->backgroundColor($session->booked_status_color);
+                    ->backgroundColor($activitySession->booked_status_color)
+                    ->textColor('#000');
             });
     }
 

@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\ActivityReservations\Tables;
 
 use App\Enums\ActivityReservationStatus;
+use App\Enums\ActivityReservationType;
 use App\Models\ActivitySession;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
@@ -27,6 +28,9 @@ class ActivityReservationsTable
                 TextColumn::make('activitySession.display_info')
                     ->label('場次資訊')
                     ->searchable(),
+                TextColumn::make('display_type')
+                    ->label('預約類型')
+                    ->searchable(),
                 TextColumn::make('contact_name')
                     ->label('聯絡人姓名')
                     ->sortable(),
@@ -42,9 +46,9 @@ class ActivityReservationsTable
                 TextColumn::make('participants_quota')
                     ->label('預計參與人數')
                     ->sortable(),
-                IconColumn::make('display_status')
+                TextColumn::make('display_status')
                     ->label('狀態')
-                    ->boolean(),
+                    ->color(fn ($record) => $record->status->color()),
                 TextColumn::make('created_at')
                     ->label('建立時間')
                     ->dateTime('Y年m月d日 H:i:s')
@@ -81,6 +85,9 @@ class ActivityReservationsTable
                 SelectFilter::make('status')
                     ->label('狀態')
                     ->options(ActivityReservationStatus::options()),
+                SelectFilter::make('type')
+                    ->label('預約類型')
+                    ->options(ActivityReservationType::options()),
             ])
             ->recordActions([
                 ViewAction::make(),

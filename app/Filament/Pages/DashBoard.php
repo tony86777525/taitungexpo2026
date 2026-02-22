@@ -7,6 +7,7 @@ use App\Enums\ActivityReservationType;
 use App\Filament\Resources\ActivityReservations\ActivityReservationResource;
 use App\Models\ActivityReservation;
 use App\Models\ActivitySession;
+use Carbon\Carbon;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Pages\Page;
@@ -26,6 +27,9 @@ class DashBoard extends Page implements HasForms, HasTable
     public function getBookedInfo(): array
     {
         $count = ActivityReservation::query()
+            ->rightJoin('activity_sessions', 'activity_reservations.activity_session_id', '=', 'activity_sessions.id')
+            ->select('activity_sessions.date')
+            ->where('activity_sessions.date', Carbon::now()->format('Y-m-d'))
             ->count();
 
         $pendingCount = ActivityReservation::query()
@@ -44,10 +48,13 @@ class DashBoard extends Page implements HasForms, HasTable
             ->sum('participants_quota');
 
         $bookedVipCount = ActivityReservation::query()
+            ->rightJoin('activity_sessions', 'activity_reservations.activity_session_id', '=', 'activity_sessions.id')
             ->where('type', ActivityReservationType::VIP)
+            ->where('activity_sessions.date', Carbon::now()->format('Y-m-d'))
             ->count();
 
         $vipCount = ActivitySession::query()
+            ->where('date', Carbon::now()->format('Y-m-d'))
             ->sum('group_vip');
 
         $unbookedVipCount = $vipCount - $bookedVipCount;
@@ -61,17 +68,20 @@ class DashBoard extends Page implements HasForms, HasTable
     public function table(Table $table): Table
     {
         return $table
-            ->query(ActivityReservation::query()->orderBy('id', 'desc'))
+            ->query(
+                ActivityReservation::query()
+                    ->where('status', ActivityReservationStatus::PENDING)
+                    ->orderBy('id', 'desc')
+            )
             ->heading(view('filament.common.table_heading', [
-                'heading' => '預約資料總覽',
+                'heading' => '待審核預約資料',
             ]))
             ->columns([
                 Tables\Columns\TextColumn::make('activitySession.activity.project.zone.name_tw')->label('展區')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('activitySession.date')->label('日期')
                     ->sortable(),
-                Tables\Columns\TextColumn::make('activitySession.activity.project.venue_number')->label('場館')
-                    ->sortable(),
+                Tables\Columns\TextColumn::make('activitySession.activity.project.venue_number')->label('場館'),
                 Tables\Columns\TextColumn::make('time')->label('時段')
                     ->getStateUsing(fn ($record) => "{$record->activitySession->start_time} ~ {$record->activitySession->end_time}")
                     ->sortable(),
@@ -85,8 +95,9 @@ class DashBoard extends Page implements HasForms, HasTable
                     ->color(fn ($record) => $record->status->color()),
             ])
             ->recordUrl(
-                // 指向該筆資料的編輯頁面
-                fn (ActivityReservation $record): string => ActivityReservationResource::getUrl('edit', ['record' => $record]),
+                function (ActivityReservation $record): string {
+                    return ActivityReservationResource::getUrl('approve', ['record' => $record]);
+                }
             )
             ->paginated(false);
     }

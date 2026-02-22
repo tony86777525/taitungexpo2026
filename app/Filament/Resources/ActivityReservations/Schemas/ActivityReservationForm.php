@@ -4,16 +4,15 @@ namespace App\Filament\Resources\ActivityReservations\Schemas;
 
 use App\Enums\ActivityReservationStatus;
 use App\Enums\ActivityReservationType;
-use App\Models\Activity;
+use App\Filament\Resources\ActivityReservations\Pages\CreateActivityReservationVip;
 use App\Models\ActivityReservation;
 use App\Models\ActivitySession;
 use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
+use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Components\Utilities\Get;
-use Filament\Schemas\Components\Utilities\Set;
-use Illuminate\Database\Eloquent\Model;
 use Filament\Schemas\Schema;
 use Illuminate\Support\Facades\DB;
 
@@ -39,7 +38,7 @@ class ActivityReservationForm
         return $schema
             ->components([
                 Hidden::make('type')
-                    ->default(ActivityReservationType::NORMAL->value),
+                    ->default(fn ($livewire) => $livewire instanceof CreateActivityReservationVip ? ActivityReservationType::VIP->value : ActivityReservationType::NORMAL->value),
 //                // 1. 父級下拉選單
 //                Select::make('activity_id')
 //                    ->label('計畫活動')
@@ -52,21 +51,27 @@ class ActivityReservationForm
                 // 2. 子級下拉選單
                 Select::make('activity_session_id')
                     ->label('活動場次')
-                    ->options(function (Get $get) use ($activitySessions, $activityReservationCounts) {
-//                        $activitySessions->filter(function ($activitySession) use ($get) {
-//                            return $activitySession->activity_id === $get('activity_id');
-//                        });
+                    ->options(function ($livewire) use ($activitySessions, $activityReservationCounts) {
+                        $isVip = $livewire instanceof CreateActivityReservationVip;
 
-                        return $activitySessions->mapWithKeys(function ($activitySession) use ($activityReservationCounts) {
-                            $currentNormalGroupCount = $activityReservationCounts->first(function ($count) use ($activitySession) {
-                                return $activitySession->id === $count->activity_session_id && $count->type === ActivityReservationType::NORMAL->value;
+                        $currentType = $isVip === true ? ActivityReservationType::VIP : ActivityReservationType::NORMAL;
+
+                        return $activitySessions->mapWithKeys(function ($activitySession) use ($activityReservationCounts, $currentType, $isVip) {
+                            $currentGroupCount = $activityReservationCounts->first(function ($count) use ($activitySession, $currentType) {
+                                return $activitySession->id === $count->activity_session_id && $count->type === $currentType;
                             })?->count ?? 0;
 
-                            if (!$activitySession->canBookNormalGroup($currentNormalGroupCount)) {
+                            if (
+                                $isVip === true && $activitySession->canBookVipGroup($currentGroupCount)
+                            ) {
+                                $denominator = $activitySession->vip_group_count;
+                            } elseif ($isVip === false && $activitySession->canBookNormalGroup($currentGroupCount)) {
+                                $denominator = $activitySession->normal_group_count;
+                            } else {
                                 return [];
                             }
 
-                            return [$activitySession->id => "{$activitySession->activity->project->venue_number} - {$activitySession->display_date} - {$activitySession->display_time_range}(剩餘{$currentNormalGroupCount}/{$activitySession->normal_group_count})"];
+                            return [$activitySession->id => "{$activitySession->activity->project->venue_number} - {$activitySession->display_date} - {$activitySession->display_time_range}(剩餘{$currentGroupCount}/{$denominator})"];
                         });
                     })
                     ->required()

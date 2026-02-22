@@ -159,18 +159,18 @@ class ActivitySession extends Model
             return 'gray';
         }
 
-        $percentNumber = number_format($bookedCount /  $this->group_max) * 100;
+        $percentNumber = number_format($bookedCount /  $this->group_max, 2) * 100;
 
         if ($percentNumber >= 100) {
-            return 'red';
+            return '#ff6b6b';
         }
 
         if ($percentNumber >= 50) {
-            return 'yellow';
+            return '#fafa24';
         }
 
         if ($percentNumber >= 0) {
-            return 'green';
+            return '#52f152';
         }
     }
 }
