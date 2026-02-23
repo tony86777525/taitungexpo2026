@@ -6,8 +6,6 @@ use App\Enums\ActivityReservationStatus;
 use App\Enums\ActivityReservationType;
 use App\Filament\Resources\ActivityReservations\ActivityReservationResource;
 use App\Models\ActivityReservation;
-use App\Models\ActivitySession;
-use Filament\Forms\Components\Placeholder;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -16,6 +14,9 @@ use Filament\Resources\Pages\EditRecord;
 use Filament\Schemas\Schema;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Filament\Notifications\Notification;
+use Filament\Actions\Action;
+use Illuminate\Support\Facades\Mail;
 
 class ApproveActivityReservation extends EditRecord
 {
@@ -38,15 +39,6 @@ class ApproveActivityReservation extends EditRecord
 
     public function form(Schema $schema): Schema
     {
-        $activitySessions = ActivitySession::query()
-            ->with([
-                'activity',
-                'activity.project',
-                'activity.project.zone'
-            ])
-            ->where(DB::raw('group_max - group_vip'), '>', 0)
-            ->get();
-
         $activityReservationCounts = ActivityReservation::query()
             ->select('activity_session_id', 'type', DB::raw('count(*) as count'))
             ->where('status', ActivityReservationStatus::CONFIRMED->value)
@@ -104,8 +96,82 @@ class ApproveActivityReservation extends EditRecord
                 Select::make('status')
                     ->label('狀態')
                     ->options(ActivityReservationStatus::options())
-                    ->required(),
+                    ->disabled(),
             ])
             ->columns(1);
+    }
+
+    protected function getFormActions(): array
+    {
+        if ($this->record->status === ActivityReservationStatus::PENDING) {
+            return [
+                Action::make('approve')
+                    ->label('通過')
+                    ->color('success')
+                    ->action('approve'),
+                Action::make('reject')
+                    ->label('不通過')
+                    ->color('danger')
+                    ->action('reject'),
+            ];
+        } else {
+            return [];
+        }
+    }
+
+    public function approve(): void
+    {
+        // 稍後實現
+        $this->record->status = ActivityReservationStatus::CONFIRMED;
+        $this->record->save();
+
+        $this->sendMail();
+
+        Notification::make()
+            ->title('預約已核准')
+            ->success()
+            ->send();
+
+        $this->redirect(url('/admin'));
+    }
+
+    public function reject(): void
+    {
+        // 稍後實現
+        $this->record->status = ActivityReservationStatus::CANCELLED;
+        $this->record->save();
+
+        $this->sendMail();
+
+        Notification::make()
+            ->title('預約已拒絕')
+            ->success()
+            ->send();
+
+        $this->redirect(url('/admin'));
+    }
+
+
+    public function sendMail(): void
+    {
+        if ($this->record->status === ActivityReservationStatus::CANCELLED) {
+            return;
+        }
+
+        $this->record->load([
+            'activitySession',
+            'activitySession.activity',
+            'activitySession.activity.project',
+            'activitySession.activity.project.zone',
+        ]);
+
+        if ($this->record->status === ActivityReservationStatus::PENDING) {
+            $subject = "【預約審核結果通知】2026台東博覽會｜團體導覽申請已通過（預約編號：{$this->record->id}）";
+        } else {
+            $subject = "【預約審核結果通知】2026台東博覽會｜團體導覽申請未通過（預約編號：{$this->record->id}）";
+        }
+
+        // 可以在此執行寄信邏輯
+        Mail::to($this->record->contact_email)->send(new \App\Mail\ActivityReservationConfirmation($this->record, $subject));
     }
 }

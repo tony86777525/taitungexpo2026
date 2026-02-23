@@ -2,8 +2,6 @@
 
 namespace App\Filament\Resources\ActivityReservations;
 
-use App\Enums\ActivityReservationType;
-use App\Enums\ProjectType;
 use App\Filament\Resources\ActivityReservations\Pages\ApproveActivityReservation;
 use App\Filament\Resources\ActivityReservations\Pages\CreateActivityReservation;
 use App\Filament\Resources\ActivityReservations\Pages\CreateActivityReservationVip;
