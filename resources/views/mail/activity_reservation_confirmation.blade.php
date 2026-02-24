@@ -17,7 +17,7 @@
     <p>團體名稱：{{ $reservation->contact_group_name }}</p>
     <p>聯絡人：{{ $reservation->contact_name }}</p>
     <p>電話：{{ $reservation->contact_phone }}</p>
-    <p>Email：{{ $reservation->contact_email }} 人</p>
+    <p>Email：{{ $reservation->contact_email }}</p>
     <br>
     <p>備註：{{ $reservation->notes }}</p>
     <br>
