@@ -2,15 +2,19 @@
 
 namespace App\Providers\Filament;
 
+use Filament\Actions\Action;
 use Filament\Enums\ThemeMode;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use App\Filament\Pages\DashBoard;
+use Filament\Navigation\NavigationItem;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
+use Filament\Support\Enums\IconPosition;
+use Filament\View\PanelsRenderHook;
 use Filament\Widgets\AccountWidget;
 use Filament\Widgets\FilamentInfoWidget;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
@@ -18,6 +22,7 @@ use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 
 class AdminPanelProvider extends PanelProvider
@@ -64,6 +69,14 @@ class AdminPanelProvider extends PanelProvider
                 'News',
             ])
             ->viteTheme('resources/css/app.css')
+            ->renderHook(
+                PanelsRenderHook::TOPBAR_LOGO_AFTER,
+                fn (): string => Blade::render('
+                    <a href="https://docs.google.com/spreadsheets/d/1rdEGx-gD3hpaRziWp-2mhtyL-O6X6sataEDJ38xcKVk/edit?usp=drive_link" class="text-sm font-medium text-green-600 hover:underline ml-2" target="_blank">
+                        操作說明
+                    </a>
+                '),
+            )
             ->defaultThemeMode(ThemeMode::Light)
             ->darkMode(false);
     }
