@@ -71,4 +71,9 @@ class ExhibitionOverviewResource extends Resource
         // 這會影響列表、編輯頁面、刪除操作等
         return parent::getEloquentQuery()->where('type', ProjectType::EXHIBITION_OVERVIEW->value);
     }
+
+    public static function shouldRegisterNavigation(): bool
+    {
+        return !auth()->user()->hasRole('private_sector_project_system_admin');
+    }
 }
