@@ -10,7 +10,6 @@ use App\Filament\Resources\ExhibitionOverviews\Pages\ViewExhibitionOverview;
 use App\Filament\Resources\ExhibitionOverviews\Schemas\ExhibitionOverviewForm;
 use App\Filament\Resources\ExhibitionOverviews\Schemas\ExhibitionOverviewInfolist;
 use App\Filament\Resources\ExhibitionOverviews\Tables\ExhibitionOverviewsTable;
-use App\Models\ExhibitionOverview;
 use App\Models\Project;
 use BackedEnum;
 use Illuminate\Database\Eloquent\Builder;
@@ -26,9 +25,9 @@ class ExhibitionOverviewResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
-    protected static ?string $recordTitleAttribute = '展覽概覽';
+    protected static ?string $recordTitleAttribute = '官方計畫';
 
-    protected static ?string $modelLabel = '展覽概覽';
+    protected static ?string $modelLabel = '官方計畫';
 
     protected static UnitEnum|string|null $navigationGroup = 'Projects';
 

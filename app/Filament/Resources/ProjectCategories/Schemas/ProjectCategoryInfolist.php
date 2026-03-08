@@ -13,10 +13,10 @@ class ProjectCategoryInfolist
         return $schema
             ->components([
                 TextEntry::make('name_tw')
-                    ->label('計畫分類（中）')
+                    ->label('民間參與計畫分類（中）')
                     ->placeholder('-'),
                 TextEntry::make('name_en')
-                    ->label('計畫分類（英）')
+                    ->label('民間參與計畫分類（英）')
                     ->placeholder('-'),
                 IconEntry::make('is_active')
                     ->label('啟用狀態')

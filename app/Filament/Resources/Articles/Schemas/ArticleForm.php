@@ -11,6 +11,7 @@ use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Schema;
 use Filament\Forms\Components\FileUpload;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Validation\Rule;
 
 class ArticleForm
 {
@@ -44,6 +45,18 @@ class ArticleForm
                     ->directory('article-thumbnails')
                     ->visibility('public')
                     ->image()
+                    ->acceptedFileTypes(['image/webp'])
+                    ->rules([
+                        Rule::dimensions()
+                            ->maxWidth(706)
+                            ->maxHeight(706)
+                            ->ratio(1),
+                    ])
+                    ->validationMessages([
+                        'dimensions' => '圖片尺寸必須為 706x706 px以內 且比例為 1:1。',
+                        'mimetypes' => '僅支援 WebP 格式圖片。',
+                    ])
+                    ->placeholder('僅支援 WebP 格式<br>尺寸必須為 706x706 px以內<br>比例為 1:1')
                     ->required(),
                 Repeater::make('contents')
                     ->label('消息內容')
@@ -115,12 +128,18 @@ class ArticleForm
                             ->directory('article-images')
                             ->visibility('public')
                             ->image()
+                            ->acceptedFileTypes(['image/webp'])
+                            ->validationMessages([
+                                'mimetypes' => '僅支援 WebP 格式圖片。',
+                            ])
+                            ->placeholder('僅支援 WebP 格式<br>尺寸建議為 626x469 px<br>比例為 4:3')
                             ->required(),
                         TextInput::make('alt_text')
                             ->label('Alt文字'),
                     ])
                     ->orderColumn('sort_order')
                     ->defaultItems(0)
+                    ->maxItems(10)
                     ->grid(3)
                     ->columnSpanFull(),
                 Toggle::make('is_active')

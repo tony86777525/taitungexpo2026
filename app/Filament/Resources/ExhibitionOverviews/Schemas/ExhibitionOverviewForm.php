@@ -17,6 +17,7 @@ use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Schema;
 use App\Enums\ProjectType;
+use Illuminate\Validation\Rule;
 
 class ExhibitionOverviewForm
 {
@@ -115,13 +116,25 @@ class ExhibitionOverviewForm
                             ->disk('public')
                             ->directory('project-feature_images')
                             ->visibility('public')
-                            ->image(),
+                            ->image()
+                            ->acceptedFileTypes(['image/webp'])
+                            ->rules([
+                                Rule::dimensions()
+                                    ->maxWidth(1966)
+                                    ->maxHeight(1103)
+                                    ->ratio(1),
+                            ])
+                            ->validationMessages([
+                                'dimensions' => '圖片尺寸必須為 1966x1103 px以內 且比例為 16:9。',
+                                'mimetypes' => '僅支援 WebP 格式圖片。',
+                            ])
+                            ->placeholder('僅支援 WebP 格式<br>尺寸必須為 1966x1103 px以內<br>比例為 16:9'),
                         TextInput::make('alt_text')
                             ->label('Alt文字'),
                     ])
                     ->orderColumn('sort_order')
                     ->defaultItems(0)
-                    ->maxItems(5)
+                    ->maxItems(2)
                     ->grid(3)
                     ->columnSpanFull(),
                 FileUpload::make('thumbnail_url')
@@ -130,6 +143,18 @@ class ExhibitionOverviewForm
                     ->directory('project-thumbnails')
                     ->visibility('public')
                     ->image()
+                    ->acceptedFileTypes(['image/webp'])
+                    ->rules([
+                        Rule::dimensions()
+                            ->maxWidth(706)
+                            ->maxHeight(706)
+                            ->ratio(1),
+                    ])
+                    ->validationMessages([
+                        'dimensions' => '圖片尺寸必須為 706x706 px以內 且比例為 1:1。',
+                        'mimetypes' => '僅支援 WebP 格式圖片。',
+                    ])
+                    ->placeholder('僅支援 WebP 格式<br>尺寸必須為 706x706 px以內<br>比例為 1:1')
                     ->required(),
                 Repeater::make('contents')
                     ->label('計畫內容')
@@ -201,12 +226,18 @@ class ExhibitionOverviewForm
                             ->directory('project-images')
                             ->visibility('public')
                             ->image()
+                            ->acceptedFileTypes(['image/webp'])
+                            ->validationMessages([
+                                'mimetypes' => '僅支援 WebP 格式圖片。',
+                            ])
+                            ->placeholder('僅支援 WebP 格式<br>尺寸建議為 626x469 px<br>比例為 4:3')
                             ->required(),
                         TextInput::make('alt_text')
                             ->label('Alt文字'),
                     ])
                     ->orderColumn('sort_order')
                     ->defaultItems(0)
+                    ->maxItems(10)
                     ->grid(3)
                     ->columnSpanFull(),
                 Select::make('units')

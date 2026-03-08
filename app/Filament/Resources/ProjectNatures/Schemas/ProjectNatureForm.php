@@ -14,10 +14,10 @@ class ProjectNatureForm
         return $schema
             ->components([
                 TextInput::make('name_tw')
-                    ->label('計畫分類（中）')
+                    ->label('計畫性質（中）')
                     ->required(),
                 TextInput::make('name_en')
-                    ->label('計畫分類（英）')
+                    ->label('計畫性質（英）')
                     ->required(),
                 Toggle::make('is_active')
                     ->label('啟用狀態')

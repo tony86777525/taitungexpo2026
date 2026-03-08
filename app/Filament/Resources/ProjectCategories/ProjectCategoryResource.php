@@ -23,9 +23,9 @@ class ProjectCategoryResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
-    protected static ?string $recordTitleAttribute = '計畫分類';
+    protected static ?string $recordTitleAttribute = '民間參與計畫分類';
 
-    protected static ?string $modelLabel = '計畫分類';
+    protected static ?string $modelLabel = '民間參與計畫分類';
 
     protected static UnitEnum|string|null $navigationGroup = 'Projects';
 

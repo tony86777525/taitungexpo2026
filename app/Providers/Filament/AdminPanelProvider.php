@@ -68,6 +68,7 @@ class AdminPanelProvider extends PanelProvider
                 'Activities',
                 'Projects',
                 'News',
+                'Brands',
             ])
             ->viteTheme('resources/css/app.css')
             ->renderHook(

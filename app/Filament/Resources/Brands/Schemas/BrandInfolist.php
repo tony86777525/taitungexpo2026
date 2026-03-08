@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Resources\Activities\Schemas;
+namespace App\Filament\Resources\Brands\Schemas;
 
 use Filament\Forms\Components\RichEditor\RichContentRenderer;
 use Filament\Infolists\Components\IconEntry;
@@ -9,80 +9,39 @@ use Filament\Infolists\Components\RepeatableEntry;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Schema;
 
-class ActivityInfolist
+class BrandInfolist
 {
     public static function configure(Schema $schema): Schema
     {
         return $schema
             ->components([
-                TextEntry::make('project')
-                    ->label('計畫名稱')
-                    ->getStateUsing(fn ($record) => $record->project->display_name),
-                TextEntry::make('title_tw')
-                    ->label('活動標題（中）'),
-                TextEntry::make('title_en')
-                    ->label('活動標題（英）'),
-                TextEntry::make('date')
-                    ->label('活動日期')
-                    ->getStateUsing(fn ($record) => "{$record->display_date_range}"),
-                TextEntry::make('time')
-                    ->label('活動時間')
-                    ->getStateUsing(fn ($record) => "{$record->display_time_range}"),
-                TextEntry::make('activity_location_tw')
-                    ->label('活動地點（中）')
+                TextEntry::make('name_tw')
+                    ->label('品牌名稱（中）')
                     ->placeholder('-'),
-                TextEntry::make('activity_location_en')
-                    ->label('活動地點（英）')
+                TextEntry::make('name_en')
+                    ->label('品牌名稱（英）')
                     ->placeholder('-'),
-                TextEntry::make('map_link')
-                    ->label('地圖連結')
+                TextEntry::make('url')
+                    ->label('品牌連結')
                     ->placeholder('-'),
+                TextEntry::make('description_tw')
+                    ->label('品牌介紹（中）')
+                    ->state(fn ($record): string => RichContentRenderer::make($record->description_tw)->toHtml())
+                    ->prose()
+                    ->placeholder('-')
+                    ->columnSpanFull(),
+                TextEntry::make('description_en')
+                    ->label('品牌介紹（英）')
+                    ->state(fn ($record): string => RichContentRenderer::make($record->description_en)->toHtml())
+                    ->prose()
+                    ->placeholder('-')
+                    ->columnSpanFull(),
                 ImageEntry::make('thumbnail_url')
                     ->label('縮略圖')
                     ->disk('public')
                     ->placeholder('-'),
-                TextEntry::make('registration_info_tw')
-                    ->label('報名資訊（中）')
-                    ->state(fn ($record): string => RichContentRenderer::make($record->registration_info_tw)->toHtml())
-                    ->prose()
-                    ->placeholder('-')
-                    ->columnSpanFull(),
-                TextEntry::make('registration_info_en')
-                    ->label('報名資訊（英）')
-                    ->state(fn ($record): string => RichContentRenderer::make($record->registration_info_en)->toHtml())
-                    ->prose()
-                    ->placeholder('-')
-                    ->columnSpanFull(),
-                TextEntry::make('tour_info_tw')
-                    ->label('導覽預約資訊（中）')
-                    ->state(fn ($record): string => RichContentRenderer::make($record->tour_info_tw)->toHtml())
-                    ->prose()
-                    ->placeholder('-')
-                    ->columnSpanFull(),
-                TextEntry::make('tour_info_en')
-                    ->label('導覽預約資訊（英）')
-                    ->state(fn ($record): string => RichContentRenderer::make($record->tour_info_en)->toHtml())
-                    ->prose()
-                    ->placeholder('-')
-                    ->columnSpanFull(),
-                RepeatableEntry::make('activityNatures')
-                    ->label('活動性質')
-                    ->schema([
-                        TextEntry::make('name_tw')->label('（中）'),
-                        TextEntry::make('name_en')->label('（英）'),
-                    ])
-                    ->grid(6)
-                    ->placeholder('-'),
-                RepeatableEntry::make('projectTypes')
-                    ->label('計畫類型')
-                    ->schema([
-                        TextEntry::make('name_tw')->label('（中）'),
-                        TextEntry::make('name_en')->label('（英）'),
-                    ])
-                    ->grid(6)
-                    ->placeholder('-'),
                 RepeatableEntry::make('contents')
-                    ->label('計畫內容')
+                    ->label('商品介紹')
                     ->schema([
                         TextEntry::make('title_tw')->label('標題（中）')->placeholder('-'),
                         TextEntry::make('title_en')->label('標題（英）')->placeholder('-'),
@@ -126,7 +85,7 @@ class ActivityInfolist
                     ->placeholder('-')
                     ->columns(1),
                 RepeatableEntry::make('images')
-                    ->label('活動相簿')
+                    ->label('品牌相簿')
                     ->schema([
                         ImageEntry::make('url')->disk('public')->label('圖片'),
                         TextEntry::make('alt_text')->label('Alt文字')->placeholder('-'),

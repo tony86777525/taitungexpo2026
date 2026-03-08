@@ -17,6 +17,7 @@ use Filament\Schemas\Components\Utilities\Set;
 use Filament\Schemas\Schema;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Validation\Rule;
 
 class ActivityForm
 {
@@ -120,18 +121,41 @@ class ActivityForm
                 TextInput::make('map_link')
                     ->label('地圖連結')
                     ->url(),
+                FileUpload::make('thumbnail_url')
+                    ->label('縮略圖')
+                    ->disk('public')
+                    ->directory('activity-thumbnails')
+                    ->visibility('public')
+                    ->image()
+                    ->acceptedFileTypes(['image/webp'])
+                    ->rules([
+                        Rule::dimensions()
+                            ->width(580)
+                            ->height(435)
+                            ->ratio(4 / 3),
+                    ])
+                    ->validationMessages([
+                        'dimensions' => '圖片尺寸必須為 580x435 px 且比例為 4:3。',
+                        'mimetypes' => '僅支援 WebP 格式圖片。',
+                    ])
+                    ->placeholder('僅支援 WebP 格式<br>尺寸必須為 580x435 px<br>比例為 4:3')
+                    ->required(),
                 RichEditor::make('registration_info_tw')
                     ->label('報名資訊（中）')
-                    ->required(),
+                    ->required(fn (Get $get): bool => filled($get('registration_info_en')))
+                    ->live(),
                 RichEditor::make('registration_info_en')
                     ->label('報名資訊（英）')
-                    ->required(),
+                    ->required(fn (Get $get): bool => filled($get('registration_info_tw')))
+                    ->live(),
                 RichEditor::make('tour_info_tw')
                     ->label('導覽預約資訊（中）')
-                    ->required(),
+                    ->required(fn (Get $get): bool => filled($get('tour_info_en')))
+                    ->live(),
                 RichEditor::make('tour_info_en')
                     ->label('導覽預約資訊（英）')
-                    ->required(),
+                    ->required(fn (Get $get): bool => filled($get('tour_info_tw')))
+                    ->live(),
                 Select::make('activityNatures')
                     ->label('活動性質')
                     ->relationship(
@@ -199,13 +223,26 @@ class ActivityForm
                                     ->directory('activity_content-images')
                                     ->visibility('public')
                                     ->image()
+                                    ->acceptedFileTypes(['image/webp'])
+                                    ->rules([
+                                        Rule::dimensions()
+                                            ->maxWidth(968)
+                                            ->maxHeight(726)
+                                            ->ratio(4/3),
+                                    ])
+                                    ->validationMessages([
+                                        'dimensions' => '圖片尺寸必須為 968x726 px以內 且比例為 4:3。',
+                                        'mimetypes' => '僅支援 WebP 格式圖片。',
+                                    ])
+                                    ->placeholder('僅支援 WebP 格式<br>尺寸必須為 968x726 px以內<br>比例為 4:3')
                                     ->required(),
                                 TextInput::make('alt_text')
                                     ->label('Alt文字'),
                             ])
                             ->orderColumn('sort_order')
                             ->defaultItems(0)
-                            ->grid(3),
+                            ->maxItems(2)
+                            ->grid(2),
                     ])
                     ->defaultItems(0)
                     ->grid(1)
@@ -220,12 +257,18 @@ class ActivityForm
                             ->directory('activity-images')
                             ->visibility('public')
                             ->image()
+                            ->acceptedFileTypes(['image/webp'])
+                            ->validationMessages([
+                                'mimetypes' => '僅支援 WebP 格式圖片。',
+                            ])
+                            ->placeholder('僅支援 WebP 格式<br>尺寸建議為 626x469 px<br>比例為 4:3')
                             ->required(),
                         TextInput::make('alt_text')
                             ->label('Alt文字'),
                     ])
                     ->orderColumn('sort_order')
                     ->defaultItems(0)
+                    ->maxItems(10)
                     ->grid(3)
                     ->columnSpanFull(),
                 Toggle::make('is_active')

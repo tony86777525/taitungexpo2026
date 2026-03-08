@@ -11,7 +11,6 @@ use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
-use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Components\Utilities\Get;
 use Filament\Schemas\Schema;
 use Illuminate\Support\Facades\DB;
@@ -50,7 +49,7 @@ class ActivityReservationForm
 //                    ->afterStateUpdated(fn (Set $set) => $set('activity_session_id', null)), // 選擇國家後清空城市
                 // 2. 子級下拉選單
                 Select::make('activity_session_id')
-                    ->label('活動場次')
+                    ->label('團體導覽預約場次')
                     ->options(function ($livewire) use ($activitySessions, $activityReservationCounts) {
                         $isVip = $livewire instanceof CreateActivityReservationVip;
 
@@ -71,7 +70,9 @@ class ActivityReservationForm
                                 return [];
                             }
 
-                            return [$activitySession->id => "{$activitySession->activity->project->venue_number} - {$activitySession->display_date} - {$activitySession->display_time_range}(剩餘{$currentGroupCount}/{$denominator})"];
+                            $remainingGroupCount = $denominator - $currentGroupCount;
+
+                            return [$activitySession->id => "{$activitySession->activity->project->venue_number} - {$activitySession->display_date} - {$activitySession->display_time_range}(剩餘{$remainingGroupCount}/{$denominator})"];
                         });
                     })
                     ->required()

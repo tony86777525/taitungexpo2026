@@ -26,9 +26,9 @@ class ActivityReservationResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
-    protected static ?string $recordTitleAttribute = '活動場次預約報名';
+    protected static ?string $recordTitleAttribute = '團體導覽預約申請';
 
-    protected static ?string $modelLabel = '活動場次預約報名';
+    protected static ?string $modelLabel = '團體導覽預約申請';
 
     protected static UnitEnum|string|null $navigationGroup = 'Activity Sessions';
 

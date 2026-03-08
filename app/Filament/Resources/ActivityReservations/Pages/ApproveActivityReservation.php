@@ -51,7 +51,7 @@ class ApproveActivityReservation extends EditRecord
                     ->label('預約類型')
                     ->getStateUsing(fn ($record) => $record->type->label() ?? '-'),
                 TextEntry::make('activity_info')
-                    ->label('活動場次')
+                    ->label('團體導覽預約場次')
                     ->getStateUsing(function ($record) use ($activityReservationCounts) {
                         $isVip = $record->type === ActivityReservationType::VIP;
 
@@ -67,10 +67,14 @@ class ApproveActivityReservation extends EditRecord
                             $isVip === true && $activitySession->canBookVipGroup($currentGroupCount)
                         ) {
                             $denominator = $activitySession->vip_group_count;
-                            return "{$record->activitySession->display_info}(剩餘{$currentGroupCount}/{$denominator})" ?? '-';
+                            $remainingGroupCount = $denominator - $currentGroupCount;
+
+                            return "{$record->activitySession->display_info}(剩餘{$remainingGroupCount}/{$denominator})" ?? '-';
                         } elseif ($isVip === false && $activitySession->canBookNormalGroup($currentGroupCount)) {
                             $denominator = $activitySession->normal_group_count;
-                            return "{$record->activitySession->display_info}(剩餘{$currentGroupCount}/{$denominator})" ?? '-';
+                            $remainingGroupCount = $denominator - $currentGroupCount;
+
+                            return "{$record->activitySession->display_info}(剩餘{$remainingGroupCount}/{$denominator})" ?? '-';
                         }
 
                         return "{$activitySession->activity->project->venue_number} - {$record->activitySession->display_info}(報名已額滿)" ?? '-';
