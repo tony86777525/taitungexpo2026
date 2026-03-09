@@ -15,6 +15,8 @@ class ArticlesTable
     public static function configure(Table $table): Table
     {
         return $table
+            ->reorderable('sort_order')
+            ->defaultSort('sort_order')
             ->columns([
                 TextColumn::make('title_tw')
                     ->label('消息標題（中）')

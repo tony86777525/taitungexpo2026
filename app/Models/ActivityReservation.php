@@ -29,6 +29,8 @@ class ActivityReservation extends Model
         'activity_session_id',
         // 狀態 (1:confirmed, 0:cancelled, 2:pending)
         'status',
+        // 排序順序
+        'sort_order',
     ];
 
     protected function casts(): array

@@ -15,6 +15,8 @@ class BrandsTable
     public static function configure(Table $table): Table
     {
         return $table
+            ->reorderable('sort_order')
+            ->defaultSort('sort_order')
             ->columns([
                 TextColumn::make('name_tw')
                     ->label('品牌名稱（中）')

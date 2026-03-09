@@ -23,6 +23,8 @@ class Brand extends Model
         'thumbnail_url',
         // 啟用狀態
         'is_active',
+        // 排序順序
+        'sort_order',
     ];
 
     protected $casts = [

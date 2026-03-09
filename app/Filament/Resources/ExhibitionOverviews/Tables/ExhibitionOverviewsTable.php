@@ -16,6 +16,8 @@ class ExhibitionOverviewsTable
     public static function configure(Table $table): Table
     {
         return $table
+            ->reorderable('sort_order')
+            ->defaultSort('sort_order')
             ->columns([
                 TextColumn::make('venue_number')
                     ->label('場館編號')
