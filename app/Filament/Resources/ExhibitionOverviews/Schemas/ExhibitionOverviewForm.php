@@ -240,15 +240,28 @@ class ExhibitionOverviewForm
                     ->maxItems(10)
                     ->grid(3)
                     ->columnSpanFull(),
-                Select::make('units')
-                    ->label('單位')
-                    ->relationship(
-                        name: 'units',
-                        titleAttribute: 'name_tw',
-                        modifyQueryUsing: fn (Builder $query) => $query->orderBy('id'),
-                    )
-                    ->multiple()
-                    ->preload(),
+                Repeater::make('projectUnitTypes')
+                    ->label('自訂單位')
+                    ->relationship('projectUnitTypes')
+                    ->schema([
+                        TextInput::make('name')
+                            ->label('單位類型')
+                            ->required(),
+                        Select::make('units')
+                            ->label('單位')
+                            ->relationship(
+                                name: 'units',
+                                titleAttribute: 'name_tw',
+                                modifyQueryUsing: fn (Builder $query) => $query->orderBy('sort_order'),
+                            )
+                            ->multiple()
+                            ->preload()
+                            ->required(),
+                    ])
+                    ->orderColumn('sort_order')
+                    ->defaultItems(0)
+                    ->grid(3)
+                    ->columnSpanFull(),
                 Toggle::make('is_active')
                     ->label('啟用狀態')
                     ->required()

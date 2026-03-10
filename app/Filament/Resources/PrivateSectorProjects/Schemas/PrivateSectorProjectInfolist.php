@@ -129,21 +129,28 @@ class PrivateSectorProjectInfolist
                     ])
                     ->placeholder('-')
                     ->grid(3),
-                RepeatableEntry::make('units')
-                    ->label('單位')
+                RepeatableEntry::make('projectUnitTypes')
+                    ->label('自訂單位')
                     ->schema([
-                        TextEntry::make('name_tw')->label('（中）'),
-                        TextEntry::make('name_en')->label('（英）'),
-                        ImageEntry::make('image_url')
-                            ->label('圖檔')
-                            ->disk('public')
-                            ->placeholder('-'),
-                        TextEntry::make('link')
-                            ->label('連結')
-                            ->openUrlInNewTab()
+                        TextEntry::make('name')->label('單位類型')->placeholder('-'),
+                        RepeatableEntry::make('units')
+                            ->label('單位')
+                            ->schema([
+                                TextEntry::make('name_tw')->label('（中）'),
+                                TextEntry::make('name_en')->label('（英）'),
+                                ImageEntry::make('image_url')
+                                    ->label('圖檔')
+                                    ->disk('public')
+                                    ->placeholder('-'),
+                                TextEntry::make('link')
+                                    ->label('連結')
+                                    ->openUrlInNewTab()
+                                    ->placeholder('-'),
+                            ])
+                            ->grid(3)
                             ->placeholder('-'),
                     ])
-                    ->grid(3)
+                    ->grid(1)
                     ->placeholder('-'),
                 IconEntry::make('is_active')
                     ->label('啟用狀態')

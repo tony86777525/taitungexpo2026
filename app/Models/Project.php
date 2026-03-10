@@ -131,15 +131,26 @@ class Project extends Model
         return $this->belongsToMany(CurationNature::class, 'p_curation_nature');
     }
 
+//    /**
+//     * Get the units for the project.
+//     * 單位
+//     *
+//     * @return BelongsToMany
+//     */
+//    public function units(): BelongsToMany
+//    {
+//        return $this->belongsToMany(Unit::class, 'p_unit');
+//    }
+
     /**
-     * Get the units for the project.
+     * Get the project unit types for the project.
      * 單位
      *
-     * @return BelongsToMany
+     * @return HasMany
      */
-    public function units(): BelongsToMany
+    public function projectUnitTypes(): HasMany
     {
-        return $this->belongsToMany(Unit::class, 'p_unit');
+        return $this->hasMany(ProjectUnitType::class);
     }
 
     /**
