@@ -47,7 +47,10 @@ class ActivitySessionCalendar extends CalendarWidget
                     return $activitySession->id === $count->activity_session_id && $count->type === ActivityReservationType::VIP;
                 })?->count ?? 0;
 
-                $vipText = "{$activitySession->vip_group_count}/{$currentVipGroupCount}";
+                $denominator = $activitySession->vip_group_count;
+                $remainingVipGroupCount = $denominator - $currentVipGroupCount;
+
+                $vipText = "{$remainingVipGroupCount}/{$denominator}";
 
                 return CalendarEvent::make($activitySession)
                     ->title("{$normalText}\n內部貴賓{$vipText}\n{$activitySession->activity->project->venue_number}")
