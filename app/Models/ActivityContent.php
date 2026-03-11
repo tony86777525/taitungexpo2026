@@ -24,6 +24,11 @@ class ActivityContent extends Model
         'content_en',
     ];
 
+    protected $casts = [
+        'item_text_tw' => 'string',
+        'item_text_en' => 'string',
+    ];
+
     /**
      * Get the activity for the activity content.
      * 活動
