@@ -26,13 +26,13 @@ class BrandInfolist
                     ->placeholder('-'),
                 TextEntry::make('description_tw')
                     ->label('品牌介紹（中）')
-                    ->state(fn ($record): string => RichContentRenderer::make($record->description_tw)->toHtml())
+                    ->state(fn ($record): string => RichContentRenderer::make($record->description_tw ?: '')->toHtml())
                     ->prose()
                     ->placeholder('-')
                     ->columnSpanFull(),
                 TextEntry::make('description_en')
                     ->label('品牌介紹（英）')
-                    ->state(fn ($record): string => RichContentRenderer::make($record->description_en)->toHtml())
+                    ->state(fn ($record): string => RichContentRenderer::make($record->description_en ?: '')->toHtml())
                     ->prose()
                     ->placeholder('-')
                     ->columnSpanFull(),
@@ -46,22 +46,22 @@ class BrandInfolist
                         TextEntry::make('title_tw')->label('標題（中）')->placeholder('-'),
                         TextEntry::make('title_en')->label('標題（英）')->placeholder('-'),
                         TextEntry::make('content_tw')->label('內文（中）')
-                            ->state(fn ($record): string => RichContentRenderer::make($record->content_tw)->toHtml())
+                            ->state(fn ($record): string => RichContentRenderer::make($record->content_tw ?: '')->toHtml())
                             ->prose()
                             ->placeholder('-')
                             ->columnSpanFull(),
                         TextEntry::make('content_en')->label('內文（英）')
-                            ->state(fn ($record): string => RichContentRenderer::make($record->content_en)->toHtml())
+                            ->state(fn ($record): string => RichContentRenderer::make($record->content_en ?: '')->toHtml())
                             ->prose()
                             ->placeholder('-')
                             ->columnSpanFull(),
                         TextEntry::make('item_text_tw')->label('項目文字（中）')
-                            ->state(fn ($record): string => RichContentRenderer::make($record->item_text_tw)->toHtml())
+                            ->state(fn ($record): string => RichContentRenderer::make($record->item_text_tw ?: '')->toHtml())
                             ->prose()
                             ->placeholder('-')
                             ->columnSpanFull(),
                         TextEntry::make('item_text_en')->label('項目文字（英）')
-                            ->state(fn ($record): string => RichContentRenderer::make($record->item_text_en)->toHtml())
+                            ->state(fn ($record): string => RichContentRenderer::make($record->item_text_en ?: '')->toHtml())
                             ->prose()
                             ->placeholder('-')
                             ->columnSpanFull(),

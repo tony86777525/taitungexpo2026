@@ -141,13 +141,21 @@ class ActivityForm
                     ->placeholder('僅支援 WebP 格式<br>尺寸必須為 580x435 px<br>比例為 4:3')
                     ->required(),
                 RichEditor::make('registration_info_tw')
-                    ->label('報名資訊（中）'),
+                    ->label('報名資訊（中）')
+                    ->required(fn (Get $get): bool => filled($get('registration_info_en')))
+                    ->live(),
                 RichEditor::make('registration_info_en')
-                    ->label('報名資訊（英）'),
+                    ->label('報名資訊（英）')
+                    ->required(fn (Get $get): bool => filled($get('registration_info_tw')))
+                    ->live(),
                 RichEditor::make('tour_info_tw')
-                    ->label('導覽預約資訊（中）'),
+                    ->label('導覽預約資訊（中）')
+                    ->required(fn (Get $get): bool => filled($get('tour_info_en')))
+                    ->live(),
                 RichEditor::make('tour_info_en')
-                    ->label('導覽預約資訊（英）'),
+                    ->label('導覽預約資訊（英）')
+                    ->required(fn (Get $get): bool => filled($get('tour_info_tw')))
+                    ->live(),
                 Select::make('activityNatures')
                     ->label('活動性質')
                     ->relationship(
