@@ -31,6 +31,27 @@ class BrandForm
                 RichEditor::make('description_en')
                     ->label('品牌介紹（英）')
                     ->required(),
+                Repeater::make('links')
+                    ->label('連結按鈕')
+                    ->relationship('links')
+                    ->schema([
+                        TextInput::make('name_tw')
+                            ->label('連結按鈕（中）')
+                            ->required(),
+                        TextInput::make('name_en')
+                            ->label('連結按鈕（英）')
+                            ->required(),
+                        TextInput::make('url_tw')
+                            ->label('連結（中）')
+                            ->url()
+                            ->required(),
+                        TextInput::make('url_en')
+                            ->label('連結（英）')
+                            ->url()
+                            ->required(),
+                    ])
+                    ->defaultItems(0)
+                    ->grid(3),
                 FileUpload::make('thumbnail_url')
                     ->label('縮略圖')
                     ->disk('public')

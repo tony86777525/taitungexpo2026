@@ -43,6 +43,17 @@ class Brand extends Model
     }
 
     /**
+     * Get the links for the brand.
+     * 連結按鈕
+     *
+     * @return HasMany
+     */
+    public function links(): HasMany
+    {
+        return $this->hasMany(BrandLink::class);
+    }
+
+    /**
      * Get the images for the brand.
      * 品牌相簿
      *

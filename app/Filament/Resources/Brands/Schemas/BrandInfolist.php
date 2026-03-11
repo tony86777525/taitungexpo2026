@@ -36,6 +36,15 @@ class BrandInfolist
                     ->prose()
                     ->placeholder('-')
                     ->columnSpanFull(),
+                RepeatableEntry::make('links')
+                    ->label('連結按鈕')
+                    ->schema([
+                        TextEntry::make('name_tw')->label('連結按鈕（中）'),
+                        TextEntry::make('name_en')->label('連結按鈕（英）'),
+                        TextEntry::make('url_tw')->label('連結（中）'),
+                        TextEntry::make('url_en')->label('連結（英）'),
+                    ])
+                    ->grid(3),
                 ImageEntry::make('thumbnail_url')
                     ->label('縮略圖')
                     ->disk('public')
