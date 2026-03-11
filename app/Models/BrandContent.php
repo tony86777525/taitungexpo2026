@@ -24,6 +24,11 @@ class BrandContent extends Model
         'content_en',
     ];
 
+    protected $casts = [
+        'item_text_tw' => 'string',
+        'item_text_en' => 'string',
+    ];
+
     /**
      * Get the brand for the brand content.
      * 品牌

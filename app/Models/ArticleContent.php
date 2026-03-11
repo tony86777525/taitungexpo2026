@@ -24,6 +24,11 @@ class ArticleContent extends Model
         'content_en',
     ];
 
+    protected $casts = [
+        'item_text_tw' => 'string',
+        'item_text_en' => 'string',
+    ];
+
     /**
      * Get the article for the article content.
      * 最新消息
