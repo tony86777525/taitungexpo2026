@@ -8,11 +8,21 @@
     },
     "devDependencies": {
         "@tailwindcss/vite": "^4.0.0",
+        "@types/jquery": "^3.5.33",
         "axios": "^1.11.0",
         "concurrently": "^9.0.1",
+        "jquery": "^3.5.1",
         "laravel-vite-plugin": "^2.0.0",
         "tailwindcss": "^4.0.0",
         "vite": "^7.0.7"
+    },
+    "dependencies": {
+        "bootstrap": "^4.6.2",
+        "fast-glob": "^3.2.12",
+        "path": "^0.12.7",
+        "prettier": "^2.8.7",
+        "sass": "^1.58.3",
+        "swiper": "11.1.15"
     },
     "volta": {
         "node": "20.20.0"
