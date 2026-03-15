@@ -5,7 +5,7 @@ use App\Http\Controllers\ActivityReservationController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('user.index');
 });
 
 Route::get('/activity', [ActivityController::class, 'index'])->name('activity.index');
