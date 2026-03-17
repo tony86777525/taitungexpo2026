@@ -13,7 +13,7 @@
 
 <main class="main">
     <!-- opening start -->
-    <div class="opening">
+    <section class="opening">
         <div class="hero">
             <div class="hero__wrap hero__wrap--layer1">
                 <div class="hero__layer hero__layer--1 wow fadeIn" data-wow-duration="0s" data-wow-delay="0">
@@ -49,92 +49,92 @@
                     data-json-key="introText3">誠摯邀請每一位踏上台東的人，放慢腳步，品味這片土地的靜謐與豐盛，找回生活最純粹的節奏。</p>
             </div>
         </div>
-    </div>
+    </section>
     <!-- opening end -->
 
     <!-- media start -->
-    <div id="media" class="section section--media">
+    <section id="media" class="section section--media">
         <div class="deco-curve"></div>
-        <div class="container">
-            <div class="section__content wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.8s">
-                <div class="swiper js-mediaSwiper">
-                    <div class="swiper-wrapper">
-                        <!-- Slide 0: YouTube影片 -->
-                        <div class="swiper-slide videoFrame" data-youtube="true">
-                            <iframe id="youtube-player-1" 
-                                    src="https://www.youtube.com/embed/L1jH8EZP5zQ?enablejsapi=1&autoplay=1&mute=1&controls=1&rel=0" 
-                                    allow="autoplay; encrypted-media" 
-                                    allowfullscreen>
-                            </iframe>
-                        </div>
+        <div class="section__content">
+            <div class="container">
+                <div class="section__content wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.8s">
+                    <div class="swiper videoSwiper js-mediaSwiper">
+                        <div class="swiper-wrapper">
+                            <!-- Slide 0: YouTube影片 -->
+                            <div class="swiper-slide videoFrame" data-youtube="true">
+                                <iframe id="youtube-player-1" 
+                                        src="https://www.youtube.com/embed/L1jH8EZP5zQ?enablejsapi=1&autoplay=1&mute=1&controls=1&rel=0" 
+                                        allow="autoplay; encrypted-media" 
+                                        allowfullscreen>
+                                </iframe>
+                            </div>
 
-                        <!-- Slide 1: webP圖片 -->
-                        <div class="swiper-slide videoFrame">
-                            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop" alt="Mountain landscape">
-                        </div>
+                            <!-- Slide 1: webP圖片 -->
+                            <div class="swiper-slide videoFrame">
+                                <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop" alt="Mountain landscape">
+                            </div>
 
-                        <!-- Slide 2: webP圖片 -->
-                        <div class="swiper-slide videoFrame">
-                            <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&h=600&fit=crop" alt="Nature scene">
-                        </div>
+                            <!-- Slide 2: webP圖片 -->
+                            <div class="swiper-slide videoFrame">
+                                <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&h=600&fit=crop" alt="Nature scene">
+                            </div>
 
-                        <!-- Slide 3: webM影片 -->
-                        <div class="swiper-slide videoFrame" data-video="true">
-                            <video playsinline controls muted>
-                                <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
+                            <!-- Slide 3: webM影片 -->
+                            <div class="swiper-slide videoFrame" data-video="true">
+                                <video playsinline controls muted>
+                                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
 
-                        <!-- Slide 4: webP圖片 -->
-                        <div class="swiper-slide videoFrame">
-                            <img src="https://images.unsplash.com/photo-1511593358241-7eea1f3c84e5?w=800&h=600&fit=crop" alt="Sunset">
-                        </div>
+                            <!-- Slide 4: webP圖片 -->
+                            <div class="swiper-slide videoFrame">
+                                <img src="https://images.unsplash.com/photo-1511593358241-7eea1f3c84e5?w=800&h=600&fit=crop" alt="Sunset">
+                            </div>
 
-                        <!-- Slide 5: webM影片 -->
-                        <div class="swiper-slide videoFrame" data-video="true">
-                            <video playsinline controls muted>
-                                <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
+                            <!-- Slide 5: webM影片 -->
+                            <div class="swiper-slide videoFrame" data-video="true">
+                                <video playsinline controls muted>
+                                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
 
-                        <!-- Slide 6: webP圖片 -->
-                        <div class="swiper-slide videoFrame">
-                            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&h=600&fit=crop" alt="Beach">
-                        </div>
+                            <!-- Slide 6: webP圖片 -->
+                            <div class="swiper-slide videoFrame">
+                                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&h=600&fit=crop" alt="Beach">
+                            </div>
 
-                        <!-- Slide 7: YouTube影片 -->
-                        <div class="swiper-slide videoFrame" data-youtube="true">
-                            <iframe id="youtube-player-2" 
-                                    src="https://www.youtube.com/embed/dQw4w9WgXcQ?enablejsapi=1&autoplay=1&mute=1&controls=1&rel=0" 
-                                    allow="autoplay; encrypted-media" 
-                                    allowfullscreen>
-                            </iframe>
-                        </div>
+                            <!-- Slide 7: YouTube影片 -->
+                            <div class="swiper-slide videoFrame" data-youtube="true">
+                                <iframe id="youtube-player-2" 
+                                        src="https://www.youtube.com/embed/dQw4w9WgXcQ?enablejsapi=1&autoplay=1&mute=1&controls=1&rel=0" 
+                                        allow="autoplay; encrypted-media" 
+                                        allowfullscreen>
+                                </iframe>
+                            </div>
 
-                        <!-- Slide 8: webP圖片 -->
-                        <div class="swiper-slide videoFrame">
-                            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop" alt="Mountain">
-                        </div>
+                            <!-- Slide 8: webP圖片 -->
+                            <div class="swiper-slide videoFrame">
+                                <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop" alt="Mountain">
+                            </div>
 
-                        <!-- Slide 9: YouTube影片 -->
-                        <div class="swiper-slide videoFrame" data-youtube="true">
-                            <iframe id="youtube-player-3" 
-                                    src="https://www.youtube.com/embed/M7lc1UVf-VE?enablejsapi=1&autoplay=1&mute=1&controls=1&rel=0" 
-                                    allow="autoplay; encrypted-media" 
-                                    allowfullscreen>
-                            </iframe>
+                            <!-- Slide 9: YouTube影片 -->
+                            <div class="swiper-slide videoFrame" data-youtube="true">
+                                <iframe id="youtube-player-3" 
+                                        src="https://www.youtube.com/embed/M7lc1UVf-VE?enablejsapi=1&autoplay=1&mute=1&controls=1&rel=0" 
+                                        allow="autoplay; encrypted-media" 
+                                        allowfullscreen>
+                                </iframe>
+                            </div>
                         </div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
                     </div>
-                    
-                    <div class="swiper-pagination"></div>
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
     <!-- media end -->
 
     <h3 class="marquee">
@@ -149,15 +149,89 @@
     <div id="news" class="section section--news">
         <div class="section__title wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s">
             <div class="container">
-                <span class="f-section-title">最新消息</span>
+                <span class="f-title-primary">最新消息</span>
             </div>
         </div>
         <div class="section__content wow fadeIn" data-wow-duration="0.5s" data-wow-delay="1s">
             <div class="container">
                 <div class="cards">
-                    <div class="swiper cardsSwiper cardsSwiper--news">
+                    <div class="swiper cardsSwiper js-cardSwiper">
                         <div class="swiper-wrapper">
-                            <!-- common.js generateNewsItems -->
+                            <div class="swiper-slide">
+                                <div class="cardItem cardItem--news">
+                                    <div class="cardItem__image">
+                                        <img src="https://picsum.photos/id/232/300/300" alt="news_title">
+                                    </div>
+                                    <div class="cardItem__text">
+                                        <div class="date">2026.3.17</div>
+                                        <div class="title f-h4">新聞標題</div>
+                                        <div class="desc f-h5">新聞概述</div>
+                                        <div class="more">
+                                            <a href="#" class="btn btn--more" target="_blank"><span class="btn__text">MORE</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="cardItem cardItem--news">
+                                    <div class="cardItem__image">
+                                        <img src="https://picsum.photos/id/233/300/300" alt="東博聯名便當特約店家揭曉！擴大徵選69家好店正式成軍">
+                                    </div>
+                                    <div class="cardItem__text">
+                                        <div class="date">2026.3.19</div>
+                                        <div class="title f-h4">東博聯名便當特約店家揭曉！擴大徵選69家好店正式成軍</div>
+                                        <div class="desc f-h5">全台首發聯名便當！69家好店推專屬優惠，消費集點抽好禮。邀請您自備餐盒，守護台東純淨山海。</div>
+                                        <div class="more">
+                                            <a href="https://www.facebook.com/taitungexpo2026/posts/pfbid0SZw9NEej79TwAsJ93JAx4fBXy4HHE1mcQrtCjzG4VFSzFGVPufk8TJZkZRAEYsYol" class="btn btn--more" target="_blank"><span class="btn__text">MORE</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="cardItem cardItem--news">
+                                    <div class="cardItem__image">
+                                        <img src="https://picsum.photos/id/234/300/300" alt="東博聯名便當特約店家揭曉！擴大徵選69家好店正式成軍">
+                                    </div>
+                                    <div class="cardItem__text">
+                                        <div class="date">2026.3.19</div>
+                                        <div class="title f-h4">東博聯名便當特約店家揭曉！擴大徵選69家好店正式成軍</div>
+                                        <div class="desc f-h5">全台首發聯名便當！69家好店推專屬優惠，消費集點抽好禮。邀請您自備餐盒，守護台東純淨山海。</div>
+                                        <div class="more">
+                                            <a href="https://www.facebook.com/taitungexpo2026/posts/pfbid0SZw9NEej79TwAsJ93JAx4fBXy4HHE1mcQrtCjzG4VFSzFGVPufk8TJZkZRAEYsYol" class="btn btn--more" target="_blank"><span class="btn__text">MORE</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="cardItem cardItem--news">
+                                    <div class="cardItem__image">
+                                        <img src="https://picsum.photos/id/235/300/300" alt="2026台東博覽會首展《紅土之上棒球特展》3/21松菸開展，重現台東棒球百年榮光">
+                                    </div>
+                                    <div class="cardItem__text">
+                                        <div class="date">2026.2.26</div>
+                                        <div class="title f-h4">2026台東博覽會首展《紅土之上棒球特展》3/21松菸開展，重現台東棒球百年榮光</div>
+                                        <div class="desc f-h5">作為2026年台東博覽會的序幕首展，《紅土之上棒球特展》將於3月21日(六)在台北松山文創園區A1倉庫盛大開幕。</div>
+                                        <div class="more">
+                                            <a href="https://ttbaseball.netlify.app/" class="btn btn--more" target="_blank"><span class="btn__text">MORE</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="cardItem cardItem--news">
+                                    <div class="cardItem__image">
+                                        <img src="https://picsum.photos/id/236/300/300" alt="縣府辦理《冠軍之路》電影欣賞 預告2026台東博覽會：紅土之上棒球特展">
+                                    </div>
+                                    <div class="cardItem__text">
+                                        <div class="date">2026.2.25</div>
+                                        <div class="title f-h4">縣府辦理《冠軍之路》電影欣賞 預告2026台東博覽會：紅土之上棒球特展</div>
+                                        <div class="desc f-h5">爲激勵地方棒球小將，縣府舉辦《冠軍之路》電影欣賞，預告為呈現台東棒球的百年發展軌跡榮光，「2026台東博覽會：紅土之上棒球特展」將於3月21日至4月5日於台北松菸登場，邀請大家共襄盛舉。</div>
+                                        <div class="more">
+                                            <a href="https://www.taitung.gov.tw/News_Content.aspx?n=13370&amp;s=145176" class="btn btn--more" target="_blank"><span class="btn__text">MORE</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="swiper-button-next"></div>

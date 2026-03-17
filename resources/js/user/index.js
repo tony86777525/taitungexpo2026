@@ -4,13 +4,21 @@ import './modules/navbar';
 // import '../../modules/megaModal';
 // import '../../modules/collapse';
 import CarouselSlider from './modules/mediaSwiper';
+import CardSwiper from './modules/cardSwiper';
 
 document.addEventListener('DOMContentLoaded', function() {
     const carousel = new CarouselSlider('.js-mediaSwiper', {
         showOnInit: true,
         debug: import.meta.env.DEV
     });
+
+	const cardSwiper = new CardSwiper('.js-cardSwiper', {
+		debug: import.meta.env.DEV
+	});
 });
+
+
+
 
 $(function(){
     $(document).on('scroll', function () {
