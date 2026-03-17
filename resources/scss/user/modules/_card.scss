@@ -48,9 +48,11 @@ $path: '../../images';
 			height: rem(38);
 			background-size: rem(38);
 			background-repeat: no-repeat;
+			border-radius: 50%;
+			box-shadow: 0 rem(4) rem(4) rgba(16, 55, 141, 0.08);
 
 			&.swiper-button-disabled {
-				display: none;
+				// display: none;
 			}
 
 			&.swiper-button-lock {

@@ -120,7 +120,7 @@ body {
         .f-h4 {
             font-size: rem(16);
             line-height: 1.35;
-            font-weight: medium;
+            font-weight: 600;
             letter-spacing: rem(1.6);
 
             @include rwd-min(769px) {
@@ -264,7 +264,7 @@ body {
         .f-h4 {
             font-size: rem(18);
             line-height: 1.5;
-            font-weight: medium;
+            font-weight: 600;
 
             @include rwd-min(769px) {
                 font-size: rem(20);
