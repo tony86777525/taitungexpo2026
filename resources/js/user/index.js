@@ -12,13 +12,10 @@ document.addEventListener('DOMContentLoaded', function() {
         debug: import.meta.env.DEV
     });
 
-	const cardSwiper = new CardSwiper('.js-cardSwiper', {
-		debug: import.meta.env.DEV
-	});
+	const cardSwipers = CardSwiper.initAll('.js-cardSwiper', {
+        debug: import.meta.env.DEV
+    });
 });
-
-
-
 
 $(function(){
     $(document).on('scroll', function () {

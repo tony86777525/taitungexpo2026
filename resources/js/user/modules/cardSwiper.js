@@ -25,16 +25,23 @@ class CardSwiper {
             return;
         }
 
+
         const slides = element.querySelectorAll('.swiper-slide');
 
         let nextBtn = element.querySelector('.swiper-button-next');
         let prevBtn = element.querySelector('.swiper-button-prev');
         
         if (!nextBtn && element.parentElement) {
-            nextBtn = element.parentElement.querySelector('.swiper-button-next');
+            const parent = element.parentElement;
+            nextBtn = Array.from(parent.children).find(
+                el => el.classList.contains('swiper-button-next')
+            );
         }
         if (!prevBtn && element.parentElement) {
-            prevBtn = element.parentElement.querySelector('.swiper-button-prev');
+            const parent = element.parentElement;
+            prevBtn = Array.from(parent.children).find(
+                el => el.classList.contains('swiper-button-prev')
+            );
         }
 
         const defaultOptions = {
@@ -52,7 +59,8 @@ class CardSwiper {
                 prevEl: prevBtn,
             },
             breakpoints: {
-                560: {
+                0: {
+                    enabled: false,
                     slidesPerView: 1,
                 },
                 768: {
@@ -83,6 +91,21 @@ class CardSwiper {
         if (this.swiper) {
             this.swiper.destroy(true, true);
         }
+    }
+
+    static initAll(selector = '.js-cardSwiper', options = {}) {
+        const elements = document.querySelectorAll(selector);
+        const instances = [];
+        
+        elements.forEach((element, index) => {
+            const uniqueClass = `${selector.replace('.', '')}-${index}`;
+            element.classList.add(uniqueClass);
+            
+            const instance = new CardSwiper(`.${uniqueClass}`, options);
+            instances.push(instance);
+        });
+        
+        return instances;
     }
 }
 
