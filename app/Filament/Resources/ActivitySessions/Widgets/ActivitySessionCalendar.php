@@ -41,7 +41,7 @@ class ActivitySessionCalendar extends CalendarWidget
                     return $activitySession->id === $count->activity_session_id && $count->type === ActivityReservationType::NORMAL;
                 })?->count ?? 0;
 
-                $normalText = "{$currentNormalGroupCount}/{$activitySession->normal_group_count}";
+                $normalText = "一般 （{$currentNormalGroupCount} / {$activitySession->normal_group_count}）";
 
                 $currentVipGroupCount = $activityReservationCounts->first(function ($count) use ($activitySession) {
                     return $activitySession->id === $count->activity_session_id && $count->type === ActivityReservationType::VIP;
@@ -50,10 +50,10 @@ class ActivitySessionCalendar extends CalendarWidget
                 $denominator = $activitySession->vip_group_count;
                 $remainingVipGroupCount = $denominator - $currentVipGroupCount;
 
-                $vipText = "{$remainingVipGroupCount}/{$denominator}";
+                $vipText = "vip （{$remainingVipGroupCount} / {$denominator}）";
 
                 return CalendarEvent::make($activitySession)
-                    ->title("{$normalText}\n內部貴賓{$vipText}\n{$activitySession->activity->project->venue_number}")
+                    ->title("{$normalText}\n{$vipText}\n{$activitySession->activity->project->venue_number}")
                     // 設定開始與結束時間 (需為 Carbon 物件或字串)
                     ->start(Carbon::parse($activitySession->date . ' ' . $activitySession->start_time))
                     ->end(Carbon::parse($activitySession->date . ' ' . $activitySession->end_time))
