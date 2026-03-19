@@ -28,6 +28,8 @@ class ActivitySession extends Model
         'group_max',
         // 預約組數上限（vip）
         'group_vip',
+        // 預約組數上限（一般）
+        'group_regular',
         // 啟用狀態
         'is_active',
         // 排序順序
@@ -114,7 +116,7 @@ class ActivitySession extends Model
      */
     public function getNormalGroupCountAttribute(): int
     {
-        return $this->group_max - $this->group_vip;
+        return $this->group_regular;
     }
 
     /**
@@ -125,7 +127,7 @@ class ActivitySession extends Model
      */
     public function canBookNormalGroup(int $currentGroupCount): bool
     {
-        return ($this->group_max - $this->group_vip) > $currentGroupCount;
+        return ($this->group_regular) > $currentGroupCount;
     }
 
     /**

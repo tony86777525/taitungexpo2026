@@ -35,11 +35,15 @@ class ActivitySessionsTable
                     ->getStateUsing(fn ($record) => "{$record->quota_min} ~ {$record->quota_max}")
                     ->sortable(),
                 TextColumn::make('group_max')
-                    ->label('預約上限（組數）')
+                    ->label('預約上限（總人數）')
                     ->numeric()
                     ->sortable(),
                 TextColumn::make('group_vip')
                     ->label('預約上限（vip人數）')
+                    ->numeric()
+                    ->sortable(),
+                TextColumn::make('group_regular')
+                    ->label('預約上限（一般人數）')
                     ->numeric()
                     ->sortable(),
                 IconColumn::make('is_active')

@@ -3,19 +3,17 @@
 namespace App\Filament\Resources\ActivitySessions\Schemas;
 
 use App\Models\Activity;
-use App\Models\Project;
+use Closure;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Placeholder;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\TimePicker;
 use Filament\Forms\Components\Toggle;
-use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Utilities\Get;
 use Filament\Schemas\Components\Utilities\Set;
 use Filament\Schemas\Schema;
-use Filament\Tables\Grouping\Group;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
@@ -78,10 +76,10 @@ class ActivitySessionForm
                             ->required()
                             ->maxWidth('sm'),
                         // 這裡就是集中顯示的動態文字
-                        TextEntry::make('-')
-                            ->label('') // 隱藏 Label 讓它看起來像 helperText
+                        Placeholder::make('time_range_info')
+                            ->label('') // 隱藏 Label
                             ->columnSpanFull()
-                            ->state(function (Get $get) {
+                            ->content(function (Get $get) {
                                 $activityId = $get('activity_id');
                                 if (! $activityId) return '請先選擇活動';
 
@@ -90,7 +88,6 @@ class ActivitySessionForm
 
                                 if (! $activity) return '';
 
-                                // 使用 Html 字串或是直接回傳文字
                                 return "場次可選時間區間：{$activity->display_time_range}";
                             })
                     ]),
@@ -112,9 +109,25 @@ class ActivitySessionForm
                     ->label('預約組數上限')
                     ->required()
                     ->numeric()
-                    ->default(1),
+                    ->default(1)
+                    ->rules([
+                        fn (Get $get): Closure => function (string $attribute, $value, Closure $fail) use ($get) {
+                            $vip = (int) $get('group_vip');
+                            $regular = (int) $get('group_regular');
+                            $max = (int) $value;
+
+                            if ($max !== ($vip + $regular)) {
+                                $fail("預約組數上限必須等於 VIP 組數 ({$vip}) 與一般組數 ({$regular}) 的總和。");
+                            }
+                        },
+                    ]),
                 TextInput::make('group_vip')
                     ->label('預約組數上限（vip）')
+                    ->required()
+                    ->numeric()
+                    ->default(0),
+                TextInput::make('group_regular')
+                    ->label('預約組數上限（一般）')
                     ->required()
                     ->numeric()
                     ->default(1),

@@ -31,6 +31,9 @@ class ActivitySessionInfolist
                 TextEntry::make('group_vip')
                     ->label('預約組數上限（vip）')
                     ->numeric(),
+                TextEntry::make('group_regular')
+                    ->label('預約組數上限（一般）')
+                    ->numeric(),
                 IconEntry::make('is_active')
                     ->label('啟用狀態')
                     ->boolean(),

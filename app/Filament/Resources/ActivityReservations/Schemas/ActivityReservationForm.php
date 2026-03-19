@@ -25,7 +25,7 @@ class ActivityReservationForm
                 'activity.project',
                 'activity.project.zone'
             ])
-            ->where(DB::raw('group_max - group_vip'), '>', 0)
+            ->where('group_regular', '>', 0)
             ->get();
 
         $activityReservationCounts = ActivityReservation::query()
