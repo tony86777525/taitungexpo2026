@@ -65,12 +65,12 @@ $path: '../../images';
 		}
 
 		.swiper-button-prev {
-			left: rem(-46);
+			left: rem(-55);
 			background-image: url('#{$path}/arrow_slide-prev.svg');
 		}
 
 		.swiper-button-next {
-			right: rem(-46);
+			right: rem(-55);
 			background-image: url('#{$path}/arrow_slide-next.svg');
 		}
 	}
@@ -114,17 +114,23 @@ $path: '../../images';
 
 		.date {
 			@include f-unbounded;
-			color: #0A0C00;
+			font-size: rem(18);
+			line-height: calc(26 / 18);
+			margin-bottom: rem(10);
+		}
+
+		.time {
+			@include f-unbounded;
+			font-size: rem(20);
+			line-height: calc(26 / 20);
 			margin-bottom: rem(10);
 		}
 
 		.title {
-			color: #0A0C00;
 			@include line-clamp(2);
 		}
 
 		.desc {
-			color: #0A0C00;
 			margin-top: rem(10);
 			@include line-clamp(2);
 		}
@@ -158,20 +164,43 @@ $path: '../../images';
 		}
 
 		.more {
-			margin-top: rem(12);
 			display: flex;
 		}
 	}
 
 	&--news {
-		.more {
-			justify-content: flex-start;
+		border: rem(1) solid $secondary;
+		
+		.cardItem__image {
+			border-bottom: rem(1) solid $secondary;
+		}
+
+		.cardItem__text {
+			.date {
+				color: $dark;
+			}
+
+			.title {
+				color: $dark;
+			}
+
+			.more {
+				margin-top: rem(40);
+				justify-content: flex-start;
+			}
 		}
 	}
 
 	&--event {
-		.more {
-			justify-content: flex-end;
+
+		.cardItem__text {
+			.date {
+				color: $primary-hover;
+			}
+
+			.title {
+				color: $primary-hover;
+			}
 		}
 	}
 }
