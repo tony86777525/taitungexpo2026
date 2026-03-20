@@ -176,7 +176,11 @@ $path: '../../images';
 			flex-wrap: nowrap;
 			justify-content: space-between;
 			align-items: center;
-			padding: 0;
+			padding: 0 rem(30);
+
+			@include rwd-min(561px) {
+				padding: 0;
+			}
 
 			.action {
 				@include list-reset;

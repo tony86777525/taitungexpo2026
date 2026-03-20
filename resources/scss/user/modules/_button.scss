@@ -79,7 +79,6 @@ $path: '../../images';
                 @include rotate(45);
             }
         }
-
         @include rwd-not-hover {
             &:hover {
                 &:after {
@@ -92,10 +91,15 @@ $path: '../../images';
     &--goSubpage {
         display: flex;
         align-items: center;
-        padding: rem(12) rem(29);
+        padding: rem(9) rem(19);
         border-width: rem(1);
         border-style: solid;
         border-radius: rem(32);
+
+        @include rwd-min(769px) {
+            padding: rem(12) rem(29);
+        }
+
 
         &:after {
             content: '';
@@ -120,11 +124,12 @@ $path: '../../images';
             &:after {
                 background-image: url('#{$path}/arrow_goSubpage-dark.svg');
             }
-            
+
             .btn__text {
                 color: $secondary;
             }
         }
+
 
         &.is-light {
             border-color: $white;
@@ -171,6 +176,4 @@ $path: '../../images';
         outline: none;
         box-shadow: none;
     }
-
-
 }

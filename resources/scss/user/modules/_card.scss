@@ -109,7 +109,7 @@ $path: '../../images';
 	}
 
 	&__text {
-		padding: rem(20);
+		padding: rem(26) rem(30);
 		background-color: $white;
 
 		.date {
@@ -163,14 +163,70 @@ $path: '../../images';
 			}
 		}
 
-		.more {
+        .project {
+            &__name {
+                @include ellipsis;
+
+                span {
+                    color: $secondary;
+                }
+            }
+
+            &__location {
+                margin-top: rem(6);
+                display: flex;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                justify-content: flex-start;
+                align-items: center;
+
+                span {
+                    @include ellipsis;
+                    color: $secondary;
+                }
+
+                &:before {
+                    content: '';
+                    display: block;
+                    flex: 0 0 rem(11);
+                    width: rem(11);
+                    height: rem(14);
+                    background-image: url('#{$path}/deco_location-fill.svg');
+                    background-position: center;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    margin-right: rem(10);
+                }
+            }
+
+            &__nature {
+                margin-top: rem(6);
+                display: inline-flex;
+                max-width: 100%;
+                align-items: center;
+                background-color: $bg-3;
+                padding: rem(4) rem(10);
+                overflow: hidden;
+
+                span {
+                    @include ellipsis;
+                    color: $white;
+                }
+            }
+        }
+
+		.action {
+            @include list-reset;
 			display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            column-gap: rem(20);
 		}
 	}
 
 	&--news {
 		border: rem(1) solid $secondary;
-		
+
 		.cardItem__image {
 			border-bottom: rem(1) solid $secondary;
 		}
@@ -184,23 +240,27 @@ $path: '../../images';
 				color: $dark;
 			}
 
-			.more {
+			.action {
 				margin-top: rem(40);
 				justify-content: flex-start;
 			}
 		}
 	}
 
-	&--event {
+	&--dayOf {
 
 		.cardItem__text {
-			.date {
+			.time {
 				color: $primary-hover;
 			}
 
 			.title {
 				color: $primary-hover;
 			}
+
+            .project {
+                margin-top: rem(126);
+            }
 		}
 	}
 }

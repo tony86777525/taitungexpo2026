@@ -54,6 +54,7 @@ class CardSwiper {
                 disableOnInteraction: false,
                 pauseOnMouseEnter: true,
             },
+            allowTouchMove: false,
             navigation: {
                 nextEl: nextBtn,
                 prevEl: prevBtn,
