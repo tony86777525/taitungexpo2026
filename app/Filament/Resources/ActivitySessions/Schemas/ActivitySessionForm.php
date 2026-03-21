@@ -7,6 +7,7 @@ use Closure;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Placeholder;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\TimePicker;
 use Filament\Forms\Components\Toggle;
@@ -106,7 +107,7 @@ class ActivitySessionForm
                             ->default(40),
                     ]),
                 TextInput::make('group_max')
-                    ->label('預約組數上限')
+                    ->label('可預約總組數 (※一般＋ VIP 預約名額)')
                     ->required()
                     ->numeric()
                     ->default(1)
@@ -122,15 +123,18 @@ class ActivitySessionForm
                         },
                     ]),
                 TextInput::make('group_vip')
-                    ->label('預約組數上限（vip）')
+                    ->label('保留「VIP 預約」組數 (※建議每時段至少保留 1 組)')
                     ->required()
                     ->numeric()
                     ->default(0),
                 TextInput::make('group_regular')
-                    ->label('預約組數上限（一般）')
+                    ->label('開放「一般預約」組數 (※對外開放預約名額)')
                     ->required()
                     ->numeric()
                     ->default(1),
+                Textarea::make('tour_venue_note')
+                    ->label('團體導覽場館備註')
+                    ->required(),
                 Toggle::make('is_active')
                     ->label('啟用狀態')
                     ->required()

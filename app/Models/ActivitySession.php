@@ -24,12 +24,14 @@ class ActivitySession extends Model
         'quota_min',
         // 建議人數上限
         'quota_max',
-        // 預約組數上限
+        // 可預約總組數 (※一般＋ VIP 預約名額)
         'group_max',
-        // 預約組數上限（vip）
+        // 保留「VIP 預約」組數 (※建議每時段至少保留 1 組)
         'group_vip',
-        // 預約組數上限（一般）
+        // 開放「一般預約」組數 (※對外開放預約名額)
         'group_regular',
+        // 團體導覽場館備註
+        'tour_venue_note',
         // 啟用狀態
         'is_active',
         // 排序順序

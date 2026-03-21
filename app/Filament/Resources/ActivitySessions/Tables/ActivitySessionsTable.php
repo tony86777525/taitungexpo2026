@@ -35,15 +35,15 @@ class ActivitySessionsTable
                     ->getStateUsing(fn ($record) => "{$record->quota_min} ~ {$record->quota_max}")
                     ->sortable(),
                 TextColumn::make('group_max')
-                    ->label('預約上限（總人數）')
+                    ->label('可預約總組數 (※一般＋ VIP 預約名額)')
                     ->numeric()
                     ->sortable(),
                 TextColumn::make('group_vip')
-                    ->label('預約上限（vip人數）')
+                    ->label('保留「VIP 預約」組數 (※建議每時段至少保留 1 組)')
                     ->numeric()
                     ->sortable(),
                 TextColumn::make('group_regular')
-                    ->label('預約上限（一般人數）')
+                    ->label('開放「一般預約」組數 (※對外開放預約名額)')
                     ->numeric()
                     ->sortable(),
                 IconColumn::make('is_active')

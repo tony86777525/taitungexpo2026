@@ -36,6 +36,8 @@ class ArticleInfolist
                     ->label('縮略圖')
                     ->disk('public')
                     ->placeholder('-'),
+                TextEntry::make('url')
+                    ->label('最新消息卡片導向連結'),
                 RepeatableEntry::make('contents')
                     ->label('消息內容')
                     ->schema([

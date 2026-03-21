@@ -26,14 +26,18 @@ class ActivitySessionInfolist
                     ->label('建議人數')
                     ->getStateUsing(fn ($record) => "{$record->quota_min} ~ {$record->quota_max}"),
                 TextEntry::make('group_max')
-                    ->label('預約組數上限')
+                    ->label('可預約總組數 (※一般＋ VIP 預約名額)')
                     ->numeric(),
                 TextEntry::make('group_vip')
-                    ->label('預約組數上限（vip）')
+                    ->label('保留「VIP 預約」組數 (※建議每時段至少保留 1 組)')
                     ->numeric(),
                 TextEntry::make('group_regular')
-                    ->label('預約組數上限（一般）')
+                    ->label('開放「一般預約」組數 (※對外開放預約名額)')
                     ->numeric(),
+                TextEntry::make('tour_venue_note')
+                    ->label('團體導覽場館備註')
+                    ->formatStateUsing(fn (string $state) => nl2br($state))
+                    ->html(),
                 IconEntry::make('is_active')
                     ->label('啟用狀態')
                     ->boolean(),

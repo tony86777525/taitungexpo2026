@@ -34,6 +34,8 @@ class Activity extends Model
         'registration_info_en',
         // 縮略圖
         'thumbnail_url',
+        // 活動卡片導向連結
+        'url',
         // 導覽預約資訊（中）
         'tour_info_tw',
         // 導覽預約資訊（英）

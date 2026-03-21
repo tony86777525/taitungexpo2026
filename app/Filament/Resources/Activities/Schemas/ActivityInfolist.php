@@ -41,6 +41,8 @@ class ActivityInfolist
                     ->label('縮略圖')
                     ->disk('public')
                     ->placeholder('-'),
+                TextEntry::make('url')
+                    ->label('活動卡片導向連結'),
                 TextEntry::make('registration_info_tw')
                     ->label('報名資訊（中）')
                     ->state(fn ($record): string => RichContentRenderer::make($record->registration_info_tw ?: '')->toHtml())

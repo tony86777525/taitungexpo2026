@@ -140,6 +140,9 @@ class ActivityForm
                     ])
                     ->placeholder('僅支援 WebP 格式<br>尺寸必須為 580x435 px<br>比例為 4:3')
                     ->required(),
+                TextInput::make('url')
+                    ->label('活動卡片導向連結')
+                    ->url(),
                 RichEditor::make('registration_info_tw')
                     ->label('報名資訊（中）'),
                 RichEditor::make('registration_info_en')

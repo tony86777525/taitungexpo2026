@@ -58,6 +58,9 @@ class ArticleForm
                     ])
                     ->placeholder('僅支援 WebP 格式<br>尺寸必須為 706x706 px以內<br>比例為 1:1')
                     ->required(),
+                TextInput::make('url')
+                    ->label('最新消息卡片導向連結')
+                    ->url(),
                 Repeater::make('contents')
                     ->label('消息內容')
                     ->relationship('contents')

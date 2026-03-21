@@ -17,6 +17,8 @@ class Article extends Model
         'published_at',
         // 縮略圖
         'thumbnail_url',
+        // 最新消息卡片導向連結
+        'url',
         // 啟用狀態
         'is_active',
         // 排序順序
