@@ -1,3 +1,17 @@
+@extends('user.layout.wrapper')
+
+@push('styles')
+    @vite('resources/scss/user/authorization.scss')
+@endpush
+    
+@push('scripts')
+    @vite('resources/js/user/authorization.js')
+    <script src="https://www.youtube.com/iframe_api"></script>
+@endpush
+
+@section('content')
+<main class="main">
+
 <!-- authorization start -->
     <div id="authorization" class="section section--authorization">
         <div class="container">
@@ -30,4 +44,6 @@
             </div>
         </div>
     </div>
-    <!-- authorization end -->
+<!-- authorization end -->
+</main>
+@endsection

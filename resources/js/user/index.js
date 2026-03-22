@@ -1,5 +1,4 @@
 import './modules/navbar';
-// import '../../modules/tab';
 // import '../../modules/modal';
 // import '../../modules/megaModal';
 // import '../../modules/collapse';

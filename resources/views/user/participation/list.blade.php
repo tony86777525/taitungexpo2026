@@ -1,3 +1,16 @@
+@extends('user.layout.wrapper')
+
+@push('styles')
+    @vite('resources/scss/user/participation.scss')
+@endpush
+    
+@push('scripts')
+    @vite('resources/js/user/participation.js')
+@endpush
+
+@section('content')
+<main class="main">
+
 <!-- participation start -->
     <div id="participation" class="section section--participation">
         <div class="container">
@@ -38,3 +51,5 @@
         </div>
     </div>
     <!-- participation end -->
+</main>
+@endsection

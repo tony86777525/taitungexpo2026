@@ -1,4 +1,16 @@
-<!-- vi start -->
+@extends('user.layout.wrapper')
+
+@push('styles')
+    @vite('resources/scss/user/about/vi.scss')
+@endpush
+    
+@push('scripts')
+    @vite('resources/js/user/about/vi.js')
+@endpush
+
+@section('content')
+<main class="main">
+    <!-- vi start -->
     <div id="vi" class="section section--vi">
         <div class="section__title">
             <div class="topic f-section-title wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.3s" data-json-key="title">品牌視覺系統</div>
@@ -59,3 +71,5 @@
         </div>
     </div>
     <!-- vi end -->
+</main>
+@endsection

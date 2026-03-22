@@ -1,4 +1,16 @@
-<!-- preview start -->
+@extends('user.layout.wrapper')
+
+@push('styles')
+    @vite('resources/scss/user/about/statement.scss')
+@endpush
+    
+@push('scripts')
+    @vite('resources/js/user/about/statement.js')
+@endpush
+
+@section('content')
+<main class="main">
+    <!-- preview start -->
     <div id="preview" class="section section--preview">
         <div class="section__content">
             <div class="previewGroup previewGroup--curating">
@@ -169,3 +181,5 @@
         </div>
     </div>
     <!-- preview end -->
+</main>
+@endsection
