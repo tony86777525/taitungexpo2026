@@ -10,7 +10,6 @@
 @endpush
 
 @section('content')
-
 <main class="main">
     <!-- opening start -->
     <section class="opening">
@@ -127,8 +126,10 @@
                             </iframe>
                         </div>
                     </div>
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
+                    <div class="swiper-nav">
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -144,7 +145,7 @@
     </h3>
 
     <!-- news start -->
-    <div id="news" class="section section--news">
+    <section id="news" class="section section--news">
         <div class="section__title wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s">
             <div class="container">
                 <span class="title f-title-primary">最新消息</span>
@@ -157,8 +158,8 @@
         </div>
         <div class="section__content wow fadeIn" data-wow-duration="0.5s" data-wow-delay="1s">
             <div class="container">
-                <div class="cards">
-                    <div class="swiper cardsSwiper js-cardSwiper">
+                <div class="cardsList cardsList--swiper cardsSwiper">
+                    <div class="swiper js-cardSwiper">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
                                 <div class="cardItem cardItem--news">
@@ -247,11 +248,161 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
     <!-- news end -->
 
-    <!-- event start -->
-    <div id="event" class="section section--event">
+    <!-- exhibition start -->
+    <section class="section section--exhibition">
+        <div class="section__title wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s">
+            <div class="container">
+                    <span class="title f-title-primary">展區一覽</span>
+                <ul class="action">
+                    <li>
+                        <a href="#" class="btn btn--goSubpage is-dark"><span class="btn__text">MORE</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="section__content wow fadeIn" data-wow-duration="0.5s" data-wow-delay="1s">
+            <div class="container">
+                <div class="tabGroup tabGroup--select js-tabGroup">
+                    <div class="tabGroup__selector js-tabGroup-selector" role="button" aria-haspopup="listbox" aria-expanded="false">
+                        <div class="tabSelect js-tabSelect">
+                            <span class="tabSelect__text f-h4 js-selectedOption">A 舊站特區</span>
+                        </div>
+                        <ul class="tabOption jc-start js-tabOption" role="listbox">
+                            <li class="tabOption__item js-tabOption-item is-active" data-tab-id="exh-a" role="option"><span class="text">A 舊站特區</span></li>
+                            <li class="tabOption__item js-tabOption-item" data-tab-id="exh-b" role="option"><span class="text">B 美術館區</span></li>
+                            <li class="tabOption__item js-tabOption-item" data-tab-id="exh-c" role="option"><span class="text">C 寶町區</span></li>
+                            <li class="tabOption__item js-tabOption-item" data-tab-id="exh-d" role="option"><span class="text">D 臨海區</span></li>
+                            <li class="tabOption__item js-tabOption-item" data-tab-id="exh-e" role="option"><span class="text">E 就藝會區</span></li>
+                            <li class="tabOption__item js-tabOption-item" data-tab-id="exh-f" role="option"><span class="text">F 衛星展區</span></li>
+                        </ul>
+                    </div>
+                    <div class="tabGroup__content exhMap js-tabGroup-content">
+                        <div class="exhMap__mapImage">
+                            <img src="{{ asset('images/img_exhMap.jpg') }}" alt="" class="image">
+                        </div>
+                        <div class="exhMap__mapList">
+                            <div class="exhibitionList js-tabList">
+                                <div class="exhibitionList__item tabContent js-tabList-item is-active" data-tab-content="exh-a">
+                                    <div class="cardsList cardsList--exhMap">
+                                        <a href="#" class="cardItem cardItem--exhMap">
+                                            <div class="cardItem__venue">
+                                                <span class="text">A1</span>
+                                            </div>
+                                            <div class="cardItem__text">
+                                                <div class="title f-h4">活動名稱</div>
+                                                <div class="project">
+                                                    <div class="project__location"><span class="f-h6">台東鹿野高台</span></div>
+                                                    <div class="project__type"><span class="f-h5">#台東品牌</span></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="cardItem cardItem--exhMap">
+                                            <div class="cardItem__venue">
+                                                <span class="text">A1</span>
+                                            </div>
+                                            <div class="cardItem__text">
+                                                <div class="title f-h4">活動名稱</div>
+                                                <div class="project">
+                                                    <div class="project__location"><span class="f-h6">台東鹿野高台</span></div>
+                                                    <div class="project__type"><span class="f-h5">#台東品牌</span></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="cardItem cardItem--exhMap">
+                                            <div class="cardItem__venue">
+                                                <span class="text">A1</span>
+                                            </div>
+                                            <div class="cardItem__text">
+                                                <div class="title f-h4">活動名稱</div>
+                                                <div class="project">
+                                                    <div class="project__location"><span class="f-h6">台東鹿野高台</span></div>
+                                                    <div class="project__type"><span class="f-h5">#台東品牌</span></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="cardItem cardItem--exhMap">
+                                            <div class="cardItem__venue">
+                                                <span class="text">A1</span>
+                                            </div>
+                                            <div class="cardItem__text">
+                                                <div class="title f-h4">活動名稱</div>
+                                                <div class="project">
+                                                    <div class="project__location"><span class="f-h6">台東鹿野高台</span></div>
+                                                    <div class="project__type"><span class="f-h5">#台東品牌</span></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="cardItem cardItem--exhMap">
+                                            <div class="cardItem__venue">
+                                                <span class="text">B1</span>
+                                            </div>
+                                            <div class="cardItem__text">
+                                                <div class="title f-h4">活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱</div>
+                                                <div class="project">
+                                                    <div class="project__location"><span class="f-h6">台東鹿野高台台東鹿野高台台東鹿野高台台東鹿野高台台東鹿野高台</span></div>
+                                                    <div class="project__type"><span class="f-h5">#台東品牌</span></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="cardItem cardItem--exhMap">
+                                            <div class="cardItem__venue">
+                                                <span class="text">C2</span>
+                                            </div>
+                                            <div class="cardItem__text">
+                                                <div class="title f-h4">活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱</div>
+                                                <div class="project">
+                                                    <div class="project__location"><span class="f-h6">台東鹿野高台台東鹿野高台台東鹿野高台台東鹿野高台台東鹿野高台</span></div>
+                                                    <div class="project__type"><span class="f-h5">#台東品牌台東品牌台東品牌台東品牌台東品牌台東品牌台東品牌台東品牌台東品牌台東品牌</span></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="cardItem cardItem--exhMap">
+                                            <div class="cardItem__venue">
+                                                <span class="text">B1</span>
+                                            </div>
+                                            <div class="cardItem__text">
+                                                <div class="title f-h4">活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱</div>
+                                                <div class="project">
+                                                    <div class="project__location"><span class="f-h6">台東鹿野高台台東鹿野高台台東鹿野高台台東鹿野高台台東鹿野高台</span></div>
+                                                    <div class="project__type"><span class="f-h5">#台東品牌</span></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="cardItem cardItem--exhMap">
+                                            <div class="cardItem__venue">
+                                                <span class="text">A1</span>
+                                            </div>
+                                            <div class="cardItem__text">
+                                                <div class="title f-h4">活動名稱</div>
+                                                <div class="project">
+                                                    <div class="project__location"><span class="f-h6">台東鹿野高台</span></div>
+                                                    <div class="project__type"><span class="f-h5">#台東品牌</span></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="exhibitionList__item tabContent js-tabList-item" data-tab-content="exh-b">B 美術館區 內容</div>
+                                <div class="exhibitionList__item tabContent js-tabList-item" data-tab-content="exh-c">C 寶町區 內容</div>
+                                <div class="exhibitionList__item tabContent js-tabList-item" data-tab-content="exh-d">D 臨海區 內容</div>
+                                <div class="exhibitionList__item tabContent js-tabList-item" data-tab-content="exh-e">E 就藝會區 內容</div>
+                                <div class="exhibitionList__item tabContent js-tabList-item" data-tab-content="exh-f">F 衛星展區 內容</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- exhibition end -->
+
+    <!-- day of start -->
+    <section class="section section--dayOf">
         <div class="section__title wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s">
             <div class="container">
                 <span class="title f-title-primary">今日活動表</span>
@@ -264,8 +415,8 @@
         </div>
         <div class="section__content wow fadeIn" data-wow-duration="0.5s" data-wow-delay="1s">
             <div class="container">
-                <div class="cards">
-                    <div class="swiper cardsSwiper js-cardSwiper">
+                <div class="cardsList cardsList--swiper cardsSwiper">
+                    <div class="swiper js-cardSwiper">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
                                 <div class="cardItem cardItem--dayOf">
@@ -326,8 +477,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
     <!-- event end -->
 </main>
-
 @endsection

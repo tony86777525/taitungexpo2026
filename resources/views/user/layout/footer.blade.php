@@ -15,9 +15,11 @@
             <li class="f-section-h5">主辦單位｜臺東縣政府</li>
             <li class="f-section-h5">執行單位｜玩美文創設計工作室</li>
         </ul>
-        <div class="logo">
-            <a href="https://lihi1.com/qe3iE" target="_blank"><img src="{{ asset('images/logo_ttPush.svg') }}" alt="TTPush踢一下"></a>
-            <a href="https://culture.taitung.gov.tw" target="_blank"><img src="{{ asset('images/logo_taitungCulture.svg') }}" alt="台東藝文平台"></a>
+        <div class="blankLogo">
+            <a href="https://www.facebook.com/taitungexpo2026/" class="logo__item logo__item--icon" target="_blank"><img src="{{ asset('images/logo_sns-fb.svg') }}" alt="2026台東博覽會 Taitung Expo Facebook"></a>
+            <a href="https://www.instagram.com/2026taitungexpo/" class="logo__item logo__item--icon" target="_blank"><img src="{{ asset('images/logo_sns-ig.svg') }}" alt="2026台東博覽會TAITUNG EXPO Instagram"></a>
+            <a href="https://lihi1.com/qe3iE" class="logo__item logo__item--icon" target="_blank"><img src="{{ asset('images/logo_ttPush.svg') }}" alt="TTPush踢一下"></a>
+            <a href="https://culture.taitung.gov.tw" class="logo__item logo__item--text" target="_blank"><img src="{{ asset('images/logo_taitungCulture.svg') }}" alt="台東藝文平台"></a>
         </div>
         <div class="copyright">Copyright &copy; 2025 臺東縣政府. All rights reserved</div>
     </div>

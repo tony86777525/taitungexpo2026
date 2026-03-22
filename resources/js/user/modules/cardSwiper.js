@@ -8,105 +8,105 @@ class CardSwiper {
         this.selector = selector;
         this.swiper = null;
         this.options = options;
-        
         this.debug = options.debug || false;
         
-        this.init();
+        this.element = document.querySelector(this.selector);
+        
+        if (!this.element) {
+            return;
+        }
+
+        this.checkBreakpoint();
+        this.setupResizeListener();
     }
 
     log(...args) {
         if (this.debug) console.log(...args);
     }
 
-    init() {
-        const element = document.querySelector(this.selector);
-        
-        if (!element) {
-            return;
+    _debounce(func, wait = 200) {
+        let timeout;
+        return (...args) => {
+            clearTimeout(timeout);
+            timeout = setTimeout(() => func.apply(this, args), wait);
+        };
+    }
+
+    setupResizeListener() {
+        const debouncedCheck = this._debounce(() => {
+            this.checkBreakpoint();
+        }, 250);
+
+        window.addEventListener('resize', debouncedCheck);
+    }
+
+    checkBreakpoint() {
+        const windowWidth = window.innerWidth;
+        const shouldBeActive = windowWidth >= 768;
+
+        if (shouldBeActive && !this.swiper) {
+            this.init();
+        } else if (!shouldBeActive && this.swiper) {
+            this.destroy();
         }
+    }
 
+    init() {
+        if (this.swiper) return;
 
-        const slides = element.querySelectorAll('.swiper-slide');
+        const element = this.element;
 
         let nextBtn = element.querySelector('.swiper-button-next');
         let prevBtn = element.querySelector('.swiper-button-prev');
         
         if (!nextBtn && element.parentElement) {
-            const parent = element.parentElement;
-            nextBtn = Array.from(parent.children).find(
-                el => el.classList.contains('swiper-button-next')
-            );
+            nextBtn = Array.from(element.parentElement.children).find(el => el.classList.contains('swiper-button-next'));
         }
         if (!prevBtn && element.parentElement) {
-            const parent = element.parentElement;
-            prevBtn = Array.from(parent.children).find(
-                el => el.classList.contains('swiper-button-prev')
-            );
+            prevBtn = Array.from(element.parentElement.children).find(el => el.classList.contains('swiper-button-prev'));
         }
 
         const defaultOptions = {
             modules: [Navigation, Autoplay],
-            loop: true,
-            slidesPerView: 'auto',
+            slidesPerView: 2,
             spaceBetween: 20,
+            loop: true,
             autoplay: {
                 delay: 5000,
                 disableOnInteraction: false,
                 pauseOnMouseEnter: true,
             },
-            allowTouchMove: false,
             navigation: {
                 nextEl: nextBtn,
                 prevEl: prevBtn,
             },
             breakpoints: {
-                0: {
-                    enabled: false,
-                    slidesPerView: 1,
-                },
-                768: {
-                    slidesPerView: 2,
-                },
-                1024: {
-                    slidesPerView: 3,
-                }
+                1024: { slidesPerView: 3 }
             },
-            on: {
-                init: (swiper) => {
-                    const nextBtn = swiper.navigation.nextEl;
-                    const prevBtn = swiper.navigation.prevEl;
-                }
-            }
         };
 
-        const swiperOptions = { ...defaultOptions, ...this.options };
-        
         try {
-            this.swiper = new Swiper(this.selector, swiperOptions);
+            this.swiper = new Swiper(this.element, { ...defaultOptions, ...this.options });
         } catch (error) {
-            console.error(error);
+            console.error(`Swiper 初始化失敗:`, error);
         }
     }
 
     destroy() {
         if (this.swiper) {
             this.swiper.destroy(true, true);
+            this.swiper = null; 
+            this.log(`Swiper 銷毀 [${this.selector}]`);
         }
     }
 
     static initAll(selector = '.js-cardSwiper', options = {}) {
         const elements = document.querySelectorAll(selector);
-        const instances = [];
-        
-        elements.forEach((element, index) => {
-            const uniqueClass = `${selector.replace('.', '')}-${index}`;
-            element.classList.add(uniqueClass);
-            
-            const instance = new CardSwiper(`.${uniqueClass}`, options);
-            instances.push(instance);
+        return Array.from(elements).map((el, index) => {
+            const uniqueClass = `js-swiper-inst-${index}`;
+            el.classList.add(uniqueClass);
+            return new CardSwiper(`.${uniqueClass}`, options);
         });
-        
-        return instances;
     }
 }
 
