@@ -1,0 +1,220 @@
+@use '../variables' as *;
+@use '../mixin' as *;
+
+$path: '../../images';
+
+.btn {
+    padding: 0;
+	border-radius: 0;
+	border: none;
+    line-height: calc(17 / 14);
+    @include box-sizing(border-box);
+    @include transition(all, .3s, ease-in);
+
+    .btn__text {
+        @include transition(all, .3s, ease-in);
+    }
+
+    &--blank {
+        padding: rem(14) rem(30);
+        border-radius: rem(30);
+        background-color: $white;
+
+        .btn__text {
+            display: block;
+            font-size: rem(14);
+            color: $primary-dark;
+            @include transition(opacity, .3s, ease-in-out);
+        }
+
+        @include rwd-min(769px) {
+            .btn__text {
+                font-size: rem(16);
+            }
+        }
+
+        &:hover {
+            .btn__text {
+                opacity: 0.7;
+            }
+        }
+
+        @include rwd-not-hover {
+            &:hover {
+                .btn__text {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    &--goDetail {
+        display: flex;
+        align-items: center;
+        padding-top: rem(10);
+        padding-bottom: rem(4);
+        border-bottom: rem(2) solid $dark;
+
+        &:after {
+            content: '';
+            display: block;
+            width: rem(13);
+            height: rem(13);
+            background-image: url('#{$path}/arrow_goDetail-dark.svg');
+            background-size: rem(13);
+            background-repeat: no-repeat;
+            margin-left: rem(12);
+            @include transition(all, .3s, ease-in-out);
+        }
+
+        .btn__text {
+            @include f-unbounded;
+            font-size: rem(14);
+            color: #0A0C00;
+            font-weight: 600;
+        }
+
+        &:hover {
+            &:after {
+                @include rotate(45);
+            }
+        }
+        @include rwd-not-hover {
+            &:hover {
+                &:after {
+                    @include rotate(0);
+                }
+            }
+        }
+    }
+
+    &--goSubpage {
+        display: flex;
+        align-items: center;
+        padding: rem(9) rem(19);
+        border-width: rem(1);
+        border-style: solid;
+        border-radius: rem(32);
+        background-color: transparent;
+
+        @include rwd-min(769px) {
+            padding: rem(12) rem(29);
+        }
+
+
+        &:after {
+            content: '';
+            display: block;
+            width: rem(13);
+            height: rem(13);
+            background-size: rem(13);
+            background-repeat: no-repeat;
+            margin-left: rem(10);
+            @include transition(all, .3s, ease-in-out);
+        }
+
+        .btn__text {
+            @include f-unbounded;
+            font-size: rem(14);
+            font-weight: 600;
+        }
+
+        &.is-dark {
+            border-color: $secondary;
+
+            &:after {
+                background-image: url('#{$path}/arrow_goSubpage-dark.svg');
+            }
+
+            .btn__text {
+                color: $secondary;
+            }
+
+            &:hover {
+                border-color: $primary-hover;
+                background-color: $primary-hover;
+
+                &:after {
+                    background-image: url('#{$path}/arrow_goSubpage-light.svg');
+                }
+
+                .btn__text {
+                    color: $white;
+                }
+            }
+
+            @include rwd-not-hover {
+                &:hover {
+                    border-color: $secondary;
+                    background-color: transparent;
+
+                    &:after {
+                        background-image: url('#{$path}/arrow_goSubpage-dark.svg');
+                    }
+
+                    .btn__text {
+                        color: $secondary;
+                    }
+                }
+            }
+        }
+
+
+        &.is-light {
+            border-color: $white;
+
+            &:after {
+                background-image: url('#{$path}/arrow_goSubpage-light.svg');
+            }
+
+            .btn__text {
+                color: $white;
+            }
+
+            &:hover {
+                border-color: $primary-hover;
+                background-color: $primary-hover;
+            }
+
+            @include rwd-not-hover {
+                &:hover {
+                    border-color: $white;
+                    background-color: transparent;
+                }
+            }
+        }
+
+        &:hover {
+            &:after {
+                @include rotate(45);
+            }
+        }
+
+        @include rwd-not-hover {
+            &:hover {
+                &:after {
+                    @include rotate(0);
+                }
+            }
+        }
+    }
+
+    &--closePopup {
+        width: rem(30);
+        height: rem(30);
+        background-color: transparent;
+        background-image: url('#{$path}/btn_popup-close.svg');
+        background-size: rem(30);
+        background-repeat: no-repeat;
+
+        &:not(:disabled):not(.disabled).active,
+        &:not(:disabled):not(.disabled):active {
+            background-image: url('#{$path}/btn_popup-close.svg');
+        }
+    }
+
+    &:focus {
+        outline: none;
+        box-shadow: none;
+    }
+}
