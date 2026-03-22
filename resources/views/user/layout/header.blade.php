@@ -25,7 +25,7 @@
                         </div>
                     </div>
                     <ul class="mainMenu">
-                        <li class="mainMenu__item"><a href="#about" class="menuText"><span>最新消息</span></a></li>
+                        <li class="mainMenu__item"><a href="{{ route('user.news.list') }}" class="menuText"><span>{{ __('frontend.articles') }}</span></a></li>
                         <li class="mainMenu__item"><a href="#event" class="menuText"><span>活動行事曆</span></a></li>
                         <li class="mainMenu__item js-submenu-switcher">
                             <div class="menuText"><span>交通資訊</span></div>
@@ -74,7 +74,11 @@
             <!-- 語言切換按鈕 -->
             <div class="l-header__lang">
                 <div class="langSwitcher">
-                    <button id="langToggleBtn" class="lang-btn">EN</button>
+                    @if(app()->getLocale() === \App\Enums\Language::EN->value)
+                        <a id="langToggleBtn" class="lang-btn" href="{{ request()->fullUrlWithoutQuery('lang') }}">TW</a>
+                    @else
+                        <a id="langToggleBtn" class="lang-btn" href="{{ request()->fullUrlWithQuery(['lang' => 'en']) }}">EN</a>
+                    @endif
                 </div>
             </div>
         </div>

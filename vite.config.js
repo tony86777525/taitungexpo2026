@@ -7,7 +7,11 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
     plugins: [
         laravel({
-            input: glob.sync(['resources/scss/**/*.scss', 'resources/js/**/*.js']),
+            input: [
+                'resources/css/app.css',
+                'resources/js/app.js',
+                ...glob.sync(['resources/scss/**/*.scss', 'resources/js/**/*.js'])
+            ],
             refresh: true,
         }),
         tailwindcss(),
@@ -19,7 +23,11 @@ export default defineConfig({
     },
     build: {
         rollupOptions: {
-            input: glob.sync(['resources/scss/**/*.scss', 'resources/js/**/*.js']),
+            input: [
+                'resources/css/app.css',
+                'resources/js/app.js',
+                ...glob.sync(['resources/scss/**/*.scss', 'resources/js/**/*.js'])
+            ],
             output: {
                 entryFileNames: `js/[hash:16].js`,
                 chunkFileNames: `js/[hash:16].js`,
