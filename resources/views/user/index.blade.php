@@ -480,4 +480,5 @@
     </section>
     <!-- event end -->
 </main>
+@include('user.layout.stickyBtns')
 @endsection

@@ -12,9 +12,9 @@
 $path: '../../images';
 
 .main {
-	padding-top: rem(76);
+	padding-top: rem(70);
 
-	@include rwd-min(769px) {
+	@include rwd-min(1280px) {
 		padding-top: rem(88);
 	}
 }

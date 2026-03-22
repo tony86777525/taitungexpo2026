@@ -55,6 +55,7 @@ class CardSwiper {
         if (this.swiper) return;
 
         const element = this.element;
+        const cardCount = element.querySelectorAll('.swiper-slide').length
 
         let nextBtn = element.querySelector('.swiper-button-next');
         let prevBtn = element.querySelector('.swiper-button-prev');
@@ -68,9 +69,9 @@ class CardSwiper {
 
         const defaultOptions = {
             modules: [Navigation, Autoplay],
-            slidesPerView: 2,
+            slidesPerView: 3,
             spaceBetween: 20,
-            loop: true,
+            loop: cardCount>3,
             autoplay: {
                 delay: 5000,
                 disableOnInteraction: false,

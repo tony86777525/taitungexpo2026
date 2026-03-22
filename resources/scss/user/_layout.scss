@@ -24,6 +24,7 @@ $path: '../../images';
     right: 0;
 	z-index: 100;
 	background-color: $white;
+	box-shadow: 0 rem(4) rem(4) rgba(16, 55, 141, 0.08);
 
 	.sticky-wrapper {
 		background-color: $white;
@@ -122,7 +123,11 @@ $path: '../../images';
 			flex-shrink: 0;
     		margin-left: rem(18);
 		}
+
 		.lang-btn {
+			display: flex;
+			align-items: center;
+			justify-content: center;
 			cursor: pointer;
 			border: rem(2) solid $secondary;
 			color: $secondary;

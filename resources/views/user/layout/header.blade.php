@@ -75,7 +75,7 @@
             <div class="l-header__lang">
                 <div class="langSwitcher">
                     @if(app()->getLocale() === \App\Enums\Language::EN->value)
-                        <a id="langToggleBtn" class="lang-btn" href="{{ request()->fullUrlWithoutQuery('lang') }}">TW</a>
+                        <a id="langToggleBtn" class="lang-btn" href="{{ request()->fullUrlWithoutQuery('lang') }}">中文</a>
                     @else
                         <a id="langToggleBtn" class="lang-btn" href="{{ request()->fullUrlWithQuery(['lang' => 'en']) }}">EN</a>
                     @endif

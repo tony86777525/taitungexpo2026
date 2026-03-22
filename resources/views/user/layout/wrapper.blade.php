@@ -16,7 +16,7 @@
 	<meta property="og:type" content="website" />
 	<meta property="og:locale" content="zh_TW" />
 
-	<link rel="icon" href="favicon.ico">
+	{{-- <link rel="icon" href=""> --}}
 	<link rel="shortcut icon" href="" type="image/x-icon">
 	<link href="" rel="apple-touch-icon" sizes="16x16">
 	<link href="" rel="apple-touch-icon" sizes="32x32">
