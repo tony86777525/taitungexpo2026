@@ -37,9 +37,9 @@
                         <li class="mainMenu__item js-submenu-switcher">
                             <div class="menuText"><span>展會資訊</span></div>
                             <ul class="subMenu">
-                                <li class="subMenu__item"><a href="#" class="menuText"><span>主題介紹</span></a></li>
-                                <li class="subMenu__item"><a href="#" class="menuText"><span>建議路線</span></a></li>
-                                <li class="subMenu__item"><a href="#" class="menuText"><span>品牌視覺系統</span></a></li>
+                                <li class="subMenu__item"><a href="{{ route('user.about.themes') }}" class="menuText"><span>主題介紹</span></a></li>
+                                <li class="subMenu__item"><a href="{{ route('user.about.statement') }}" class="menuText"><span>策展論述</span></a></li>
+                                <li class="subMenu__item"><a href="{{ route('user.about.vi') }}" class="menuText"><span>品牌視覺系統</span></a></li>
                                 <li class="subMenu__item"><a href="#" class="menuText"><span>展會概覽</span></a></li>
                             </ul>
                         </li>

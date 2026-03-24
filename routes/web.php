@@ -17,15 +17,15 @@ Route::group([
     // 主題介紹
     Route::get('/about/themes', function () {
         return view('user.about.themes');
-    });
+    })->name('about.themes');
     // 策展論述
     Route::get('/about/statement', function () {
         return view('user.about.statement');
-    });
+    })->name('about.statement');
     // 形象識別系統
     Route::get('/about/vi', function () {
         return view('user.about.vi');
-    });
+    })->name('about.vi');
 
     // 展會概覽（第二批）
     // Route::get('/about/themes', function () {

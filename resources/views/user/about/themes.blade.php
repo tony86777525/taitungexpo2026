@@ -50,12 +50,21 @@
         </div>
         <div class="decoWave decoWave--after"></div>
     </section>
-    <section class="section section--documents">
-        <div class="section__content wow fadeIn" data-wow-duration="0.5s" data-wow-delay="1s">
+    <section class="section section--file">
+        <div class="section__content">
             <div class="container">
-                台東博覽會品牌手冊下載
+                <div class="file">
+                    <div class="file__cover wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s">
+                        <img src="{{ asset('images/about/img_cover-guidebook.jpg') }}" alt="">
+                    </div>
+                    <div class="file__name wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s"><span class="text f-title-primary">台東博覽會品牌手冊下載</span></div>
+                    <ul class="file__action wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s">
+                        <li><a href="#" class="btn btn--blankPage is-dark" target="_blank"><span class="btn__text">DOWNLOAD</span></a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
+    @include('user.layout.marquee')
 </main>
 @endsection
