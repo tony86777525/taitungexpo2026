@@ -25,6 +25,7 @@ $path: '../../../images/about';
 	.section__title {
 		position: relative;
 		text-align: center;
+		background-color: #003893;
 		background-image: url('#{$path}/bg_vi-topic-mb.jpg');
 		background-position: center bottom;
 		background-repeat: no-repeat;
@@ -56,6 +57,11 @@ $path: '../../../images/about';
 			top: 50%;
 			left: 50%;
 			@include translate(-50%, -50%);
+
+			@include rwd-min(769px) {
+				height: 100%;
+				padding-top: rem(100);
+			}
 		}
 
 		.title {
@@ -67,9 +73,24 @@ $path: '../../../images/about';
 				margin-bottom: rem(100);
 			}
 		}
+
+		.coverImg {
+			max-width: rem(165);
+			margin-left: auto;
+			margin-right: auto;
+
+			img {
+				width: 100%;
+			}
+
+			@include rwd-min(769px) {
+				max-width: rem(301);
+			}
+		}
 	}
-	
+
 	.section__content {
+		margin-top: rem(-35);
 		position: relative;
 		padding: 0 0 rem(35);
 		background: #003893;
@@ -79,21 +100,22 @@ $path: '../../../images/about';
 			content: '';
 			display: block;
 			width: 100%;
-			height: rem(35);
+			padding-top: calc((35 / 390) * 100%);
 			background-image: url('#{$path}/deco_curve-mb.svg');
 			background-position: center bottom;
 			background-repeat: no-repeat;
 			position: absolute;
-			background-size: cover;
+			background-size: contain;
 			left: 0;
 			bottom: rem(-1);
 		}
 
 		@include rwd-min(769px) {
+			margin-top: 0;
 			padding: rem(45) 0 rem(180);
 
 			&:after {
-				height: rem(103);
+				padding-top: calc((180 / 1280) * 100%);
 				background-image: url('#{$path}/deco_curve-pc.svg');
 			}
 		}
@@ -115,7 +137,6 @@ $path: '../../../images/about';
 		text-align: center;
 	}
 }
-
 
 .section--video {
 	position: relative;
@@ -318,7 +339,7 @@ $path: '../../../images/about';
 	.waveSvg {
 		width: rem(390);
 		flex: 0 0 rem(390);
-		
+
 		@include rwd-min(769px) {
 			width: rem(1280);
 			flex: 0 0 rem(1280);
