@@ -47,7 +47,6 @@ $path: '../../../images/about';
 
 .section--preview {
 
-
 	.previewGroup {
 
 		.previewGroup__title {
@@ -176,7 +175,7 @@ $path: '../../../images/about';
 			position: relative;
 			z-index: 10;
 			background-color: $white;
-			padding-top: rem(30);
+			padding-top: rem(78);
 			padding-bottom: rem(80);
 
 			&:before {
@@ -184,26 +183,27 @@ $path: '../../../images/about';
 				display: block;
 				position: absolute;
 				left: 0;
-				top: rem(-122);
+				top: rem(-80);
 				width: 100%;
-				height: rem(224);
-				z-index: 0;
-				background-image: url('#{$path}/deco_features-mb.svg');
+				padding-top: calc((158 / 390) * 100%);
+				z-index: 1;
+				background-image: url('#{$path}/deco_curating-mb.svg');
 				background-position: center top;
-				background-repeat: repeat-x;
-				background-size: auto rem(224);
+				background-repeat: no-repeat;
+				background-size: cover;
 			}
 
 			@include rwd-min(769px) {
-				padding-top: rem(0);
+				padding-top: rem(100);
 				padding-bottom: rem(100);
 
 				&:before {
 					background-image: url('#{$path}/deco_curating-pc.svg');
-					height: rem(288);
-					top: rem(-122);
-					background-position-x: right;
-					background-size: auto;
+					padding-top: rem(295);
+					top: rem(-90);
+					background-repeat: repeat-x;
+					background-size: auto rem(295);
+					background-position: left top;
 				}
 			}
 
@@ -526,13 +526,13 @@ $path: '../../../images/about';
 	z-index: 10;
 	@include translate(-50%, -50%);
 	border-radius: rem(10);
-	background-color: rgba(0, 0, 0, .87);
-	box-shadow: rem(2) rem(3) rem(4) rgba(0, 0, 0, .25);
+	background-color: rgba(0, 0, 0, 0.87);
+	box-shadow: rem(2) rem(3) rem(4) rgba(0, 0, 0, 0.25);
 
 	&__close {
 		position: absolute;
 		right: rem(30);
-		top: rem(12);
+		top: rem(30);
 	}
 
 	&__content {
@@ -547,7 +547,7 @@ $path: '../../../images/about';
 
 		@include rwd-min(769px) {
 			flex-direction: row;
-			padding: rem(70) rem(100) rem(40) rem(70);
+			padding: rem(45) rem(90) rem(30) rem(75);
 			max-height: rem(595);
 		}
 
@@ -569,7 +569,7 @@ $path: '../../../images/about';
 			&::-webkit-scrollbar {
 				-webkit-appearance: none;
 				width: rem(10);
-				background-color: #E6E6E6;
+				background-color: #e6e6e6;
 				border-radius: rem(5);
 			}
 
@@ -585,14 +585,13 @@ $path: '../../../images/about';
 
 			.text__desc {
 				color: $white;
-				margin-bottom: rem(40)
+				margin-bottom: rem(40);
 			}
-			
-			.text__tags {
 
+			.text__tags {
 				.title {
 					display: block;
-					color: #AAD5ED;
+					color: #aad5ed;
 					margin-bottom: rem(6);
 				}
 
@@ -606,15 +605,53 @@ $path: '../../../images/about';
 					}
 				}
 			}
-			.text__preview {
-				margin-top: rem(20);
 
-				.previewTitle {
-					color: #AAD5ED;
-					margin-bottom: rem(6);
+			.text__events {
+				@include list-reset;
+				border-top: rem(1) solid $white;
+				padding-top: rem(30);
+				margin-top: rem(30);
+
+				& > li {
+					margin-bottom: rem(12);
 				}
-				.previewContent {
-					color: $white;
+
+				.eventLink {
+					display: flex;
+					flex-wrap: nowrap;
+					flex-direction: row;
+					align-items: center;
+					column-gap: rem(10);
+
+					&__locate {
+						display: flex;
+						flex: 0 0 rem(46);
+						width: rem(46);
+						height: rem(30);
+						justify-content: center;
+						align-items: center;
+						@include f-unbounded;
+						border: rem(1) solid $white;
+						font-size: rem(14);
+						line-height: 1;
+						color: $white;
+						border-radius: rem(4);
+					}
+
+					&__name {
+						color: $white;
+						@include ellipsis;
+					}
+				}
+
+				a.eventLink {
+					&:after {
+						content: '';
+						display: block;
+						width: rem(10);
+						height: rem(10);
+						background-color: $primary;
+					}
 				}
 			}
 		}

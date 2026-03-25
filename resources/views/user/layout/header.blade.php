@@ -10,7 +10,7 @@
                 </div>
             </div>
             <div class="l-header__logo d-flex">
-                <a class="logoItem" href="#" rel="noopener noreferrer">
+                <a class="logoItem" href="{{ route('user.index') }}" rel="noopener noreferrer">
                     <img src="{{ asset('images/logo_expo.svg') }}" alt="2026 Taitung EXPO 台東博覽會">
                 </a>
             </div>

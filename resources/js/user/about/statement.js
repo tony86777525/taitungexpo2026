@@ -35,6 +35,26 @@ class PopupManager {
 
         const tagsHtml = item.tags.map(text => `<li class="f-h5">${text}</li>`).join('');
 
+        let eventsListHtml = '';
+        if (item.events && item.events.length > 0) {
+            const itemsHtml = item.events.map(event => {
+                const isLink = !!event.url;
+                const tag = isLink ? 'a' : 'span';
+                const attr = isLink ? `href="${event.url}" target="_blank"` : '';
+
+                return `
+                    <li>
+                        <${tag} ${attr} class="eventLink">
+                            <span class="eventLink__locate">${event.locate}</span>
+                            <span class="eventLink__name">${event.name}</span>
+                        </${tag}>
+                    </li>
+                `;
+            }).join('');
+
+            eventsListHtml = `<ul class="text__events">${itemsHtml}</ul>`;
+        }
+
         container.innerHTML = `
             <div class="popupBox__content" style="display:block">
                 <div class="flexBox">
@@ -48,20 +68,7 @@ class PopupManager {
                                 ${tagsHtml}
                             </ul>
                         </div>
-                        <ul class="text__events">
-                            <li>
-                                <a href="#" class="eventLink">
-                                    <span class="eventLink__locate">A6</span>
-                                    <span class="eventLink__name">日日南島：緩行的文化旅動計畫</span>
-                                </a>
-                            </li>
-                            <li>
-                                <span class="eventLink">
-                                    <span class="eventLink__locate">H10</span>
-                                    <span class="eventLink__name">台東博覽會限定便當</span>
-                                </span>
-                            </li>
-                        </ul>
+                        ${eventsListHtml}
                     </div>
                 </div>
             </div>
