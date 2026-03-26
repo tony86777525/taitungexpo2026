@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\Language;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -229,5 +230,17 @@ class Project extends Model
         $endTime = Carbon::create($this->project_end_time)->translatedFormat('H:i');
 
         return "{$startTime} ~ {$endTime}";
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getDisplayProjectNameAttribute(): ?string
+    {
+        if (app()->getLocale() === Language::EN->value && !empty($this->project_name_en)) {
+            return $this->project_name_en;
+        }
+
+        return $this->project_name_tw;
     }
 }

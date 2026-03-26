@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\Language;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -140,5 +141,29 @@ class Activity extends Model
         $endTime = Carbon::create($this->activity_end_time)->translatedFormat('H:i');
 
         return "{$startTime} ~ {$endTime}";
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getDisplayTitleAttribute(): ?string
+    {
+        if (app()->getLocale() === Language::EN->value && !empty($this->title_en)) {
+            return $this->title_en;
+        }
+
+        return $this->title_tw;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getDisplayActivityLocationAttribute(): ?string
+    {
+        if (app()->getLocale() === Language::EN->value && !empty($this->activity_location_en)) {
+            return $this->activity_location_en;
+        }
+
+        return $this->activity_location_tw;
     }
 }

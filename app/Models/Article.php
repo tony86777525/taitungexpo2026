@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Enums\Language;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -61,5 +63,41 @@ class Article extends Model
     public function tags(): BelongsToMany
     {
         return $this->belongsToMany(Tag::class, 'article_tags');
+    }
+
+    /**
+     * @return string
+     */
+    public function getDisplayTitleAttribute(): string
+    {
+        if (app()->getLocale() === Language::EN->value && !empty($this->title_en)) {
+            return $this->title_en;
+        }
+
+        return $this->title_tw;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDisplayPublishedAtAttribute(): string
+    {
+        return Carbon::parse($this->published_at)->format('Y.m.d');
+    }
+
+    /**
+     * @return string
+     */
+    public function getDisplayThumbnailAttribute(): string
+    {
+        return asset('storage/' . $this->thumbnail_url);
+    }
+
+    /**
+     * @return string
+     */
+    public function getDisplayUrlAttribute(): string
+    {
+        return $this->url ?: route('user.news.detail', $this->id);
     }
 }

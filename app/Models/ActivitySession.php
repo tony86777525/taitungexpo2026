@@ -4,10 +4,12 @@ namespace App\Models;
 
 use App\Enums\ActivityReservationStatus;
 use App\Enums\ActivityReservationType;
+use App\Enums\Language;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Collection;
 
 class ActivitySession extends Model
 {
@@ -77,41 +79,6 @@ class ActivitySession extends Model
     }
 
     /**
-     * 場次日期
-     *
-     * @return string
-     */
-    public function getDisplayDateAttribute(): string
-    {
-        $date = Carbon::create($this->date)->translatedFormat('n/j D');
-
-        return "{$date}";
-    }
-
-    /**
-     * 場次時段
-     *
-     * @return string
-     */
-    public function getDisplayTimeRangeAttribute(): string
-    {
-        $startTime = Carbon::create($this->start_time)->translatedFormat('H:i');
-        $endTime = Carbon::create($this->end_time)->translatedFormat('H:i');
-
-        return "{$startTime} ~ {$endTime}";
-    }
-
-    /**
-     * 場次資訊
-     *
-     * @return string
-     */
-    public function getDisplayInfoAttribute(): string
-    {
-        return "{$this->display_date} {$this->display_time_range}";
-    }
-
-    /**
      * 可預約普通團數
      *
      * @return integer
@@ -178,5 +145,108 @@ class ActivitySession extends Model
         if ($percentNumber >= 0) {
             return '#52f152';
         }
+
+        return null;
+    }
+
+    /**
+     * 場次日期
+     *
+     * @return string
+     */
+    public function getDisplayDateAttribute(): string
+    {
+        $date = Carbon::create($this->date)->translatedFormat('n/j D');
+
+        return "{$date}";
+    }
+
+    /**
+     * 場次時段
+     *
+     * @return string
+     */
+    public function getDisplayTimeRangeAttribute(): string
+    {
+        $startTime = Carbon::create($this->start_time)->translatedFormat('H:i');
+        $endTime = Carbon::create($this->end_time)->translatedFormat('H:i');
+
+        return "{$startTime}-{$endTime}";
+    }
+
+    /**
+     * 場次資訊
+     *
+     * @return string
+     */
+    public function getDisplayInfoAttribute(): string
+    {
+        return "{$this->display_date} {$this->display_time_range}";
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getDisplayActivityTitleAttribute(): ?string
+    {
+        if ($this->relationLoaded('activity') === false) {
+            return null;
+        }
+
+        return $this->activity->display_title;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getDisplayProjectNameAttribute(): ?string
+    {
+        if ($this->relationLoaded('activity') === false) {
+            return null;
+        }
+
+        $activity = $this->activity;
+
+        if ($activity->relationLoaded('project') === false) {
+            return null;
+        }
+
+        return $activity->project->display_project_name;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getDisplayActivityActivityLocationAttribute(): ?string
+    {
+        if ($this->relationLoaded('activity') === false) {
+            return null;
+        }
+
+        return $this->activity->display_activity_location;
+    }
+
+    /**
+     * @return Collection|null
+     */
+    public function getProjectNatures(): ?Collection
+    {
+        if ($this->relationLoaded('activity') === false) {
+            return null;
+        }
+
+        $activity = $this->activity;
+
+        if ($activity->relationLoaded('project') === false) {
+            return null;
+        }
+
+        $project = $activity->project;
+
+        if ($project->relationLoaded('projectNatures') === false) {
+            return null;
+        }
+
+        return $project->projectNatures;
     }
 }
