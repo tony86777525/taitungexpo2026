@@ -1,7 +1,7 @@
 @use '../variables' as *;
 @use '../mixin' as *;
 
-$path: '../../images';
+$path: '/resources/images';
 
 .cardsList {
 	position: relative;
@@ -9,11 +9,11 @@ $path: '../../images';
     &--default {
         display: flex;
         flex-direction: column;
-        flex-wrap: wrap;
         gap: rem(30);
 
         @include rwd-min(769px) {
             flex-direction: row;
+            flex-wrap: wrap;
 
             .cardItem {
                 flex: 0 0 calc((100% - rem(60)) / 3);

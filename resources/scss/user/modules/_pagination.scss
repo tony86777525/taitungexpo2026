@@ -29,59 +29,70 @@ $pagePath: '/resources/images';
             position: absolute;
             top: 0;
             left: 0;
-            color: $secondary;
         }
 
         &--prev,
         &--next {
             font-size: 0;
             width: rem(38);
+            border-width: rem(1);
+            border-style: solid;
+            border-color: $secondary;
             @include transition(all, .3s, ease-in);
+            border-radius: 50%;
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
         }
 
         &--prev {
-            background-image: url('#{$pagePath}/arrow_slide-prev-w.svg');
+            background-image: url('#{$pagePath}/arrow_pager-prev-w.svg');
 
             &.is-disabled {
-                background-image: url('#{$pagePath}/arrow_slide-prev-g.svg');
+                border-color: #adb5bd;
+                background-image: url('#{$pagePath}/arrow_pager-prev-g.svg');
 
                 &:hover {
-                    background-image: url('#{$pagePath}/arrow_slide-prev-g.svg');
+                    border-color: #adb5bd;
+                    background-image: url('#{$pagePath}/arrow_pager-prev-g.svg');
                 }
             }
 
             &:hover {
-                background-image: url('#{$pagePath}/arrow_slide-prev-b.svg');
+                border-color: #003893;
+                background-image: url('#{$pagePath}/arrow_pager-prev-b.svg');
             }
 
             @include rwd-not-hover {
                 &:hover {
-                    background-image: url('#{$pagePath}/arrow_slide-prev-w.svg');
+                    border-color: $secondary;
+                    background-image: url('#{$pagePath}/arrow_pager-prev-w.svg');
                 }
             }
         }
 
         &--next {
-            background-image: url('#{$pagePath}/arrow_slide-next-w.svg');
+            background-image: url('#{$pagePath}/arrow_pager-next-w.svg');
 
             &.is-disabled {
-                background-image: url('#{$pagePath}/arrow_slide-next-g.svg');
+                border-color: #adb5bd;
+                background-image: url('#{$pagePath}/arrow_pager-next-g.svg');
 
                 &:hover {
-                    background-image: url('#{$pagePath}/arrow_slide-next-g.svg');
+                    border-color: #adb5bd;
+                    background-image: url('#{$pagePath}/arrow_pager-next-g.svg');
                 }
             }
 
             &:hover {
-                background-image: url('#{$pagePath}/arrow_slide-next-b.svg');
+                border-color: #003893;
+                background-image: url('#{$pagePath}/arrow_pager-next-b.svg');
             }
 
             @include rwd-not-hover {
                 &:hover {
-                    background-image: url('#{$pagePath}/arrow_slide-next-w.svg');
+                    border-color: $secondary;
+                    background-image: url('#{$pagePath}/arrow_pager-next-w.svg');
                 }
             }
         }
@@ -94,6 +105,10 @@ $pagePath: '/resources/images';
             width: rem(38);
             background-color: $white;
             @include transition(all, .3s, ease-in);
+
+            .text {
+                color: $secondary;
+            }
 
             &.is-disabled {
                 border-color: $gray-700;
@@ -117,6 +132,16 @@ $pagePath: '/resources/images';
 
                 .text {
                     color: $white;
+                }
+            }
+
+            @include rwd-not-hover {
+                &:hover {
+                    background-color: $white;
+
+                    .text {
+                        color: $secondary;
+                    }
                 }
             }
         }

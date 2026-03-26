@@ -103,7 +103,6 @@ $btnPath: '/resources/images';
             padding: rem(12) rem(29);
         }
 
-
         &:after {
             content: '';
             display: block;
@@ -123,6 +122,7 @@ $btnPath: '/resources/images';
 
         &.is-dark {
             border-color: $secondary;
+            background-color: $white;
 
             &:after {
                 background-image: url('#{$btnPath}/arrow_goSubpage-dark.svg');
@@ -148,7 +148,7 @@ $btnPath: '/resources/images';
             @include rwd-not-hover {
                 &:hover {
                     border-color: $secondary;
-                    background-color: transparent;
+                    background-color: white;
 
                     &:after {
                         background-image: url('#{$btnPath}/arrow_goSubpage-dark.svg');
@@ -160,7 +160,6 @@ $btnPath: '/resources/images';
                 }
             }
         }
-
 
         &.is-light {
             border-color: $white;
