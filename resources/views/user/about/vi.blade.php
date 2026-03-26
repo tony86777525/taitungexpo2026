@@ -12,9 +12,9 @@
 <main class="main">
     {{-- vi start --}}
     <section class="section section--topic">
-        <div class="section__title wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s">
+        <div class="section__title">
             <div class="container">
-                <span class="title f-title-primary">品牌視覺系統</span>
+                <span class="title f-title-primary wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s">品牌視覺系統</span>
                 <div class="coverImg wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s">
                     <img src="{{ asset('images/about/vi/img_logo.svg') }}" alt="台東博覽會 2026 TAITUNG EXPO">
                 </div>

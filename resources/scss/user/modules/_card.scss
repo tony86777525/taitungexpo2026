@@ -180,16 +180,23 @@ $path: '../../images';
             }
 
             &__nature {
-                display: inline-flex;
-                max-width: 100%;
-                align-items: center;
-                background-color: $bg-3;
-                padding: rem(4) rem(10);
-                overflow: hidden;
+                @include list-reset;
+                display: flex;
+                flex-wrap: wrap;
+                gap: rem(10);
 
-                span {
-                    @include ellipsis;
-                    color: $white;
+                li {
+                    display: inline-flex;
+                    max-width: 100%;
+                    align-items: center;
+                    background-color: $bg-3;
+                    padding: rem(4) rem(10);
+                    overflow: hidden;
+                    
+                    span {
+                        @include ellipsis;
+                        color: $white;
+                    }
                 }
             }
 

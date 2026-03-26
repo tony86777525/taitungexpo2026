@@ -22,17 +22,17 @@
             <div class="hero__wrap hero__wrap--layer2">
                 <div class="container">
                     <div class="hero__layer hero__layer--2 wow fadeIn" data-wow-duration="0.3s" data-wow-delay="0.4s">
-                        <img src="{{ asset('images/opening/kv-title.svg') }}" class="image"
+                        <img src="{{ asset('images/index/opening/kv-title.svg') }}" class="image"
                             alt="2026 TAITUNG EXPO 台東博覽會">
                     </div>
                     <div class="hero__layer hero__layer--2 wow fadeIn" data-wow-duration="0.3s" data-wow-delay="0.7s">
-                        <img src="{{ asset('images/opening/kv-hashtag-ch.svg') }}" class="display--zh"
+                        <img src="{{ asset('images/index/opening/kv-hashtag-ch.svg') }}" class="display--zh"
                             alt="#永續發展 #台東藍 #慢經濟 #南島文化">
-                        <img src="{{ asset('images/opening/kv-hashtag-en.svg') }}" class="display--en"
+                        <img src="{{ asset('images/index/opening/kv-hashtag-en.svg') }}" class="display--en"
                             alt="#sustainable development #Taitung blue #slow economy #Austronesian sulture">
                     </div>
                     <div class="hero__layer hero__layer--3 wow fadeIn" data-wow-duration="0.3s" data-wow-delay="1s">
-                        <img src="{{ asset('images/opening/kv-duration.svg') }}" class="display--pc"
+                        <img src="{{ asset('images/index/opening/kv-duration.svg') }}" class="display--pc"
                             alt="07/03 Fri. - 08/20 Thu.">
                     </div>
                 </div>
@@ -52,7 +52,7 @@
     <!-- opening end -->
 
     <!-- media start -->
-    <section id="media" class="section section--media">
+    <section class="section section--media">
         <div class="deco-curve"></div>
         <div class="container">
             <div class="section__content wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.8s">
@@ -137,7 +137,7 @@
     <!-- media end -->
     @include('user.layout.marquee')
     <!-- news start -->
-    <section id="news" class="section section--news">
+    <section class="section section--news">
         <div class="section__title wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s">
             <div class="container">
                 <span class="title f-title-primary">{{ __('frontend.articles') }}</span>
@@ -255,7 +255,6 @@
                 </ul>
             </div>
         </div>
-
         <div class="section__content wow fadeIn" data-wow-duration="0.5s" data-wow-delay="1s">
             <div class="container">
                 <div class="tabGroup tabGroup--select js-tabGroup">
@@ -266,126 +265,196 @@
                         <ul class="tabOption jc-start js-tabOption" role="listbox">
                             <li class="tabOption__item js-tabOption-item is-active" data-tab-id="exh-a" role="option"><span class="text">A 舊站特區</span></li>
                             <li class="tabOption__item js-tabOption-item" data-tab-id="exh-b" role="option"><span class="text">B 美術館區</span></li>
-                            <li class="tabOption__item js-tabOption-item" data-tab-id="exh-c" role="option"><span class="text">C 寶町區</span></li>
-                            <li class="tabOption__item js-tabOption-item" data-tab-id="exh-d" role="option"><span class="text">D 臨海區</span></li>
-                            <li class="tabOption__item js-tabOption-item" data-tab-id="exh-e" role="option"><span class="text">E 就藝會區</span></li>
-                            <li class="tabOption__item js-tabOption-item" data-tab-id="exh-f" role="option"><span class="text">F 衛星展區</span></li>
+                            <li class="tabOption__item js-tabOption-item" data-tab-id="exh-c" role="option"><span class="text">C 美學館區</span></li>
+                            <li class="tabOption__item js-tabOption-item" data-tab-id="exh-d" role="option"><span class="text">D 北町區</span></li>
+                            <li class="tabOption__item js-tabOption-item" data-tab-id="exh-e" role="option"><span class="text">E 總圖區</span></li>
+                            <li class="tabOption__item js-tabOption-item" data-tab-id="exh-f" role="option"><span class="text">F 臨海區</span></li>
+                            <!-- <li class="tabOption__item js-tabOption-item" data-tab-id="exh-g" role="option"><span class="text">G 就藝會區</span></li>
+                            <li class="tabOption__item js-tabOption-item" data-tab-id="exh-h" role="option"><span class="text">H 衛星展區</span></li> -->
                         </ul>
                     </div>
-                    <div class="tabGroup__content exhMap js-tabGroup-content">
-                        <div class="exhMap__mapImage">
-                            <img src="{{ asset('images/img_exhMap.jpg') }}" alt="" class="image">
-                        </div>
-                        <div class="exhMap__mapList">
-                            <div class="exhibitionList js-tabList">
-                                <div class="exhibitionList__item tabContent js-tabList-item is-active" data-tab-content="exh-a">
-                                    <div class="cardsList cardsList--exhMap">
-                                        <a href="#" class="cardItem cardItem--exhMap">
-                                            <div class="cardItem__venue">
-                                                <span class="text">A1</span>
+                    <div class="tabGroup__content js-tabGroup-content">
+                        <div class="tabContent js-tabList-item is-active" data-tab-content="exh-a">
+                            <div class="exhMap">
+                                <div class="exhMap__mapImage">
+                                    <img src="{{ asset('images/index/exhMap/exhMap_a.webp') }}" alt="A 舊站特區" class="image">
+                                </div>
+                                <div class="exhMap__mapList">
+                                    <div class="exhibitionList">
+                                        <div class="exhibitionList__item">
+                                            <div class="cardsList cardsList--exhMap">
+                                                <a href="#" class="cardItem cardItem--exhMap">
+                                                    <div class="cardItem__venue">
+                                                        <span class="text">A1</span>
+                                                    </div>
+                                                    <div class="cardItem__text">
+                                                        <div class="title f-h4">活動名稱</div>
+                                                        <div class="project">
+                                                            <div class="project__location"><span class="f-h6">台東鹿野高台</span></div>
+                                                            <div class="project__type"><span class="f-h5">#台東品牌</span></div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <a href="#" class="cardItem cardItem--exhMap">
+                                                    <div class="cardItem__venue">
+                                                        <span class="text">A1</span>
+                                                    </div>
+                                                    <div class="cardItem__text">
+                                                        <div class="title f-h4">活動名稱</div>
+                                                        <div class="project">
+                                                            <div class="project__location"><span class="f-h6">台東鹿野高台</span></div>
+                                                            <div class="project__type"><span class="f-h5">#台東品牌</span></div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <a href="#" class="cardItem cardItem--exhMap">
+                                                    <div class="cardItem__venue">
+                                                        <span class="text">A1</span>
+                                                    </div>
+                                                    <div class="cardItem__text">
+                                                        <div class="title f-h4">活動名稱</div>
+                                                        <div class="project">
+                                                            <div class="project__location"><span class="f-h6">台東鹿野高台</span></div>
+                                                            <div class="project__type"><span class="f-h5">#台東品牌</span></div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <a href="#" class="cardItem cardItem--exhMap">
+                                                    <div class="cardItem__venue">
+                                                        <span class="text">A1</span>
+                                                    </div>
+                                                    <div class="cardItem__text">
+                                                        <div class="title f-h4">活動名稱</div>
+                                                        <div class="project">
+                                                            <div class="project__location"><span class="f-h6">台東鹿野高台</span></div>
+                                                            <div class="project__type"><span class="f-h5">#台東品牌</span></div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <a href="#" class="cardItem cardItem--exhMap">
+                                                    <div class="cardItem__venue">
+                                                        <span class="text">B1</span>
+                                                    </div>
+                                                    <div class="cardItem__text">
+                                                        <div class="title f-h4">活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱</div>
+                                                        <div class="project">
+                                                            <div class="project__location"><span class="f-h6">台東鹿野高台台東鹿野高台台東鹿野高台台東鹿野高台台東鹿野高台</span></div>
+                                                            <div class="project__type"><span class="f-h5">#台東品牌</span></div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <a href="#" class="cardItem cardItem--exhMap">
+                                                    <div class="cardItem__venue">
+                                                        <span class="text">C2</span>
+                                                    </div>
+                                                    <div class="cardItem__text">
+                                                        <div class="title f-h4">活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱</div>
+                                                        <div class="project">
+                                                            <div class="project__location"><span class="f-h6">台東鹿野高台台東鹿野高台台東鹿野高台台東鹿野高台台東鹿野高台</span></div>
+                                                            <div class="project__type"><span class="f-h5">#台東品牌台東品牌台東品牌台東品牌台東品牌台東品牌台東品牌台東品牌台東品牌台東品牌</span></div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <a href="#" class="cardItem cardItem--exhMap">
+                                                    <div class="cardItem__venue">
+                                                        <span class="text">B1</span>
+                                                    </div>
+                                                    <div class="cardItem__text">
+                                                        <div class="title f-h4">活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱</div>
+                                                        <div class="project">
+                                                            <div class="project__location"><span class="f-h6">台東鹿野高台台東鹿野高台台東鹿野高台台東鹿野高台台東鹿野高台</span></div>
+                                                            <div class="project__type"><span class="f-h5">#台東品牌</span></div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <a href="#" class="cardItem cardItem--exhMap">
+                                                    <div class="cardItem__venue">
+                                                        <span class="text">A1</span>
+                                                    </div>
+                                                    <div class="cardItem__text">
+                                                        <div class="title f-h4">活動名稱</div>
+                                                        <div class="project">
+                                                            <div class="project__location"><span class="f-h6">台東鹿野高台</span></div>
+                                                            <div class="project__type"><span class="f-h5">#台東品牌</span></div>
+                                                        </div>
+                                                    </div>
+                                                </a>
                                             </div>
-                                            <div class="cardItem__text">
-                                                <div class="title f-h4">活動名稱</div>
-                                                <div class="project">
-                                                    <div class="project__location"><span class="f-h6">台東鹿野高台</span></div>
-                                                    <div class="project__type"><span class="f-h5">#台東品牌</span></div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <a href="#" class="cardItem cardItem--exhMap">
-                                            <div class="cardItem__venue">
-                                                <span class="text">A1</span>
-                                            </div>
-                                            <div class="cardItem__text">
-                                                <div class="title f-h4">活動名稱</div>
-                                                <div class="project">
-                                                    <div class="project__location"><span class="f-h6">台東鹿野高台</span></div>
-                                                    <div class="project__type"><span class="f-h5">#台東品牌</span></div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <a href="#" class="cardItem cardItem--exhMap">
-                                            <div class="cardItem__venue">
-                                                <span class="text">A1</span>
-                                            </div>
-                                            <div class="cardItem__text">
-                                                <div class="title f-h4">活動名稱</div>
-                                                <div class="project">
-                                                    <div class="project__location"><span class="f-h6">台東鹿野高台</span></div>
-                                                    <div class="project__type"><span class="f-h5">#台東品牌</span></div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <a href="#" class="cardItem cardItem--exhMap">
-                                            <div class="cardItem__venue">
-                                                <span class="text">A1</span>
-                                            </div>
-                                            <div class="cardItem__text">
-                                                <div class="title f-h4">活動名稱</div>
-                                                <div class="project">
-                                                    <div class="project__location"><span class="f-h6">台東鹿野高台</span></div>
-                                                    <div class="project__type"><span class="f-h5">#台東品牌</span></div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <a href="#" class="cardItem cardItem--exhMap">
-                                            <div class="cardItem__venue">
-                                                <span class="text">B1</span>
-                                            </div>
-                                            <div class="cardItem__text">
-                                                <div class="title f-h4">活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱</div>
-                                                <div class="project">
-                                                    <div class="project__location"><span class="f-h6">台東鹿野高台台東鹿野高台台東鹿野高台台東鹿野高台台東鹿野高台</span></div>
-                                                    <div class="project__type"><span class="f-h5">#台東品牌</span></div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <a href="#" class="cardItem cardItem--exhMap">
-                                            <div class="cardItem__venue">
-                                                <span class="text">C2</span>
-                                            </div>
-                                            <div class="cardItem__text">
-                                                <div class="title f-h4">活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱</div>
-                                                <div class="project">
-                                                    <div class="project__location"><span class="f-h6">台東鹿野高台台東鹿野高台台東鹿野高台台東鹿野高台台東鹿野高台</span></div>
-                                                    <div class="project__type"><span class="f-h5">#台東品牌台東品牌台東品牌台東品牌台東品牌台東品牌台東品牌台東品牌台東品牌台東品牌</span></div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <a href="#" class="cardItem cardItem--exhMap">
-                                            <div class="cardItem__venue">
-                                                <span class="text">B1</span>
-                                            </div>
-                                            <div class="cardItem__text">
-                                                <div class="title f-h4">活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱</div>
-                                                <div class="project">
-                                                    <div class="project__location"><span class="f-h6">台東鹿野高台台東鹿野高台台東鹿野高台台東鹿野高台台東鹿野高台</span></div>
-                                                    <div class="project__type"><span class="f-h5">#台東品牌</span></div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <a href="#" class="cardItem cardItem--exhMap">
-                                            <div class="cardItem__venue">
-                                                <span class="text">A1</span>
-                                            </div>
-                                            <div class="cardItem__text">
-                                                <div class="title f-h4">活動名稱</div>
-                                                <div class="project">
-                                                    <div class="project__location"><span class="f-h6">台東鹿野高台</span></div>
-                                                    <div class="project__type"><span class="f-h5">#台東品牌</span></div>
-                                                </div>
-                                            </div>
-                                        </a>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="exhibitionList__item tabContent js-tabList-item" data-tab-content="exh-b">B 美術館區 內容</div>
-                                <div class="exhibitionList__item tabContent js-tabList-item" data-tab-content="exh-c">C 寶町區 內容</div>
-                                <div class="exhibitionList__item tabContent js-tabList-item" data-tab-content="exh-d">D 臨海區 內容</div>
-                                <div class="exhibitionList__item tabContent js-tabList-item" data-tab-content="exh-e">E 就藝會區 內容</div>
-                                <div class="exhibitionList__item tabContent js-tabList-item" data-tab-content="exh-f">F 衛星展區 內容</div>
                             </div>
                         </div>
-
+                        <div class="tabContent js-tabList-item" data-tab-content="exh-b">
+                            <div class="exhMap">
+                                <div class="exhMap__mapImage">
+                                    <img src="{{ asset('images/index/exhMap/exhMap_b.webp') }}" alt="B 美術館區" class="image">
+                                </div>
+                                <div class="exhMap__mapList">
+                                    B 美術館區 內容
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tabContent js-tabList-item" data-tab-content="exh-c">
+                            <div class="exhMap">
+                                <div class="exhMap__mapImage">
+                                    <img src="{{ asset('images/index/exhMap/exhMap_c.webp') }}" alt="C 美學館區" class="image">
+                                </div>
+                                <div class="exhMap__mapList">
+                                    C 美學館區 內容
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tabContent js-tabList-item" data-tab-content="exh-d">
+                            <div class="exhMap">
+                                <div class="exhMap__mapImage">
+                                    <img src="{{ asset('images/index/exhMap/exhMap_d.webp') }}" alt="D 北町區" class="image">
+                                </div>
+                                <div class="exhMap__mapList">
+                                    D 北町區 內容
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tabContent js-tabList-item" data-tab-content="exh-e">
+                            <div class="exhMap">
+                                <div class="exhMap__mapImage">
+                                    <img src="{{ asset('images/index/exhMap/exhMap_e.webp') }}" alt="E 總圖區" class="image">
+                                </div>
+                                <div class="exhMap__mapList">
+                                    E 總圖區 內容
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tabContent js-tabList-item" data-tab-content="exh-f">
+                            <div class="exhMap">
+                                <div class="exhMap__mapImage">
+                                    <img src="{{ asset('images/index/exhMap/exhMap_f.webp') }}" alt="F 臨海區" class="image">
+                                </div>
+                                <div class="exhMap__mapList">
+                                    F 臨海區 內容
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="tabContent js-tabList-item" data-tab-content="exh-g">
+                            <div class="exhMap">
+                                <div class="exhMap__mapImage">
+                                    <img src="{{ asset('images/index/exhMap/exhMap_g.webp') }}" alt="G 就藝會區" class="image">
+                                </div>
+                                <div class="exhMap__mapList">
+                                    G 就藝會區 內容
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tabContent js-tabList-item" data-tab-content="exh-h">
+                            <div class="exhMap">
+                                <div class="exhMap__mapImage">
+                                    <img src="{{ asset('images/index/exhMap/exhMap_h.webp') }}" alt="H 衛星展區" class="image">
+                                </div>
+                                <div class="exhMap__mapList">
+                                    H 衛星展區 內容
+                                </div>
+                            </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -418,7 +487,13 @@
                                         <div class="project">
                                             <div class="project__name"><span class="f-h5">2026臺灣國際熱氣球嘉年華</span></div>
                                             <div class="project__location"><span class="f-h5">台東鹿野高台</span></div>
-                                            <div class="project__nature"><span class="f-h5">#工作坊</span></div>
+                                            <ul class="project__nature">
+                                                <li><span class="f-h5">#活動性質</span></li>
+                                                <li><span class="f-h5">#展覽</span></li>
+                                                <li><span class="f-h5">#市集</span></li>
+                                                <li><span class="f-h5">#工作坊</span></li>
+                                                <li><span class="f-h5">#工作坊</span></li>
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>
@@ -431,7 +506,9 @@
                                         <div class="project">
                                             <div class="project__name"><span class="f-h5">計畫名稱</span></div>
                                             <div class="project__location"><span class="f-h5">活動地點</span></div>
-                                            <div class="project__nature"><span class="f-h5">#計畫性質</span></div>
+                                            <ul class="project__nature">
+                                                <li><span class="f-h5">#活動性質</span></li>
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>
@@ -444,7 +521,13 @@
                                         <div class="project">
                                             <div class="project__name"><span class="f-h5">2026臺灣國際熱氣球嘉年華2026臺灣國際熱氣球嘉年華2026臺灣國際熱氣球嘉年華2026臺灣國際熱氣球嘉年華2026臺灣國際熱氣球嘉年華2026臺灣國際熱氣球嘉年華2026臺灣國際熱氣球嘉年華</span></div>
                                             <div class="project__location"><span class="f-h5">台東鹿野高台台東鹿野高台台東鹿野高台台東鹿野高台台東鹿野高台台東鹿野高台台東鹿野高台台東鹿野高台</span></div>
-                                            <div class="project__nature"><span class="f-h5">#工作坊工作坊工作坊工作坊工作坊工作坊工作坊工作坊工作坊</span></div>
+                                            <ul class="project__nature">
+                                                <li><span class="f-h5">#活動性質活動性質活動性質活動性質活動性質</span></li>
+                                                <li><span class="f-h5">#展覽</span></li>
+                                                <li><span class="f-h5">#市集</span></li>
+                                                <li><span class="f-h5">#工作坊</span></li>
+                                                <li><span class="f-h5">#工作坊</span></li>
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>
@@ -457,7 +540,13 @@
                                         <div class="project">
                                             <div class="project__name"><span class="f-h5">2026臺灣國際熱氣球嘉年華</span></div>
                                             <div class="project__location"><span class="f-h5">台東鹿野高台</span></div>
-                                            <div class="project__nature"><span class="f-h5">#工作坊</span></div>
+                                            <ul class="project__nature">
+                                                <li><span class="f-h5">#活動性質活動性質活動性質活動性質活動性質</span></li>
+                                                <li><span class="f-h5">#展覽</span></li>
+                                                <li><span class="f-h5">#市集</span></li>
+                                                <li><span class="f-h5">#工作坊</span></li>
+                                                <li><span class="f-h5">#工作坊</span></li>
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>

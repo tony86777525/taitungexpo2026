@@ -202,11 +202,11 @@ $btnPath: '/resources/images';
     }
 
     &--closePopup {
-        width: rem(30);
+        width: rem(31);
         height: rem(30);
         background-color: transparent;
         background-image: url('#{$btnPath}/btn_popup-close.svg');
-        background-size: rem(30);
+        background-size: rem(31) rem(30);
         background-repeat: no-repeat;
 
         &:not(:disabled):not(.disabled).active,

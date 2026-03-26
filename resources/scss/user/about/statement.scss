@@ -575,7 +575,7 @@ $path: '../../../images/about';
 
 			&::-webkit-scrollbar-thumb {
 				border-radius: rem(5);
-				background-color: $primary-hover;
+				background-color: $primary;
 			}
 
 			.text__title {
@@ -598,10 +598,12 @@ $path: '../../../images/about';
 				.tags {
 					@include list-reset;
 					display: flex;
+					flex-wrap: wrap;
 					column-gap: rem(6);
 
 					& > li {
 						color: $white;
+						white-space: nowrap;
 					}
 				}
 			}
@@ -648,9 +650,26 @@ $path: '../../../images/about';
 					&:after {
 						content: '';
 						display: block;
-						width: rem(10);
-						height: rem(10);
-						background-color: $primary;
+						width: rem(13);
+						height: rem(13);
+						background-image: url("#{$path}/arrow_eventLink.svg");
+						background-size: rem(13);
+						background-repeat: no-repeat;
+						margin-left: rem(10);
+						@include transition(all, .3s, ease-in);
+					}
+
+					&:hover {
+						&:after {
+							@include rotate(45);
+						}
+					}
+					@include rwd-not-hover {
+						&:hover {
+							&:after {
+								@include rotate(0);
+							}
+						}
 					}
 				}
 			}
