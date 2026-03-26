@@ -1,0 +1,134 @@
+@use "../variables" as *;
+@use "../mixin" as *;
+
+$pagePath: '/resources/images';
+
+.pagination {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    column-gap: rem(14);
+
+    .pagination__item {
+        position: relative;
+
+        &:before {
+            content: '';
+            display: block;
+            padding-top: 100%;
+        }
+
+        .text {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            color: $secondary;
+        }
+
+        &--prev,
+        &--next {
+            font-size: 0;
+            width: rem(38);
+            @include transition(all, .3s, ease-in);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        &--prev {
+            background-image: url('#{$pagePath}/arrow_slide-prev-w.svg');
+
+            &.is-disabled {
+                background-image: url('#{$pagePath}/arrow_slide-prev-g.svg');
+
+                &:hover {
+                    background-image: url('#{$pagePath}/arrow_slide-prev-g.svg');
+                }
+            }
+
+            &:hover {
+                background-image: url('#{$pagePath}/arrow_slide-prev-b.svg');
+            }
+
+            @include rwd-not-hover {
+                &:hover {
+                    background-image: url('#{$pagePath}/arrow_slide-prev-w.svg');
+                }
+            }
+        }
+
+        &--next {
+            background-image: url('#{$pagePath}/arrow_slide-next-w.svg');
+
+            &.is-disabled {
+                background-image: url('#{$pagePath}/arrow_slide-next-g.svg');
+
+                &:hover {
+                    background-image: url('#{$pagePath}/arrow_slide-next-g.svg');
+                }
+            }
+
+            &:hover {
+                background-image: url('#{$pagePath}/arrow_slide-next-b.svg');
+            }
+
+            @include rwd-not-hover {
+                &:hover {
+                    background-image: url('#{$pagePath}/arrow_slide-next-w.svg');
+                }
+            }
+        }
+
+        &--num {
+            border-width: rem(1);
+            border-style: solid;
+            border-color: $secondary;
+            border-radius: 50%;
+            width: rem(38);
+            background-color: $white;
+            @include transition(all, .3s, ease-in);
+
+            &.is-disabled {
+                border-color: $gray-700;
+
+                .text {
+                    color: $gray-700;
+                }
+            }
+
+            &:hover {
+                background-color: $primary-hover;
+                
+                .text {
+                    text-decoration: none;
+                    color: $white;
+                }
+            }
+
+            &.is-current {
+                background-color: $primary-hover;
+
+                .text {
+                    color: $white;
+                }
+            }
+        }
+
+        &--ellipsis {
+            width: rem(19);
+            height: rem(3);
+            &:before {
+                padding-top: rem(3);
+                width: rem(19);
+                background-image: url('#{$pagePath}/pagination_ellipsis.svg');
+            }
+        }
+    }
+}

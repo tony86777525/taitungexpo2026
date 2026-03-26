@@ -1,13 +1,14 @@
 @use '../variables' as *;
 @use '../mixin' as *;
 
-$path: '../../images';
+$btnPath: '/resources/images';
 
 .btn {
     padding: 0;
 	border-radius: 0;
 	border: none;
     line-height: calc(17 / 14);
+    cursor: pointer;
     @include box-sizing(border-box);
     @include transition(all, .3s, ease-in);
 
@@ -60,7 +61,7 @@ $path: '../../images';
             display: block;
             width: rem(13);
             height: rem(13);
-            background-image: url('#{$path}/arrow_goDetail-dark.svg');
+            background-image: url('#{$btnPath}/arrow_goDetail-dark.svg');
             background-size: rem(13);
             background-repeat: no-repeat;
             margin-left: rem(12);
@@ -88,7 +89,8 @@ $path: '../../images';
         }
     }
 
-    &--goSubpage {
+    &--goSubpage,
+    &--blankPage {
         display: flex;
         align-items: center;
         padding: rem(9) rem(19);
@@ -123,7 +125,7 @@ $path: '../../images';
             border-color: $secondary;
 
             &:after {
-                background-image: url('#{$path}/arrow_goSubpage-dark.svg');
+                background-image: url('#{$btnPath}/arrow_goSubpage-dark.svg');
             }
 
             .btn__text {
@@ -135,7 +137,7 @@ $path: '../../images';
                 background-color: $primary-hover;
 
                 &:after {
-                    background-image: url('#{$path}/arrow_goSubpage-light.svg');
+                    background-image: url('#{$btnPath}/arrow_goSubpage-light.svg');
                 }
 
                 .btn__text {
@@ -149,7 +151,7 @@ $path: '../../images';
                     background-color: transparent;
 
                     &:after {
-                        background-image: url('#{$path}/arrow_goSubpage-dark.svg');
+                        background-image: url('#{$btnPath}/arrow_goSubpage-dark.svg');
                     }
 
                     .btn__text {
@@ -164,7 +166,7 @@ $path: '../../images';
             border-color: $white;
 
             &:after {
-                background-image: url('#{$path}/arrow_goSubpage-light.svg');
+                background-image: url('#{$btnPath}/arrow_goSubpage-light.svg');
             }
 
             .btn__text {
@@ -200,16 +202,16 @@ $path: '../../images';
     }
 
     &--closePopup {
-        width: rem(30);
+        width: rem(31);
         height: rem(30);
         background-color: transparent;
-        background-image: url('#{$path}/btn_popup-close.svg');
-        background-size: rem(30);
+        background-image: url('#{$btnPath}/btn_popup-close.svg');
+        background-size: rem(31) rem(30);
         background-repeat: no-repeat;
 
         &:not(:disabled):not(.disabled).active,
         &:not(:disabled):not(.disabled):active {
-            background-image: url('#{$path}/btn_popup-close.svg');
+            background-image: url('#{$btnPath}/btn_popup-close.svg');
         }
     }
 

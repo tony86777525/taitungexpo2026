@@ -1,5 +1,5 @@
 <!-- footer start -->
-<footer id="contact" class="l-footer">
+<footer class="l-footer">
     <div class="container">
         <div class="logo logo--government">
             <a href="https://www.taitung.gov.tw" target="_blank"><img src="{{ asset('images/logo_taitungGov.svg') }}" alt="臺東縣政府"></a>
