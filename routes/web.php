@@ -1,10 +1,10 @@
 <?php
 
-use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\ActivityReservationController;
+use App\Http\Controllers\User\IndexController;
+use App\Http\Controllers\User\NewsController;
 use Illuminate\Support\Facades\Route;
-
 
 Route::group([
     'as' => 'user.',
@@ -88,9 +88,8 @@ Route::group([
     Route::get('/', [IndexController::class, 'index'])
         ->name('index');
 
-    Route::get('/news/list', function () {
-        return view('user.news.list');
-    })->name('news.list');
+    Route::get('/news/list', [NewsController::class, 'index'])
+        ->name('news.list');
 
     Route::get('/news/detail/{id}/', function () {
         return view('user.news.detail');
@@ -98,21 +97,16 @@ Route::group([
 
     // 主題介紹
     Route::get('/about/themes', function () {
-        return view('user.frontend.about.themes');
+        return view('user.about.themes');
     })->name('about.themes');
     // 策展論述
     Route::get('/about/statement', function () {
-        return view('user.frontend.about.statement');
+        return view('user.about.statement');
     })->name('about.statement');
     // 形象識別系統
     Route::get('/about/vi', function () {
-        return view('user.frontend.about.vi');
+        return view('user.about.vi');
     })->name('about.vi');
-    // 最新消息
-    // 列表
-    Route::get('/news/list', function () {
-        return view('user.frontend.news.list');
-    })->name('news.list');
 });
 
 Route::get('/activity', [ActivityController::class, 'index'])->name('activity.index');

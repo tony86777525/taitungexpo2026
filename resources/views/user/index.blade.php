@@ -399,6 +399,7 @@
                 </div>
             </div>
         </div>
+        @include('user.layout.balloon')
     </section>
     <!-- exhibition end -->
 
