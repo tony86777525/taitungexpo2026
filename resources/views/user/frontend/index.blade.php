@@ -1,4 +1,4 @@
-@extends('user.layout.wrapper')
+@extends('user.frontend.layout.wrapper')
 
 @push('styles')
     @vite('resources/scss/user/index.scss')
@@ -135,52 +135,112 @@
         </div>
     </section>
     <!-- media end -->
-    @include('user.layout.marquee')
+    @include('user.frontend.layout.marquee')
     <!-- news start -->
-    @if($articles->isNotEmpty())
-        <section class="section section--news">
-            <div class="section__title wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s">
-                <div class="container">
-                    <span class="title f-title-primary">{{ __('frontend.articles') }}</span>
-                    <ul class="action">
-                        <li>
-                            <a href="{{ route('user.news.list') }}" class="btn btn--goSubpage is-light"><span class="btn__text">MORE</span></a>
-                        </li>
-                    </ul>
-                </div>
+    <section class="section section--news">
+        <div class="section__title wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s">
+            <div class="container">
+                <span class="title f-title-primary">{{ __('frontend.articles') }}</span>
+                <ul class="action">
+                    <li>
+                        <a href="{{ route('user.frontend.news.list') }}" class="btn btn--goSubpage is-light"><span class="btn__text">MORE</span></a>
+                    </li>
+                </ul>
             </div>
-            <div class="section__content wow fadeIn" data-wow-duration="0.5s" data-wow-delay="1s">
-                <div class="container">
-                    <div class="cardsList cardsList--swiper cardsSwiper">
-                        <div class="swiper js-cardSwiper">
-                            <div class="swiper-wrapper">
-                                @foreach($articles as $article)
-                                    <div class="swiper-slide">
-                                        <div class="cardItem cardItem--news">
-                                            <div class="cardItem__image">
-                                                <img src="{{ $article->display_thumbnail }}" alt="{{ $article->display_title }}">
-                                            </div>
-                                            <div class="cardItem__text">
-                                                <div class="date">{{ $article->display_published_at }}</div>
-                                                <div class="title f-h4">{{ $article->display_title }}</div>
-                                                <ul class="action">
-                                                    <li>
-                                                        <a href="{{ $article->display_url }}" class="btn btn--goDetail" target="_blank"><span class="btn__text">READ MORE</span></a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
+        </div>
+        <div class="section__content wow fadeIn" data-wow-duration="0.5s" data-wow-delay="1s">
+            <div class="container">
+                <div class="cardsList cardsList--swiper cardsSwiper">
+                    <div class="swiper js-cardSwiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="cardItem cardItem--news">
+                                    <div class="cardItem__image">
+                                        <img src="https://picsum.photos/id/232/300/300" alt="news_title">
                                     </div>
-                                @endforeach
+                                    <div class="cardItem__text">
+                                        <div class="date">2026.3.17</div>
+                                        <div class="title f-h4">新聞標題</div>
+                                        <ul class="action">
+                                            <li>
+                                                <a href="#" class="btn btn--goDetail" target="_blank"><span class="btn__text">READ MORE</span></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="cardItem cardItem--news">
+                                    <div class="cardItem__image">
+                                        <img src="https://picsum.photos/id/233/300/300" alt="東博聯名便當特約店家揭曉！擴大徵選69家好店正式成軍">
+                                    </div>
+                                    <div class="cardItem__text">
+                                        <div class="date">2026.3.19</div>
+                                        <div class="title f-h4">東博聯名便當特約店家揭曉！擴大徵選69家好店正式成軍</div>
+                                        <ul class="action">
+                                            <li>
+                                                <a href="#" class="btn btn--goDetail" target="_blank"><span class="btn__text">READ MORE</span></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="cardItem cardItem--news">
+                                    <div class="cardItem__image">
+                                        <img src="https://picsum.photos/id/234/300/300" alt="東博聯名便當特約店家揭曉！擴大徵選69家好店正式成軍">
+                                    </div>
+                                    <div class="cardItem__text">
+                                        <div class="date">2026.3.19</div>
+                                        <div class="title f-h4">東博聯名便當特約店家揭曉！擴大徵選69家好店正式成軍</div>
+                                        <ul class="action">
+                                            <li>
+                                                <a href="#" class="btn btn--goDetail" target="_blank"><span class="btn__text">READ MORE</span></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="cardItem cardItem--news">
+                                    <div class="cardItem__image">
+                                        <img src="https://picsum.photos/id/235/300/300" alt="2026台東博覽會首展《紅土之上棒球特展》3/21松菸開展，重現台東棒球百年榮光">
+                                    </div>
+                                    <div class="cardItem__text">
+                                        <div class="date">2026.2.26</div>
+                                        <div class="title f-h4">2026台東博覽會首展《紅土之上棒球特展》3/21松菸開展，重現台東棒球百年榮光</div>
+                                        <ul class="action">
+                                            <li>
+                                                <a href="#" class="btn btn--goDetail" target="_blank"><span class="btn__text">READ MORE</span></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="cardItem cardItem--news">
+                                    <div class="cardItem__image">
+                                        <img src="https://picsum.photos/id/236/300/300" alt="縣府辦理《冠軍之路》電影欣賞 預告2026台東博覽會：紅土之上棒球特展">
+                                    </div>
+                                    <div class="cardItem__text">
+                                        <div class="date">2026.2.25</div>
+                                        <div class="title f-h4">縣府辦理《冠軍之路》電影欣賞 預告2026台東博覽會：紅土之上棒球特展</div>
+                                        <ul class="action">
+                                            <li>
+                                                <a href="#" class="btn btn--goDetail" target="_blank"><span class="btn__text">READ MORE</span></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="swiper-button-next"></div>
-                        <div class="swiper-button-prev"></div>
                     </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
                 </div>
             </div>
-        </section>
-    @endif
+        </div>
+    </section>
     <!-- news end -->
 
     <!-- exhibition start -->
@@ -414,44 +474,92 @@
                 </ul>
             </div>
         </div>
-        @if($activitySessions->isNotEmpty())
-            <div class="section__content wow fadeIn" data-wow-duration="0.5s" data-wow-delay="1s">
-                <div class="container">
-                    <div class="cardsList cardsList--swiper cardsSwiper">
-                        <div class="swiper js-cardSwiper">
-                            <div class="swiper-wrapper">
-                                @foreach($activitySessions as $activitySession)
-                                    <div class="swiper-slide">
-                                        <div class="cardItem cardItem--dayOf">
-                                            <div class="cardItem__text">
-                                                <div class="time">{{ $activitySession->display_time_range }}</div>
-                                                <div class="title f-h4">{{ $activitySession->display_project_name }}</div>
-                                                <div class="project">
-                                                    <div class="project__name"><span class="f-h5">{{ $activitySession->display_project_name }}</span></div>
-                                                    <div class="project__location"><span class="f-h5">{{ $activitySession->display_activity_activity_location }}</span></div>
-                                                    @if($activitySession->getProjectNatures()->isNotEmpty())
-                                                        <ul class="project__nature">
-                                                            @foreach($activitySession->getProjectNatures() as $nature)
-                                                                <li><span class="f-h5">{{ $nature->display_name }}</span></li>
-                                                            @endforeach
-                                                        </ul>
-                                                    @endif
-                                                </div>
-                                            </div>
+        <div class="section__content wow fadeIn" data-wow-duration="0.5s" data-wow-delay="1s">
+            <div class="container">
+                <div class="cardsList cardsList--swiper cardsSwiper">
+                    <div class="swiper js-cardSwiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="cardItem cardItem--dayOf">
+                                    <div class="cardItem__text">
+                                        <div class="time">10:00-12:00</div>
+                                        <div class="title f-h4">活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱</div>
+                                        <div class="project">
+                                            <div class="project__name"><span class="f-h5">2026臺灣國際熱氣球嘉年華</span></div>
+                                            <div class="project__location"><span class="f-h5">台東鹿野高台</span></div>
+                                            <ul class="project__nature">
+                                                <li><span class="f-h5">#活動性質</span></li>
+                                                <li><span class="f-h5">#展覽</span></li>
+                                                <li><span class="f-h5">#市集</span></li>
+                                                <li><span class="f-h5">#工作坊</span></li>
+                                                <li><span class="f-h5">#工作坊</span></li>
+                                            </ul>
                                         </div>
                                     </div>
-                                @endforeach
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="cardItem cardItem--dayOf">
+                                    <div class="cardItem__text">
+                                        <div class="time">10:00-12:00</div>
+                                        <div class="title f-h4">活動名稱</div>
+                                        <div class="project">
+                                            <div class="project__name"><span class="f-h5">計畫名稱</span></div>
+                                            <div class="project__location"><span class="f-h5">活動地點</span></div>
+                                            <ul class="project__nature">
+                                                <li><span class="f-h5">#活動性質</span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="cardItem cardItem--dayOf">
+                                    <div class="cardItem__text">
+                                        <div class="time">15:00-16:00</div>
+                                        <div class="title f-h4">活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱</div>
+                                        <div class="project">
+                                            <div class="project__name"><span class="f-h5">2026臺灣國際熱氣球嘉年華2026臺灣國際熱氣球嘉年華2026臺灣國際熱氣球嘉年華2026臺灣國際熱氣球嘉年華2026臺灣國際熱氣球嘉年華2026臺灣國際熱氣球嘉年華2026臺灣國際熱氣球嘉年華</span></div>
+                                            <div class="project__location"><span class="f-h5">台東鹿野高台台東鹿野高台台東鹿野高台台東鹿野高台台東鹿野高台台東鹿野高台台東鹿野高台台東鹿野高台</span></div>
+                                            <ul class="project__nature">
+                                                <li><span class="f-h5">#活動性質活動性質活動性質活動性質活動性質</span></li>
+                                                <li><span class="f-h5">#展覽</span></li>
+                                                <li><span class="f-h5">#市集</span></li>
+                                                <li><span class="f-h5">#工作坊</span></li>
+                                                <li><span class="f-h5">#工作坊</span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="cardItem cardItem--dayOf">
+                                    <div class="cardItem__text">
+                                        <div class="time">15:00-16:00</div>
+                                        <div class="title f-h4">活動名稱活動名稱活動名稱活動名稱</div>
+                                        <div class="project">
+                                            <div class="project__name"><span class="f-h5">2026臺灣國際熱氣球嘉年華</span></div>
+                                            <div class="project__location"><span class="f-h5">台東鹿野高台</span></div>
+                                            <ul class="project__nature">
+                                                <li><span class="f-h5">#活動性質活動性質活動性質活動性質活動性質</span></li>
+                                                <li><span class="f-h5">#展覽</span></li>
+                                                <li><span class="f-h5">#市集</span></li>
+                                                <li><span class="f-h5">#工作坊</span></li>
+                                                <li><span class="f-h5">#工作坊</span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="swiper-button-next"></div>
-                        <div class="swiper-button-prev"></div>
                     </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
                 </div>
             </div>
-        @endif
-    <!-- day of start end -->
+        </div>
     </section>
     <!-- event end -->
 </main>
-@include('user.layout.stickyBtns')
+@include('user.frontend.layout.stickyBtns')
 @endsection
