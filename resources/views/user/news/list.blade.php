@@ -21,12 +21,28 @@
             <div class="container">
                 <div class="filterGroup filterGroup--default js-filterGroup">
                     <div class="filterGroup__selector" role="button" aria-haspopup="listbox" aria-expanded="false">
-                        <ul class="filterOption jc-center" role="listbox">
-                            <li class="filterOption__item js-filterOption-item is-active" data-filter-id="all" role="option"><span class="text">全部消息</span></li>
-                            <li class="filterOption__item js-filterOption-item" data-filter-id="official" role="option"><span class="text">官方公告</span></li>
-                            <li class="filterOption__item js-filterOption-item" data-filter-id="event" role="option"><span class="text">活動消息</span></li>
-                            <li class="filterOption__item js-filterOption-item" data-filter-id="media" role="option"><span class="text">媒體新聞</span></li>
-                        </ul>
+                        @if ($tags->isNotEmpty())
+                            <ul class="filterOption jc-center" role="listbox">
+                                <li class="filterOption__item js-filterOption-item @empty($currentTagId) is-active @endif" data-filter-id="all" role="option">
+                                    <a
+                                        @if (!empty($currentTagId))
+                                            href="{{ route('user.news.list') }}"
+                                        @endif
+                                        class="text"
+                                    >全部消息</a>
+                                </li>
+                                @foreach($tags as $tag)
+                                    <li class="filterOption__item js-filterOption-item @if($tag->is_current_tag) is-active @endif" role="option">
+                                        <a
+                                            @if($tag->is_current_tag === false)
+                                                href="{{ $tag->display_url }}"
+                                            @endif
+                                            class="text"
+                                        >{{ $tag->display_name }}</a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        @endif
                     </div>
                     <div class="filterGroup__content js-filterGroup-content">
                         <div class="cardsList cardsList--default">

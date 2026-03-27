@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\Language;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
@@ -29,5 +30,27 @@ class Tag extends Model
     public function articles(): BelongsToMany
     {
         return $this->belongsToMany(Article::class, 'article_tags');
+    }
+
+    public function getDisplayNameAttribute()
+    {
+        if (app()->getLocale() === Language::EN->value && !empty($this->name_en)) {
+            return $this->name_en;
+        }
+
+        return $this->name_tw;
+    }
+
+    public function getDisplayUrlAttribute()
+    {
+        return route('user.news.list', ['tag' => $this->id]);
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getIsCurrentTagAttribute(): bool
+    {
+        return $this->id == request()->query('tag');
     }
 }

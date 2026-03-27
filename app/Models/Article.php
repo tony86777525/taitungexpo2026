@@ -98,6 +98,6 @@ class Article extends Model
      */
     public function getDisplayUrlAttribute(): string
     {
-        return $this->url ?: route('user.news.detail', $this->id);
+        return $this->url ?: route('user.news.detail', ['id' => $this->id]);
     }
 }
