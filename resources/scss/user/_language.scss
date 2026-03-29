@@ -224,15 +224,10 @@ body {
         }
 
         .f-title-primary {
-            font-size: rem(25);
-            letter-spacing: normal;
+            font-size: rem(30);
+            letter-spacing: rem(3);
             line-height: 1.5;
             font-weight: bold;
-
-            @include rwd-min(769px) {
-                font-size: rem(30);
-                letter-spacing: rem(3);
-            }
         }
 
         .f-title-secondary {

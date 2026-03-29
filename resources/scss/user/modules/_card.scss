@@ -22,6 +22,12 @@ $path: '/resources/images';
         }
     }
 
+    &--column {
+        display: flex;
+        flex-direction: column;
+        gap: rem(30);
+    }
+
     &--exhMap {
         .cardItem {
             padding: rem(20) 0;
@@ -47,7 +53,6 @@ $path: '/resources/images';
 		&:before {
 			content: '';
 			display: block;
-			padding-top: 100%;
 		}
 
 		img {
@@ -93,18 +98,10 @@ $path: '/resources/images';
 	&__text {
 		background-color: $white;
 
-		.date {
+		.date,
+        .time {
+            display: block;
 			@include f-unbounded;
-			font-size: rem(18);
-			line-height: calc(26 / 18);
-			margin-bottom: rem(10);
-		}
-
-		.time {
-			@include f-unbounded;
-			font-size: rem(20);
-			line-height: calc(26 / 20);
-			margin-bottom: rem(10);
 		}
 
 		.title {
@@ -227,13 +224,20 @@ $path: '/resources/images';
 
 		.cardItem__image {
 			border-bottom: rem(1) solid $secondary;
+
+            &:before {
+                padding-top: 100%;
+            }
 		}
 
 		.cardItem__text {
             padding: rem(20);
 
 			.date {
+                font-size: rem(18);
+                line-height: calc(26 / 18);
 				color: $dark;
+			    margin-bottom: rem(10);
 			}
 
 			.title {
@@ -255,6 +259,9 @@ $path: '/resources/images';
 
 			.time {
 				color: $primary-hover;
+			    margin-bottom: rem(10);
+                font-size: rem(20);
+                line-height: calc(26 / 20);
 			}
 
 			.title {
@@ -345,6 +352,292 @@ $path: '/resources/images';
                         background-color: transparent;
                         color: $secondary;
                         border-color: $secondary;
+                    }
+                }
+            }
+        }
+    }
+
+    &--event {
+        padding: rem(20);
+        border-width: rem(1);
+        border-style: solid;
+        border-color: $secondary;
+        background-color: $white;
+        border-radius: rem(20);
+        @include transition(all, .3s, ease-in);
+
+        @include rwd-min(769px) {
+            padding: rem(30) rem(40);
+        }
+
+        .cardWrap {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            gap: rem(20);
+
+            .cardItem__image {
+                flex: 0 0 100%;
+            }
+
+            .cardItem__text {
+                flex: 1;
+            }
+
+            @include rwd-min(769px) {
+                gap: 0;
+                flex-wrap: nowrap;
+                flex-direction: row-reverse;
+                justify-content: space-between;
+
+                .cardItem__image {
+                    flex: 0 0 rem(290);
+                }
+
+                .cardItem__text {
+                    flex: 0 0 calc(100% - rem(325));
+                    width: calc(100% - rem(325));
+                }
+            }
+        }
+
+        .cardItem__image {
+            &:before {
+                padding-top: calc((435 / 580) * 100%);
+            }
+        }
+
+        .cardItem__text {
+            position: relative;
+            background-color: transparent;
+
+            * {
+                @include transition(all, .3s, ease-in)
+            }
+
+            .time {
+                color: $primary-hover;
+			    margin-bottom: rem(6);
+                font-size: rem(18);
+                line-height: calc(26 / 18);
+            }
+
+            .title {
+                color: $primary-hover;
+            }
+
+            .type {
+                position: absolute;
+                right: 0;
+                top: 0;
+                border-width: rem(1);
+                border-style: solid;
+                border-color: $secondary;
+                padding: rem(3) rem(11);
+
+                span {
+                    color: $secondary;
+                }
+            }
+
+            .natures,
+            .links {
+                @include list-reset;
+                margin-top: rem(10);
+            }
+
+            .natures {
+                display: flex;
+                flex-wrap: wrap;
+                column-gap: rem(10);
+                row-gap: rem(2);
+
+                & > li {
+                    color: $primary-hover;
+                    
+                    &:first-child {
+                        margin-left: 0;
+                    }
+                }
+            }
+
+            .links {
+                color: $secondary;
+
+                & > li {
+                    position: relative;
+                    padding-left: rem(20);
+                    display: flex;
+                    flex-wrap: nowrap;
+                    align-items: center;
+                    gap: rem(10);
+                    margin-bottom: rem(6);
+
+                    &:before {
+                        content: '';
+                        position: absolute;
+                        left: 0;
+                        top: rem(8);
+                        width: rem(10);
+                        height: rem(10);
+                        border-radius: 50%;
+                        background-color: $yellow;
+                    }
+
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+
+                .map {
+                    color: $secondary;
+
+                    &[href] {
+                        text-decoration: underline;
+                    }
+                }
+
+                .reserveLink {
+                    display: flex;
+                    align-items: center;
+                    gap: rem(6);
+
+                    &:after {
+                        content: '';
+                        display: block;
+                        width: rem(13);
+                        height: rem(13);
+                        background-image: url('#{$path}/arrow_reserve-b.svg');
+                        background-size: rem(13);
+                        background-repeat: no-repeat;
+                        @include transition(all, .3s, ease-in);
+                    }
+
+                    .reserveLink__text {
+                        font-size: rem(16);
+                        line-height: 1.7;
+                        font-weight: 600;
+                        text-decoration: underline;
+                        color: $primary-hover;
+                    }
+                }
+            }
+        }
+
+        .cardItem__action {
+            @include list-reset;
+            display: flex;
+            flex: 0 0 100%;
+            justify-content: flex-start;
+
+            @include rwd-min(769px) {
+                justify-content: flex-end;
+            }
+        }
+
+        .btn--goDetail {
+            &:after {
+                @include transition(all, .3s, ease-in);
+            }
+        }
+
+        &:hover {
+            border-color: $bg-3;
+            background-color: $bg-3;
+
+            .cardItem__text {
+                .time,
+                .title,
+                .natures > li,
+                .links,
+                .type,
+                .map {
+                    color: $white;
+                }
+
+                .type {
+                    border-color: $white;
+
+                    span {
+                        color: $white;
+                    }
+                }
+
+                .reserveLink {
+                    
+                    .reserveLink__text {
+                        color: $white;
+                    }
+
+                    &:after {
+                        background-image: url('#{$path}/arrow_reserve-w.svg');
+                    }
+                }
+            }
+
+            .btn--goDetail {
+                border-bottom-color: $white;
+
+                &:after {
+                    background-image: url('#{$path}/arrow_goDetail-light.svg');
+                }
+
+                .btn__text {
+                    color: $white;
+                }
+            }
+        }
+
+        @include rwd-not-hover {
+            &:hover {
+                border-color: $secondary;
+                background-color: $white;
+
+                .cardItem__text {
+                    .time,
+                    .title,
+                    .natures > li {
+                        color: $primary-hover;
+                    }
+
+                    .type {
+                        border-color: $secondary;
+
+                        span {
+                            color: $secondary;
+                        }
+                    }
+
+                    .links {
+                        color: $secondary;
+
+                        .map {
+                            color: $secondary;
+                        }
+                    }
+
+                    .reserveLink {
+                        
+                        .reserveLink__text {
+                            color: $primary-hover;
+                        }
+
+                        &:after {
+                            background-image: url('#{$path}/arrow_reserve-b.svg');
+                        }
+                    }
+                }
+
+                .btn--goDetail {
+                    border-bottom-color: $white;
+
+                    &:after {
+                        background-image: url('#{$path}/arrow_goDetail-dark.svg');
+                    }
+
+                    .btn__text {
+                        color: $secondary;
                     }
                 }
             }
