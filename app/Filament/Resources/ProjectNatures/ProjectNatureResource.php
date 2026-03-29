@@ -23,7 +23,7 @@ class ProjectNatureResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
-    protected static ?string $recordTitleAttribute = '計畫性質';
+//    protected static ?string $recordTitleAttribute = '計畫性質';
 
     protected static ?string $modelLabel = '計畫性質';
 

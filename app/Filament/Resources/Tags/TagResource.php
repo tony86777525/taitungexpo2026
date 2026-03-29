@@ -23,7 +23,7 @@ class TagResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
-    protected static ?string $recordTitleAttribute = '消息分類';
+//    protected static ?string $recordTitleAttribute = '消息分類';
 
     protected static ?string $modelLabel = '消息分類';
 

@@ -45,6 +45,14 @@ class BrandInfolist
                         TextEntry::make('url_en')->label('連結（英）'),
                     ])
                     ->grid(3),
+                RepeatableEntry::make('tags')
+                    ->label('品牌分類')
+                    ->schema([
+                        TextEntry::make('name_tw')->label('（中）'),
+                        TextEntry::make('name_en')->label('（英）'),
+                    ])
+                    ->columns()
+                    ->placeholder('-'),
                 ImageEntry::make('thumbnail_url')
                     ->label('縮略圖')
                     ->disk('public')

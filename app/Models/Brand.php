@@ -63,4 +63,15 @@ class Brand extends Model
     {
         return $this->hasMany(BrandImage::class);
     }
+
+    /**
+     * Get the tags for the article.
+     * 品牌分類
+     *
+     * @return BelongsToMany
+     */
+    public function tags(): BelongsToMany
+    {
+        return $this->belongsToMany(BrandTag::class, 'brand_tag_relations');
+    }
 }

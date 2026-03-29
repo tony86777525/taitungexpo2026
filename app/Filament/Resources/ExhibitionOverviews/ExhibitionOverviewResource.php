@@ -25,7 +25,7 @@ class ExhibitionOverviewResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
-    protected static ?string $recordTitleAttribute = '官方計畫';
+//    protected static ?string $recordTitleAttribute = '官方計畫';
 
     protected static ?string $modelLabel = '官方計畫';
 

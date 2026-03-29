@@ -5,9 +5,11 @@ namespace App\Filament\Resources\Brands\Schemas;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Schema;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Validation\Rule;
 
 class BrandForm
@@ -52,6 +54,16 @@ class BrandForm
                     ])
                     ->defaultItems(0)
                     ->grid(3),
+                Select::make('tags')
+                    ->label('品牌分類')
+                    ->relationship(
+                        name: 'tags',
+                        titleAttribute: 'name_tw',
+                        modifyQueryUsing: fn (Builder $query) => $query->orderBy('id'),
+                    )
+                    ->multiple()
+                    ->preload()
+                    ->maxItems(1),
                 FileUpload::make('thumbnail_url')
                     ->label('縮略圖')
                     ->disk('public')

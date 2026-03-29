@@ -23,7 +23,7 @@ class ArticleResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
-    protected static ?string $recordTitleAttribute = '最新消息';
+//    protected static ?string $recordTitleAttribute = '最新消息';
 
     protected static ?string $modelLabel = '最新消息';
 

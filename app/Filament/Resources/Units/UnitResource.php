@@ -23,7 +23,7 @@ class UnitResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
-    protected static ?string $recordTitleAttribute = '單位';
+//    protected static ?string $recordTitleAttribute = '單位';
 
     protected static ?string $modelLabel = '單位';
 
