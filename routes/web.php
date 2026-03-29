@@ -49,10 +49,10 @@ Route::group([
         // 活動行事曆
         Route::get('/event/list', function () {
             return view('user.frontend.event.list');
-        });
+        })->name('event.list');
         Route::get('/event/detail', function () {
             return view('user.frontend.event.detail');
-        });
+        })->name('event.detail');
 
         // 交通資訊（第二批）
         // Route::get('/traffic', function () {

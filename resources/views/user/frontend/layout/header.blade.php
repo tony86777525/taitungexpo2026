@@ -26,7 +26,7 @@
                     </div>
                     <ul class="mainMenu">
                         <li class="mainMenu__item mainMenu__item--single"><a href="{{ route('user.frontend.news.list') }}" class="menuText"><span>{{ __('frontend.articles') }}</span></a></li>
-                        <li class="mainMenu__item mainMenu__item--single"><a href="#event" class="menuText"><span>活動行事曆</span></a></li>
+                        <li class="mainMenu__item mainMenu__item--single"><a href="{{ route('user.frontend.event.list') }}" class="menuText"><span>活動行事曆</span></a></li>
                         <li class="mainMenu__item mainMenu__item--parent js-submenu-switcher">
                             <div class="menuText"><span>交通資訊</span></div>
                             <ul class="subMenu">
