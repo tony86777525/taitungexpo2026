@@ -97,6 +97,7 @@ class ExhibitionOverviewForm
                         modifyQueryUsing: fn (Builder $query) => $query->orderBy('id'),
                     )
                     ->multiple()
+                    ->maxItems(5)
                     ->preload(),
                 Select::make('curationNatures')
                     ->label('策展議題')

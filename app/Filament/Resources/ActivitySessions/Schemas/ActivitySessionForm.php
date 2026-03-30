@@ -98,18 +98,21 @@ class ActivitySessionForm
                             ->label('建議人數下限')
                             ->required()
                             ->numeric()
+                            ->minValue(0)
                             ->default(25),
                         TextInput::make('quota_max')
                             ->label('建議人數上限')
                             ->afterOrEqual('quota_min')
                             ->required()
                             ->numeric()
+                            ->minValue(0)
                             ->default(40),
                     ]),
                 TextInput::make('group_max')
                     ->label('可預約總組數 (※一般＋ VIP 預約名額)')
                     ->required()
                     ->numeric()
+                    ->minValue(0)
                     ->default(1)
                     ->rules([
                         fn (Get $get): Closure => function (string $attribute, $value, Closure $fail) use ($get) {
@@ -126,11 +129,13 @@ class ActivitySessionForm
                     ->label('保留「VIP 預約」組數 (※建議每時段至少保留 1 組)')
                     ->required()
                     ->numeric()
+                    ->minValue(0)
                     ->default(0),
                 TextInput::make('group_regular')
                     ->label('開放「一般預約」組數 (※對外開放預約名額)')
                     ->required()
                     ->numeric()
+                    ->minValue(0)
                     ->default(1),
                 Textarea::make('tour_venue_note')
                     ->label('團體導覽場館備註')

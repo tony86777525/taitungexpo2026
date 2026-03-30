@@ -200,8 +200,8 @@ class PrivateSectorProjectForm
                                     ->rules([
                                         Rule::dimensions()
                                             ->maxWidth(968)
-                                            ->maxHeight(726)
-                                            ->ratio(4/3),
+                                            ->maxHeight(726),
+//                                            ->ratio(4/3),
                                     ])
                                     ->validationMessages([
                                         'dimensions' => '圖片尺寸必須為 968x726 px以內 且比例為 4:3。',

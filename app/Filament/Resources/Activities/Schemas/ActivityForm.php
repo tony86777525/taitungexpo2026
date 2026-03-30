@@ -131,8 +131,8 @@ class ActivityForm
                     ->rules([
                         Rule::dimensions()
                             ->width(580)
-                            ->height(435)
-                            ->ratio(4 / 3),
+                            ->height(435),
+//                            ->ratio(4 / 3),
                     ])
                     ->validationMessages([
                         'dimensions' => '圖片尺寸必須為 580x435 px 且比例為 4:3。',
@@ -159,6 +159,7 @@ class ActivityForm
                         modifyQueryUsing: fn (Builder $query) => $query->orderBy('id'),
                     )
                     ->multiple()
+                    ->maxItems(1)
                     ->preload(),
                 Select::make('projectTypes')
                     ->label('計畫類型')
@@ -168,6 +169,7 @@ class ActivityForm
                         modifyQueryUsing: fn (Builder $query) => $query->orderBy('id'),
                     )
                     ->multiple()
+                    ->maxItems(1)
                     ->preload(),
                 Repeater::make('contents')
                     ->label('活動內容')
@@ -222,8 +224,8 @@ class ActivityForm
                                     ->rules([
                                         Rule::dimensions()
                                             ->maxWidth(968)
-                                            ->maxHeight(726)
-                                            ->ratio(4/3),
+                                            ->maxHeight(726),
+//                                            ->ratio(4/3),
                                     ])
                                     ->validationMessages([
                                         'dimensions' => '圖片尺寸必須為 968x726 px以內 且比例為 4:3。',
