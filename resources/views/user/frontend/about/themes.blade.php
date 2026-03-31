@@ -11,7 +11,7 @@
 @section('content')
 <main class="main">
     <section class="section section--topic">
-        <div class="section__title wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s">
+        <div class="section__title is-pageTitle wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s">
             <div class="container">
                 <span class="title f-title-primary">主題介紹</span>
             </div>

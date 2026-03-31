@@ -140,7 +140,7 @@
     <section class="section section--news">
         <div class="section__title wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s">
             <div class="container">
-                <span class="title f-title-primary">{{ __('frontend.articles') }}</span>
+                <span class="title f-title-primary is-pageTitle">{{ __('frontend.articles') }}</span>
                 <ul class="action">
                     <li>
                         <a href="{{ route('user.frontend.news.list') }}" class="btn btn--goSubpage is-light"><span class="btn__text">MORE</span></a>
@@ -247,7 +247,7 @@
     <section class="section section--exhibition">
         <div class="section__title wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s">
             <div class="container">
-                    <span class="title f-title-primary">展區一覽</span>
+                    <span class="title f-title-primary is-pageTitle">展區一覽</span>
                 <ul class="action">
                     <li>
                         <a href="#" class="btn btn--goSubpage is-dark"><span class="btn__text">MORE</span></a>
@@ -467,7 +467,7 @@
     <section class="section section--dayOf">
         <div class="section__title wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s">
             <div class="container">
-                <span class="title f-title-primary">{{ __('frontend.today_activity_list') }}</span>
+                <span class="title f-title-primary is-pageTitle">{{ __('frontend.today_activity_list') }}</span>
                 <ul class="action">
                     <li>
                         <a href="#" class="btn btn--goSubpage is-light"><span class="btn__text">MORE</span></a>

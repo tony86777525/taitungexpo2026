@@ -5,6 +5,10 @@ body {
 	&.lang--en {
 		@include f-poppins;
 
+        .f-unbonded {
+            @include f-unbounded;
+        }
+
 		.display--en {
 			display: block;
 		}
@@ -37,17 +41,38 @@ body {
                     font-size: rem(16);
                 }
             }
-        }
 
+            &--customLink {
+
+                .btn__text {
+
+                    @include f-unbounded;
+                    font-size: rem(14);
+                    font-weight: 600;
+                    line-height: 1.5;
+                    letter-spacing: rem(0.56);
+                    
+                    @include rwd-min(769px) {
+                        letter-spacing: rem(1.4);
+                    }
+                }
+            }
+        }
+        
         .f-title-primary {
             font-size: rem(25);
             line-height: 1.4;
             font-weight: bold;
             letter-spacing: normal;
+            word-break: break-all;
 
             @include rwd-min(769px) {
                 font-size: rem(28);
                 letter-spacing: rem(2.8);
+            }
+
+            &.is-pageTitle {
+                @include f-unbounded;
             }
         }
 
@@ -56,6 +81,7 @@ body {
             line-height: 1.4;
             font-weight: bold;
             letter-spacing: rem(2.2);
+            word-break: break-all;
 
             @include rwd-min(769px) {
                 font-size: rem(24);
@@ -68,6 +94,7 @@ body {
             line-height: 1.35;
             font-weight: 600;
             letter-spacing: rem(1.6);
+            word-break: break-all;
 
             @include rwd-min(769px) {
                 font-size: rem(20);
@@ -81,6 +108,7 @@ body {
             line-height: 1.5;
             font-weight: 300;
             letter-spacing: rem(1.5);
+            word-break: break-all;
 
             @include rwd-min(769px) {
                 font-size: rem(16);
@@ -92,12 +120,14 @@ body {
             font-size: rem(14);
             line-height: 1.35;
             font-weight: 300;
+            word-break: break-all;
         }
 
         .f-h6 {
             font-size: rem(13);
             line-height: 1.35;
             font-weight: 300;
+            word-break: break-all;
         }
 
         .cardItem {
@@ -188,6 +218,25 @@ body {
                 }
             }
         }
+
+        .m-subPage {
+            &__head {
+                .pageLabel {
+
+                    .pageLabel__text {
+                        font-size: rem(14);
+                        line-height: 1.35;
+                        font-weight: 300;
+                    }
+                }
+
+                .team,
+                .newsDate {
+                    line-height: 1.5;
+                    letter-spacing: rem(1.6);
+                }
+            }
+        }
 	}
 
 	&.lang--zh {
@@ -221,19 +270,47 @@ body {
                     line-height: 1;
                 }
             }
+
+            &--customLink {
+
+                .btn__text {
+                    font-size: rem(14);
+                    font-weight: 600;
+                    line-height: 1.42;
+                    letter-spacing: normal;
+                    
+                    @include rwd-min(769px) {
+                        font-size: rem(15);
+                        line-height: 1.46;
+                        letter-spacing: rem(1.5);
+                    }
+                }
+            }
         }
 
         .f-title-primary {
-            font-size: rem(30);
-            letter-spacing: rem(3);
+            font-size: rem(25);
+            letter-spacing: normal;
             line-height: 1.5;
             font-weight: bold;
+            word-break: break-all;
+
+            &.is-pageTitle {
+                font-size: rem(30);
+                letter-spacing: rem(3);
+            }
+
+            @include rwd-min(769px) {
+                font-size: rem(30);
+                letter-spacing: rem(3);
+            }
         }
 
         .f-title-secondary {
             font-size: rem(22);
             line-height: 1.5;
             font-weight: bold;
+            word-break: break-all;
 
             @include rwd-min(769px) {
                 font-size: rem(25);
@@ -244,6 +321,7 @@ body {
             font-size: rem(18);
             line-height: 1.5;
             font-weight: 600;
+            word-break: break-all;
 
             @include rwd-min(769px) {
                 font-size: rem(20);
@@ -257,6 +335,7 @@ body {
             font-weight: 300;
             letter-spacing: rem(1.7);
             text-align: justify;
+            word-break: break-all;
 
             @include rwd-min(769px) {
                 font-size: rem(18);
@@ -268,12 +347,14 @@ body {
             font-size: rem(16);
             line-height: 1.7;
             font-weight: 300;
+            word-break: break-all;
         }
 
         .f-h6 {
             font-size: rem(14);
             line-height: 1.7;
             font-weight: 300;
+            word-break: break-all;
         }
 
         .cardItem {
@@ -364,6 +445,26 @@ body {
                     .tags {
                         flex-wrap: nowrap;
                     }
+                }
+            }
+        }
+
+        .m-subPage {
+            &__head {
+                .pageLabel {
+
+                    .pageLabel__text {
+                        font-size: rem(15);
+                        font-weight: 400;
+                        line-height: 1.2;
+                        letter-spacing: rem(1.5);
+                    }
+                }
+
+                .team,
+                .newsDate {
+                    line-height: 1.7;
+                    letter-spacing: normal;
                 }
             }
         }

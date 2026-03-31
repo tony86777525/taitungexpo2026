@@ -13,7 +13,7 @@
     <section class="section section--calendar">
         <div class="section__title wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s">
             <div class="container">
-                <span class="title f-title-primary">活動行事曆</span>
+                <span class="title f-title-primary is-pageTitle">活動行事曆</span>
             </div>
         </div>
         <div class="section__content wow fadeIn" data-wow-duration="0.5s" data-wow-delay="1s">

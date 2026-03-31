@@ -16,6 +16,7 @@
             <div class="previewGroup previewGroup--curating">
                 <div class="hero">
                     <div class="container">
+                        <span class="previewGroup__topic f-title-primary">策展論述</span>
                         <div class="previewGroup__title wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s">
                             <span class="f-title-primary" data-json-key="curatingTitle1">
                                 <span>10大策展議題 X </span><span>超過13場大型展覽與活動 <i class="break-mb">X</i> </span><br class="display--pc">

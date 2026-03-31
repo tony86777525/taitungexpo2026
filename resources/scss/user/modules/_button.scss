@@ -246,6 +246,46 @@ $btnPath: '/resources/images';
         }
     }
 
+    &--customLink {
+        display: flex;
+        align-items: center;
+        padding: rem(9) rem(19);
+        border: rem(1) solid $secondary;
+        border-radius: rem(44);
+        background-color: transparent;
+
+        @include rwd-min(769px) {
+            padding: rem(12) rem(29);
+        }
+
+        .btn__text {
+            color: $secondary;
+        }
+
+        &:hover {
+            text-decoration: none;
+            border: rem(1) solid $primary-hover;
+            background-color: $primary-hover;
+            box-shadow: 0 rem(4) rem(4) rgba(16, 55, 141, 0.08);
+            
+            .btn__text {
+                color: $white;
+            }
+        }
+
+        @include rwd-not-hover {
+            &:hover {
+                background-color: transparent;
+                border: rem(1) solid $secondary;
+                box-shadow: none;
+                
+                .btn__text {
+                    color: $secondary;
+                }
+            }
+        }
+    }
+
     &--eventDetail {
         display: flex;
         align-items: center;

@@ -14,7 +14,7 @@
     <section id="news" class="section section--news">
         <div class="section__title wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s">
             <div class="container">
-                <span class="title f-title-primary">最新消息</span>
+                <span class="title f-title-primary is-pageTitle">最新消息</span>
             </div>
         </div>
         <div class="section__content wow fadeIn" data-wow-duration="0.5s" data-wow-delay="1s">

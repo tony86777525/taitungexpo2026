@@ -14,7 +14,7 @@
     <section class="section section--topic">
         <div class="section__title">
             <div class="container">
-                <span class="title f-title-primary wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s">品牌視覺系統</span>
+                <span class="title f-title-primary is-pageTitle wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s">品牌視覺系統</span>
                 <div class="coverImg wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s">
                     <img src="{{ asset('images/about/vi/img_logo.svg') }}" alt="台東博覽會 2026 TAITUNG EXPO">
                 </div>
@@ -49,7 +49,7 @@
         <div class="section__content">
             <div class="viGroup viGroup--imagery">
                 <div class="container">
-                    <div class="viGroup__title wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s"><span class="f-title-primary">標誌圖形意象</span></div>
+                    <div class="viGroup__title wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s"><span class="f-title-primary f-unbonded">標誌圖形意象</span></div>
                     <div class="viGroup__content">
                         <div class="imageryGroup wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s">
                             <div class="imageryGroup__title"><span class="f-h4">自然的孕育</span></div>
