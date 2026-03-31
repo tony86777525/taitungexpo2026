@@ -33,7 +33,7 @@ class EventController extends Controller
 
                 $dates = [];
                 foreach ($period as $date) {
-                    $dates[] = $date->format('Y-n-d');
+                    $dates[] = $date->format('Y-n-j');
                 }
 
                 return $dates; // 明確回傳陣列，flatMap 絕對接得到
