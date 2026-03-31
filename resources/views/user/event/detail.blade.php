@@ -3,7 +3,7 @@
 @push('styles')
     @vite('resources/scss/user/event/detail.scss')
 @endpush
-    
+
 @push('scripts')
     @vite('resources/js/user/event/detail.js')
 @endpush

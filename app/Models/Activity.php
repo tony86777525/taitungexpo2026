@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Collection;
 
 class Activity extends Model
 {
@@ -165,5 +166,67 @@ class Activity extends Model
         }
 
         return $this->activity_location_tw;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getDisplayProjectNameAttribute(): ?string
+    {
+        if ($this->relationLoaded('project') === false) {
+            return null;
+        }
+
+        return $this->project->display_project_name;
+    }
+
+    /**
+     * @return Collection|null
+     */
+    public function getProjectTypes(): ?Collection
+    {
+        if ($this->relationLoaded('projectTypes') === false) {
+            return null;
+        }
+
+        return $this->projectTypes;
+    }
+
+    /**
+     * @return Collection|null
+     */
+    public function getNatures(): ?Collection
+    {
+        if ($this->relationLoaded('activityNatures') === false) {
+            return null;
+        }
+
+        return $this->activityNatures;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function canBookAnySession(): bool
+    {
+        if ($this->relationLoaded('activitySessions') === false) {
+            return false;
+        }
+
+        $activitySessions = $this->activitySessions;
+
+        if ($activitySessions->isEmpty()) {
+            return false;
+        }
+
+        foreach ($activitySessions as $session) {
+            $count = $session->activityReservations->count();
+
+            if ($session->canBookNormalGroup($count)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

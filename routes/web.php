@@ -4,6 +4,7 @@ use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\ActivityReservationController;
 use App\Http\Controllers\User\IndexController;
 use App\Http\Controllers\User\NewsController;
+use App\Http\Controllers\User\EventController;
 use Illuminate\Support\Facades\Route;
 
 Route::group([
@@ -94,6 +95,13 @@ Route::group([
     Route::get('/news/detail/{id}/', function () {
         return view('user.news.detail');
     })->name('news.detail');
+
+    Route::get('/event/list', [EventController::class, 'index'])
+        ->name('event.list');
+
+    Route::get('/event/detail/{id}/', function () {
+        return view('user.event.detail');
+    })->name('event.detail');
 
     // 主題介紹
     Route::get('/about/themes', function () {

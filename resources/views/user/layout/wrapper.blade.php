@@ -15,6 +15,7 @@
 	<meta property="og:description" content="2026台東博覽會，以「慢經濟 ✕ 台東藍 ✕ 永續城鄉發展 ✕ 南島文化」為核心價值，誠摯邀請每一位踏上台東的人，放慢腳步，品味這片土地的靜謐與豐盛，找回生活最純粹的節奏。">
 	<meta property="og:type" content="website" />
 	<meta property="og:locale" content="zh_TW" />
+    @yield('metas')
 
 	{{-- <link rel="icon" href=""> --}}
 	<link rel="shortcut icon" href="" type="image/x-icon">
@@ -44,10 +45,10 @@
     @include('user.layout.header')
     {{-- Content --}}
     @yield('content')
-    
+
     {{-- Footer --}}
     @include('user.layout.footer')
-    
+
     <script src="{{ asset('js/wow.js') }}"></script>
     <script>
         new WOW().init();

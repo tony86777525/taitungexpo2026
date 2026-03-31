@@ -25,6 +25,8 @@ class ActivityReservation extends Model
         'participants_quota',
         // 備註（選填）
         'notes',
+        // 未通過原因（選填）
+        'status_notes',
         // 活動預約場次
         'activity_session_id',
         // 狀態 (1:confirmed, 0:cancelled, 2:pending)

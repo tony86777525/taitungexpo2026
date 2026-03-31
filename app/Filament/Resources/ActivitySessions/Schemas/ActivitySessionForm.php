@@ -140,6 +140,15 @@ class ActivitySessionForm
                 Textarea::make('tour_venue_note')
                     ->label('團體導覽場館備註')
                     ->required(),
+                TextInput::make('contact_name')
+                    ->label('單位/聯絡人')
+                    ->required(),
+                TextInput::make('contact_phone')
+                    ->label('聯絡電話')
+                    ->required(),
+                TextInput::make('contact_email')
+                    ->label('聯絡信箱')
+                    ->required(),
                 Toggle::make('is_active')
                     ->label('啟用狀態')
                     ->required()

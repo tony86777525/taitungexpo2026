@@ -7,6 +7,12 @@
     <h1>團體導覽申請已通過</h1>
     <p>親愛的 {{ $reservation->contact_name }} 您好：</p>
     <p>您所申請的 2026 台東博覽會團體導覽（預約編號：{{ $reservation->id }}），已審核通過。</p>
+
+    @if($reservation->status_notes)
+        <p><strong>審核備註：</strong></p>
+        <p>{{ $reservation->status_notes }}</p>
+    @endif
+
     <p>感謝您的預約！</p>
 </body>
 </html>

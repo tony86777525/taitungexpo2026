@@ -426,7 +426,7 @@
                                         <div class="cardItem cardItem--dayOf">
                                             <div class="cardItem__text">
                                                 <div class="time">{{ $activitySession->display_time_range }}</div>
-                                                <div class="title f-h4">{{ $activitySession->display_project_name }}</div>
+                                                <div class="title f-h4">{{ $activitySession->display_activity_title_name }}</div>
                                                 <div class="project">
                                                     <div class="project__name"><span class="f-h5">{{ $activitySession->display_project_name }}</span></div>
                                                     <div class="project__location"><span class="f-h5">{{ $activitySession->display_activity_activity_location }}</span></div>

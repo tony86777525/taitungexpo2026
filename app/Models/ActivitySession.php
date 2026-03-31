@@ -34,6 +34,12 @@ class ActivitySession extends Model
         'group_regular',
         // 團體導覽場館備註
         'tour_venue_note',
+        // 單位/聯絡人
+        'contact_name',
+        // 聯絡電話
+        'contact_phone',
+        // 聯絡信箱
+        'contact_email',
         // 啟用狀態
         'is_active',
         // 排序順序

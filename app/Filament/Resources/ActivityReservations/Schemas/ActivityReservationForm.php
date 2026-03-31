@@ -110,6 +110,8 @@ class ActivityReservationForm
                     ->required(),
                 Textarea::make('notes')
                     ->label('備註（選填）'),
+                Textarea::make('status_notes')
+                    ->label('未通過原因（選填）'),
                 Select::make('status')
                     ->label('狀態')
                     ->options([

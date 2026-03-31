@@ -30,6 +30,10 @@ class ActivityReservationInfolist
                     ->label('備註（選填）')
                     ->formatStateUsing(fn (string $state) => nl2br($state))
                     ->html(),
+                TextEntry::make('status_notes')
+                    ->label('未通過原因（選填）')
+                    ->formatStateUsing(fn (string $state) => nl2br($state))
+                    ->html(),
                 TextEntry::make('display_status')
                     ->label('狀態')
                     ->placeholder('-'),
