@@ -32,8 +32,19 @@ class WeeklyCalendar {
         this._initSwiper();
         this._initDatepicker();
         this._setupEventListeners();
-        
-        this.syncToSwiper(this.currentFocusDate);
+
+        const today = new Date();
+        const firstMonday = this._getMonday(this.options.startLimit);
+        const timeDiff = today.getTime() - firstMonday.getTime();
+        const daysDiff = Math.floor(timeDiff / (1000 * 3600 * 24));
+        const weekIndex = Math.floor(daysDiff / 7);
+
+        if (this.swiper) {
+            this.swiper.slideTo(weekIndex, 0); 
+        }
+
+        this.element.querySelectorAll('.dateBtn').forEach(el => el.classList.remove('is-selected'));
+        $('[data-toggle="datepicker"]').datepicker('setDate', null);
     }
 
     _getMonday(d) {
