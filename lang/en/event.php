@@ -5,9 +5,10 @@ return [
     'top' => [
         'search-text1' => 'Quick Date Search',
         'search-text2-start' => 'For information on ongoing exhibitions, please visit the',
-        'search-text2-end' => 'page',
+        'search-text2-end' => 'page.',
         'link-text' => 'Exhibition Overview'
     ],
+    'search-hint' => 'No events scheduled for today.',
     'cards' => [
         'map' => 'Open in Google Map',
         'participate' => [

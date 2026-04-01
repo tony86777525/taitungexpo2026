@@ -14,7 +14,7 @@
     <section class="section section--topic">
         <div class="section__title">
             <div class="container">
-                <span class="title f-title-primary is-pageTitle wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s">品牌視覺系統</span>
+                <span class="title f-title-primary is-pageTitle wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s">{{ __('about.vi.page-title') }}</span>
                 <div class="coverImg wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s">
                     <img src="{{ asset('images/about/vi/img_logo.svg') }}" alt="台東博覽會 2026 TAITUNG EXPO">
                 </div>
@@ -29,14 +29,14 @@
                                 <div class="topic f-title-primary">Amazing Taitung</div>
                             </div>
                             <div class="introText__paragraph">
-                                <p class="f-p">臺灣國際熱氣球嘉年華已成為台東一年一度的重要盛事，熱氣球更象徵這片土地的獨特魅力。從充氣、燃燒器點燃，到氣囊漸漸成形並緩緩升空，這個過程宛如台東的成長軌跡——醞釀、蓄勢，最終自信綻放，翱翔天際，邁向無限可能。</p>
-                                <p class="f-p">台東博覽會標誌設計以此意象為核心，運用具代表性的「台東藍」作為主色調，並結合熱氣球升起的動態美感，巧妙構築出一個視覺化的驚嘆號。不僅展現台東的活力與蓬勃發展，更象徵這片土地所蘊藏的無限驚喜——壯麗的自然景觀、深厚的人文底蘊、獨特的文化風貌，等待人們探索、感受與共鳴。</p>
+                                <p class="f-p">{{ __('about.vi.intro.paragraph1') }}</p>
+                                <p class="f-p">{{ __('about.vi.intro.paragraph2') }}</p>
                             </div>
                         </div>
                     </div>
                     <div class="introImage wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s">
-                        <img src="{{ asset('images/about/vi/img_element-pc-zh.svg') }}" class="display--pc">
-                        <img src="{{ asset('images/about/vi/img_element-mb-zh.svg') }}" class="display--mb">
+                        <img src="{{ asset(__('about.vi.intro.pcImg')) }}" class="display--pc">
+                        <img src="{{ asset(__('about.vi.intro.pcImg')) }}" class="display--mb">
                     </div>
                 </div>
             </div>
@@ -49,27 +49,27 @@
         <div class="section__content">
             <div class="viGroup viGroup--imagery">
                 <div class="container">
-                    <div class="viGroup__title wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s"><span class="f-title-primary f-unbonded">標誌圖形意象</span></div>
+                    <div class="viGroup__title wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s"><span class="f-title-primary f-unbonded">{{ __('about.vi.vi-image.title') }}</span></div>
                     <div class="viGroup__content">
                         <div class="imageryGroup wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s">
-                            <div class="imageryGroup__title"><span class="f-h4">自然的孕育</span></div>
+                            <div class="imageryGroup__title"><span class="f-h4">{{ __('about.vi.vi-image.nature.title') }}</span></div>
                             <div class="imageryGroup__image">
-                                <img src="{{ asset('images/about/vi/img_nature-pc-zh.svg') }}" alt="自然的孕育" class="display--pc">
-                                <img src="{{ asset('images/about/vi/img_nature-mb-zh.svg') }}" alt="自然的孕育" class="display--mb">
+                                <img src="{{ asset(__('about.vi.vi-image.nature.pcImg')) }}" alt="自然的孕育" class="display--pc">
+                                <img src="{{ asset(__('about.vi.vi-image.nature.mbImg')) }}" alt="自然的孕育" class="display--mb">
                             </div>
                         </div>
                         <div class="imageryGroup wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.8s">
-                            <div class="imageryGroup__title"><span class="f-h4">文化的積累</span></div>
+                            <div class="imageryGroup__title"><span class="f-h4">{{ __('about.vi.vi-image.culture.title') }}</span></div>
                             <div class="imageryGroup__image">
-                                <img src="{{ asset('images/about/vi/img_culture-pc-zh.svg') }}" alt="文化的積累" class="display--pc">
-                                <img src="{{ asset('images/about/vi/img_culture-mb-zh.svg') }}" alt="文化的積累" class="display--mb">
+                                <img src="{{ asset(__('about.vi.vi-image.culture.pcImg')) }}" alt="文化的積累" class="display--pc">
+                                <img src="{{ asset(__('about.vi.vi-image.culture.mbImg')) }}" alt="文化的積累" class="display--mb">
                             </div>
                         </div>
                         <div class="imageryGroup wow fadeIn" data-wow-duration="0.5s" data-wow-delay="1.1s">
-                            <div class="imageryGroup__title"><span class="f-h4">Amazing Taitung 綻放精彩</span></div>
+                            <div class="imageryGroup__title"><span class="f-h4">{{ __('about.vi.vi-image.amazing.title') }}</span></div>
                             <div class="imageryGroup__image">
-                                <img src="{{ asset('images/about/vi/img_amazing-pc-zh.svg') }}" alt="Amazing Taitung 綻放精彩" class="display--pc">
-                                <img src="{{ asset('images/about/vi/img_amazing-mb-zh.svg') }}" alt="Amazing Taitung 綻放精彩" class="display--mb">
+                                <img src="{{ asset(__('about.vi.vi-image.amazing.pcImg')) }}" alt="Amazing Taitung 綻放精彩" class="display--pc">
+                                <img src="{{ asset(__('about.vi.vi-image.amazing.mbImg')) }}" alt="Amazing Taitung 綻放精彩" class="display--mb">
                             </div>
                         </div>
                     </div>

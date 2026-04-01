@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'lang' => 'zh-Hant-TW',
     'bodyClass' => 'lang--zh',
     'langSwitch'=> 'EN',
     'navigation' => [

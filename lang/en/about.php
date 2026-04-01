@@ -16,7 +16,7 @@ return [
                 'paragraph2' => 'The Taitung Expo seeks to bring together the efforts of government, local industries, and communities to envision a path of regional development that is both inclusive and sustainable. Through year-round curatorial initiatives, the Expo presents Taitung’s cultural foundations and future potential in a systematic way, inviting visitors to experience the beauty, goodness, and authenticity of this land. Step by step, it aims to shape a globally recognizable Taitung Brand, allowing Taitung’s spirit and values to be seen, understood, and cherished by the world.',
             ],
             'group2' => [
-                'title' => 'Taitung Expo: In Progress — Change Begins Now',
+                'title' => 'Taitung Expo: In Progress —<br>Change Begins Now',
                 'paragraph1' => 'The Taitung Expo is an ongoing endeavor — a process of continuous growth and transformation. Every conversation, every exhibition, and every project becomes both a witness to change and a point of departure.',
                 'paragraph2' => 'Built around the idea of the present progressive, the Expo invites all those who care about Taitung to participate from different positions and perspectives. Change begins now — rooting the vision of sustainable development firmly in Taitung, and carrying this locally generated energy outward to the world.',
             ],
@@ -28,18 +28,8 @@ return [
     'statement' => [
         'page-title' => 'Expo Themes',
         'hero' => [
-            'title1' => [
-                'span1' => '10 Themes',
-                'span2' => 'Over 30 Official Exhibitions and Events',
-                'span3' => '14 Taitung Event Brands',
-            ],
-            'title2' => [
-                'span1' => '22 Community Proposals',
-                'span2' => 'More than 150 Brand-Licensed Products',
-            ],
-            'title3' => [
-                'span1' => 'In 2026, you are invited to experience the diverse vitality of Taitung.',
-            ],
+            'title1' => '10 Themes X<br>Over 30 Official Exhibitions and Events X<br>14 Taitung Event Brands X<br>22 Community Proposals X<br>More than 150 Brand-Licensed Products',
+            'title2' => 'In 2026, you are invited to experience the diverse vitality of Taitung.',
             'paragraph1' => 'Beginning with a Slow Economy seed planted in Taitung’s soil, ideas take root, reach upward, and gradually unfold into themes: including "Air", "Water", "Natural Power", "Sound", "Drift", "Life", "Slow Economy", "The Taitung Brand", and "Sustainable Taitung". Together, layer by layer, they outline a vision of Slow Economy that is uniquely Taitung.',
             'hint' => 'Click a theme to learn more',
         ],
@@ -255,6 +245,7 @@ return [
             ],
         ],
         'features' => [
+            'title' => 'Weaving together Taitung’s mountains, sea,<br>and iconic event brands for a year full of wonder!',
             'feature1' => 'Bombing of Master<br>Handan Festival',
             'feature2' => '<span>Taitung Spirit</span> <span>Festival</span>',
             'feature3' => '<span>Slow Food</span><span>Taitung</span>',
@@ -286,6 +277,7 @@ return [
             'mbImg' => 'images/about/vi/img_element-mb-en.svg'
         ],
         'vi-image' => [
+            'title' => 'Logo Graphic Symbols',
             'nature' => [
                 'title' => "Natures's Nurture",
                 'pcImg' => 'images/about/vi/img_nature-pc-en.svg',

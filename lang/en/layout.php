@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'lang' => 'en',
     'bodyClass' => 'lang--en',
     'langSwitch'=> '中文',
     'navigation' => [

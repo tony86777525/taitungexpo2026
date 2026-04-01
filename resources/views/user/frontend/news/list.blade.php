@@ -14,7 +14,7 @@
     <section id="news" class="section section--news">
         <div class="section__title wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s">
             <div class="container">
-                <span class="title f-title-primary is-pageTitle">最新消息</span>
+                <span class="title f-title-primary is-pageTitle">{{ __('news.page-title') }}</span>
             </div>
         </div>
         <div class="section__content wow fadeIn" data-wow-duration="0.5s" data-wow-delay="1s">
@@ -22,10 +22,10 @@
                 <div class="filterGroup filterGroup--default js-filterGroup">
                     <div class="filterGroup__selector" role="button" aria-haspopup="listbox" aria-expanded="false">
                         <ul class="filterOption jc-center" role="listbox">
-                            <li class="filterOption__item js-filterOption-item is-active" data-filter-id="all" role="option"><span class="text">全部消息</span></li>
-                            <li class="filterOption__item js-filterOption-item" data-filter-id="official" role="option"><span class="text">官方公告</span></li>
-                            <li class="filterOption__item js-filterOption-item" data-filter-id="event" role="option"><span class="text">活動消息</span></li>
-                            <li class="filterOption__item js-filterOption-item" data-filter-id="media" role="option"><span class="text">媒體新聞</span></li>
+                            <li class="filterOption__item js-filterOption-item is-active" data-filter-id="all" role="option"><span class="text">{{ __('news.filter-text.filter1') }}</span></li>
+                            <li class="filterOption__item js-filterOption-item" data-filter-id="official" role="option"><span class="text">{{ __('news.filter-text.filter2') }}</span></li>
+                            <li class="filterOption__item js-filterOption-item" data-filter-id="event" role="option"><span class="text">{{ __('news.filter-text.filter3') }}</span></li>
+                            <li class="filterOption__item js-filterOption-item" data-filter-id="media" role="option"><span class="text">{{ __('news.filter-text.filter4') }}</span></li>
                         </ul>
                     </div>
                     <div class="filterGroup__content js-filterGroup-content">

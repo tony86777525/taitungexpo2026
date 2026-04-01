@@ -478,7 +478,6 @@ $path: '/resources/images';
                         content: '';
                         position: absolute;
                         left: 0;
-                        top: rem(8);
                         width: rem(10);
                         height: rem(10);
                         border-radius: 50%;
@@ -506,6 +505,7 @@ $path: '/resources/images';
                     &:after {
                         content: '';
                         display: block;
+                        flex: 0 0 rem(13);
                         width: rem(13);
                         height: rem(13);
                         background-image: url('#{$path}/arrow_reserve-b.svg');
@@ -515,8 +515,6 @@ $path: '/resources/images';
                     }
 
                     .reserveLink__text {
-                        font-size: rem(16);
-                        line-height: 1.7;
                         font-weight: 600;
                         text-decoration: underline;
                         color: $primary-hover;

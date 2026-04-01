@@ -11,14 +11,14 @@ return [
         ],
         'about' => [
             'group1' => [
-                'title' => 'Taitung: A Place for Living Well',
-                'paragraph1' => 'Situated at the meeting point of mountains and sea, Taitung is shaped by abundant natural resources and a diverse, inclusive cultural landscape. Majestic terrain and deep-rooted cultural traditions converge here, giving rise to a distinctive sense of place and locally grounded values.',
-                'paragraph2' => 'The Taitung Expo seeks to bring together the efforts of government, local industries, and communities to envision a path of regional development that is both inclusive and sustainable. Through year-round curatorial initiatives, the Expo presents Taitung’s cultural foundations and future potential in a systematic way, inviting visitors to experience the beauty, goodness, and authenticity of this land. Step by step, it aims to shape a globally recognizable Taitung Brand, allowing Taitung’s spirit and values to be seen, understood, and cherished by the world.',
+                'title' => '台東：理想生活的實踐場域',
+                'paragraph1' => '坐落於山海交匯之處的台東，蘊藏豐饒的自然資源與多元共融的文化風貌，凝聚純粹壯麗的地景與深厚人文底蘊，孕育出獨具一格的地方價值。',
+                'paragraph2' => '2026 TAITUNG EXPO台東博覽會，將凝聚政府、在地產業與社會各界的力量，共同擘劃兼具包容性與永續性的地方發展藍圖。透過整年度的策展行動，深度呈現台東的文化底色與未來潛力，邀請來訪台東的人親身體驗這片土地的真、善、美，打造具有全球辨識度的「台東品牌」，讓台東的精神價值被世界看見、理解並珍惜。',
             ],
             'group2' => [
-                'title' => 'Taitung Expo: In Progress — Change Begins Now',
-                'paragraph1' => 'The Taitung Expo is an ongoing endeavor — a process of continuous growth and transformation. Every conversation, every exhibition, and every project becomes both a witness to change and a point of departure.',
-                'paragraph2' => 'Built around the idea of the present progressive, the Expo invites all those who care about Taitung to participate from different positions and perspectives. Change begins now — rooting the vision of sustainable development firmly in Taitung, and carrying this locally generated energy outward to the world.',
+                'title' => '台東博覽會，現在進行式——<br>改變，從此刻開始',
+                'paragraph1' => '台東博覽會是一場正在進行的行動實踐，更象徵著一個持續成長、逐步轉變的過程——每一次對話、每一場展演、每一項計畫，都是台東變革的見證與起點。',
+                'paragraph2' => '透過「現在進行式」的策展概念，台東博覽會邀請每一位關心台東的夥伴，以不同角色參與其中，讓改變從此刻開始，將永續發展的理想深植於台東，並把這股來自地方的能量推向世界。',
             ],
         ],
         'file' => [
@@ -28,18 +28,8 @@ return [
     'statement' => [
         'page-title' => '策展論述',
         'hero' => [
-            'title1' => [
-                'span1' => '10 大策展議題',
-                'span2' => '超過30 檔官方展覽與活動',
-                'span3' => '台東 14 活動品牌聯動',
-            ],
-            'title2' => [
-                'span1' => '22 件民間參與提案',
-                'span2' => '150 件以上品牌授權商品',
-            ],
-            'title3' => [
-                'span1' => '2026年，邀您一起體驗台東的多元精彩！',
-            ],
+            'title1' => '10 大策展議題 X <br class="display--mb">超過30 檔官方展覽與活動 X<br>台東 14 活動品牌聯動 X<br>22 件民間參與提案 X <br class="display--mb">150 件以上品牌授權商品',
+            'title2' => '2026年，邀您一起體驗台東的多元精彩！',
             'paragraph1' => '由一顆落下台東土地的慢經濟種子開始，向下扎根，向上展望，逐漸萌芽、延展出「空氣」、「水」、「自然力量」、「聲音」、「漂流」、「生活」、「慢經濟體」、「台東品牌」與「永續台東」等策展議題，一層層勾勒出台東獨有的慢經濟想像藍圖。',
             'hint' => '點擊策展議題查看詳情',
         ],
@@ -254,6 +244,7 @@ return [
             ],
         ],
         'features' => [
+            'title' => '串連台東山海與特色活動品牌<br>打造整年度的精彩！',
             'feature1' => '台東炮炸<br>寒單爺',
             'feature2' => '自然醒<br>慢活祭',
             'feature3' => '臺東慢食節',
@@ -285,6 +276,7 @@ return [
             'mbImg' => 'images/about/vi/img_element-mb-zh.svg'
         ],
         'vi-image' => [
+            'title' => '標誌圖形意象',
             'nature' => [
                 'title' => '自然的孕育',
                 'pcImg' => 'images/about/vi/img_nature-pc-zh.svg',

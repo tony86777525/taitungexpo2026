@@ -149,7 +149,8 @@ $path: '/resources/images';
 			&:hover {
 				border: rem(2) solid $primary-hover;
 				background-color: $primary-hover;
-				color: $white
+				color: $white;
+				text-decoration: none;
 			}
 
 			@include rwd-not-hover {
@@ -326,6 +327,7 @@ $path: '/resources/images';
 		border-left: none;
 		margin-top: 0;
 		border-left: 0;
+		box-shadow: 0 rem(4) rem(4) rgba(16, 55, 141, 0.08);
 	}
 
 	& > .subMenu__item {

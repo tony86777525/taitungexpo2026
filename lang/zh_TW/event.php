@@ -8,6 +8,7 @@ return [
         'search-text2-end' => '頁面',
         'link-text' => '展覽概覽'
     ],
+    'search-hint' => '本日無活動',
     'cards' => [
         'map' => '開啟Google地圖',
         'participate' => [
