@@ -11,6 +11,12 @@ $modulePath: '/resources/images';
     }
 }
 
+.container {
+    @include rwd-min(769px) {
+        padding: 0;
+    }
+}
+
 .imageSwiper {
     position: relative;
 
@@ -158,6 +164,7 @@ $modulePath: '/resources/images';
             color: $secondary;
             font-size: rem(16);
             font-weight: 600;
+            margin-bottom: rem(10);
         }
 
         .title {
@@ -166,19 +173,25 @@ $modulePath: '/resources/images';
 
         .datas {
             @include list-reset;
+            margin-top: rem(30);
+            display: flex;
+            flex-direction: column;
+            gap: rem(10);
 
             &__item {
                 display: flex;
                 flex-wrap: nowrap;
+                align-items: center;
             }
 
             .label {
-                flex: 0 0 rem(48);
+                flex: 0 0 rem(55);
                 color: $secondary;
             }
 
             .content {
-                flex: 0 0 calc(100% - rem(48));
+                flex: 0 0 calc(100% - rem(55));
+
                 &__text {
                     color: $secondary;
                 }
@@ -199,7 +212,48 @@ $modulePath: '/resources/images';
         }
     }
 
-    &__intro {}
+    &__intro {
+        .title {
+            margin-bottom: rem(20);
+            color: $secondary;
+        }
+
+        .links {
+            @include list-reset;
+            margin-top: rem(30);
+            display: flex;
+            flex-wrap: wrap;
+            column-gap: rem(20);
+            row-gap: rem(10);
+        }
+    }
+
+    &__contact {
+        .title {
+            margin-bottom: rem(20);
+            color: $secondary;
+        }
+
+        .contactList {
+            @include list-reset;
+            margin-top: rem(30);
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            row-gap: rem(20);
+
+            & > li {
+                display: flex;
+                flex-wrap: nowrap;
+                align-items: center;
+
+                span,
+                a {
+                    color: $secondary;
+                }
+            }
+        }
+    }
 
     &__hero {
         .imgWrap {
@@ -278,6 +332,7 @@ $modulePath: '/resources/images';
 
         .title {
             margin-bottom: rem(20);
+            color: $secondary;
         }
 
         .list {
@@ -295,7 +350,6 @@ $modulePath: '/resources/images';
                     content: '';
                     position: absolute;
                     left: 0;
-                    top: rem(6);
                     width: rem(16);
                     height: rem(16);
                     border-radius: 50%;

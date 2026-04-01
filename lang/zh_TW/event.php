@@ -34,11 +34,16 @@ return [
         ]
     ],
     'sub-page' => [
+        'datas' => [
+            'dates' => '日期',
+            'time' => '時間',
+            'natures' => '性質'
+        ],
         'intro-title' => '活動簡介',
         'contact' => [
             'title' => '聯絡資訊',
             'organization' => '單位',
-            'contact' => '活動聯絡人',
+            'person' => '活動聯絡人',
             'phone' => '電話',
             'email' => '電子信箱'
         ],

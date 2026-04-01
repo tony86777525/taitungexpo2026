@@ -267,6 +267,16 @@ body {
                     letter-spacing: rem(1.6);
                 }
             }
+
+            &__summary {
+                .list {
+                    & > li {
+                        &:before {
+                            top: 0;
+                        }
+                    }
+                }
+            }
         }
 
         .section--preview {
@@ -557,6 +567,16 @@ body {
                 .newsDate {
                     line-height: 1.7;
                     letter-spacing: normal;
+                }
+            }
+
+            &__summary {
+                .list {
+                    & > li {
+                        &:before {
+                            top: rem(6);
+                        }
+                    }
                 }
             }
         }

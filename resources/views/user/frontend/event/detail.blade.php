@@ -26,18 +26,18 @@
 					<div class="title f-title-primary is-pageTitle">子公版標題</div>
 					<ul class="datas">
 						<li class="datas__item datas__item--date">
-							<div class="label"><div class="label__text f-h5">日期｜</div></div>
+							<div class="label"><div class="label__text f-h5">{{ __('event.sub-page.datas.dates') }}｜</div></div>
 							<div class="content"><span class="content__text f-h5">2026.7.3（五）－2026.8.20（四）</span></div>
 						</li>
 						<li class="datas__item datas__item--time">
-							<div class="label"><div class="label__text f-h5">時間｜</div></div>
+							<div class="label"><div class="label__text f-h5">{{ __('event.sub-page.datas.time') }}｜</div></div>
 							<div class="content"><span class="content__text f-h5">2026.7.3（五）－2026.8.20（四）</span></div>
 						</li>
 						<li class="datas__item datas__item--location">
 							<div class="content"><a class="content__text f-h5">台東縣立體育館</a></div>
 						</li>
 						<li class="datas__item datas__item--natures">
-							<div class="label"><div class="label__text f-h5">性質｜</div></div>
+							<div class="label"><div class="label__text f-h5">{{ __('event.sub-page.datas.natures') }}｜</div></div>
 							<div class="content">
 								<div class="content__list">
 									<span class="f-h5">＃展覽</span>
@@ -53,13 +53,44 @@
 				</div>
 			</div>
 		</div>
-		{{-- 【品牌授權】介紹：圖文編輯器 --}}
+		{{-- 【活動/品牌授權】介紹：圖文編輯器 --}}
 		<div class="m-element m-subPage__intro">
 			<div class="container">
+				<div class="title"><span class="f-title-secondary">{{ __('event.sub-page.intro-title') }}</span></div>
 				<div class="customEditor">
 					<p class="f-p">介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字</p>
 					<p class="f-p">介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字</p>
 				</div>
+				{{-- 連結按鈕 --}}
+				<ul class="links">
+					<li><a href="#" class="btn btn--customLink"><span class="btn__text">自定義按鈕</span></a></li>
+					<li><a href="#" class="btn btn--customLink"><span class="btn__text">按鈕</span></a></li>
+					<li><a href="#" class="btn btn--customLink"><span class="btn__text">沒有限字數啊哈哈哈哈</span></a></li>
+				</ul>
+			</div>
+		</div>
+		{{-- 【活動】聯絡資訊 --}}
+		<div class="m-element m-subPage__contact">
+			<div class="container">
+				<div class="title"><span class="f-title-secondary">{{ __('event.sub-page.contact.title') }}</span></div>
+				<ul class="contactList">
+					<li>
+						<div class="label">{{ __('event.sub-page.contact.organization') }}：</div>
+						<div class="value"><span class="f-p">XX單位</span></div>
+					</li>
+					<li>
+						<div class="label">{{ __('event.sub-page.contact.person') }}：</div>
+						<div class="value"><span class="f-p">O小姐</span></div>
+					</li>
+					<li>
+						<div class="label">{{ __('event.sub-page.contact.phone') }}：</div>
+						<div class="value"><a href="tel:" class="f-p">0987654321</a></div>
+					</li>
+					<li>
+						<div class="label">{{ __('event.sub-page.contact.email') }}：</div>
+						<div class="value"><a href="mailto:" class="f-p">xx@xx.xx</a></div>
+					</li>
+				</ul>
 			</div>
 		</div>
 		{{-- 【官方計畫/民間參與計畫】主視覺：上傳圖片（可輪播） --}}

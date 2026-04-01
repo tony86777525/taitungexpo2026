@@ -34,11 +34,16 @@ return [
         ]
     ],
     'sub-page' => [
+        'datas' => [
+            'dates' => 'Dates',
+            'time' => 'Time',
+            'natures' => 'Type'
+        ],
         'intro-title' => 'Event Description',
         'contact' => [
             'title' => 'Contact Details',
             'organization' => 'Organization',
-            'contact' => 'Contact Person',
+            'person' => 'Contact Person',
             'phone' => 'Phone',
             'email' => 'Email'
         ],
