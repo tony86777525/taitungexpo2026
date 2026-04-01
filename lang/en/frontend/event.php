@@ -1,0 +1,45 @@
+<?php
+
+return [
+    'page-title' => 'Event Calendar',
+    'top' => [
+        'search-text1' => 'Quick Date Search',
+        'search-text2-start' => 'For information on ongoing exhibitions, please visit the',
+        'search-text2-end' => 'page',
+        'link-text' => 'Exhibition Overview'
+    ],
+    'cards' => [
+        'map' => 'Open in Google Map',
+        'participate' => [
+            'drop-in' => [
+                'text' => 'Drop-in'
+            ],
+            'reservation' => [
+                'text' => 'Reservation Required',
+                'link-text' => 'Reserve'
+            ],
+            'registration' => [
+                'text' => 'Registration Required',
+                'link-text' => 'Register'
+            ],
+            'ticket' => [
+                'text' => 'Ticket Required',
+                'link-text' => 'Tickets'
+            ]
+        ],
+        'group-tour' => [
+            'text' => 'Group Tour Reservation Available',
+            'link-text' => 'Group Tour Reservation'
+        ]
+    ],
+    'sub-page' => [
+        'intro-title' => 'Event Description',
+        'contact' => [
+            'title' => 'Contact Details',
+            'organization' => 'Organization',
+            'contact' => 'Contact Person',
+            'phone' => 'Phone',
+            'email' => 'Email'
+        ],
+    ]
+];

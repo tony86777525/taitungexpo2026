@@ -190,7 +190,49 @@
         <div class="popupBox__close">
             <button class="btn btn--closePopup"></button>
         </div>
-        <div id="popupDynamicContent"></div>
+        @foreach (range(0, 9) as $i)
+        @php $wheel = __('frontend.about.statement.curating-map.wheel' . $i); @endphp
+        <div class="popupBox__content" data-popup-id="{{ $wheel['id'] }}">
+            <div class="flexBox">
+                <div class="image">
+                    <img src="{{ asset('images/about/curating/' . $wheel['id'] . '.svg') }}">
+                </div>
+                <div class="text">
+                    <div class="text__title f-h4">{{ $wheel['chapter'] }}</div>
+                    <div class="text__desc f-p">{{ $wheel['desc'] }}</div>
+
+                    <div class="text__tags">
+                        <span class="title">{{ __('frontend.about.statement.curating-map.tags-title') }}</span>
+                        <ul class="tags">
+                            @foreach ($wheel['tags'] as $tag)
+                            <li>{{ $tag }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+
+                    @if (!empty($wheel['events']))
+                    <ul class="text__events">
+                        @foreach ($wheel['events'] as $event)
+                        <li>
+                            @if (!empty($event['href']))
+                            <a href="{{ $event['href'] }}" class="eventLink">
+                                <span class="eventLink__locate">{{ $event['locate'] }}</span>
+                                <span class="eventLink__name">{{ $event['name'] }}</span>
+                            </a>
+                            @else
+                            <span class="eventLink">
+                                <span class="eventLink__locate">{{ $event['locate'] }}</span>
+                                <span class="eventLink__name">{{ $event['name'] }}</span>
+                            </span>
+                            @endif
+                        </li>
+                        @endforeach
+                    </ul>
+                    @endif
+                </div>
+            </div>
+        </div>
+        @endforeach
     </div>
 </div>
 @endsection
