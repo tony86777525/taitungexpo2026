@@ -165,6 +165,10 @@ $modulePath: '/resources/images';
             font-size: rem(16);
             font-weight: 600;
             margin-bottom: rem(10);
+
+            a {
+                color: $secondary;
+            }
         }
 
         .title {
@@ -182,15 +186,46 @@ $modulePath: '/resources/images';
                 display: flex;
                 flex-wrap: nowrap;
                 align-items: center;
+                justify-content: flex-start;
+
+                &:before {
+                    content: '';
+                    display: block;
+                    width: rem(24);
+                    height: rem(24);
+                    background-size: rem(24);
+                    background-repeat: no-repeat;
+                    margin-right: rem(10);
+                }
+
+                &--date {
+                    &:before {
+                        background-image: url('#{$modulePath}/deco_subpage-date.svg');
+                    }
+                }
+                &--time {
+                    &:before {
+                        background-image: url('#{$modulePath}/deco_subpage-time.svg');
+                    }
+                }
+                &--location {
+                    &:before {
+                        background-image: url('#{$modulePath}/deco_subpage-location.svg');
+                    }
+                }
+                &--natures {
+                    &:before {
+                        background-image: url('#{$modulePath}/deco_subpage-natures.svg');
+                    }
+                }
             }
 
             .label {
-                flex: 0 0 rem(55);
                 color: $secondary;
             }
 
             .content {
-                flex: 0 0 calc(100% - rem(55));
+                flex: 1;
 
                 &__text {
                     color: $secondary;

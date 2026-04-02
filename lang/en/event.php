@@ -39,13 +39,5 @@ return [
             'time' => 'Time',
             'natures' => 'Type'
         ],
-        'intro-title' => 'Event Description',
-        'contact' => [
-            'title' => 'Contact Details',
-            'organization' => 'Organization',
-            'person' => 'Contact Person',
-            'phone' => 'Phone',
-            'email' => 'Email'
-        ],
     ]
 ];

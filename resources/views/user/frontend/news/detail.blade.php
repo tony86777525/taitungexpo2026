@@ -10,105 +10,118 @@
 
 @section('content')
 <main class="main">
-    <!-- news start -->
-    <section id="news" class="section section--news">
-        <div class="section__title wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s">
-            <div class="container">
-                <span class="title f-title-primary">最新消息</span>
-                <ul class="action">
-                    <li>
-                        <a href="#" class="btn btn--goSubpage is-light"><span class="btn__text">MORE</span></a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="section__content wow fadeIn" data-wow-duration="0.5s" data-wow-delay="1s">
-            <div class="container">
-                <div class="tabGroup tabGroup--default js-tabGroup">
-                    <div class="tabGroup__selector" role="button" aria-haspopup="listbox" aria-expanded="false">
-                        <ul class="tabOption jc-center" role="listbox">
-                            <li class="tabOption__item is-active" role="option"><span class="text">全部消息</span></li>
-                            <li class="tabOption__item" role="option"><span class="text">官方公告</span></li>
-                            <li class="tabOption__item" role="option"><span class="text">活動消息</span></li>
-                            <li class="tabOption__item" role="option"><span class="text">媒體新聞</span></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="cardsList cardsList--fall">
-                    <div class="cardItem cardItem--news">
-                        <div class="cardItem__image">
-                            <img src="https://picsum.photos/id/232/300/300" alt="news_title">
-                        </div>
-                        <div class="cardItem__text">
-                            <div class="date">2026.3.17</div>
-                            <div class="title f-h4">新聞標題</div>
-                            <ul class="action">
-                                <li>
-                                    <a href="#" class="btn btn--goDetail" target="_blank"><span class="btn__text">READ MORE</span></a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="cardItem cardItem--news">
-                            <div class="cardItem__image">
-                                <img src="https://picsum.photos/id/233/300/300" alt="東博聯名便當特約店家揭曉！擴大徵選69家好店正式成軍">
-                            </div>
-                            <div class="cardItem__text">
-                                <div class="date">2026.3.19</div>
-                                <div class="title f-h4">東博聯名便當特約店家揭曉！擴大徵選69家好店正式成軍</div>
-                                <ul class="action">
-                                    <li>
-                                        <a href="#" class="btn btn--goDetail" target="_blank"><span class="btn__text">READ MORE</span></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="cardItem cardItem--news">
-                            <div class="cardItem__image">
-                                <img src="https://picsum.photos/id/234/300/300" alt="東博聯名便當特約店家揭曉！擴大徵選69家好店正式成軍">
-                            </div>
-                            <div class="cardItem__text">
-                                <div class="date">2026.3.19</div>
-                                <div class="title f-h4">東博聯名便當特約店家揭曉！擴大徵選69家好店正式成軍</div>
-                                <ul class="action">
-                                    <li>
-                                        <a href="#" class="btn btn--goDetail" target="_blank"><span class="btn__text">READ MORE</span></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="cardItem cardItem--news">
-                            <div class="cardItem__image">
-                                <img src="https://picsum.photos/id/235/300/300" alt="2026台東博覽會首展《紅土之上棒球特展》3/21松菸開展，重現台東棒球百年榮光">
-                            </div>
-                            <div class="cardItem__text">
-                                <div class="date">2026.2.26</div>
-                                <div class="title f-h4">2026台東博覽會首展《紅土之上棒球特展》3/21松菸開展，重現台東棒球百年榮光</div>
-                                <ul class="action">
-                                    <li>
-                                        <a href="#" class="btn btn--goDetail" target="_blank"><span class="btn__text">READ MORE</span></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="cardItem cardItem--news">
-                            <div class="cardItem__image">
-                                <img src="https://picsum.photos/id/236/300/300" alt="縣府辦理《冠軍之路》電影欣賞 預告2026台東博覽會：紅土之上棒球特展">
-                            </div>
-                            <div class="cardItem__text">
-                                <div class="date">2026.2.25</div>
-                                <div class="title f-h4">縣府辦理《冠軍之路》電影欣賞 預告2026台東博覽會：紅土之上棒球特展</div>
-                                <ul class="action">
-                                    <li>
-                                        <a href="#" class="btn btn--goDetail" target="_blank"><span class="btn__text">READ MORE</span></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- news end -->
+	<div class="m-subPage">
+		<div class="m-element m-subPage__head">
+			<div class="container">
+				<div class="pageLabel"><span class="pageLabel__text">#活動類型</span></div>
+				<div class="wrapper">
+					<div class="newsDate">2026.3.30</div>
+					<div class="title f-title-primary is-pageTitle">新聞標題</div>
+				</div>
+			</div>
+		</div>
+        {{-- 消息內容：有圖片輪播 --}}
+		<div class="m-element m-subPage__summary">
+			<div class="container">
+				<div class="summary">
+					<div class="summary__image">
+						<div class="imageList imageList--editor imageSwiper">
+							<div class="swiper js-editorImgSwiper">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide">
+										<div class="imgWrap">
+											<img src="https://picsum.photos/id/158/300/300" alt="">
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="swiper-button-next"></div>
+							<div class="swiper-button-prev"></div>
+						</div>
+					</div>
+					<div class="summary__text">
+						{{-- 標題 --}}
+						<div class="title"><span class="f-title-secondary">標題一</span></div>
+						{{-- 內文 --}}
+						<div class="intro">
+							<div class="customEditor">
+								<p class="f-p">介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字</p>
+								<p class="f-p">介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字</p>
+							</div>
+						</div>
+						{{-- 項目 --}}
+						<ul class="list">
+							<li><span class="f-h5">補充說明文字</span></li>
+						</ul>
+						{{-- 連結按鈕 --}}
+						<ul class="links">
+							<li><a href="#" class="btn btn--customLink"><span class="btn__text">自定義按鈕</span></a></li>
+							<li><a href="#" class="btn btn--customLink"><span class="btn__text">按鈕</span></a></li>
+							<li><a href="#" class="btn btn--customLink"><span class="btn__text">BTN</span></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>		
+		</div>
+		{{-- 消息內容：無圖片輪播 --}}
+		<div class="m-element m-subPage__summary">
+			<div class="container">
+				<div class="summary">
+					<div class="summary__text">
+						{{-- 標題 --}}
+						<div class="title"><span class="f-title-secondary">標題一</span></div>
+						{{-- 內文 --}}
+						<div class="intro">
+							<div class="customEditor">
+								<p class="f-p">介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字</p>
+								<p class="f-p">介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字</p>
+							</div>
+						</div>
+						{{-- 項目 --}}
+						<ul class="list">
+							<li><span class="f-h5">補充說明文字</span></li>
+						</ul>
+						{{-- 連結按鈕 --}}
+						<ul class="links">
+							<li><a href="#" class="btn btn--customLink"><span class="btn__text">自定義按鈕</span></a></li>
+							<li><a href="#" class="btn btn--customLink"><span class="btn__text">按鈕</span></a></li>
+							<li><a href="#" class="btn btn--customLink"><span class="btn__text">沒有限字數啊哈哈哈哈</span></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		{{-- 相簿 --}}
+		<div class="m-element m-subPage__gallery">
+			<div class="imageList imageList--gallery imageSwiper">
+				<div class="swiper js-galleryImgSwiper">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<div class="imgWrap">
+								<img src="https://picsum.photos/id/236/300/300" alt="">
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="imgWrap">
+								<img src="https://picsum.photos/id/238/300/300" alt="">
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="imgWrap">
+								<img src="https://picsum.photos/id/240/300/300" alt="">
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="imgWrap">
+								<img src="https://picsum.photos/id/242/300/300" alt="">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="swiper-button-next"></div>
+				<div class="swiper-button-prev"></div>
+			</div>
+		</div>
+	</div>
 </main>
 @endsection
