@@ -685,6 +685,34 @@ body {
 	&.lang--en {
 
         .section--preview {
+			.previewGroup {
+                .previewGroup__title {
+                    & > span {
+                        @include f-poppins;
+                        font-size: rem(16);
+                        line-height: 1.35;
+                        font-weight: 600;
+                        letter-spacing: rem(1.6);
+
+                        @include rwd-min(769px) {
+                            @include f-unbounded;
+                            font-size: rem(24);
+                            font-weight: bold;
+                            line-height: 1.4;
+                            letter-spacing: rem(2.4);
+                        }
+                    }
+                }
+
+                &--curating {
+                    .hero {
+                        .container {
+                            max-width: rem(924);
+                        }
+                    }
+                }
+            }
+			
             .curatingMap {
                 .wheel-container {
                     background-image: url('#{$path}/img_curating-en.svg');
@@ -738,31 +766,33 @@ body {
                 }
             }
         }
+	}
 
-        .section--participation,
-        .section--authorization {
-            .rule {
-                &__title {
-                    font-weight: 600;
+	&.lang--zh {
+
+        .section--preview {
+			.previewGroup {
+                .previewGroup__title {
+                    & > span {
+                        font-size: rem(22);
+                        line-height: 1.5;
+                        font-weight: bold;
+                        word-break: break-all;
+
+                        @include rwd-min(769px) {
+                            font-size: rem(25);
+                        }
+                    }
                 }
 
-                &__list {
-                    &--li {
-                        & > li {
-                            &:before {
-                                top: rem(8);
-                            }
+                &--curating {
+                    .hero {
+                        .container {
+                            max-width: rem(880);
                         }
                     }
                 }
             }
-        }
-	}
-
-	&.lang--zh {
-		@include f-noto;
-
-        .section--preview {
             .curatingMap {
                 .wheel-container {
                     background-image: url('#{$path}/img_curating-zh.svg');
@@ -796,25 +826,6 @@ body {
                                     font-size: rem(20);
                                     line-height: 3;
                                 }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        .section--participation,
-        .section--authorization {
-            .rule {
-                &__title {
-                    font-weight: 500;
-                }
-
-                &__list {
-                    &--li {
-                        & > li {
-                            &:before {
-                                top: rem(12);
                             }
                         }
                     }

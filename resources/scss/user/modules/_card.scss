@@ -49,14 +49,16 @@ $path: '/resources/images';
 
 	&__image {
 		position: relative;
-
+        overflow: hidden;
+        
 		&:before {
-			content: '';
+            content: '';
 			display: block;
 		}
-
+        
 		img {
-			@include fit-cover;
+            @include fit-cover;
+            @include transition(all, .3s, ease-in);
 		}
 	}
 
@@ -98,14 +100,44 @@ $path: '/resources/images';
 	&__text {
 		background-color: $white;
 
+        .title {
+            word-break: break-all;
+        }
+
 		.date,
         .time {
             display: block;
 			@include f-unbounded;
 		}
 
-		.title {
-		}
+		.venue {
+            display: flex;
+            flex-wrap: nowrap;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            margin-bottom: rem(10);
+
+            .venue__deco {
+                img {}
+            }
+
+            .venue__label {
+                display: flex;
+                @include f-unbounded;
+                color: $secondary;
+                justify-content: center;
+                align-items: center;
+                flex: 0 0 rem(50);
+                width: rem(50);
+                height: rem(50);
+                background-color: transparent;
+                border: rem(1) solid $secondary;
+                border-radius: rem(4);
+                font-size: rem(18);
+                font-weight: 500;
+            }
+        }
 
 		.desc {
 			margin-top: rem(10);
@@ -217,6 +249,12 @@ $path: '/resources/images';
             flex-wrap: nowrap;
             column-gap: rem(20);
 		}
+
+        .department {
+            margin-top: rem(10);
+            color: $secondary;
+            @include ellipsis;
+        }
 	}
 
 	&--news {
@@ -641,4 +679,80 @@ $path: '/resources/images';
             }
         }
     }
+
+    &--participation {
+        display: block;
+		border: rem(1) solid $secondary;
+
+		.cardItem__image {
+			border-bottom: rem(1) solid $secondary;
+
+            &:before {
+                padding-top: 100%;
+            }
+		}
+
+		.cardItem__text {
+            padding: rem(20);
+
+			.title {
+				color: $dark;
+                @include line-clamp(2);
+			}
+
+			.action {
+				margin-top: rem(40);
+				justify-content: flex-start;
+			}
+		}
+
+        &:hover {
+            text-decoration: none;
+
+            .cardItem__image {
+                img {
+                    @include scale(1.02);
+                }
+            }
+        }
+	}
+
+    &--brand {
+		border: rem(1) solid $secondary;
+
+		.cardItem__image {
+			border-bottom: rem(1) solid $secondary;
+
+            &:before {
+                padding-top: 100%;
+            }
+
+            img {
+                filter: grayscale(1);
+            }
+		}
+
+		.cardItem__text {
+            padding: rem(20);
+
+			.title {
+				color: $dark;
+                @include line-clamp(2);
+			}
+
+			.action {
+				margin-top: rem(40);
+				justify-content: flex-start;
+			}
+		}
+
+        &:hover {
+
+            .cardItem__image {
+                img {
+                    filter: grayscale(0);
+                }
+            }
+        }
+	}
 }

@@ -1,4 +1,3 @@
-import '../modules/navbar';
 import WeeklyCalendar from '../modules/WeeklyCalendar';
 
 const myCalendar = new WeeklyCalendar('.calendarSwiper', {

@@ -12,6 +12,9 @@
         align-items: center;
         justify-content: center;
         cursor: pointer;
+        font-size: rem(15);
+        letter-spacing: rem(1.5);
+        line-height: 1;
         @include transition(all, 0.3s, ease-in);
     }
 
@@ -120,6 +123,87 @@
                         padding: rem(11) rem(15);
                     }
                 }
+            }
+        }
+    }
+
+    &--fakeSelect {
+        .filterSelect {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: rem(14) rem(29);
+            border-radius: rem(15);
+            background: $white;
+            border: rem(2) solid #9d9d9d;
+            user-select: none;
+            @include rwd-min(1280px) {
+                display: none;
+            }
+
+            &:after {
+                @include transition(all, 0.3s, cubic-bezier(0.4, 0, 0.2, 1));
+            }
+            &__text {
+                color: $secondary-dark;
+            }
+        }
+
+        .filterOption {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            flex-direction: column;
+            background-color: $white;
+            border: rem(2) solid #9d9d9d;
+            border-radius: 0 0 rem(15) rem(15);
+            border-top: none;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            @include transition(all, 0.3s, cubic-bezier(0.4, 0, 0.2, 1));
+
+            @include rwd-min(1280px) {
+                position: static;
+                flex-direction: row;
+                column-gap: rem(20);
+                background: transparent;
+                border: none;
+                max-height: unset;
+                opacity: 1;
+                overflow: visible;
+            }
+
+            &__item {
+                .text {
+                    width: 100%;
+                    padding: rem(17) rem(30);
+                    color: $secondary-dark;
+                    display: block;
+                }
+
+                &.is-active .text {
+                    color: $primary-hover;
+                }
+
+                @include rwd-min(1280px) {
+                    @include filter-button-style;
+                }
+            }
+        }
+
+        &.is-open {
+            .filterSelect {
+                border-radius: rem(15) rem(15) 0 0;
+                &:after {
+                    @include rotate(180);
+                }
+            }
+            .filterOption {
+                max-height: rem(300);
+                opacity: 1;
+                overflow-y: auto;
             }
         }
     }

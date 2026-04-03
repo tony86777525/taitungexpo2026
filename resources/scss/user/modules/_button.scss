@@ -17,33 +17,64 @@ $btnPath: '/resources/images';
     }
 
     &--blank {
-        padding: rem(14) rem(30);
-        border-radius: rem(30);
-        background-color: $white;
-
-        .btn__text {
-            display: block;
-            font-size: rem(14);
-            color: $primary-dark;
-            @include transition(opacity, .3s, ease-in-out);
-        }
+        display: flex;
+        align-items: center;
+        padding: rem(9) rem(19);
+        border-width: rem(1);
+        border-style: solid;
+        border-radius: rem(44);
+        background-color: transparent;
 
         @include rwd-min(769px) {
+            padding: rem(12) rem(29);
+        }
+
+        &.is-dark {
+            border-color: $secondary;
+
             .btn__text {
-                font-size: rem(16);
+                color: $secondary;
+            }
+        }
+
+        &.is-light {
+            border-color: $white;
+
+            .btn__text {
+                color: $white;
             }
         }
 
         &:hover {
+            text-decoration: none;
+            border-color: $primary-hover;
+            background-color: $primary-hover;
+
             .btn__text {
-                opacity: 0.7;
+                color: $white;
             }
         }
 
         @include rwd-not-hover {
-            &:hover {
-                .btn__text {
-                    opacity: 1;
+            &.is-dark {
+                &:hover {
+                    background-color: transparent;
+                    border-color: $secondary;
+
+                    .btn__text {
+                        color: $secondary;
+                    }
+                }
+            }
+
+
+            &.is-light {
+                &:hover {
+                    border-color: $white;
+
+                    .btn__text {
+                        color: $white;
+                    }
                 }
             }
         }

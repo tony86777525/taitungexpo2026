@@ -1,4 +1,3 @@
-import './../modules/navbar';
 class PopupManager {
     constructor() {
         this.init();
@@ -128,8 +127,8 @@ class PopupManager {
         });
     }
 }
-const popupApp = new PopupManager();
 
+const popupApp = new PopupManager();
 
 document.addEventListener('DOMContentLoaded', () => {
     new PopupManager();

@@ -46,15 +46,15 @@
                         <li class="mainMenu__item mainMenu__item--parent js-submenu-switcher">
                             <div class="menuText"><span>{{ __('layout.navigation.nav5') }}</span></div>
                             <ul class="subMenu">
-                                <li class="subMenu__item"><a href="#" class="menuText"><span>{{ __('layout.navigation.nav5-1') }}</span></a></li>
-                                <li class="subMenu__item"><a href="#" class="menuText"><span>{{ __('layout.navigation.nav5-2') }}</span></a></li>
+                                <li class="subMenu__item"><a href="{{ route('user.frontend.participation.list') }}" class="menuText"><span>{{ __('layout.navigation.nav5-1') }}</span></a></li>
+                                <li class="subMenu__item"><a href="{{ route('user.frontend.participation.list') }}#list" class="menuText"><span>{{ __('layout.navigation.nav5-2') }}</span></a></li>
                             </ul>
                         </li>
                         <li class="mainMenu__item mainMenu__item--parent js-submenu-switcher">
                             <div class="menuText"><span>{{ __('layout.navigation.nav6') }}</span></div>
                             <ul class="subMenu">
-                                <li class="subMenu__item"><a href="#" class="menuText"><span>{{ __('layout.navigation.nav6-1') }}</span></a></li>
-                                <li class="subMenu__item"><a href="#" class="menuText"><span>{{ __('layout.navigation.nav6-2') }}</span></a></li>
+                                <li class="subMenu__item"><a href="{{ route('user.frontend.brand.list') }}" class="menuText"><span>{{ __('layout.navigation.nav6-1') }}</span></a></li>
+                                <li class="subMenu__item"><a href="{{ route('user.frontend.brand.list') }}#list" class="menuText"><span>{{ __('layout.navigation.nav6-2') }}</span></a></li>
                             </ul>
                         </li>
                         <li class="mainMenu__item mainMenu__item--parent js-submenu-switcher">
