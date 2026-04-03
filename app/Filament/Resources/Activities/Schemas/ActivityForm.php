@@ -144,13 +144,41 @@ class ActivityForm
                     ->label('活動卡片導向連結')
                     ->url(),
                 RichEditor::make('registration_info_tw')
-                    ->label('報名資訊（中）'),
+                    ->label('報名資訊（中）')
+                    ->extraInputAttributes(['class' => 'custom-rich-editor'])
+                    ->toolbarButtons([
+                        ['bold', 'italic', 'underline', 'strike', 'link'],
+                        ['alignStart', 'alignCenter', 'alignEnd'],
+                        ['bulletList', 'orderedList'],
+                        ['undo', 'redo'],
+                    ]),
                 RichEditor::make('registration_info_en')
-                    ->label('報名資訊（英）'),
+                    ->label('報名資訊（英）')
+                    ->extraInputAttributes(['class' => 'custom-rich-editor'])
+                    ->toolbarButtons([
+                        ['bold', 'italic', 'underline', 'strike', 'link'],
+                        ['alignStart', 'alignCenter', 'alignEnd'],
+                        ['bulletList', 'orderedList'],
+                        ['undo', 'redo'],
+                    ]),
                 RichEditor::make('tour_info_tw')
-                    ->label('導覽預約資訊（中）'),
+                    ->label('導覽預約資訊（中）')
+                    ->extraInputAttributes(['class' => 'custom-rich-editor'])
+                    ->toolbarButtons([
+                        ['bold', 'italic', 'underline', 'strike', 'link'],
+                        ['alignStart', 'alignCenter', 'alignEnd'],
+                        ['bulletList', 'orderedList'],
+                        ['undo', 'redo'],
+                    ]),
                 RichEditor::make('tour_info_en')
-                    ->label('導覽預約資訊（英）'),
+                    ->label('導覽預約資訊（英）')
+                    ->extraInputAttributes(['class' => 'custom-rich-editor'])
+                    ->toolbarButtons([
+                        ['bold', 'italic', 'underline', 'strike', 'link'],
+                        ['alignStart', 'alignCenter', 'alignEnd'],
+                        ['bulletList', 'orderedList'],
+                        ['undo', 'redo'],
+                    ]),
                 Select::make('activityNatures')
                     ->label('活動性質')
                     ->relationship(
@@ -181,9 +209,23 @@ class ActivityForm
                             ->label('標題（英）'),
                         RichEditor::make('content_tw')
                             ->label('內文（中）')
+                            ->extraInputAttributes(['class' => 'custom-rich-editor'])
+                            ->toolbarButtons([
+                                ['bold', 'italic', 'underline', 'strike', 'link'],
+                                ['alignStart', 'alignCenter', 'alignEnd'],
+                                ['bulletList', 'orderedList'],
+                                ['undo', 'redo'],
+                            ])
                             ->required(),
                         RichEditor::make('content_en')
                             ->label('內文（英）')
+                            ->extraInputAttributes(['class' => 'custom-rich-editor'])
+                            ->toolbarButtons([
+                                ['bold', 'italic', 'underline', 'strike', 'link'],
+                                ['alignStart', 'alignCenter', 'alignEnd'],
+                                ['bulletList', 'orderedList'],
+                                ['undo', 'redo'],
+                            ])
                             ->required(),
                         TextInput::make('item_text_tw')
                             ->label('項目文字（中）'),

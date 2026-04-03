@@ -9,106 +9,160 @@
 @endpush
 
 @section('content')
-<main class="main">
-    <!-- news start -->
-    <section id="news" class="section section--news">
-        <div class="section__title wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s">
-            <div class="container">
-                <span class="title f-title-primary">最新消息</span>
-                <ul class="action">
-                    <li>
-                        <a href="#" class="btn btn--goSubpage is-light"><span class="btn__text">MORE</span></a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="section__content wow fadeIn" data-wow-duration="0.5s" data-wow-delay="1s">
-            <div class="container">
-                <div class="tabGroup tabGroup--default js-tabGroup">
-                    <div class="tabGroup__selector" role="button" aria-haspopup="listbox" aria-expanded="false">
-                        <ul class="tabOption jc-center" role="listbox">
-                            <li class="tabOption__item is-active" role="option"><span class="text">全部消息</span></li>
-                            <li class="tabOption__item" role="option"><span class="text">官方公告</span></li>
-                            <li class="tabOption__item" role="option"><span class="text">活動消息</span></li>
-                            <li class="tabOption__item" role="option"><span class="text">媒體新聞</span></li>
+    <main class="main">
+        <div class="m-subPage">
+            <div class="m-element m-subPage__head">
+                <div class="container">
+                    <div class="pageLabel"><span class="pageLabel__text">#活動類型</span></div>
+                    <div class="wrapper">
+                        <div class="team"><a href="#">總計畫名稱</a></div>
+                        <div class="title f-title-primary is-pageTitle">活動標題</div>
+                        <ul class="datas">
+                            <li class="datas__item datas__item--date">
+                                <div class="label"><div class="label__text f-h5">{{ __('event.sub-page.datas.dates') }}｜</div></div>
+                                <div class="content"><span class="content__text f-h5">2026.7.3（五）－2026.8.20（四）</span></div>
+                            </li>
+                            <li class="datas__item datas__item--time">
+                                <div class="label"><div class="label__text f-h5">{{ __('event.sub-page.datas.time') }}｜</div></div>
+                                <div class="content"><span class="content__text f-h5">10:00-12:00</span></div>
+                            </li>
+                            <li class="datas__item datas__item--location">
+                                <div class="content"><a class="content__text f-h5">台東縣立體育館</a></div>
+                            </li>
+                            <li class="datas__item datas__item--natures">
+                                <div class="label"><div class="label__text f-h5">{{ __('event.sub-page.datas.natures') }}｜</div></div>
+                                <div class="content">
+                                    <div class="content__list">
+                                        <span class="f-h5">＃展覽</span>
+                                        <span class="f-h5">＃講座</span>
+                                        <span class="f-h5">＃工作坊</span>
+                                        <span class="f-h5">＃展演</span>
+                                        <span class="f-h5">＃市集</span>
+                                        <span class="f-h5">＃銷售</span>
+                                    </div>
+                                </div>
+                            </li>
                         </ul>
                     </div>
                 </div>
-                <div class="cardsList cardsList--fall">
-                    <div class="cardItem cardItem--news">
-                        <div class="cardItem__image">
-                            <img src="https://picsum.photos/id/232/300/300" alt="news_title">
+            </div>
+            {{-- 活動內容：有圖片輪播 --}}
+            <div class="m-element m-subPage__summary">
+                <div class="container">
+                    <div class="summary">
+                        <div class="summary__image">
+                            <div class="imageList imageList--editor imageSwiper">
+                                <div class="swiper js-editorImgSwiper">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide">
+                                            <div class="imgWrap">
+                                                <img src="https://picsum.photos/id/158/300/300" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="imgWrap">
+                                                <img src="https://picsum.photos/id/160/300/300" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="imgWrap">
+                                                <img src="https://picsum.photos/id/162/300/300" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="imgWrap">
+                                                <img src="https://picsum.photos/id/164/300/300" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                            </div>
                         </div>
-                        <div class="cardItem__text">
-                            <div class="date">2026.3.17</div>
-                            <div class="title f-h4">新聞標題</div>
-                            <ul class="action">
-                                <li>
-                                    <a href="#" class="btn btn--goDetail" target="_blank"><span class="btn__text">READ MORE</span></a>
-                                </li>
+                        <div class="summary__text">
+                            {{-- 標題 --}}
+                            <div class="title"><span class="f-title-secondary">標題一</span></div>
+                            {{-- 內文 --}}
+                            <div class="intro">
+                                <div class="customEditor">
+                                    <p class="f-p">介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字</p>
+                                    <p class="f-p">介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字</p>
+                                </div>
+                            </div>
+                            {{-- 項目 --}}
+                            <ul class="list">
+                                <li><span class="f-h5">補充說明文字</span></li>
                             </ul>
-                        </div>
-                        <div class="cardItem cardItem--news">
-                            <div class="cardItem__image">
-                                <img src="https://picsum.photos/id/233/300/300" alt="東博聯名便當特約店家揭曉！擴大徵選69家好店正式成軍">
-                            </div>
-                            <div class="cardItem__text">
-                                <div class="date">2026.3.19</div>
-                                <div class="title f-h4">東博聯名便當特約店家揭曉！擴大徵選69家好店正式成軍</div>
-                                <ul class="action">
-                                    <li>
-                                        <a href="#" class="btn btn--goDetail" target="_blank"><span class="btn__text">READ MORE</span></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="cardItem cardItem--news">
-                            <div class="cardItem__image">
-                                <img src="https://picsum.photos/id/234/300/300" alt="東博聯名便當特約店家揭曉！擴大徵選69家好店正式成軍">
-                            </div>
-                            <div class="cardItem__text">
-                                <div class="date">2026.3.19</div>
-                                <div class="title f-h4">東博聯名便當特約店家揭曉！擴大徵選69家好店正式成軍</div>
-                                <ul class="action">
-                                    <li>
-                                        <a href="#" class="btn btn--goDetail" target="_blank"><span class="btn__text">READ MORE</span></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="cardItem cardItem--news">
-                            <div class="cardItem__image">
-                                <img src="https://picsum.photos/id/235/300/300" alt="2026台東博覽會首展《紅土之上棒球特展》3/21松菸開展，重現台東棒球百年榮光">
-                            </div>
-                            <div class="cardItem__text">
-                                <div class="date">2026.2.26</div>
-                                <div class="title f-h4">2026台東博覽會首展《紅土之上棒球特展》3/21松菸開展，重現台東棒球百年榮光</div>
-                                <ul class="action">
-                                    <li>
-                                        <a href="#" class="btn btn--goDetail" target="_blank"><span class="btn__text">READ MORE</span></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="cardItem cardItem--news">
-                            <div class="cardItem__image">
-                                <img src="https://picsum.photos/id/236/300/300" alt="縣府辦理《冠軍之路》電影欣賞 預告2026台東博覽會：紅土之上棒球特展">
-                            </div>
-                            <div class="cardItem__text">
-                                <div class="date">2026.2.25</div>
-                                <div class="title f-h4">縣府辦理《冠軍之路》電影欣賞 預告2026台東博覽會：紅土之上棒球特展</div>
-                                <ul class="action">
-                                    <li>
-                                        <a href="#" class="btn btn--goDetail" target="_blank"><span class="btn__text">READ MORE</span></a>
-                                    </li>
-                                </ul>
-                            </div>
+                            {{-- 連結按鈕 --}}
+                            <ul class="links">
+                                <li><a href="#" class="btn btn--customLink"><span class="btn__text">自定義按鈕</span></a></li>
+                                <li><a href="#" class="btn btn--customLink"><span class="btn__text">按鈕</span></a></li>
+                                <li><a href="#" class="btn btn--customLink"><span class="btn__text">沒有限字數啊哈哈哈哈</span></a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
+            {{-- 活動內容：無圖片輪播 --}}
+            <div class="m-element m-subPage__summary">
+                <div class="container">
+                    <div class="summary">
+                        <div class="summary__text">
+                            {{-- 標題 --}}
+                            <div class="title"><span class="f-title-secondary">標題一</span></div>
+                            {{-- 內文 --}}
+                            <div class="intro">
+                                <div class="customEditor">
+                                    <p class="f-p">介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字</p>
+                                    <p class="f-p">介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字</p>
+                                </div>
+                            </div>
+                            {{-- 項目 --}}
+                            <ul class="list">
+                                <li><span class="f-h5">補充說明文字</span></li>
+                            </ul>
+                            {{-- 連結按鈕 --}}
+                            <ul class="links">
+                                <li><a href="#" class="btn btn--customLink"><span class="btn__text">自定義按鈕</span></a></li>
+                                <li><a href="#" class="btn btn--customLink"><span class="btn__text">按鈕</span></a></li>
+                                <li><a href="#" class="btn btn--customLink"><span class="btn__text">沒有限字數啊哈哈哈哈</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{-- 活動相簿 --}}
+            <div class="m-element m-subPage__gallery">
+                <div class="imageList imageList--gallery imageSwiper">
+                    <div class="swiper js-galleryImgSwiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="imgWrap">
+                                    <img src="https://picsum.photos/id/236/300/300" alt="">
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="imgWrap">
+                                    <img src="https://picsum.photos/id/238/300/300" alt="">
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="imgWrap">
+                                    <img src="https://picsum.photos/id/240/300/300" alt="">
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="imgWrap">
+                                    <img src="https://picsum.photos/id/242/300/300" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+            </div>
         </div>
-    </section>
-    <!-- news end -->
-</main>
+    </main>
 @endsection

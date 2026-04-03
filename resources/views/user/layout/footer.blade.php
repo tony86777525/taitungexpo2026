@@ -4,16 +4,16 @@
         <div class="logo logo--government">
             <a href="https://www.taitung.gov.tw" target="_blank"><img src="{{ asset('images/logo_taitungGov.svg') }}" alt="臺東縣政府"></a>
         </div>
-        <div class="department">2026台東博覽會-專案管理辦公室</div>
+        <div class="department">{{ __('layout.footer.unit') }}</div>
         <ul class="info">
-            <li class="f-section-h5">電子郵件：<a href="mailto:info@taitungexpo2026.com.tw">info@taitungexpo2026.com.tw</a></li>
-            <li class="f-section-h5">官方LINE:<a href="https://lin.ee/xC0cxGi" target="_blank">@ttexpo</a></li>
-            <li class="f-section-h5">服務時間：週一至週五，9:00-18:00</li>
+            <li class="f-section-h5">{{ __('layout.footer.contact.email-key') }}：<a href="mailto:info@taitungexpo2026.com.tw">info@taitungexpo2026.com.tw</a></li>
+            <li class="f-section-h5">{{ __('layout.footer.contact.tel-key') }}：{{ __('layout.footer.contact.tel-value') }}</li>
+            <li class="f-section-h5">{{ __('layout.footer.contact.service-key') }}：{{ __('layout.footer.contact.service-value') }}</li>
         </ul>
         <ul class="sectors">
-            <li class="f-section-h5">指導單位｜國家發展委員會、文化部</li>
-            <li class="f-section-h5">主辦單位｜臺東縣政府</li>
-            <li class="f-section-h5">執行單位｜玩美文創設計工作室</li>
+            <li class="f-section-h5">{{ __('layout.footer.by.supervised-key') }}｜{{ __('layout.footer.by.supervised-value') }}</li>
+            <li class="f-section-h5">{{ __('layout.footer.by.organized-key') }}｜{{ __('layout.footer.by.organized-value') }}</li>
+            <li class="f-section-h5">{{ __('layout.footer.by.executed-key') }}｜{{ __('layout.footer.by.executed-value') }}</li>
         </ul>
         <div class="blankLogo">
             <a href="https://www.facebook.com/taitungexpo2026/" class="logo__item logo__item--icon" target="_blank"><img src="{{ asset('images/logo_sns-fb.svg') }}" alt="2026台東博覽會 Taitung Expo Facebook"></a>

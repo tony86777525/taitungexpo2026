@@ -92,9 +92,9 @@ Route::group([
     Route::get('/news/list', [NewsController::class, 'index'])
         ->name('news.list');
 
-    Route::get('/news/detail/{id}/', function () {
-        return view('user.news.detail');
-    })->name('news.detail');
+    Route::get('/news/detail/{id}/', [NewsController::class, 'detail'])
+        ->name('news.detail')
+        ->whereNumber('id');
 
     Route::get('/event/list', [EventController::class, 'index'])
         ->name('event.list');

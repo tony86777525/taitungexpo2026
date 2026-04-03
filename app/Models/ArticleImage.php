@@ -27,4 +27,12 @@ class ArticleImage extends Model
     {
         return $this->belongsTo(Article::class);
     }
+
+    /**
+     * @return string
+     */
+    public function getDisplayUrlAttribute(): string
+    {
+        return asset('storage/' . $this->url);
+    }
 }

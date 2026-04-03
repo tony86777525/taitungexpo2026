@@ -46,4 +46,29 @@ class NewsController extends Controller
             'currentTagId'
         ));
     }
+
+    public function detail(int $id)
+    {
+        $currentArticleId = $id;
+
+        $article = Article::query()
+            ->with([
+                'tags',
+                'contents',
+                'contents.images',
+                'contents.links',
+                'images',
+            ])
+            ->where('is_active', true)
+            ->when(!empty($currentArticleId), function ($query) use ($currentArticleId) {
+                $query->where('id', $currentArticleId);
+            })
+            ->first();
+
+        abort_if(empty($article), 404);
+
+        return view('user.news.detail', compact(
+            'article'
+        ));
+    }
 }

@@ -17,22 +17,23 @@
         <section class="section section--calendar">
             <div class="section__title wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s">
                 <div class="container">
-                    <span class="title f-title-primary">活動行事曆</span>
+                    <span class="title f-title-primary is-pageTitle">{{ __('event.page-title') }}</span>
                 </div>
             </div>
             <div class="section__content wow fadeIn" data-wow-duration="0.5s" data-wow-delay="1s">
                 <div class="container">
                     <div class="searchBar">
                         <div class="searchBar__content searchBar__content--datepicker">
-                            <div class="text f-p">快速選擇查詢日期</div>
+                            <div class="text f-p">{{ __('event.top.search-text1') }}</div>
                             <div class="action">
                                 <label for="datepicker" class="datepickerItem datepickerItem--icon"></label>
                                 <input id="datepicker" class="datepickerItem datepickerItem--input" readonly data-toggle="datepicker">
                             </div>
                         </div>
                         <div class="searchBar__content searchBar__content--links">
-                            <div class="text f-p">如需瀏覽常態展覽資訊，請前往</div>
-                            <div class="action"><a href="#" class="btn btn--inside"><span class="btn__text">展覽概覽</span></a></div>
+                            <div class="text f-p">{{ __('event.top.search-text2-start') }}</div>
+                            <div class="action"><a href="#" class="btn btn--inside"><span class="btn__text">{{ __('event.top.link-text') }}</span></a></div>
+                            <div class="text f-p">{{ __('event.top.search-text2-end') }}</div>
                         </div>
                     </div>
                     <div class="calendar calendarSwiper">

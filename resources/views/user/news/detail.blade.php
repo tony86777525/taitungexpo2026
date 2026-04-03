@@ -3,112 +3,98 @@
 @push('styles')
     @vite('resources/scss/user/news/detail.scss')
 @endpush
-    
+
 @push('scripts')
     @vite('resources/js/user/news/detail.js')
 @endpush
 
 @section('content')
-<main class="main">
-    <!-- news start -->
-    <section id="news" class="section section--news">
-        <div class="section__title wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s">
-            <div class="container">
-                <span class="title f-title-primary">最新消息</span>
-                <ul class="action">
-                    <li>
-                        <a href="#" class="btn btn--goSubpage is-light"><span class="btn__text">MORE</span></a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="section__content wow fadeIn" data-wow-duration="0.5s" data-wow-delay="1s">
-            <div class="container">
-                <div class="tabGroup tabGroup--default js-tabGroup">
-                    <div class="tabGroup__selector" role="button" aria-haspopup="listbox" aria-expanded="false">
-                        <ul class="tabOption jc-center" role="listbox">
-                            <li class="tabOption__item is-active" role="option"><span class="text">全部消息</span></li>
-                            <li class="tabOption__item" role="option"><span class="text">官方公告</span></li>
-                            <li class="tabOption__item" role="option"><span class="text">活動消息</span></li>
-                            <li class="tabOption__item" role="option"><span class="text">媒體新聞</span></li>
-                        </ul>
+    <main class="main">
+        <div class="m-subPage">
+            <div class="m-element m-subPage__head">
+                <div class="container">
+                    @if(!empty($article->display_tag_name))
+                        <div class="pageLabel"><span class="pageLabel__text">{{ $article->display_tag_name }}</span></div>
+                    @endif
+                    <div class="wrapper">
+                        <div class="newsDate">{{ $article->display_published_at }}</div>
+                        <div class="title f-title-primary is-pageTitle">{{ $article->display_title }}</div>
                     </div>
                 </div>
-                <div class="cardsList cardsList--fall">
-                    <div class="cardItem cardItem--news">
-                        <div class="cardItem__image">
-                            <img src="https://picsum.photos/id/232/300/300" alt="news_title">
-                        </div>
-                        <div class="cardItem__text">
-                            <div class="date">2026.3.17</div>
-                            <div class="title f-h4">新聞標題</div>
-                            <ul class="action">
-                                <li>
-                                    <a href="#" class="btn btn--goDetail" target="_blank"><span class="btn__text">READ MORE</span></a>
-                                </li>
+            </div>
+            {{-- 消息內容：有圖片輪播 --}}
+            @foreach($article->getContents() ?: collect() as $articleContent)
+                <div class="m-element m-subPage__summary">
+                <div class="container">
+                    <div class="summary">
+                        @if(!empty($articleContent->getImages()))
+                            <div class="summary__image">
+                                <div class="imageList imageList--editor imageSwiper">
+                                    <div class="swiper js-editorImgSwiper">
+                                        <div class="swiper-wrapper">
+                                            @foreach($articleContent->getImages() as $articleContentImage)
+                                                <div class="swiper-slide">
+                                                    <div class="imgWrap">
+                                                        <img src="{{ $articleContentImage->display_url }}" alt="{{ $articleContentImage->alt_text }}">
+                                                    </div>
+                                                </div>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                    <div class="swiper-button-next"></div>
+                                    <div class="swiper-button-prev"></div>
+                                </div>
+                            </div>
+                        @endif
+                        <div class="summary__text">
+                            {{-- 標題 --}}
+                            <div class="title"><span class="f-title-secondary">{{ $articleContent->display_title }}</span></div>
+                            {{-- 內文 --}}
+                            <div class="intro">
+                                <div class="customEditor">
+                                    {!! $articleContent->display_content !!}
+                                </div>
+                            </div>
+                            {{-- 項目 --}}
+                            <ul class="list">
+                                <li><span class="f-h5">{{ $articleContent->display_item_text }}</span></li>
                             </ul>
-                        </div>
-                        <div class="cardItem cardItem--news">
-                            <div class="cardItem__image">
-                                <img src="https://picsum.photos/id/233/300/300" alt="東博聯名便當特約店家揭曉！擴大徵選69家好店正式成軍">
-                            </div>
-                            <div class="cardItem__text">
-                                <div class="date">2026.3.19</div>
-                                <div class="title f-h4">東博聯名便當特約店家揭曉！擴大徵選69家好店正式成軍</div>
-                                <ul class="action">
-                                    <li>
-                                        <a href="#" class="btn btn--goDetail" target="_blank"><span class="btn__text">READ MORE</span></a>
-                                    </li>
+                            {{-- 連結按鈕 --}}
+                            @if(!empty($articleContent->getLinks()))
+                                <ul class="links">
+                                    @foreach($articleContent->getLinks() as $articleContentLink)
+                                        <li><a
+                                                href="{{ $articleContentLink->display_url }}"
+                                                class="btn btn--customLink"
+                                            ><span class="btn__text">{{ $articleContentLink->display_name }}</span></a></li>
+                                    @endforeach
                                 </ul>
-                            </div>
-                        </div>
-                        <div class="cardItem cardItem--news">
-                            <div class="cardItem__image">
-                                <img src="https://picsum.photos/id/234/300/300" alt="東博聯名便當特約店家揭曉！擴大徵選69家好店正式成軍">
-                            </div>
-                            <div class="cardItem__text">
-                                <div class="date">2026.3.19</div>
-                                <div class="title f-h4">東博聯名便當特約店家揭曉！擴大徵選69家好店正式成軍</div>
-                                <ul class="action">
-                                    <li>
-                                        <a href="#" class="btn btn--goDetail" target="_blank"><span class="btn__text">READ MORE</span></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="cardItem cardItem--news">
-                            <div class="cardItem__image">
-                                <img src="https://picsum.photos/id/235/300/300" alt="2026台東博覽會首展《紅土之上棒球特展》3/21松菸開展，重現台東棒球百年榮光">
-                            </div>
-                            <div class="cardItem__text">
-                                <div class="date">2026.2.26</div>
-                                <div class="title f-h4">2026台東博覽會首展《紅土之上棒球特展》3/21松菸開展，重現台東棒球百年榮光</div>
-                                <ul class="action">
-                                    <li>
-                                        <a href="#" class="btn btn--goDetail" target="_blank"><span class="btn__text">READ MORE</span></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="cardItem cardItem--news">
-                            <div class="cardItem__image">
-                                <img src="https://picsum.photos/id/236/300/300" alt="縣府辦理《冠軍之路》電影欣賞 預告2026台東博覽會：紅土之上棒球特展">
-                            </div>
-                            <div class="cardItem__text">
-                                <div class="date">2026.2.25</div>
-                                <div class="title f-h4">縣府辦理《冠軍之路》電影欣賞 預告2026台東博覽會：紅土之上棒球特展</div>
-                                <ul class="action">
-                                    <li>
-                                        <a href="#" class="btn btn--goDetail" target="_blank"><span class="btn__text">READ MORE</span></a>
-                                    </li>
-                                </ul>
-                            </div>
+                            @endif
                         </div>
                     </div>
                 </div>
             </div>
+            @endforeach
+            {{-- 相簿 --}}
+            @if(!empty($article->getImages()))
+                <div class="m-element m-subPage__gallery">
+                    <div class="imageList imageList--gallery imageSwiper">
+                        <div class="swiper js-galleryImgSwiper">
+                            <div class="swiper-wrapper">
+                                @foreach($article->getImages() as $articleImage)
+                                    <div class="swiper-slide">
+                                        <div class="imgWrap">
+                                            <img src="{{ $articleImage->display_url }}" alt="{{ $articleImage->alt_text }}">
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                </div>
+            @endif
         </div>
-    </section>
-    <!-- news end -->
-</main>
+    </main>
 @endsection

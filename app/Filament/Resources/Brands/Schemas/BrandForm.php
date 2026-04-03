@@ -29,9 +29,23 @@ class BrandForm
                     ->url(),
                 RichEditor::make('description_tw')
                     ->label('品牌介紹（中）')
+                    ->extraInputAttributes(['class' => 'custom-rich-editor'])
+                    ->toolbarButtons([
+                        ['bold', 'italic', 'underline', 'strike', 'link'],
+                        ['alignStart', 'alignCenter', 'alignEnd'],
+                        ['bulletList', 'orderedList'],
+                        ['undo', 'redo'],
+                    ])
                     ->required(),
                 RichEditor::make('description_en')
                     ->label('品牌介紹（英）')
+                    ->extraInputAttributes(['class' => 'custom-rich-editor'])
+                    ->toolbarButtons([
+                        ['bold', 'italic', 'underline', 'strike', 'link'],
+                        ['alignStart', 'alignCenter', 'alignEnd'],
+                        ['bulletList', 'orderedList'],
+                        ['undo', 'redo'],
+                    ])
                     ->required(),
                 Repeater::make('links')
                     ->label('連結按鈕')
@@ -93,9 +107,23 @@ class BrandForm
                             ->label('標題（英）'),
                         RichEditor::make('content_tw')
                             ->label('內文（中）')
+                            ->extraInputAttributes(['class' => 'custom-rich-editor'])
+                            ->toolbarButtons([
+                                ['bold', 'italic', 'underline', 'strike', 'link'],
+                                ['alignStart', 'alignCenter', 'alignEnd'],
+                                ['bulletList', 'orderedList'],
+                                ['undo', 'redo'],
+                            ])
                             ->required(),
                         RichEditor::make('content_en')
                             ->label('內文（英）')
+                            ->extraInputAttributes(['class' => 'custom-rich-editor'])
+                            ->toolbarButtons([
+                                ['bold', 'italic', 'underline', 'strike', 'link'],
+                                ['alignStart', 'alignCenter', 'alignEnd'],
+                                ['bulletList', 'orderedList'],
+                                ['undo', 'redo'],
+                            ])
                             ->required(),
                         TextInput::make('item_text_tw')
                             ->label('項目文字（中）'),

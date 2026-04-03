@@ -7,5 +7,5 @@
         </div>
     </div>
 @else
-    <div class="result__hint f-p">本日無活動。</div>
+    <div class="result__hint f-p">{{ __('event.search-hint') }}</div>
 @endif

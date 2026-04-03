@@ -14,7 +14,7 @@
     <section id="news" class="section section--news">
         <div class="section__title wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s">
             <div class="container">
-                <span class="title f-title-primary">最新消息</span>
+                <span class="title f-title-primary is-pageTitle">{{ __('news.page-title') }}</span>
             </div>
         </div>
         <div class="section__content wow fadeIn" data-wow-duration="0.5s" data-wow-delay="1s">
@@ -29,7 +29,7 @@
                                             href="{{ route('user.news.list') }}"
                                         @endif
                                         class="text"
-                                    >全部消息</a>
+                                    >{{ __('news.filter-text.filter1') }}</a>
                                 </li>
                                 @foreach($tags as $tag)
                                     <li class="filterOption__item js-filterOption-item @if($tag->is_current_tag) is-active @endif" role="option">
