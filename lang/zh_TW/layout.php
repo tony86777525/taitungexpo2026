@@ -1,0 +1,48 @@
+<?php
+
+return [
+    'lang' => 'zh-Hant-TW',
+    'bodyClass' => 'lang--zh',
+    'langSwitch'=> 'EN',
+    'navigation' => [
+        'nav1' => '最新消息',
+        'nav2' => '活動行事曆',
+        'nav3' => '交通資訊',
+        'nav3-1' => '交通資訊',
+        'nav3-2' => '建議路線',
+        'nav4' => '展會資訊',
+        'nav4-1' => '主題介紹',
+        'nav4-2' => '策展論述',
+        'nav4-3' => '品牌視覺系統',
+        'nav4-4' => '展會概覽',
+        'nav5' => '民間參與計畫',
+        'nav5-1' => '計畫介紹',
+        'nav5-2' => '計畫一覽',
+        'nav6' => '品牌授權專區',
+        'nav6-1' => '計畫介紹',
+        'nav6-2' => '商品專區',
+        'nav7' => '東博STYLE',
+        'nav7-1' => '台東博覽會形象影片',
+        'nav7-2' => '展會導覽手冊',
+        'nav7-3' => '台東博覽會記錄專書',
+    ],
+    'footer' => [
+        'unit' => '2026台東博覽會-專案管理辦公室',
+        'contact' => [
+            'email-key' => '電子郵件',
+            'email-value' => 'info@taitungexpo2026.com.tw',
+            'tel-key' => '聯絡電話',
+            'tel-value' => '0972-958005、089-341757',
+            'service-key' => '服務時間',
+            'service-value' => '週一至週五，9:00-18:00',
+        ],
+        'by' => [
+            'supervised-key' => '指導單位',
+            'supervised-value' => '文化部、國家發展委員會',
+            'organized-key' => '主辦單位',
+            'organized-value' => '臺東縣政府',
+            'executed-key' => '執行單位',
+            'executed-value' => '玩美文創設計工作室',
+        ]
+    ],
+];

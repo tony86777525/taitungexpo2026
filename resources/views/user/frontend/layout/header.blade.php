@@ -25,46 +25,44 @@
                         </div>
                     </div>
                     <ul class="mainMenu">
-                        <li class="mainMenu__item mainMenu__item--single"><a href="{{ route('user.frontend.news.list') }}" class="menuText"><span>{{ __('frontend.articles') }}</span></a></li>
-                        <li class="mainMenu__item mainMenu__item--single"><a href="{{ route('user.frontend.event.list') }}" class="menuText"><span>活動行事曆</span></a></li>
+                        <li class="mainMenu__item mainMenu__item--single"><a href="{{ route('user.frontend.news.list') }}" class="menuText"><span>{{ __('layout.navigation.nav1') }}</span></a></li>
+                        <li class="mainMenu__item mainMenu__item--single"><a href="{{ route('user.frontend.event.list') }}" class="menuText"><span>{{ __('layout.navigation.nav2') }}</span></a></li>
                         <li class="mainMenu__item mainMenu__item--parent js-submenu-switcher">
-                            <div class="menuText"><span>交通資訊</span></div>
+                            <div class="menuText"><span>{{ __('layout.navigation.nav3') }}</span></div>
                             <ul class="subMenu">
-                                <li class="subMenu__item"><a href="#" class="menuText"><span>交通資訊</span></a></li>
-                                <li class="subMenu__item"><a href="#" class="menuText"><span>建議路線</span></a></li>
+                                <li class="subMenu__item"><a href="#" class="menuText"><span>{{ __('layout.navigation.nav3-1') }}</span></a></li>
+                                <li class="subMenu__item"><a href="#" class="menuText"><span>{{ __('layout.navigation.nav3-2') }}</span></a></li>
                             </ul>
                         </li>
                         <li class="mainMenu__item mainMenu__item--parent js-submenu-switcher">
-                            <div class="menuText"><span>展會資訊</span></div>
+                            <div class="menuText"><span>{{ __('layout.navigation.nav4') }}</span></div>
                             <ul class="subMenu">
-                                <li class="subMenu__item"><a href="{{ route('user.frontend.about.themes') }}" class="menuText"><span>主題介紹</span></a></li>
-                                <li class="subMenu__item"><a href="{{ route('user.frontend.about.statement') }}" class="menuText"><span>策展論述</span></a></li>
-                                <li class="subMenu__item"><a href="{{ route('user.frontend.about.vi') }}" class="menuText"><span>品牌視覺系統</span></a></li>
-                                <li class="subMenu__item"><a href="#" class="menuText"><span>展會概覽</span></a></li>
+                                <li class="subMenu__item"><a href="{{ route('user.frontend.about.themes') }}" class="menuText"><span>{{ __('layout.navigation.nav4-1') }}</span></a></li>
+                                <li class="subMenu__item"><a href="{{ route('user.frontend.about.statement') }}" class="menuText"><span>{{ __('layout.navigation.nav4-2') }}</span></a></li>
+                                <li class="subMenu__item"><a href="{{ route('user.frontend.about.vi') }}" class="menuText"><span>{{ __('layout.navigation.nav4-3') }}</span></a></li>
+                                <li class="subMenu__item"><a href="#" class="menuText"><span>{{ __('layout.navigation.nav4-4') }}</span></a></li>
                             </ul>
                         </li>
                         <li class="mainMenu__item mainMenu__item--parent js-submenu-switcher">
-                            <div class="menuText"><span>民間參與計畫</span></div>
+                            <div class="menuText"><span>{{ __('layout.navigation.nav5') }}</span></div>
                             <ul class="subMenu">
-                                <li class="subMenu__item"><a href="#" class="menuText"><span>計畫介紹</span></a></li>
-                                <li class="subMenu__item"><a href="#" class="menuText"><span>計畫一覽</span></a></li>
+                                <li class="subMenu__item"><a href="#" class="menuText"><span>{{ __('layout.navigation.nav5-1') }}</span></a></li>
+                                <li class="subMenu__item"><a href="#" class="menuText"><span>{{ __('layout.navigation.nav5-2') }}</span></a></li>
                             </ul>
                         </li>
                         <li class="mainMenu__item mainMenu__item--parent js-submenu-switcher">
-                            <div class="menuText"><span>品牌授權專區</span></div>
+                            <div class="menuText"><span>{{ __('layout.navigation.nav6') }}</span></div>
                             <ul class="subMenu">
-                                <li class="subMenu__item"><a href="#" class="menuText"><span>計畫介紹</span></a></li>
-                                <li class="subMenu__item"><a href="#" class="menuText"><span>商品專區</span></a></li>
+                                <li class="subMenu__item"><a href="#" class="menuText"><span>{{ __('layout.navigation.nav6-1') }}</span></a></li>
+                                <li class="subMenu__item"><a href="#" class="menuText"><span>{{ __('layout.navigation.nav6-2') }}</span></a></li>
                             </ul>
                         </li>
                         <li class="mainMenu__item mainMenu__item--parent js-submenu-switcher">
-                            <div class="menuText"><span>東博STYLE</span></div>
+                            <div class="menuText"><span>{{ __('layout.navigation.nav7') }}</span></div>
                             <ul class="subMenu">
-                                <li class="subMenu__item"><a href="#" class="menuText"><span>台東博覽會形象影片</span></a></li>
-                                <li class="subMenu__item"><a href="#" class="menuText"><span>展會導覽手冊</span></a></li>
-                                <li class="subMenu__item"><a href="#" class="menuText"><span>電子邀請卡下載</span></a></li>
-                                <li class="subMenu__item"><a href="#" class="menuText"><span>大會人員招募專區</span></a></li>
-                                <li class="subMenu__item"><a href="#" class="menuText"><span>台東博覽會紀錄專書</span></a></li>
+                                <li class="subMenu__item"><a href="#" class="menuText"><span>{{ __('layout.navigation.nav7-1') }}</span></a></li>
+                                <li class="subMenu__item"><a href="#" class="menuText"><span>{{ __('layout.navigation.nav7-2') }}</span></a></li>
+                                <li class="subMenu__item"><a href="#" class="menuText"><span>{{ __('layout.navigation.nav7-3') }}</span></a></li>
                             </ul>
                         </li>
                     </ul>

@@ -17,8 +17,11 @@
             <ul class="links">
                 <li class="f-h5"><a href="#" class="map">地點地點地點有連結</a></li>
                 <li class="f-h5"><span class="map">地點地點地點無連結</span></li>
-                <li class="f-h5">需報名預約<a href="#" class="reserveLink" target="_blank"><span class="reserveLink__text">預約</span></a></li>
-                <li class="f-h5">自由參加</li>
+                <li class="f-h5">{{ __('event.cards.group-tour.text') }}<a href="#" class="reserveLink" target="_blank"><span class="reserveLink__text">{{ __('event.cards.group-tour.link-text') }}</span></a></li>
+                <li class="f-h5">{{ __('event.cards.participate.drop-in.text') }}</li>
+                <li class="f-h5">{{ __('event.cards.participate.reservation.text') }}<a href="#" class="reserveLink" target="_blank"><span class="reserveLink__text">{{ __('event.cards.participate.reservation.link-text') }}</span></a></li>
+                <li class="f-h5">{{ __('event.cards.participate.registration.text') }}<a href="#" class="reserveLink" target="_blank"><span class="reserveLink__text">{{ __('event.cards.participate.registration.link-text') }}</span></a></li>
+                <li class="f-h5">{{ __('event.cards.participate.ticket.text') }}<a href="#" class="reserveLink" target="_blank"><span class="reserveLink__text">{{ __('event.cards.participate.ticket.link-text') }}</span></a></li>
             </ul>
         </div>
     </div>

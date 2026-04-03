@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ __('layout.lang') }}">
 
 <head>
     <meta charset="UTF-8">
@@ -39,7 +39,7 @@
 </head>
 
 
-<body class="lang--zh" data-spy="scroll" data-target=".navbar-collapse">
+<body class="{{ __('layout.bodyClass') }}" data-spy="scroll" data-target=".navbar-collapse">
     {{-- Header --}}
     @include('user.frontend.layout.header')
     {{-- Content --}}

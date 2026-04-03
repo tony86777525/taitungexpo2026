@@ -16,21 +16,17 @@
             <div class="previewGroup previewGroup--curating">
                 <div class="hero">
                     <div class="container">
+                        <span class="previewGroup__topic f-title-primary is-pageTitle">{{ __('about.statement.page-title') }}</span>
                         <div class="previewGroup__title wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s">
-                            <span class="f-title-primary" data-json-key="curatingTitle1">
-                                <span>10大策展議題 X </span><span>超過13場大型展覽與活動 <i class="break-mb">X</i> </span><br class="display--pc">
-                                <i class="break-pc">X</i> 台東12知名活動品牌聯動
-                            </span>
-                            <span class="f-title-primary" data-json-key="curatingTitle2">
-                                <span><i class="break-mb">——</i>2026年，邀您一起體驗</span><span>台東的多元精彩！</span>
-                            </span>
+                            <span>{!! __('about.statement.hero.title1') !!}</span>
+                            <span>{!! __('about.statement.hero.title2') !!}</span>
                         </div>
                         <div class="previewGroup__content">
                             <div class="intro wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s">
-                                <p class="f-p" data-json-key="curatingIntro">由一顆落下台東土地的慢經濟種子開始，向下扎根，向上展望，逐漸萌芽、延展出「空氣」、「水」、「自然力量」、「聲音」、「漂流」、「生活」、「慢經濟體」、「台東品牌」與「永續台東」等策展議題，一層層勾勒出台東獨有的慢經濟想像藍圖。</p>
+                                <p class="f-p">{{ __('about.statement.hero.paragraph1') }}</p>
                             </div>
                             <div class="hint wow fadeIn" data-wow-duration="0.5s" data-wow-delay="1s">
-                                <span class="hint__text" data-json-key="curatingHint">點擊策展議題查看詳情</span>
+                                <span class="hint__text">{{ __('about.statement.hero.hint') }}</span>
                                 <a href="#curatingMap" class="hint__icon js-anchor"><span class="arrow"></span></a>
                             </div>
                         </div>
@@ -107,72 +103,65 @@
             <div class="previewGroup previewGroup--features">
                 <div class="container">
                     <div class="previewGroup__title wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s">
-                        <span class="f-title-primary" data-json-key="featuresTitle">
-                            串連台東山海與特色活動品牌<br>
-                            打造整年度的精彩！
-                        </span>
+                        <span class="f-title-primary">{!! __('about.statement.features.title') !!}</span>
                     </div>
                     <div class="previewGroup__content wow fadeIn" data-wow-duration="0.5s" data-wow-delay="1s">
                         <ul class="featuresList">
                             <li>
-                                <img src="{{ asset('images/about/features/img_feature-1.png') }}" alt="台東炮炸寒單爺" class="featureImage" data-json-key="feature1">
-                                <a href="https://www.zztaitung.com/20114/taitung-bombhandan-2" class="featureText featureText--front" target="_blank" data-json-key="feature1">台東炮炸<br>寒單爺</a>
+                                <img src="{{ asset('images/about/features/img_feature-1.png') }}" alt="台東炮炸寒單爺" class="featureImage">
+                                <a href="https://www.zztaitung.com/20114/taitung-bombhandan-2" class="featureText featureText--front" target="_blank">{!! __('about.statement.features.feature1') !!}</a>
                             </li>
                             <li>
-                                <img src="{{ asset('images/about/features/img_feature-2.png') }}" alt="自然醒慢活祭" class="featureImage" data-json-key="feature2">
-                                <a href="https://www.taitungspiritfestival.tw" class="featureText featureText--front" target="_blank" data-json-key="feature2">自然醒<br>慢活祭</a>
+                                <img src="{{ asset('images/about/features/img_feature-2.png') }}" alt="自然醒慢活祭" class="featureImage">
+                                <a href="https://www.taitungspiritfestival.tw" class="featureText featureText--front" target="_blank">{!! __('about.statement.features.feature2') !!}</a>
                             </li>
                             <li>
-                                <img src="{{ asset('images/about/features/img_feature-3.png') }}" alt="臺東慢食節" class="featureImage" data-json-key="feature3">
-                                <a href="https://slowfoodtaitung.tw/festival" class="featureText featureText--front" target="_blank" data-json-key="feature3">臺東慢食節</a>
+                                <img src="{{ asset('images/about/features/img_feature-3.png') }}" alt="臺東慢食節" class="featureImage">
+                                <a href="https://slowfoodtaitung.tw/festival" class="featureText featureText--front" target="_blank">{!! __('about.statement.features.feature3') !!}</a>
                             </li>
                             <li>
-                                <img src="{{ asset('images/about/features/img_feature-4.png') }}" alt="PASIWALI原住民族國際音樂節" class="featureImage" data-json-key="feature4">
-                                <a href="https://taiwanpasiwalifestival.com" class="featureText featureText--front" target="_blank" data-json-key="feature4">PASIWALI<br>原住民族<br>國際音樂節</a>
+                                <img src="{{ asset('images/about/features/img_feature-4.png') }}" alt="PASIWALI原住民族國際音樂節" class="featureImage">
+                                <a href="https://taiwanpasiwalifestival.com" class="featureText featureText--front" target="_blank">{!! __('about.statement.features.feature4') !!}</a>
                             </li>
                             <li>
-                                <img src="{{ asset('images/about/features/img_feature-5.png') }}" alt="台東最美星空" class="featureImage" data-json-key="feature5">
-                                <a href="https://www.facebook.com/StarryTaitung/?locale=zh_TW" class="featureText featureText--front" target="_blank" data-json-key="feature5">台東<br>最美星空</a>
+                                <img src="{{ asset('images/about/features/img_feature-5.png') }}" alt="台東最美星空" class="featureImage">
+                                <a href="https://www.facebook.com/StarryTaitung/?locale=zh_TW" class="featureText featureText--front" target="_blank">{!! __('about.statement.features.feature5') !!}</a>
                             </li>
                             <li>
-                                <img src="{{ asset('images/about/features/img_feature-6.png') }}" alt="臺灣國際熱氣球嘉年華" class="featureImage" data-json-key="feature6">
-                                <a href="https://balloontaiwan.taitung.gov.tw/zh-tw" class="featureText featureText--front" target="_blank" data-json-key="feature6">臺灣國際<br>熱氣球嘉年華</a>
+                                <img src="{{ asset('images/about/features/img_feature-6.png') }}" alt="臺灣國際熱氣球嘉年華" class="featureImage">
+                                <a href="https://balloontaiwan.taitung.gov.tw/zh-tw" class="featureText featureText--front" target="_blank">{!! __('about.statement.features.feature6') !!}</a>
                             </li>
                             <li>
-                                <img src="{{ asset('images/about/features/img_feature-7.png') }}" alt="臺灣國際衝浪公開賽" class="featureImage" data-json-key="feature7">
-                                <a href="https://www.facebook.com/taiwanopenofsurfing/" class="featureText featureText--front" target="_blank" data-json-key="feature7">臺灣國際<br>衝浪公開賽</a>
+                                <img src="{{ asset('images/about/features/img_feature-7.png') }}" alt="臺灣國際衝浪公開賽" class="featureImage">
+                                <a href="https://www.facebook.com/taiwanopenofsurfing/" class="featureText featureText--front" target="_blank">{!! __('about.statement.features.feature7') !!}</a>
                             </li>
                             <li>
-                                <img src="{{ asset('images/about/features/img_feature-8.png') }}" alt="東海岸大地藝術節" class="featureImage" data-json-key="feature8">
-                                <a href="https://www.eastcoast-nsa.gov.tw/teclandart/" class="featureText featureText--front" target="_blank" data-json-key="feature8">東海岸<br>大地藝術節</a>
+                                <img src="{{ asset('images/about/features/img_feature-8.png') }}" alt="東海岸大地藝術節" class="featureImage">
+                                <a href="https://www.eastcoast-nsa.gov.tw/teclandart/" class="featureText featureText--front" target="_blank">{!! __('about.statement.features.feature8') !!}</a>
                             </li>
                             <li class="multiple">
-                                <img src="{{ asset('images/about/features/img_feature-9.png') }}" alt="南迴藝術季 縱谷大地藝術季" class="featureImage" data-json-key="feature9">
-                                <div class="featureText featureText--front" data-json-key="feature9">
-                                    南迴藝術季<br>縱谷大地藝術季
-                                </div>
-                                <div class="featureText featureText--back" data-json-key="feature9" data-links-container>
-                                    <a href="https://www.facebook.com/NanhuiArtProject/?locale=zh_TW" target="_blank" data-link-index="0">南迴藝術季</a>
-                                    <a href="https://www.eastcoast-nsa.gov.tw/teclandart/" target="_blank" data-link-index="1">縱谷大地藝術季</a>
+                                <img src="{{ asset('images/about/features/img_feature-9.png') }}" alt="南迴藝術季 縱谷大地藝術季" class="featureImage">
+                                <div class="featureText featureText--front">{!! __('about.statement.features.feature9.front') !!}</div>
+                                <div class="featureText featureText--back" data-links-container>
+                                    <a href="https://www.facebook.com/NanhuiArtProject/?locale=zh_TW" target="_blank" data-link-index="0">{!! __('about.statement.features.feature9.text1') !!}</a>
+                                    <a href="https://www.eastcoast-nsa.gov.tw/teclandart/" target="_blank" data-link-index="1">{!! __('about.statement.features.feature9.text2') !!}</a>
                                 </div>
                             </li>
                             <li class="multiple">
-                                <img src="{{ asset('images/about/features/img_feature-10.png') }}" alt="臺東藝術節 臺東藝穗節" class="featureImage" data-json-key="feature10">
-                                <div class="featureText featureText--front" data-json-key="feature10">
-                                    臺東藝術節<br>臺東藝穗節
-                                </div>
-                                <div class="featureText featureText--back" data-json-key="feature10" data-links-container>
-                                    <a href="https://www.facebook.com/Taitungartsfestival/?locale=zh_TW" target="_blank" data-link-index="0">臺東藝術節</a>
-                                    <a href="https://www.taitungfringefestival.com" target="_blank" data-link-index="1">臺東藝穗節</a>
+                                <img src="{{ asset('images/about/features/img_feature-10.png') }}" alt="臺東藝術節 臺東藝穗節" class="featureImage">
+                                <div class="featureText featureText--front">{!! __('about.statement.features.feature10.front') !!}</div>
+                                <div class="featureText featureText--back" data-links-container>
+                                    <a href="https://www.facebook.com/Taitungartsfestival/?locale=zh_TW" target="_blank" data-link-index="0">{!! __('about.statement.features.feature10.text1') !!}</a>
+                                    <a href="https://www.taitungfringefestival.com" target="_blank" data-link-index="1">{!! __('about.statement.features.feature10.text2') !!}</a>
                                 </div>
                             </li>
                             <li>
-                                <img src="{{ asset('images/about/features/img_feature-11.png') }}" alt="池上秋收稻穗藝術節" class="featureImage" data-json-key="feature11">
-                                <a href="https://www.facebook.com/Chishangarts.org" class="featureText featureText--front" target="_blank" data-json-key="feature11">池上秋收<br>稻穗藝術節</a>
+                                <img src="{{ asset('images/about/features/img_feature-11.png') }}" alt="池上秋收稻穗藝術節" class="featureImage">
+                                <a href="https://www.facebook.com/Chishangarts.org" class="featureText featureText--front" target="_blank">{!! __('about.statement.features.feature11') !!}</a>
                             </li>
                             <li>
-                                <img src="{{ asset('images/about/features/img_feature-12.png') }}" alt="台東光祭" class="featureImage" data-json-key="feature12">
-                                <a href="https://www.facebook.com/TaitungLightFestival/?locale=zh_TW" class="featureText featureText--front" target="_blank" data-json-key="feature12">台東光祭</a>
+                                <img src="{{ asset('images/about/features/img_feature-12.png') }}" alt="台東光祭" class="featureImage">
+                                <a href="https://www.facebook.com/TaitungLightFestival/?locale=zh_TW" class="featureText featureText--front" target="_blank">{!! __('about.statement.features.feature12') !!}</a>
                             </li>
                         </ul>
                     </div>
@@ -189,7 +178,49 @@
         <div class="popupBox__close">
             <button class="btn btn--closePopup"></button>
         </div>
-        <div id="popupDynamicContent"></div>
+        @foreach (range(0, 9) as $i)
+        @php $wheel = __('about.statement.curating-map.wheel' . $i); @endphp
+        <div class="popupBox__content" data-popup-id="{{ $wheel['id'] }}">
+            <div class="flexBox">
+                <div class="image">
+                    <img src="{{ asset('images/about/curating/' . $wheel['id'] . '.svg') }}">
+                </div>
+                <div class="text">
+                    <div class="text__title f-h4">{{ $wheel['chapter'] }}</div>
+                    <div class="text__desc f-p">{{ $wheel['desc'] }}</div>
+
+                    <div class="text__tags">
+                        <span class="title">{{ __('about.statement.curating-map.tags-title') }}</span>
+                        <ul class="tags">
+                            @foreach ($wheel['tags'] as $tag)
+                            <li>{{ $tag }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+
+                    @if (!empty($wheel['events']))
+                    <ul class="text__events">
+                        @foreach ($wheel['events'] as $event)
+                        <li>
+                            @if (!empty($event['href']))
+                            <a href="{{ $event['href'] }}" class="eventLink">
+                                <span class="eventLink__locate">{{ $event['locate'] }}</span>
+                                <span class="eventLink__name">{{ $event['name'] }}</span>
+                            </a>
+                            @else
+                            <span class="eventLink">
+                                <span class="eventLink__locate">{{ $event['locate'] }}</span>
+                                <span class="eventLink__name">{{ $event['name'] }}</span>
+                            </span>
+                            @endif
+                        </li>
+                        @endforeach
+                    </ul>
+                    @endif
+                </div>
+            </div>
+        </div>
+        @endforeach
     </div>
 </div>
 @endsection

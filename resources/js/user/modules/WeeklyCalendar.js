@@ -22,9 +22,18 @@ class WeeklyCalendar {
         this.swiper = null;
         this.datepicker = null;
         this.currentFocusDate = new Date();
-        this.weekDays = ["日", "一", "二", "三", "四", "五", "六"];
-
+        this._initLanguages();
         this.init();
+    }
+
+    _initLanguages() {
+        const isEn = document.body.classList.contains('lang--en');
+        
+        if (isEn) {
+            this.weekDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+        } else {
+            this.weekDays = ["日", "一", "二", "三", "四", "五", "六"];
+        }
     }
 
     init() {
