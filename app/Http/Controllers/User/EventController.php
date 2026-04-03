@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Enums\ActivityReservationStatus;
+use App\Enums\ActivityReservationType;
 use App\Http\Controllers\Controller;
 use App\Models\Activity;
 use App\Models\ActivitySession;
@@ -44,6 +46,42 @@ class EventController extends Controller
 
         return view('user.event.list', compact(
             'eventDays'
+        ));
+    }
+
+    public function detail(int $id)
+    {
+        $currentActivityId = $id;
+
+        $activity = Activity::query()
+            ->with([
+                'activitySessions' => function ($query) {
+                    $query
+                        ->where('is_active', true);
+                },
+                'activitySessions.activityReservations' => function ($query) {
+                    $query
+                        ->where('status', '!=', ActivityReservationStatus::CANCELLED)
+                        ->where('type', ActivityReservationType::NORMAL);
+                },
+                'activityNatures',
+                'projectTypes',
+                'project',
+                'contents',
+                'contents.images',
+                'contents.links',
+                'images',
+            ])
+            ->where('is_active', true)
+            ->when(!empty($currentActivityId), function ($query) use ($currentActivityId) {
+                $query->where('id', $currentActivityId);
+            })
+            ->first();
+
+        abort_if(empty($activity), 404);
+
+        return view('user.event.detail', compact(
+            'activity'
         ));
     }
 }

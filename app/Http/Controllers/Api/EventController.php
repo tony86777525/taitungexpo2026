@@ -40,6 +40,7 @@ class EventController extends Controller
                 ])
                 ->where('activity_start_date', '<=', Carbon::parse($date)->format('Y-m-d'))
                 ->where('activity_end_date', '>=', Carbon::parse($date)->format('Y-m-d'))
+                ->where('is_active', true)
                 ->get();
         }
 

@@ -2,9 +2,11 @@
 
 namespace App\Models;
 
+use App\Enums\Language;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Collection;
 
 class ActivityContent extends Model
 {
@@ -60,5 +62,73 @@ class ActivityContent extends Model
     public function links(): HasMany
     {
         return $this->hasMany(ActivityContentLink::class);
+    }
+
+    /**
+     * @return string
+     */
+    public function getDisplayTitleAttribute(): string
+    {
+        if (app()->getLocale() === Language::EN->value && !empty($this->title_en)) {
+            return $this->title_en;
+        }
+
+        return $this->title_tw;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDisplayItemTextAttribute(): string
+    {
+        if (app()->getLocale() === Language::EN->value && !empty($this->item_text_en)) {
+            return $this->item_text_en;
+        }
+
+        return $this->item_text_tw;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDisplayContentAttribute(): string
+    {
+        if (app()->getLocale() === Language::EN->value && !empty($this->content_en)) {
+            return $this->content_en;
+        }
+
+        return $this->content_tw;
+    }
+
+    /**
+     * @return Collection|null
+     */
+    public function getImages(): Collection|null
+    {
+        if ($this->relationLoaded('images') === false) {
+            return null;
+        }
+
+        if ($this->images->isEmpty()) {
+            return null;
+        }
+
+        return $this->images;
+    }
+
+    /**
+     * @return Collection|null
+     */
+    public function getLinks(): Collection|null
+    {
+        if ($this->relationLoaded('links') === false) {
+            return null;
+        }
+
+        if ($this->links->isEmpty()) {
+            return null;
+        }
+
+        return $this->links;
     }
 }

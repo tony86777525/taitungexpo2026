@@ -132,6 +132,19 @@ class Activity extends Model
     }
 
     /**
+     * 活動期間-日期
+     *
+     * @return string
+     */
+    public function getDisplayDateRangeDetailAttribute(): string
+    {
+        $startDate = Carbon::create($this->activity_start_date)->translatedFormat('Y.n.j（D）');
+        $endDate = Carbon::create($this->activity_end_date)->translatedFormat('Y.n.j（D）');
+
+        return "{$startDate}－{$endDate}";
+    }
+
+    /**
      * 活動期間-每日開放時間
      *
      * @return string
@@ -202,6 +215,38 @@ class Activity extends Model
         }
 
         return $this->activityNatures;
+    }
+
+    /**
+     * @return Collection|null
+     */
+    public function getContents(): Collection|null
+    {
+        if ($this->relationLoaded('contents') === false) {
+            return null;
+        }
+
+        if ($this->contents->isEmpty()) {
+            return null;
+        }
+
+        return $this->contents;
+    }
+
+    /**
+     * @return Collection|null
+     */
+    public function getImages(): Collection|null
+    {
+        if ($this->relationLoaded('images') === false) {
+            return null;
+        }
+
+        if ($this->images->isEmpty()) {
+            return null;
+        }
+
+        return $this->images;
     }
 
     /**

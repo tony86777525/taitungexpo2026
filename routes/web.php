@@ -99,9 +99,8 @@ Route::group([
     Route::get('/event/list', [EventController::class, 'index'])
         ->name('event.list');
 
-    Route::get('/event/detail/{id}/', function () {
-        return view('user.event.detail');
-    })->name('event.detail');
+    Route::get('/event/detail/{id}/', [EventController::class, 'detail'])
+        ->name('event.detail');
 
     // 主題介紹
     Route::get('/about/themes', function () {
