@@ -40,7 +40,7 @@
                                 <li class="subMenu__item"><a href="{{ route('user.frontend.about.themes') }}" class="menuText"><span>{{ __('layout.navigation.nav4-1') }}</span></a></li>
                                 <li class="subMenu__item"><a href="{{ route('user.frontend.about.statement') }}" class="menuText"><span>{{ __('layout.navigation.nav4-2') }}</span></a></li>
                                 <li class="subMenu__item"><a href="{{ route('user.frontend.about.vi') }}" class="menuText"><span>{{ __('layout.navigation.nav4-3') }}</span></a></li>
-                                <li class="subMenu__item"><a href="#" class="menuText"><span>{{ __('layout.navigation.nav4-4') }}</span></a></li>
+                                <li class="subMenu__item"><a href="{{ route('user.frontend.about.overview') }}" class="menuText"><span>{{ __('layout.navigation.nav4-4') }}</span></a></li>
                             </ul>
                         </li>
                         <li class="mainMenu__item mainMenu__item--parent js-submenu-switcher">

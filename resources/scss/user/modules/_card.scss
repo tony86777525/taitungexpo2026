@@ -43,6 +43,33 @@ $path: '/resources/images';
 			}
         }
     }
+
+    &--collapseScroll {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        gap: rem(10);
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+
+        
+        
+        @include rwd-min(768px) {
+            overflow: hidden;
+            flex-wrap: wrap;
+            gap: rem(30);
+            transition: max-height 0.4s ease;
+        }
+
+        .cardItem {
+            width: rem(300);
+
+            @include rwd-min(768px) {
+                flex: 0 0 calc((100% - rem(60)) / 3);
+                width: calc((100% - rem(60)) / 3);
+            }
+        }
+    }
 }
 
 .cardItem {
@@ -117,6 +144,7 @@ $path: '/resources/images';
             justify-content: flex-start;
             align-items: center;
             margin-bottom: rem(10);
+            column-gap: rem(16);
 
             .venue__deco {
                 img {}
@@ -751,6 +779,52 @@ $path: '/resources/images';
             .cardItem__image {
                 img {
                     filter: grayscale(0);
+                }
+            }
+        }
+	}
+
+    &--overview {
+        display: block;
+
+		.cardItem__image {
+
+            &:before {
+                padding-top: 100%;
+            }
+		}
+
+		.cardItem__text {
+            background-color: $white;
+            padding: rem(20);
+
+            .venue {
+                &__icon {
+                    width: rem(18);
+
+                    img {
+                        width: 100%;
+                    }
+                }
+            }
+
+			.title {
+				color: $dark;
+                @include line-clamp(2);
+			}
+
+			.action {
+				margin-top: rem(40);
+				justify-content: flex-start;
+			}
+		}
+
+        &:hover {
+            text-decoration: none;
+
+            .cardItem__image {
+                img {
+                    @include scale(1.02);
                 }
             }
         }

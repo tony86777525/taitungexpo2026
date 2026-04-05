@@ -372,6 +372,76 @@ $btnPath: '/resources/images';
         }
     }
 
+    &--collapse {
+        display: flex;
+        align-items: center;
+        padding: rem(9) rem(19);
+        border-width: rem(1);
+        border-style: solid;
+        border-radius: rem(32);
+        background-color: transparent;
+
+        @include rwd-min(769px) {
+            padding: rem(12) rem(29);
+        }
+
+        &:after {
+            content: '';
+            display: block;
+            width: rem(19);
+            height: rem(19);
+            background-size: rem(19);
+            background-repeat: no-repeat;
+            margin-left: rem(10);
+            @include transition(all, .3s, ease-in-out);
+        }
+
+        .btn__text {
+            @include f-unbounded;
+            font-size: rem(15);
+            font-weight: 600;
+        }
+
+        &.is-light {
+            border-color: $white;
+
+            &:after {
+                background-image: url('#{$btnPath}/arrow_collapse-w.svg');
+            }
+
+            .btn__text {
+                color: $white;
+            }
+
+            &:hover {
+                border-color: $primary-hover;
+                background-color: $primary-hover;
+            }
+
+            @include rwd-not-hover {
+                &:hover {
+                    border-color: $white;
+                    background-color: transparent;
+                }
+            }
+        }
+
+        &:hover,
+        &.is-active {
+            &:after {
+                @include rotate(-180);
+            }
+        }
+
+        @include rwd-not-hover {
+            &:hover {
+                &:after {
+                    @include rotate(0);
+                }
+            }
+        }
+    }
+
     &:focus {
         outline: none;
         box-shadow: none;

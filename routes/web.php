@@ -32,9 +32,9 @@ Route::group([
         })->name('about.vi');
 
         // 展會概覽（第二批）
-        // Route::get('/about/themes', function () {
-        //     return view('user.frontend.about.themes');
-        // });
+        Route::get('/about/overview', function () {
+            return view('user.frontend.about.overview');
+        })->name('about.overview');
 
         // 最新消息
         // 列表
