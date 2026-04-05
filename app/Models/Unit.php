@@ -38,4 +38,12 @@ class Unit extends Model
     {
         return $this->belongsToMany(Project::class, 'p_unit');
     }
+
+    /**
+     * @return string|null
+     */
+    public function getDisplayAllNameAttribute(): ?string
+    {
+        return "{$this->name_tw} / {$this->name_en}";
+    }
 }

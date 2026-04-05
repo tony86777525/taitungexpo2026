@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Resources\CurationNatures\Tables;
+namespace App\Filament\Resources\ParticipationTypes\Tables;
 
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
@@ -10,17 +10,25 @@ use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
-class CurationNaturesTable
+class ParticipationTypesTable
 {
     public static function configure(Table $table): Table
     {
         return $table
             ->columns([
                 TextColumn::make('name_tw')
-                    ->label('策展議題（中）')
+                    ->label('報名資訊（中）')
                     ->searchable(),
                 TextColumn::make('name_en')
-                    ->label('策展議題（英）')
+                    ->label('報名資訊（英）')
+                    ->searchable(),
+                TextColumn::make('link_name_tw')
+                    ->label('報名連結文字（中）')
+                    ->placeholder('-')
+                    ->searchable(),
+                TextColumn::make('link_name_en')
+                    ->label('報名連結文字（英）')
+                    ->placeholder('-')
                     ->searchable(),
                 IconColumn::make('is_active')
                     ->label('啟用狀態')

@@ -34,6 +34,8 @@ class Project extends Model
         'project_start_time',
         // 計畫結束時間
         'project_end_time',
+        // 開放時間備註
+        'project_time_note',
         // 地點（中）
         'project_location_tw',
         // 地點（英）

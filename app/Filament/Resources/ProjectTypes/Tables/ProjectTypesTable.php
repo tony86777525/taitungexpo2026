@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Resources\CurationNatures\Tables;
+namespace App\Filament\Resources\ProjectTypes\Tables;
 
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
@@ -10,17 +10,17 @@ use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
-class CurationNaturesTable
+class ProjectTypesTable
 {
     public static function configure(Table $table): Table
     {
         return $table
             ->columns([
                 TextColumn::make('name_tw')
-                    ->label('策展議題（中）')
+                    ->label('計畫類型（中）')
                     ->searchable(),
                 TextColumn::make('name_en')
-                    ->label('策展議題（英）')
+                    ->label('計畫類型（英）')
                     ->searchable(),
                 IconColumn::make('is_active')
                     ->label('啟用狀態')

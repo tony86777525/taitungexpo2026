@@ -32,6 +32,14 @@ class Tag extends Model
         return $this->belongsToMany(Article::class, 'article_tags');
     }
 
+    /**
+     * @return string|null
+     */
+    public function getDisplayAllNameAttribute(): ?string
+    {
+        return "＃{$this->name_tw} / ＃{$this->name_en}";
+    }
+
     public function getDisplayNameAttribute()
     {
         if (app()->getLocale() === Language::EN->value && !empty($this->name_en)) {

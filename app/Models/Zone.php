@@ -22,6 +22,14 @@ class Zone extends Model
     ];
 
     /**
+     * @return string|null
+     */
+    public function getDisplayAllNameAttribute(): ?string
+    {
+        return "{$this->name_tw} / {$this->name_en}";
+    }
+
+    /**
      * @return string
      */
     public function getDisplayNameAttribute(): string

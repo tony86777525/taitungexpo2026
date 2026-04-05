@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\Activities\Schemas;
 
 use App\Models\Project;
+use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Repeater;
@@ -143,24 +144,19 @@ class ActivityForm
                 TextInput::make('url')
                     ->label('活動卡片導向連結')
                     ->url(),
-                RichEditor::make('registration_info_tw')
-                    ->label('報名資訊（中）')
-                    ->extraInputAttributes(['class' => 'custom-rich-editor'])
-                    ->toolbarButtons([
-                        ['bold', 'italic', 'underline', 'strike', 'link'],
-                        ['alignStart', 'alignCenter', 'alignEnd'],
-                        ['bulletList', 'orderedList'],
-                        ['undo', 'redo'],
-                    ]),
-                RichEditor::make('registration_info_en')
-                    ->label('報名資訊（英）')
-                    ->extraInputAttributes(['class' => 'custom-rich-editor'])
-                    ->toolbarButtons([
-                        ['bold', 'italic', 'underline', 'strike', 'link'],
-                        ['alignStart', 'alignCenter', 'alignEnd'],
-                        ['bulletList', 'orderedList'],
-                        ['undo', 'redo'],
-                    ]),
+                Select::make('participation_type_id')
+                    ->label('報名資訊')
+                    ->relationship(
+                        name: 'ParticipationType',
+                    )
+                    ->getOptionLabelFromRecordUsing(fn ($record) => $record->display_all_name)
+                    ->allowHtml(),
+                TextInput::make('participation_link')
+                    ->label('報名資訊連結')
+                    ->url(),
+                Checkbox::make('show_tour_info')
+                    ->label('顯示導覽預約資訊')
+                    ->default(false),
                 RichEditor::make('tour_info_tw')
                     ->label('導覽預約資訊（中）')
                     ->extraInputAttributes(['class' => 'custom-rich-editor'])
@@ -183,9 +179,9 @@ class ActivityForm
                     ->label('活動性質')
                     ->relationship(
                         name: 'activityNatures',
-                        titleAttribute: 'name_tw',
                         modifyQueryUsing: fn (Builder $query) => $query->orderBy('id'),
                     )
+                    ->getOptionLabelFromRecordUsing(fn ($record) => $record->display_all_name)
                     ->multiple()
                     ->maxItems(1)
                     ->preload(),
@@ -193,9 +189,9 @@ class ActivityForm
                     ->label('計畫類型')
                     ->relationship(
                         name: 'projectTypes',
-                        titleAttribute: 'name_tw',
                         modifyQueryUsing: fn (Builder $query) => $query->orderBy('id'),
                     )
+                    ->getOptionLabelFromRecordUsing(fn ($record) => $record->display_all_name)
                     ->multiple()
                     ->maxItems(1)
                     ->preload(),

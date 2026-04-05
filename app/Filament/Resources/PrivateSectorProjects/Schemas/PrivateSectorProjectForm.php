@@ -13,7 +13,6 @@ use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\TimePicker;
 use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Schema;
@@ -41,9 +40,9 @@ class PrivateSectorProjectForm
                     ->label('執行單位')
                     ->relationship(
                         name: 'executingUnit',
-                        titleAttribute: 'name_tw',
                         modifyQueryUsing: fn (Builder $query) => $query->orderBy('id'),
                     )
+                    ->getOptionLabelFromRecordUsing(fn ($record) => $record->display_all_name)
                     ->required()
                     ->allowHtml(),
                 TextInput::make('project_number')
@@ -84,18 +83,18 @@ class PrivateSectorProjectForm
                     ->label('計劃分類')
                     ->relationship(
                         name: 'projectCategories',
-                        titleAttribute: 'name_tw',
                         modifyQueryUsing: fn (Builder $query) => $query->orderBy('id'),
                     )
+                    ->getOptionLabelFromRecordUsing(fn ($record) => $record->display_all_name)
                     ->multiple()
                     ->preload(),
                 Select::make('projectNatures')
                     ->label('計劃性質')
                     ->relationship(
                         name: 'projectNatures',
-                        titleAttribute: 'name_tw',
                         modifyQueryUsing: fn (Builder $query) => $query->orderBy('id'),
                     )
+                    ->getOptionLabelFromRecordUsing(fn ($record) => $record->display_all_name)
                     ->multiple()
                     ->preload(),
                 Repeater::make('featured_images')
@@ -262,16 +261,19 @@ class PrivateSectorProjectForm
                     ->label('自訂單位')
                     ->relationship('projectUnitTypes')
                     ->schema([
-                        TextInput::make('name')
-                            ->label('單位類型')
+                        TextInput::make('name_tw')
+                            ->label('單位類型（中）')
+                            ->required(),
+                        TextInput::make('name_en')
+                            ->label('單位類型（英）')
                             ->required(),
                         Select::make('units')
                             ->label('單位')
                             ->relationship(
                                 name: 'units',
-                                titleAttribute: 'name_tw',
                                 modifyQueryUsing: fn (Builder $query) => $query->orderBy('sort_order'),
                             )
+                            ->getOptionLabelFromRecordUsing(fn ($record) => $record->display_all_name)
                             ->multiple()
                             ->preload()
                             ->required(),

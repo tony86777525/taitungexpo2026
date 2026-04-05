@@ -69,17 +69,17 @@ class ExhibitionOverviewForm
                         TimePicker::make('project_start_time')
                             ->label('計畫開始時間')
                             ->seconds(false)
-                            ->required()
                             ->default(Carbon::parse('09:00'))
                             ->maxWidth('sm'),
                         TimePicker::make('project_end_time')
                             ->label('計畫結束時間')
                             ->afterOrEqual('project_start_time')
                             ->seconds(false)
-                            ->required()
-                            ->default(Carbon::parse('15:00'))
+                            ->default(Carbon::parse('18:00'))
                             ->maxWidth('sm'),
                     ]),
+                TextInput::make('project_time_note')
+                    ->label('開放時間備註'),
                 TextInput::make('project_location_tw')
                     ->label('計畫地點（中）')
                     ->required(),
@@ -93,9 +93,9 @@ class ExhibitionOverviewForm
                     ->label('計劃性質')
                     ->relationship(
                         name: 'projectNatures',
-                        titleAttribute: 'name_tw',
                         modifyQueryUsing: fn (Builder $query) => $query->orderBy('id'),
                     )
+                    ->getOptionLabelFromRecordUsing(fn ($record) => $record->display_all_name)
                     ->multiple()
                     ->maxItems(5)
                     ->preload(),
@@ -103,9 +103,9 @@ class ExhibitionOverviewForm
                     ->label('策展議題')
                     ->relationship(
                         name: 'curationNatures',
-                        titleAttribute: 'name_tw',
                         modifyQueryUsing: fn (Builder $query) => $query->orderBy('id'),
                     )
+                    ->getOptionLabelFromRecordUsing(fn ($record) => $record->display_all_name)
                     ->multiple()
                     ->preload(),
                 Repeater::make('featured_images')
@@ -259,16 +259,19 @@ class ExhibitionOverviewForm
                     ->label('自訂單位')
                     ->relationship('projectUnitTypes')
                     ->schema([
-                        TextInput::make('name')
-                            ->label('單位類型')
+                        TextInput::make('name_tw')
+                            ->label('單位類型（中）')
+                            ->required(),
+                        TextInput::make('name_en')
+                            ->label('單位類型（英）')
                             ->required(),
                         Select::make('units')
                             ->label('單位')
                             ->relationship(
                                 name: 'units',
-                                titleAttribute: 'name_tw',
                                 modifyQueryUsing: fn (Builder $query) => $query->orderBy('sort_order'),
                             )
+                            ->getOptionLabelFromRecordUsing(fn ($record) => $record->display_all_name)
                             ->multiple()
                             ->preload()
                             ->required(),

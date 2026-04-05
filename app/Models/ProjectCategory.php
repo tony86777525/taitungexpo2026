@@ -30,4 +30,12 @@ class ProjectCategory extends Model
     {
         return $this->belongsToMany(Project::class, 'p_project_category');
     }
+
+    /**
+     * @return string|null
+     */
+    public function getDisplayAllNameAttribute(): ?string
+    {
+        return "＃{$this->name_tw} / ＃{$this->name_en}";
+    }
 }

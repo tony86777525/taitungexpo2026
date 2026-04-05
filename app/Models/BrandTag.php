@@ -32,6 +32,14 @@ class BrandTag extends Model
         return $this->belongsToMany(Brand::class, 'brand_tag_relations');
     }
 
+    /**
+     * @return string|null
+     */
+    public function getDisplayAllNameAttribute(): ?string
+    {
+        return "＃{$this->name_tw} / ＃{$this->name_en}";
+    }
+
     public function getDisplayNameAttribute()
     {
         if (app()->getLocale() === Language::EN->value && !empty($this->name_en)) {

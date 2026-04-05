@@ -47,21 +47,15 @@ class ActivityInfolist
                     ->prose()
                     ->placeholder('-')
                     ->columnSpanFull(),
-                TextEntry::make('registration_info_en')
-                    ->label('報名資訊（英）')
-                    ->prose()
-                    ->placeholder('-')
-                    ->columnSpanFull(),
-                TextEntry::make('tour_info_tw')
-                    ->label('導覽預約資訊（中）')
-                    ->prose()
-                    ->placeholder('-')
-                    ->columnSpanFull(),
-                TextEntry::make('tour_info_en')
-                    ->label('導覽預約資訊（英）')
-                    ->prose()
-                    ->placeholder('-')
-                    ->columnSpanFull(),
+                TextEntry::make('participationType.display_all_name')
+                    ->label('報名資訊')
+                    ->placeholder('-'),
+                TextEntry::make('participation_link')
+                    ->label('報名資訊連結')
+                    ->placeholder('-'),
+                IconEntry::make('show_tour_info')
+                    ->label('顯示導覽預約資訊')
+                    ->boolean(),
                 RepeatableEntry::make('activityNatures')
                     ->label('活動性質')
                     ->schema([

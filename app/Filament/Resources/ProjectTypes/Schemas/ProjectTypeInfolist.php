@@ -1,22 +1,22 @@
 <?php
 
-namespace App\Filament\Resources\CurationNatures\Schemas;
+namespace App\Filament\Resources\ProjectTypes\Schemas;
 
 use Filament\Infolists\Components\IconEntry;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Schema;
 
-class CurationNatureInfolist
+class ProjectTypeInfolist
 {
     public static function configure(Schema $schema): Schema
     {
         return $schema
             ->components([
                 TextEntry::make('name_tw')
-                    ->label('策展議題（中）')
+                    ->label('計畫類型（中）')
                     ->placeholder('-'),
                 TextEntry::make('name_en')
-                    ->label('策展議題（英）')
+                    ->label('計畫類型（英）')
                     ->placeholder('-'),
                 IconEntry::make('is_active')
                     ->label('啟用狀態')

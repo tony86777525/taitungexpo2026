@@ -28,4 +28,12 @@ class CurationNature extends Model
     {
         return $this->belongsToMany(Project::class, 'p_curation_nature');
     }
+
+    /**
+     * @return string|null
+     */
+    public function getDisplayAllNameAttribute(): ?string
+    {
+        return "＃{$this->name_tw} / ＃{$this->name_en}";
+    }
 }

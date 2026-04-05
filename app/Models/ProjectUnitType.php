@@ -10,8 +10,10 @@ class ProjectUnitType extends Model
 {
     protected $fillable = [
         'project_id',
-        // 單位類型
-        'name',
+        // 單位類型（中）
+        'name_tw',
+        // 單位類型（英）
+        'name_en',
         // 排序順序
         'sort_order',
     ];
@@ -36,5 +38,13 @@ class ProjectUnitType extends Model
     public function units(): BelongsToMany
     {
         return $this->belongsToMany(Unit::class, 'p_unit_type_unit');
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getDisplayAllNameAttribute(): ?string
+    {
+        return "＃{$this->name_tw} / ＃{$this->name_en}";
     }
 }

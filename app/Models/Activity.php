@@ -30,18 +30,16 @@ class Activity extends Model
         'activity_location_en',
         // 地圖連結
         'map_link',
-        // 報名資訊（中）
-        'registration_info_tw',
-        // 報名資訊（英）
-        'registration_info_en',
+        // 報名資訊
+        'participation_type_id',
+        // 報名資訊連結
+        'participation_link',
         // 縮略圖
         'thumbnail_url',
         // 活動卡片導向連結
         'url',
-        // 導覽預約資訊（中）
-        'tour_info_tw',
-        // 導覽預約資訊（英）
-        'tour_info_en',
+        // 顯示導覽預約資訊
+        'show_tour_info',
         // 啟用狀態
         'is_active',
         // 排序順序
@@ -50,6 +48,7 @@ class Activity extends Model
 
     protected $casts = [
         'is_active' => 'boolean',
+        'show_tour_info' => 'boolean',
     ];
 
     /**
@@ -83,6 +82,17 @@ class Activity extends Model
     public function projectTypes(): BelongsToMany
     {
         return $this->belongsToMany(ProjectType::class, 'activity_project_type');
+    }
+
+    /**
+     * Get the participation type for the activity.
+     * 報名資訊
+     *
+     * @return BelongsTo
+     */
+    public function participationType(): BelongsTo
+    {
+        return $this->belongsTo(ParticipationType::class, 'participation_type_id');
     }
 
     /**

@@ -72,9 +72,9 @@ class BrandForm
                     ->label('品牌分類')
                     ->relationship(
                         name: 'tags',
-                        titleAttribute: 'name_tw',
                         modifyQueryUsing: fn (Builder $query) => $query->orderBy('id'),
                     )
+                    ->getOptionLabelFromRecordUsing(fn ($record) => $record->display_all_name)
                     ->multiple()
                     ->preload()
                     ->maxItems(1),
