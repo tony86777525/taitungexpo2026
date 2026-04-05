@@ -412,24 +412,24 @@
                 </ul>
             </div>
         </div>
-        @if($activitySessions->isNotEmpty())
+        @if($activities->isNotEmpty())
             <div class="section__content wow fadeIn" data-wow-duration="0.5s" data-wow-delay="1s">
                 <div class="container">
                     <div class="cardsList cardsList--swiper cardsSwiper">
                         <div class="swiper js-cardSwiper">
                             <div class="swiper-wrapper">
-                                @foreach($activitySessions as $activitySession)
+                                @foreach($activities as $activity)
                                     <div class="swiper-slide">
                                         <div class="cardItem cardItem--dayOf">
                                             <div class="cardItem__text">
-                                                <div class="time">{{ $activitySession->display_time_range }}</div>
-                                                <div class="title f-h4">{{ $activitySession->display_activity_title_name }}</div>
+                                                <div class="time">{{ $activity->display_time_range }}</div>
+                                                <div class="title f-h4">{{ $activity->display_title }}</div>
                                                 <div class="project">
-                                                    <div class="project__name"><span class="f-h5">{{ $activitySession->display_project_name }}</span></div>
-                                                    <div class="project__location"><span class="f-h5">{{ $activitySession->display_activity_activity_location }}</span></div>
-                                                    @if($activitySession->getProjectNatures()->isNotEmpty())
+                                                    <div class="project__name"><span class="f-h5">{{ $activity->display_project_name }}</span></div>
+                                                    <div class="project__location"><span class="f-h5">{{ $activity->display_activity_location }}</span></div>
+                                                    @if($activity->getProjectNatures()->isNotEmpty())
                                                         <ul class="project__nature">
-                                                            @foreach($activitySession->getProjectNatures() as $nature)
+                                                            @foreach($activity->getProjectNatures() as $nature)
                                                                 <li><span class="f-h5">{{ $nature->display_name }}</span></li>
                                                             @endforeach
                                                         </ul>

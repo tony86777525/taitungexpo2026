@@ -118,17 +118,6 @@ class Activity extends Model
     }
 
     /**
-     * Get the images for the activity.
-     * 活動相簿
-     *
-     * @return HasMany
-     */
-    public function activitySessions(): HasMany
-    {
-        return $this->hasMany(ActivitySession::class);
-    }
-
-    /**
      * 活動期間-日期
      *
      * @return string
@@ -164,7 +153,7 @@ class Activity extends Model
         $startTime = Carbon::create($this->activity_start_time)->translatedFormat('H:i');
         $endTime = Carbon::create($this->activity_end_time)->translatedFormat('H:i');
 
-        return "{$startTime} ~ {$endTime}";
+        return "{$startTime}-{$endTime}";
     }
 
     /**
@@ -201,6 +190,48 @@ class Activity extends Model
         }
 
         return $this->project->display_project_name;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getDisplayParticipationTypeNameAttribute(): ?string
+    {
+        if ($this->relationLoaded('participationType') === false) {
+            return null;
+        }
+
+        return $this->participationType->display_name;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getDisplayParticipationTypeLinkNameAttribute(): ?string
+    {
+        if ($this->relationLoaded('participationType') === false) {
+            return null;
+        }
+
+        return $this->participationType->display_link_name;
+    }
+
+    /**
+     * @return Collection|null
+     */
+    public function getProjectNatures(): ?Collection
+    {
+        if ($this->relationLoaded('project') === false) {
+            return null;
+        }
+
+        $project = $this->project;
+
+        if ($project->relationLoaded('projectNatures') === false) {
+            return null;
+        }
+
+        return $project->projectNatures;
     }
 
     /**
@@ -262,26 +293,48 @@ class Activity extends Model
     /**
      * @return boolean
      */
-    public function canBookAnySession(): bool
+    public function canDisplayParticipationInfo(): bool
     {
-        if ($this->relationLoaded('activitySessions') === false) {
+        if (empty($this->participation_type_id)) {
             return false;
         }
 
-        $activitySessions = $this->activitySessions;
-
-        if ($activitySessions->isEmpty()) {
+        if ($this->relationLoaded('participationType') === false) {
             return false;
         }
 
-        foreach ($activitySessions as $session) {
-            $count = $session->activityReservations->count();
+        $participationType = $this->participationType;
 
-            if ($session->canBookNormalGroup($count)) {
-                return true;
-            }
+        if (empty($participationType)) {
+            return false;
         }
 
-        return false;
+        return true;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function canDisplayParticipationInfoLink(): bool
+    {
+        if (empty($this->participation_link)) {
+            return false;
+        }
+
+        if ($this->relationLoaded('participationType') === false) {
+            return false;
+        }
+
+        $participationType = $this->participationType;
+
+        if (empty($participationType)) {
+            return false;
+        }
+
+        if (empty($participationType->display_link_name)) {
+            return false;
+        }
+
+        return true;
     }
 }

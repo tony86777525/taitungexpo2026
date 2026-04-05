@@ -55,15 +55,6 @@ class EventController extends Controller
 
         $activity = Activity::query()
             ->with([
-                'activitySessions' => function ($query) {
-                    $query
-                        ->where('is_active', true);
-                },
-                'activitySessions.activityReservations' => function ($query) {
-                    $query
-                        ->where('status', '!=', ActivityReservationStatus::CANCELLED)
-                        ->where('type', ActivityReservationType::NORMAL);
-                },
                 'activityNatures',
                 'projectTypes',
                 'project',

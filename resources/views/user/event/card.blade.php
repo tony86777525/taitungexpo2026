@@ -28,8 +28,10 @@
                         @endif
                     </li>
                 @endif
-                @if(!empty($activity->canBookAnySession()))
-                    <li class="f-h5">需報名預約<a href="#" class="reserveLink" target="_blank"><span class="reserveLink__text">預約</span></a></li>
+                @if($activity->canDisplayParticipationInfo() === true)
+                    <li class="f-h5">
+                        {{ $activity->display_participation_type_name }}@if($activity->canDisplayParticipationInfoLink() === true)<a href="{{ $activity->participation_link }}" class="reserveLink" target="_blank"><span class="reserveLink__text">{{ $activity->display_participation_type_link_name }}</span></a>@endif
+                    </li>
                 @else
                     <li class="f-h5">自由參加</li>
                 @endif

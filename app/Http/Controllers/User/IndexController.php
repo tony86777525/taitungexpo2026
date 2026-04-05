@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Activity;
 use App\Models\ActivitySession;
 use App\Models\Article;
 use Carbon\Carbon;
@@ -22,20 +23,20 @@ class IndexController extends Controller
             ->limit(12)
             ->get();
 
-        $activitySessions = ActivitySession::query()
+        $activities = Activity::query()
             ->with([
-                'activity',
-                'activity.project',
-                'activity.project.projectNatures'
+                'project',
+                'project.projectNatures'
             ])
             ->where('is_active', true)
-            ->where('date', Carbon::today())
+            ->where('activity_start_date', '<', Carbon::today())
+            ->where('activity_end_date', '>', Carbon::today())
             ->orderBy('sort_order')
             ->get();
 
         return view('user.index', compact(
             'articles',
-            'activitySessions'
+            'activities'
         ));
     }
 }
