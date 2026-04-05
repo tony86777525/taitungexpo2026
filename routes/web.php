@@ -65,9 +65,9 @@ Route::group([
             return view('user.frontend.participation.list');
         })->name('participation.list');
         //子分頁（第二批）
-        // Route::get('/participation/detail', function () {
-        //     return view('user.frontend.participation.detail');
-        // });
+        Route::get('/participation/detail', function () {
+            return view('user.frontend.participation.detail');
+        })->name('participation.detail');
 
         // 品牌授權專區
         // 列表
@@ -75,9 +75,9 @@ Route::group([
             return view('user.frontend.brand.list');
         })->name('brand.list');
         //子分頁（第二批）
-        // Route::get('/brand/detail', function () {
-        //     return view('user.frontend.brand.detail');
-        // });
+        Route::get('/brand/detail', function () {
+            return view('user.frontend.brand.detail');
+        })->name('brand.detail');
 
         // 東博STYLE（第二批）
         // Route::get('/style', function () {
