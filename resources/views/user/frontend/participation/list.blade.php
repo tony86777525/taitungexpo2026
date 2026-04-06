@@ -66,11 +66,11 @@
         </div>
         <div class="section__content wow fadeIn" data-wow-duration="0.3s" data-wow-delay="0.5s">
             <div class="container">
-                <div class="filterGroup filterGroup--fakeSelect js-filterGroup-select" aria-haspopup="listbox" aria-expanded="false">
-                    <div class="filterSelect js-filterSelect">
-                        <span class="filterSelect__text f-h4 js-selectedOption">{{ __('participation.list.filters.filterTxt1') }}</span>
-                    </div>
+                <div class="filterGroup filterGroup--fakeSelect js-filterGroup-select">
                     <div class="filterGroup__selector" aria-haspopup="listbox" aria-expanded="false">
+                        <div class="filterSelect js-filterSelect">
+                            <span class="filterSelect__text f-h4 js-selectedOption">{{ __('participation.list.filters.filterTxt1') }}</span>
+                        </div>
                         <ul class="filterOption jc-center" role="listbox">
                             <li class="filterOption__item js-filterOption-item is-active" data-filter-id="all" role="option"><span class="text">{{ __('participation.list.filters.filterTxt1') }}</span></li>
                             <li class="filterOption__item js-filterOption-item" data-filter-id="culture" role="option"><span class="text">{{ __('participation.list.filters.filterTxt2') }}</span></li>
@@ -92,7 +92,7 @@
                                         <div class="venue__label">A1</div>
                                     </div>
                                     <div class="title f-h4">【官方公告】新聞標題</div>
-                                    <div class="department f-h6">單位名稱</span></div>
+                                    <div class="department f-h6">單位名稱</div>
                                 </div>
                             </a>
                             <a href="#" class="cardItem cardItem--participation" data-filter-target="culture">
@@ -104,7 +104,7 @@
                                         <div class="venue__label">G10</div>
                                     </div>
                                     <div class="title f-h4">【活動消息】東博聯名便當特約店家揭曉！擴大徵選69家好店正式成軍</div>
-                                    <div class="department f-h6">單位名稱單位名稱單位名稱單位名稱單位名稱</span></div>
+                                    <div class="department f-h6">單位名稱單位名稱單位名稱單位名稱單位名稱</div>
                                 </div>
                             </a>
                             <a href="#" class="cardItem cardItem--participation" data-filter-target="sustainability">
@@ -116,7 +116,7 @@
                                         <div class="venue__label">E6</div>
                                     </div>
                                     <div class="title f-h4">【官方公告】東博聯名便當特約店家揭曉！擴大徵選69家好店正式成軍</div>
-                                    <div class="department f-h6">單位名稱</span></div>
+                                    <div class="department f-h6">單位名稱</div>
                                 </div>
                             </a>
                             <a href="#" class="cardItem cardItem--participation" data-filter-target="society">
@@ -128,7 +128,7 @@
                                         <div class="venue__label">B2</div>
                                     </div>
                                     <div class="title f-h4">【媒體新聞】2026台東博覽會首展《紅土之上棒球特展》3/21松菸開展，重現台東棒球百年榮光</div>
-                                    <div class="department f-h6">單位名稱單位名稱</span></div>
+                                    <div class="department f-h6">單位名稱單位名稱</div>
                                 </div>
                             </a>
                         </div>

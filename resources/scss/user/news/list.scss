@@ -75,3 +75,32 @@ $path: '../../images/news';
 		}
 	}
 }
+
+.lang--en {
+	.filterGroup--default {
+
+		.filterOption {
+			justify-content: center;
+		}
+	}
+}
+.lang--zh {
+	.filterGroup--default {
+
+		.filterOption {
+			justify-content: center;
+
+			.filterOption__item {
+				
+				&:first-child {
+					flex: 0 0 100%;
+					
+					@include rwd-min(768px) {
+						flex: initial;
+						width: auto;
+					}
+				}
+			}
+		}
+	}
+}

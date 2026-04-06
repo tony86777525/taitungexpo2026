@@ -218,6 +218,12 @@ body {
                             max-height: unset;
                         }
                     }
+
+                    .project {
+                        flex-wrap: wrap;
+                        flex-direction: column;
+                        align-items: flex-start;
+                    }
                 }
             }
 
@@ -239,45 +245,102 @@ body {
                     }
                 }
             }
-        }
 
-        .tabGroup--select {
-            .tabOption__item {
-                .text {
-                    font-size: rem(16);
-                    line-height: 1.5;
-                    font-weight: 300;
-                    letter-spacing: rem(1.6);
-
-                    @include rwd-min(1280px) {
-                        font-size: rem(14);
-                        line-height: 1.35;
-                        font-weight: 500;
-                        letter-spacing: normal;
+            &--overview {
+                .cardItem__text {
+                    .project {
+                        flex-wrap: wrap;
+                        flex-direction: column;
+                        align-items: flex-start;
                     }
                 }
-                
-                &.is-active {
+            }
+        }
+
+        .tabGroup {
+            &--select {
+                .tabOption__item {
                     .text {
-                        font-weight: 600;
+                        font-size: rem(16);
+                        line-height: 1.5;
+                        font-weight: 300;
+                        letter-spacing: rem(1.6);
 
                         @include rwd-min(1280px) {
+                            font-size: rem(14);
+                            line-height: 1.35;
                             font-weight: 500;
+                            letter-spacing: normal;
+                        }
+                    }
+
+                    &.is-active {
+                        .text {
+                            font-weight: 600;
+
+                            @include rwd-min(1280px) {
+                                font-weight: 500;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &--default {
+                .tabOption__item {
+                    .text {
+                        font-size: rem(13);
+                        line-height: 1.35;
+                        font-weight: 500;
+
+                        @include rwd-min(1280px) {
+                            font-size: rem(14);
                         }
                     }
                 }
             }
         }
 
-        .tabGroup--default {
-            .tabOption__item {
-                .text {
-                    font-size: rem(13);
-                    line-height: 1.35;
-                    font-weight: 500;
+        .filterGroup {
+            &--fakeSelect,
+            &--overview {
+                .filterOption__item {
+                    .text {
+                        font-size: rem(16);
+                        line-height: 1.5;
+                        font-weight: 300;
+                        letter-spacing: rem(1.6);
 
-                    @include rwd-min(768px) {
-                        font-size: rem(14);
+                        @include rwd-min(1280px) {
+                            font-size: rem(14);
+                            line-height: 1.35;
+                            font-weight: 500;
+                            letter-spacing: normal;
+                        }
+                    }
+
+                    &.is-active {
+                        .text {
+                            font-weight: 600;
+
+                            @include rwd-min(1280px) {
+                                font-weight: 500;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &--default {
+                .filterOption__item {
+                    .text {
+                        font-size: rem(13);
+                        line-height: 1.35;
+                        font-weight: 500;
+
+                        @include rwd-min(1280px) {
+                            font-size: rem(14);
+                        }
                     }
                 }
             }
@@ -536,6 +599,12 @@ body {
                             max-height: unset;
                         }
                     }
+
+                    .project {
+                        flex-wrap: nowrap;
+                        flex-direction: row;
+                        align-items: center;
+                    }
                 }
             }
 
@@ -557,47 +626,107 @@ body {
                     }
                 }
             }
-        }
 
-        .tabGroup--select {
-            .tabOption__item {
-                .text {
-                    font-size: rem(18);
-                    line-height: 1.75;
-                    font-weight: 300;
-                    letter-spacing: rem(1.8);
-
-                    @include rwd-min(1280px) {
-                        font-size: rem(15);
-                        line-height: 1;
-                        font-weight: bold;
-                        letter-spacing: rem(1.5);
+            &--overview {
+                .cardItem__text {
+                    .project {
+                        flex-wrap: nowrap;
+                        flex-direction: row;
+                        align-items: center;
                     }
                 }
-                
-                &.is-active {
+            }
+        }
+
+        .tabGroup {
+
+            &--default {
+                .tabOption__item {
                     .text {
+                        font-size: rem(14);
+                        line-height: 1;
                         font-weight: 600;
+                        
+                        @include rwd-min(1280px) {
+                            font-size: rem(15);
+                            font-weight: 700;
+                            letter-spacing: rem(1.5);
+                        }
+                    }
+                }
+            }
+
+            &--select {
+                .tabOption__item {
+                    .text {
+                        font-size: rem(18);
+                        line-height: 1.75;
+                        font-weight: 300;
+                        letter-spacing: rem(1.8);
 
                         @include rwd-min(1280px) {
-                            font-weight: bold;
+                            font-size: rem(15);
+                            line-height: 1;
+                            font-weight: 700;
+                            letter-spacing: rem(1.5);
+                        }
+                    }
+                    
+                    &.is-active {
+                        .text {
+                            font-weight: 600;
+
+                            @include rwd-min(1280px) {
+                                font-weight: 700;
+                            }
                         }
                     }
                 }
             }
         }
 
-        .tabGroup--default {
-            .tabOption__item {
-                .text {
-                    font-size: rem(14);
-                    line-height: 1;
-                    font-weight: 600;
+        .filterGroup {
+            &--fakeSelect,
+            &--overview  {
+                .filterOption__item {
+                    .text {
+                        font-size: rem(18);
+                        line-height: 1.75;
+                        font-weight: 300;
+                        letter-spacing: rem(1.8);
 
-                    @include rwd-min(1280px) {
-                        font-size: rem(15);
-                        font-weight: bold;
-                        letter-spacing: rem(1.5);
+                        @include rwd-min(1280px) {
+                            font-size: rem(15);
+                            line-height: 1;
+                            font-weight: 700;
+                            letter-spacing: rem(1.5);
+                        }
+                    }
+
+                    &.is-active {
+                        .text {
+                            font-weight: 600;
+
+                            @include rwd-min(1280px) {
+                                font-weight: 700;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &--default{
+                .filterOption__item {
+                    .text {
+                        font-size: rem(14);
+                        line-height: 1;
+                        font-weight: 600;
+                        
+                        @include rwd-min(1280px) {
+                            font-size: rem(15);
+                            font-weight: 700;
+                            letter-spacing: rem(1.5);
+                        }
                     }
                 }
             }

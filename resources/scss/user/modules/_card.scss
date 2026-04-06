@@ -48,23 +48,37 @@ $path: '/resources/images';
         display: flex;
         flex-wrap: nowrap;
         overflow-x: auto;
-        gap: rem(10);
+        gap: rem(20);
         -webkit-overflow-scrolling: touch;
         scroll-snap-type: x mandatory;
 
-        
-        
-        @include rwd-min(768px) {
+        @include rwd-min(769px) {
             overflow: hidden;
             flex-wrap: wrap;
             gap: rem(30);
             transition: max-height 0.4s ease;
+
+            .cardItem {
+                &:nth-child(n+4) {
+                    display: none;
+                }
+            }
+
+            &.is-active {
+                
+                .cardItem {
+                    &:nth-child(n+4) {
+                        display: block;
+                    }
+                }
+            }
         }
 
         .cardItem {
-            width: rem(300);
+            width: rem(290);
+            flex: 0 0 rem(290);
 
-            @include rwd-min(768px) {
+            @include rwd-min(769px) {
                 flex: 0 0 calc((100% - rem(60)) / 3);
                 width: calc((100% - rem(60)) / 3);
             }
@@ -97,14 +111,20 @@ $path: '/resources/images';
         &:before {
             content: '';
             display: block;
-            width: rem(18);
-            height: rem(45);
-            flex: 0 0 rem(18);
+            width: rem(16);
+            height: rem(39);
+            flex: 0 0 rem(16);
             background-image: url('#{$path}/deco_venue.svg');
             background-repeat: no-repeat;
             background-size: contain;
             background-position: center;
             margin-right: rem(16);
+
+            @include rwd-min(769px) {
+                width: rem(18);
+                flex: 0 0 rem(18);
+                height: rem(45);
+            }
         }
 
         .text {
@@ -113,14 +133,21 @@ $path: '/resources/images';
             color: $secondary;
             justify-content: center;
             align-items: center;
-            flex: 0 0 rem(50);
-            width: rem(50);
-            height: rem(50);
+            flex: 0 0 rem(40);
+            width: rem(40);
+            height: rem(40);
             background-color: transparent;
             border: rem(1) solid $secondary;
             border-radius: rem(4);
-            font-size: rem(18);
+            font-size: rem(16);
             font-weight: 500;
+
+            @include rwd-min(769px) {
+                width: rem(50);
+                flex: 0 0 rem(50);
+                height: rem(40);
+                font-size: rem(18);
+            }
         }
     }
 
@@ -268,6 +295,12 @@ $path: '/resources/images';
                     color: $bg-2;
                 }
             }
+
+            &__theme {
+                span {
+                    color: $bg-2
+                }
+            }
         }
 
 		.action {
@@ -362,7 +395,11 @@ $path: '/resources/images';
         @include transition(opacity, 0.3s, ease-in);
 
         .cardItem__venue {
-            flex: 0 0 rem(84);
+            flex: 0 0 rem(72);
+            
+            @include rwd-min(769px) {
+                flex: 0 0 rem(84);
+            }
 
             .text {
                 @include transition(all, .3s, ease-in);
@@ -371,8 +408,13 @@ $path: '/resources/images';
 
         .cardItem__text {
             min-width: 0;
-            flex: 0 0 calc(100% - rem(100));
-            width: calc(100% - rem(100));
+            flex: 0 0 calc(100% - rem(84));
+            width: calc(100% - rem(84));
+
+            @include rwd-min(769px) {
+                flex: 0 0 calc(100% - rem(100));
+                width: calc(100% - rem(100));
+            }
 
             .title {
                 color: $black;
@@ -384,7 +426,6 @@ $path: '/resources/images';
                 width: 100%;
                 column-gap: rem(8);
                 display: flex;
-                align-items: center;
 
                 &__location {
                     flex: 1;
@@ -812,6 +853,25 @@ $path: '/resources/images';
 				color: $dark;
                 @include line-clamp(2);
 			}
+
+            .project {
+                margin-top: rem(10);
+                min-width: 0;
+                width: 100%;
+                column-gap: rem(8);
+                display: flex;
+
+                &__location {
+                    flex: 1;
+                    min-width: 0;
+                }
+
+                &__theme {
+                    flex-shrink: 0;
+                    max-width: 30%;
+                    min-width: 0;
+                }
+            }
 
 			.action {
 				margin-top: rem(40);

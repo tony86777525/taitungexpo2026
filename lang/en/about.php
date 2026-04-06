@@ -312,5 +312,16 @@ return [
                 'filterTxt8' => 'Satellite Areas',
             ]
         ],
+        'section2' => [
+            'title' => 'Featured Events',
+            'desc' => 'Limited-time programs during the 2026 Taitung Expo — don’t miss out!',
+        ],
+        'section3' => [
+            'title' => 'Community Exhibitions',
+            'desc' => 'Aligned with the UN 2030 SDGs and advancing civic participation, 23 community-led proposals across diverse fields are presented.',
+        ],
+        'section4' => [
+            'title' => 'Partner Exhibitions',
+        ],
     ]
 ];

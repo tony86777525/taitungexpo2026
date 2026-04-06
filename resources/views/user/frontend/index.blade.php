@@ -184,7 +184,7 @@
     <section class="section section--exhibition">
         <div class="section__title wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s">
             <div class="container">
-                    <span class="title f-title-primary is-pageTitle">{{ __('index.section-title.exhibition-area') }}</span>
+                <span class="title f-title-primary is-pageTitle">{{ __('index.section-title.exhibition-area') }}</span>
                 <ul class="action">
                     <li>
                         <a href="#" class="btn btn--goSubpage is-dark"><span class="btn__text">MORE</span></a>
@@ -195,7 +195,7 @@
         <div class="section__content wow fadeIn" data-wow-duration="0.5s" data-wow-delay="1s">
             <div class="container">
                 <div class="tabGroup tabGroup--select js-tabGroup">
-                    <div class="tabGroup__selector js-tabGroup-selector" role="button" aria-haspopup="listbox" aria-expanded="false">
+                    <div class="tabGroup__selector js-tabGroup-selector" aria-haspopup="listbox" aria-expanded="false">
                         <div class="tabSelect js-tabSelect">
                             <span class="tabSelect__text f-h4 js-selectedOption">{{ __('index.tab-title.tab1') }}</span>
                         </div>

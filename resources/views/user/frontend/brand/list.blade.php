@@ -96,11 +96,11 @@
         </div>
         <div class="section__content wow fadeIn" data-wow-duration="0.3s" data-wow-delay="0.5s">
             <div class="container">
-                <div class="filterGroup filterGroup--fakeSelect js-filterGroup-select" aria-haspopup="listbox" aria-expanded="false">
-                    <div class="filterSelect js-filterSelect">
-                        <span class="filterSelect__text f-h4 js-selectedOption">ALL</span>
-                    </div>
+                <div class="filterGroup filterGroup--fakeSelect js-filterGroup-select">
                     <div class="filterGroup__selector" aria-haspopup="listbox" aria-expanded="false">
+                        <div class="filterSelect js-filterSelect">
+                            <span class="filterSelect__text f-h4 js-selectedOption">ALL</span>
+                        </div>
                         <ul class="filterOption jc-center" role="listbox">
                             <li class="filterOption__item js-filterOption-item is-active" data-filter-id="all" role="option"><span class="text">{{ __('brand.list.filters.filterTxt1') }}</span></li>
                             <li class="filterOption__item js-filterOption-item" data-filter-id="sips" role="option"><span class="text">{{ __('brand.list.filters.filterTxt2') }}</span></li>
