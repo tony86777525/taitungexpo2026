@@ -13,12 +13,15 @@ class Zone extends Model
         'name_tw',
         // 展區（英）
         'name_en',
+        // 活動限定使用
+        'is_only_activity',
         // 啟用狀態
         'is_active',
     ];
 
     protected $casts = [
         'is_active' => 'boolean',
+        'is_only_activity' => 'boolean',
     ];
 
     /**

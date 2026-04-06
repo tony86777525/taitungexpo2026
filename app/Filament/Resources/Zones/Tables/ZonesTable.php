@@ -9,6 +9,7 @@ use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
 
 class ZonesTable
 {
@@ -25,6 +26,9 @@ class ZonesTable
                 TextColumn::make('name_en')
                     ->label('展區名稱（英）')
                     ->searchable(),
+                IconColumn::make('is_only_activity')
+                    ->label('活動限定使用')
+                    ->boolean(),
                 IconColumn::make('is_active')
                     ->label('啟用狀態')
                     ->boolean(),
@@ -39,6 +43,9 @@ class ZonesTable
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
+            ->modifyQueryUsing(fn (Builder $query) => $query
+                ->orderBy('id', 'asc') // 第一排序條件
+            )
             ->filters([
                 //
             ])

@@ -288,7 +288,7 @@ class Project extends Model
     /**
      * @return string|null
      */
-    public function getDisplayProjectCategoryNameAttribute(): string|null
+    public function getDisplayProjectCategoryNameAttribute(): ?string
     {
         if ($this->relationLoaded('projectCategories') === false) {
             return null;

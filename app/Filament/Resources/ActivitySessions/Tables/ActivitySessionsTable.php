@@ -9,6 +9,7 @@ use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
 
 class ActivitySessionsTable
 {
@@ -57,6 +58,10 @@ class ActivitySessionsTable
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
+            ->modifyQueryUsing(fn (Builder $query) => $query
+                ->orderBy('sort_order', 'asc') // 第一排序條件
+                ->orderBy('id', 'desc') // 第二排序條件
+            )
             ->filters([
                 //
             ])

@@ -62,6 +62,10 @@ class ActivityReservationsTable
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
+            ->modifyQueryUsing(fn (Builder $query) => $query
+                ->orderBy('sort_order', 'asc') // 第一排序條件
+                ->orderBy('id', 'desc') // 第二排序條件
+            )
             ->filters([
                 SelectFilter::make('date')
                     ->label('選擇場次')

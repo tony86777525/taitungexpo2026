@@ -105,7 +105,7 @@ class Article extends Model
     /**
      * @return string|null
      */
-    public function getDisplayTagNameAttribute(): string|null
+    public function getDisplayTagNameAttribute(): ?string
     {
         if ($this->relationLoaded('tags') === false) {
             return null;

@@ -11,10 +11,13 @@ use Carbon\Carbon;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Pages\Page;
+use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Contracts\HasTable;
 use Filament\Tables\Concerns\InteractsWithTable;
 use Filament\Tables\Table;
 use Filament\Tables;
+use UnitEnum;
+use BackedEnum;
 
 class DashBoard extends Page implements HasForms, HasTable
 {
@@ -22,7 +25,13 @@ class DashBoard extends Page implements HasForms, HasTable
 
     protected string $view = 'filament.pages.dashboard';
 
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+
     protected static ?string $title = '2026台東博覽會-團體導覽預約申請';
+
+    protected static UnitEnum|string|null $navigationGroup = 'Home';
+
+    protected static ?int $navigationSort = 20;
 
     public function getBookedInfo(): array
     {
