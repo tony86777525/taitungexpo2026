@@ -212,11 +212,8 @@ $path: '../../../images/about';
 		margin: 0 auto;
 
 		&__cover {
+			position: relative;
 			margin-bottom: rem(30);
-
-			img {
-				width: 100%;
-			}
 		}
 
 		&__name {
