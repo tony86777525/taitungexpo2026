@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\Language;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
@@ -37,5 +38,27 @@ class ProjectCategory extends Model
     public function getDisplayAllNameAttribute(): ?string
     {
         return "＃{$this->name_tw} / ＃{$this->name_en}";
+    }
+
+    public function getDisplayNameAttribute()
+    {
+        if (app()->getLocale() === Language::EN->value && !empty($this->name_en)) {
+            return $this->name_en;
+        }
+
+        return $this->name_tw;
+    }
+
+    public function getDisplayUrlAttribute()
+    {
+        return lang_route('user.participation.list', ['project_category' => $this->id]);
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getIsCurrentProjectCategoryAttribute(): bool
+    {
+        return $this->id == request()->query('project_category');
     }
 }

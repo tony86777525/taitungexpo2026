@@ -32,7 +32,7 @@ class ActivityForm
                         name: 'project',
                         modifyQueryUsing: fn (Builder $query) => $query->orderBy('id'),
                     )
-                    ->getOptionLabelFromRecordUsing(fn (Model $record) => "{$record->display_name}")
+                    ->getOptionLabelFromRecordUsing(fn (Model $record) => "{$record->display_type_and_venue_number_name}")
                     ->live() // 必須加這行，讓變更即時生效
                     ->afterStateUpdated(function (string|int|null $state, Set $set) {
                         if (! $state) {

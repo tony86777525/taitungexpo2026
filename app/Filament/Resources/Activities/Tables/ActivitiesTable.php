@@ -20,7 +20,7 @@ class ActivitiesTable
             ->columns([
                 TextColumn::make('project')
                     ->label('計畫名稱')
-                    ->getStateUsing(fn ($record) => $record->project->display_name),
+                    ->getStateUsing(fn ($record) => $record->project->display_type_and_venue_number_name),
                 TextColumn::make('title_tw')
                     ->label('活動標題（中）')
                     ->searchable(),

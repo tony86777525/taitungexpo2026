@@ -13,11 +13,6 @@ class IndexController extends Controller
     public function index()
     {
         $articles = Article::query()
-            ->with([
-                'contents',
-                'images',
-                'tags',
-            ])
             ->where('is_active', true)
             ->orderBy('sort_order')
             ->limit(12)

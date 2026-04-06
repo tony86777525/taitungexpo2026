@@ -18,7 +18,7 @@ class ActivitySessionsTable
             ->reorderable('sort_order')
             ->defaultSort('sort_order')
             ->columns([
-                TextColumn::make('project.display_name')
+                TextColumn::make('project.display_type_and_venue_number_name')
                     ->label('計畫')
                     ->searchable(),
                 TextColumn::make('display_date')

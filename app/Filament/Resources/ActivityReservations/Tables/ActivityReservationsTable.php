@@ -24,7 +24,7 @@ class ActivityReservationsTable
             ->reorderable('sort_order')
             ->defaultSort('sort_order')
             ->columns([
-                TextColumn::make('activitySession.project.display_name')
+                TextColumn::make('activitySession.project.display_type_and_venue_number_name')
                     ->label('計畫活動')
                     ->searchable(),
                 TextColumn::make('activitySession.display_info')

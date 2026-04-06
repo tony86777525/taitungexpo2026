@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use App\Enums\ProjectType;
+use Illuminate\Support\Collection;
 
 // 民間參與計畫
 class Project extends Model
@@ -203,7 +204,7 @@ class Project extends Model
      *
      * @return string
      */
-    public function getDisplayNameAttribute(): string
+    public function getDisplayTypeAndVenueNumberNameAttribute(): string
     {
         return "{$this->type_name} - {$this->venue_number}";
     }
@@ -244,5 +245,117 @@ class Project extends Model
         }
 
         return $this->project_name_tw;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDisplayThumbnailAttribute(): string
+    {
+        return asset('storage/' . $this->thumbnail_url);
+    }
+
+    /**
+     * @return string
+     */
+    public function getDisplayUrlAttribute(): string
+    {
+        return lang_route('user.participation.detail', ['id' => $this->id]);
+    }
+
+    /**
+     * 展場編號
+     *
+     * @return string
+     */
+    public function getDisplayVenueNumberAttribute(): string
+    {
+        return "{$this->zone->code}{$this->project_number}";
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getDisplayExecutingUnitNameAttribute(): ?string
+    {
+        if ($this->relationLoaded('executingUnit') === false) {
+            return null;
+        }
+
+        return $this->executingUnit?->display_name;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getDisplayProjectCategoryNameAttribute(): string|null
+    {
+        if ($this->relationLoaded('projectCategories') === false) {
+            return null;
+        }
+
+        if ($this->projectCategories->isEmpty()) {
+            return null;
+        }
+
+        $projectCategory = $this->projectCategories->first();
+
+        return "＃{$projectCategory->display_name}" ?: null;
+    }
+
+    /**
+     * @return Collection|null
+     */
+    public function getProjectNatures(): ?Collection
+    {
+        if ($this->relationLoaded('projectNatures') === false) {
+            return null;
+        }
+
+        return $this->projectNatures;
+    }
+
+    /**
+     * @return Collection|null
+     */
+    public function getFeaturedImages(): ?Collection
+    {
+        if ($this->relationLoaded('featuredImages') === false) {
+            return null;
+        }
+
+        return $this->featuredImages;
+    }
+
+    /**
+     * @return Collection|null
+     */
+    public function getContents(): Collection|null
+    {
+        if ($this->relationLoaded('contents') === false) {
+            return null;
+        }
+
+        if ($this->contents->isEmpty()) {
+            return null;
+        }
+
+        return $this->contents;
+    }
+
+    /**
+     * @return Collection|null
+     */
+    public function getImages(): Collection|null
+    {
+        if ($this->relationLoaded('images') === false) {
+            return null;
+        }
+
+        if ($this->images->isEmpty()) {
+            return null;
+        }
+
+        return $this->images;
     }
 }

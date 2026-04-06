@@ -87,6 +87,7 @@ class PrivateSectorProjectForm
                     )
                     ->getOptionLabelFromRecordUsing(fn ($record) => $record->display_all_name)
                     ->multiple()
+                    ->maxItems(1)
                     ->preload(),
                 Select::make('projectNatures')
                     ->label('計劃性質')
@@ -111,8 +112,8 @@ class PrivateSectorProjectForm
                             ->rules([
                                 Rule::dimensions()
                                     ->maxWidth(1966)
-                                    ->maxHeight(1103)
-                                    ->ratio(16 / 9),
+                                    ->maxHeight(1103),
+//                                    ->ratio(16 / 9),
                             ])
                             ->validationMessages([
                                 'dimensions' => '圖片尺寸必須為 1966x1103 px以內 且比例為 16:9。',

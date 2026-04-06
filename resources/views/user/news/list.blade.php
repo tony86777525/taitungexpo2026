@@ -21,16 +21,16 @@
             <div class="container">
                 <div class="filterGroup filterGroup--default js-filterGroup">
                     <div class="filterGroup__selector" role="button" aria-haspopup="listbox" aria-expanded="false">
-                        @if ($tags->isNotEmpty())
-                            <ul class="filterOption jc-center" role="listbox">
-                                <li class="filterOption__item js-filterOption-item @empty($currentTagId) is-active @endif" data-filter-id="all" role="option">
-                                    <a
-                                        @if (!empty($currentTagId))
-                                            href="{{ lang_route('user.news.list') }}"
-                                        @endif
-                                        class="text"
-                                    >{{ __('news.filter-text.filter1') }}</a>
-                                </li>
+                        <ul class="filterOption jc-center" role="listbox">
+                            <li class="filterOption__item js-filterOption-item @empty($currentTagId) is-active @endif" data-filter-id="all" role="option">
+                                <a
+                                    @if (!empty($currentTagId))
+                                        href="{{ lang_route('user.news.list') }}"
+                                    @endif
+                                    class="text"
+                                >{{ __('news.filter-text.filter1') }}</a>
+                            </li>
+                            @if ($tags->isNotEmpty())
                                 @foreach($tags as $tag)
                                     <li class="filterOption__item js-filterOption-item @if($tag->is_current_tag) is-active @endif" role="option">
                                         <a
@@ -41,8 +41,8 @@
                                         >{{ $tag->display_name }}</a>
                                     </li>
                                 @endforeach
-                            </ul>
-                        @endif
+                            @endif
+                        </ul>
                     </div>
                     <div class="filterGroup__content js-filterGroup-content">
                         <div class="cardsList cardsList--default">

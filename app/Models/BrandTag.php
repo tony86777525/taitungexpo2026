@@ -51,13 +51,13 @@ class BrandTag extends Model
 
     public function getDisplayUrlAttribute()
     {
-        return route('user.news.list', ['tag' => $this->id]);
+        return route('user.brand.list', ['brand_tag' => $this->id]);
     }
 
     /**
      * @return boolean
      */
-    public function getIsCurrentTagAttribute(): bool
+    public function getIsCurrentBrandTagAttribute(): bool
     {
         return $this->id == request()->query('brand_tag');
     }

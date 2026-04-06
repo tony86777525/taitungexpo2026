@@ -5,6 +5,8 @@ use App\Http\Controllers\ActivityReservationController;
 use App\Http\Controllers\User\IndexController;
 use App\Http\Controllers\User\NewsController;
 use App\Http\Controllers\User\EventController;
+use App\Http\Controllers\User\ParticipationController;
+use App\Http\Controllers\User\BrandController;
 use Illuminate\Support\Facades\Route;
 
 Route::group([
@@ -89,19 +91,38 @@ Route::group([
     Route::get('/', [IndexController::class, 'index'])
         ->name('index');
 
+    // 最新消息
     Route::get('/news/list', [NewsController::class, 'index'])
         ->name('news.list');
-
     Route::get('/news/detail/{id}/', [NewsController::class, 'detail'])
         ->name('news.detail')
         ->whereNumber('id');
 
+    // 活動行事曆
     Route::get('/event/list', [EventController::class, 'index'])
         ->name('event.list');
-
     Route::get('/event/detail/{id}/', [EventController::class, 'detail'])
-        ->name('event.detail');
+        ->name('event.detail')
+        ->whereNumber('id');
 
+    // 民間參與計畫
+    Route::get('/participation/list', [ParticipationController::class, 'index'])
+        ->name('participation.list');
+    Route::get('/participation/detail/{id}/', [ParticipationController::class, 'detail'])
+        ->name('participation.detail')
+        ->whereNumber('id');
+
+    // 品牌授權專區
+    Route::get('/brand/list', [BrandController::class, 'index'])
+        ->name('brand.list');
+    Route::get('/brand/detail/{id}/', [BrandController::class, 'detail'])
+        ->name('brand.detail')
+        ->whereNumber('id');
+
+    // 展會概覽（第二批）
+    Route::get('/about/overview', function () {
+        return view('user.frontend.about.overview');
+    })->name('about.overview');
     // 主題介紹
     Route::get('/about/themes', function () {
         return view('user.about.themes');

@@ -12,7 +12,7 @@ class ActivitySessionInfolist
     {
         return $schema
             ->components([
-                TextEntry::make('project.display_name')
+                TextEntry::make('project.display_type_and_venue_number_name')
                     ->label('計畫'),
                 TextEntry::make('date')
                     ->label('場次日期')

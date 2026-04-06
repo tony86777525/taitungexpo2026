@@ -26,9 +26,6 @@ class NewsController extends Controller
         });
 
         $articles = Article::query()
-            ->with([
-                'contents',
-            ])
             ->where('is_active', true)
             ->when(!empty($currentTagId), function ($query) use ($currentTagId) {
                 $query->whereHas('tags', function ($query) use ($currentTagId) {
@@ -39,6 +36,8 @@ class NewsController extends Controller
             ->paginate(9)
             ->withQueryString()
             ->onEachSide(1);
+
+        abort_if($articles->isEmpty(), 404);
 
         return view('user.news.list', compact(
             'articles',
