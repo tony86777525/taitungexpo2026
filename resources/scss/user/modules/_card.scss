@@ -145,7 +145,7 @@ $path: '/resources/images';
             @include rwd-min(769px) {
                 width: rem(50);
                 flex: 0 0 rem(50);
-                height: rem(40);
+                height: rem(50);
                 font-size: rem(18);
             }
         }
@@ -422,6 +422,7 @@ $path: '/resources/images';
             }
 
             .project {
+                margin-top: rem(6);
                 min-width: 0;
                 width: 100%;
                 column-gap: rem(8);
