@@ -216,6 +216,47 @@ $btnPath: '/resources/images';
             }
         }
 
+        &.is-yellow {
+            border-color: $secondary;
+            background-color: $yellow;
+
+            &:after {
+                background-image: url('#{$btnPath}/arrow_goSubpage-dark.svg');
+            }
+
+            .btn__text {
+                color: $secondary;
+            }
+
+            &:hover {
+                border-color: $primary-hover;
+                background-color: $primary-hover;
+
+                &:after {
+                    background-image: url('#{$btnPath}/arrow_goSubpage-light.svg');
+                }
+
+                .btn__text {
+                    color: $white;
+                }
+            }
+
+            @include rwd-not-hover {
+                &:hover {
+                    border-color: $secondary;
+                    background-color: $yellow;
+
+                    &:after {
+                        background-image: url('#{$btnPath}/arrow_goSubpage-dark.svg');
+                    }
+
+                    .btn__text {
+                        color: $secondary;
+                    }
+                }
+            }
+        }
+
         &:hover {
             &:after {
                 @include rotate(45);

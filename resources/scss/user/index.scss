@@ -193,7 +193,7 @@ $path: '../../images/index';
 .section--media {
 	position: relative;
 	z-index: 5;
-	background-color: #F4E342;
+	background-color: $yellow;
 	padding: rem(80) 0;
 
 	@include rwd-min(769px) {
@@ -224,7 +224,7 @@ $path: '../../images/index';
 			width: 108vw;
 			height: rem(129);
 			border-radius: 50%;
-			background-color: #F4E342;
+			background-color: $yellow;
 			@include translateX(-50%);
 		}
 
@@ -252,7 +252,7 @@ $path: '../../images/index';
 	}
 
     .videoFrame {
-	    background-color: #F4E342;
+	    background-color: $yellow;
 
         &:before {
             padding-top: calc((662 / 1180) * 100%);

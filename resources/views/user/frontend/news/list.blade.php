@@ -20,7 +20,7 @@
         <div class="section__content wow fadeIn" data-wow-duration="0.5s" data-wow-delay="1s">
             <div class="container">
                 <div class="filterGroup filterGroup--default js-filterGroup">
-                    <div class="filterGroup__selector" role="button" aria-haspopup="listbox" aria-expanded="false">
+                    <div class="filterGroup__selector" aria-haspopup="listbox" aria-expanded="false">
                         <ul class="filterOption jc-center" role="listbox">
                             <li class="filterOption__item js-filterOption-item is-active" data-filter-id="all" role="option"><span class="text">{{ __('news.filter-text.filter1') }}</span></li>
                             <li class="filterOption__item js-filterOption-item" data-filter-id="official" role="option"><span class="text">{{ __('news.filter-text.filter2') }}</span></li>

@@ -26,11 +26,11 @@
                 </div>
                 <div class="eventGroup__content">
                     <div class="container">
-                        <div class="filterGroup filterGroup--overview js-filterGroup-select" aria-haspopup="listbox" aria-expanded="false">
-                            <div class="filterSelect js-filterSelect">
-                                <span class="filterSelect__text f-h4 js-selectedOption">ALL</span>
-                            </div>
+                        <div class="filterGroup filterGroup--overview js-filterGroup-select">
                             <div class="filterGroup__selector" aria-haspopup="listbox" aria-expanded="false">
+                                <div class="filterSelect js-filterSelect">
+                                    <span class="filterSelect__text f-h4 js-selectedOption">ALL</span>
+                                </div>
                                 <ul class="filterOption jc-center" role="listbox">
                                     <li class="filterOption__item js-filterOption-item is-active" data-filter-id="exh-a" role="option"><span class="text">{{ __('about.overview.section1.filters.filterTxt1') }}</span></li>
                                     <li class="filterOption__item js-filterOption-item" data-filter-id="exh-b" role="option"><span class="text">{{ __('about.overview.section1.filters.filterTxt2') }}</span></li>
@@ -56,7 +56,7 @@
                                             <div class="title f-h4">商家名稱商家名稱</div>
                                             <div class="project">
                                                 <div class="project__location"><span class="f-h5">台東鹿野高台</span></div>
-                                                <div class="project__theme"><span class="text">#空氣</span></div>
+                                                <div class="project__theme"><span class="f-h5">#空氣</span></div>
                                             </div>
                                         </div>
                                     </div>
@@ -72,7 +72,7 @@
                                             <div class="title f-h4">商家名稱商家名稱商家名稱商家名稱商家名稱</div>
                                             <div class="project">
                                                 <div class="project__location"><span class="f-h5">台東美術館-大文創教室</span></div>
-                                                <div class="project__theme"><span class="text">#水</span></div>
+                                                <div class="project__theme"><span class="f-h5">#水</span></div>
                                             </div>
                                         </div>
                                     </div>
@@ -88,7 +88,7 @@
                                             <div class="title f-h4">商家名稱商家名稱商家名稱商家名稱商家名稱商家名稱商家名稱商家名稱商家名稱商家名稱</div>
                                             <div class="project">
                                                 <div class="project__location"><span class="f-h5">台東美術館</span></div>
-                                                <div class="project__theme"><span class="text">#種子</span></div>
+                                                <div class="project__theme"><span class="f-h5">#種子</span></div>
                                             </div>
                                         </div>
                                     </div>
@@ -104,15 +104,210 @@
                                             <div class="title f-h4">商家名稱</div>
                                             <div class="project">
                                                 <div class="project__location"><span class="f-h5">台東金針花山</span></div>
-                                                <div class="project__theme"><span class="text">#聲音</span></div>
+                                                <div class="project__theme"><span class="f-h5">#聲音</span></div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="collapseAction">
+                                <div class="action js-collapse-action">
                                     <button class="btn btn--collapse is-light js-collapse-button"><span class="btn__text">完整內容</span></button>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="eventGroup eventGroup--featured">
+                <div class="eventGroup__title">
+                    <div class="container">
+                        <div class="title f-title-primary is-pageTitle">{{ __('about.overview.section2.title') }}</div>
+                        <span class="desc f-p">{{ __('about.overview.section2.desc') }}</span>
+                    </div>
+                </div>
+                <div class="eventGroup__content">
+                    <div class="container">
+                        <div class="cardsList cardsList--collapseScroll js-collapse-list">
+                            <div class="cardItem cardItem--overview" data-filter-target="exh-b">
+                                <div class="cardItem__image">
+                                    <img src="https://picsum.photos/id/516/300/300" alt="brand_title">
+                                </div>
+                                <div class="cardItem__text">
+                                    <div class="venue">
+                                        <div class="venue__icon"><img src="{{ asset('images/icon_balloon-9.svg') }}"></div>
+                                        <div class="venue__label">B2</div>
+                                    </div>
+                                    <div class="title f-h4">商家名稱商家名稱</div>
+                                    <div class="project">
+                                        <div class="project__location"><span class="f-h5">台東鹿野高台</span></div>
+                                        <div class="project__theme"><span class="f-h5">#空氣</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cardItem cardItem--overview" data-filter-target="exh-a">
+                                <div class="cardItem__image">
+                                    <img src="https://picsum.photos/id/233/300/300" alt="brand_title">
+                                </div>
+                                <div class="cardItem__text">
+                                    <div class="venue">
+                                        <div class="venue__icon"><img src="{{ asset('images/icon_balloon-7.svg') }}"></div>
+                                        <div class="venue__label">A1</div>
+                                    </div>
+                                    <div class="title f-h4">商家名稱商家名稱商家名稱商家名稱商家名稱</div>
+                                    <div class="project">
+                                        <div class="project__location"><span class="f-h5">台東美術館-大文創教室</span></div>
+                                        <div class="project__theme"><span class="f-h5">#水</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cardItem cardItem--overview" data-filter-target="exh-c">
+                                <div class="cardItem__image">
+                                    <img src="https://picsum.photos/id/232/300/300" alt="brand_title">
+                                </div>
+                                <div class="cardItem__text">
+                                    <div class="venue">
+                                        <div class="venue__icon"><img src="{{ asset('images/icon_balloon-5.svg') }}"></div>
+                                        <div class="venue__label">C18</div>
+                                    </div>
+                                    <div class="title f-h4">商家名稱商家名稱商家名稱商家名稱商家名稱商家名稱商家名稱商家名稱商家名稱商家名稱</div>
+                                    <div class="project">
+                                        <div class="project__location"><span class="f-h5">台東美術館</span></div>
+                                        <div class="project__theme"><span class="f-h5">#種子</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cardItem cardItem--overview" data-filter-target="exh-e">
+                                <div class="cardItem__image">
+                                    <img src="https://picsum.photos/id/212/300/300" alt="brand_title">
+                                </div>
+                                <div class="cardItem__text">
+                                    <div class="venue">
+                                        <div class="venue__icon"><img src="{{ asset('images/icon_balloon-1.svg') }}"></div>
+                                        <div class="venue__label">E5</div>
+                                    </div>
+                                    <div class="title f-h4">商家名稱</div>
+                                    <div class="project">
+                                        <div class="project__location"><span class="f-h5">台東金針花山</span></div>
+                                        <div class="project__theme"><span class="f-h5">#聲音</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="action js-collapse-action">
+                            <button class="btn btn--collapse is-light js-collapse-button"><span class="btn__text">完整內容</span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="eventGroup eventGroup--community">
+                <div class="eventGroup__title">
+                    <div class="container">
+                        <div class="title f-title-primary is-pageTitle">{{ __('about.overview.section3.title') }}</div>
+                        <span class="desc f-p">{{ __('about.overview.section3.desc') }}</span>
+                    </div>
+                </div>
+                <div class="eventGroup__content">
+                    <div class="container">
+                        <div class="action">
+                            <button class="btn btn--blankPage is-light"><span class="btn__text">MORE</span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="eventGroup eventGroup--partner">
+                <div class="eventGroup__title">
+                    <div class="container">
+                        <div class="title f-title-primary is-pageTitle">{{ __('about.overview.section4.title') }}</div>
+                    </div>
+                </div>
+                <div class="eventGroup__content">
+                    <div class="container">
+                        <div class="cardsList cardsList--swiper imageSwiper cardsSwiper">
+                            <div class="swiper js-cardSwiper">
+                                <ul class="featuresList swiper-wrapper">
+                                    <li class="swiper-slide">
+                                        <div class="featuresBox">
+                                            <img src="{{ asset('images/about/features/img_feature-1.png') }}" alt="台東炮炸寒單爺" class="featureImage">
+                                            <a href="https://www.zztaitung.com/20114/taitung-bombhandan-2" class="featureText featureText--front" target="_blank">{!! __('about.statement.features.feature1') !!}</a>
+                                        </div>
+                                    </li>
+                                    <li class="swiper-slide">
+                                        <div class="featuresBox">
+                                            <img src="{{ asset('images/about/features/img_feature-2.png') }}" alt="自然醒慢活祭" class="featureImage">
+                                            <a href="https://www.taitungspiritfestival.tw" class="featureText featureText--front" target="_blank">{!! __('about.statement.features.feature2') !!}</a>
+                                        </div>
+                                    </li>
+                                    <li class="swiper-slide">
+                                        <div class="featuresBox">
+                                            <img src="{{ asset('images/about/features/img_feature-3.png') }}" alt="臺東慢食節" class="featureImage">
+                                            <a href="https://slowfoodtaitung.tw/festival" class="featureText featureText--front" target="_blank">{!! __('about.statement.features.feature3') !!}</a>
+                                        </div>
+                                    </li>
+                                    <li class="swiper-slide">
+                                        <div class="featuresBox">
+                                            <img src="{{ asset('images/about/features/img_feature-4.png') }}" alt="PASIWALI原住民族國際音樂節" class="featureImage">
+                                            <a href="https://taiwanpasiwalifestival.com" class="featureText featureText--front" target="_blank">{!! __('about.statement.features.feature4') !!}</a>
+                                        </div>
+                                    </li>
+                                    <li class="swiper-slide">
+                                        <div class="featuresBox">
+                                            <img src="{{ asset('images/about/features/img_feature-5.png') }}" alt="台東最美星空" class="featureImage">
+                                            <a href="https://www.facebook.com/StarryTaitung/?locale=zh_TW" class="featureText featureText--front" target="_blank">{!! __('about.statement.features.feature5') !!}</a>
+                                        </div>
+                                    </li>
+                                    <li class="swiper-slide">
+                                        <div class="featuresBox">
+                                            <img src="{{ asset('images/about/features/img_feature-6.png') }}" alt="臺灣國際熱氣球嘉年華" class="featureImage">
+                                            <a href="https://balloontaiwan.taitung.gov.tw/zh-tw" class="featureText featureText--front" target="_blank">{!! __('about.statement.features.feature6') !!}</a>
+                                        </div>
+                                    </li>
+                                    <li class="swiper-slide">
+                                        <div class="featuresBox">
+                                            <img src="{{ asset('images/about/features/img_feature-7.png') }}" alt="臺灣國際衝浪公開賽" class="featureImage">
+                                            <a href="https://www.facebook.com/taiwanopenofsurfing/" class="featureText featureText--front" target="_blank">{!! __('about.statement.features.feature7') !!}</a>
+                                        </div>
+                                    </li>
+                                    <li class="swiper-slide">
+                                        <div class="featuresBox">
+                                            <img src="{{ asset('images/about/features/img_feature-8.png') }}" alt="東海岸大地藝術節" class="featureImage">
+                                            <a href="https://www.eastcoast-nsa.gov.tw/teclandart/" class="featureText featureText--front" target="_blank">{!! __('about.statement.features.feature8') !!}</a>
+                                        </div>
+                                    </li>
+                                    <li class="swiper-slide">
+                                        <div class="featuresBox multiple">
+                                            <img src="{{ asset('images/about/features/img_feature-9.png') }}" alt="南迴藝術季 縱谷大地藝術季" class="featureImage">
+                                            <div class="featureText featureText--front">{!! __('about.statement.features.feature9.front') !!}</div>
+                                            <div class="featureText featureText--back" data-links-container>
+                                                <a href="https://www.facebook.com/NanhuiArtProject/?locale=zh_TW" target="_blank" data-link-index="0">{!! __('about.statement.features.feature9.text1') !!}</a>
+                                                <a href="https://www.eastcoast-nsa.gov.tw/teclandart/" target="_blank" data-link-index="1">{!! __('about.statement.features.feature9.text2') !!}</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="swiper-slide">
+                                        <div class="featuresBox multiple">
+                                            <img src="{{ asset('images/about/features/img_feature-10.png') }}" alt="臺東藝術節 臺東藝穗節" class="featureImage">
+                                            <div class="featureText featureText--front">{!! __('about.statement.features.feature10.front') !!}</div>
+                                            <div class="featureText featureText--back" data-links-container>
+                                                <a href="https://www.facebook.com/Taitungartsfestival/?locale=zh_TW" target="_blank" data-link-index="0">{!! __('about.statement.features.feature10.text1') !!}</a>
+                                                <a href="https://www.taitungfringefestival.com" target="_blank" data-link-index="1">{!! __('about.statement.features.feature10.text2') !!}</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="swiper-slide">
+                                        <div class="featuresBox">
+                                            <img src="{{ asset('images/about/features/img_feature-11.png') }}" alt="池上秋收稻穗藝術節" class="featureImage">
+                                            <a href="https://www.facebook.com/Chishangarts.org" class="featureText featureText--front" target="_blank">{!! __('about.statement.features.feature11') !!}</a>
+                                        </div>
+                                    </li>
+                                    <li class="swiper-slide">
+                                        <div class="featuresBox">
+                                            <img src="{{ asset('images/about/features/img_feature-12.png') }}" alt="台東光祭" class="featureImage">
+                                            <a href="https://www.facebook.com/TaitungLightFestival/?locale=zh_TW" class="featureText featureText--front" target="_blank">{!! __('about.statement.features.feature12') !!}</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
                         </div>
                     </div>
                 </div>
@@ -126,10 +321,18 @@
         <div class="deco-curve"></div>
         <div class="container">
             <div class="section__title">
-                <span class="title f-title-primary wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s">展區地圖</span>
+                <span class="title f-title-primary is-pageTitle wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s">展區地圖</span>
             </div>
             <div class="section__content wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.8s">
-                地圖
+                <div class="map">
+                    <div class="map__image wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s">
+                        <img src="{{ asset('images/index/exhMap/exhMap_a.webp') }}" alt="">
+                    </div>
+                    <ul class="map__action wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s">
+                        <li><a href="#" class="btn btn--blankPage is-yellow" target="_blank"><span class="btn__text">展區地圖下載</span></a></li>
+                        <li><a href="#" class="btn btn--blankPage is-yellow" target="_blank"><span class="btn__text">以GOOGLE地圖開啟</span></a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
