@@ -12,10 +12,8 @@ class ActivitySessionInfolist
     {
         return $schema
             ->components([
-                TextEntry::make('activity.project.display_name')
+                TextEntry::make('project.display_name')
                     ->label('計畫'),
-                TextEntry::make('activity.title_tw')
-                    ->label('活動'),
                 TextEntry::make('date')
                     ->label('場次日期')
                     ->getStateUsing(fn ($record) => "{$record->display_date}"),

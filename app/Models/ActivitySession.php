@@ -14,8 +14,8 @@ use Illuminate\Support\Collection;
 class ActivitySession extends Model
 {
     protected $fillable = [
-        // 活動
-        'activity_id',
+        // 計畫
+        'project_id',
         // 預約日期
         'date',
         // 預約開始時段
@@ -51,14 +51,14 @@ class ActivitySession extends Model
     ];
 
     /**
-     * Get the activity for the activity session.
+     * Get the project for the activity session.
      * 活動
      *
      * @return BelongsTo
      */
-    public function activity(): BelongsTo
+    public function project(): BelongsTo
     {
-        return $this->belongsTo(Activity::class);
+        return $this->belongsTo(Project::class);
     }
 
     /**
@@ -193,43 +193,13 @@ class ActivitySession extends Model
     /**
      * @return string|null
      */
-    public function getDisplayActivityTitleAttribute(): ?string
-    {
-        if ($this->relationLoaded('activity') === false) {
-            return null;
-        }
-
-        return $this->activity->display_title;
-    }
-
-    /**
-     * @return string|null
-     */
     public function getDisplayProjectNameAttribute(): ?string
     {
-        if ($this->relationLoaded('activity') === false) {
+        if ($this->relationLoaded('project') === false) {
             return null;
         }
 
-        $activity = $this->activity;
-
-        if ($activity->relationLoaded('project') === false) {
-            return null;
-        }
-
-        return $activity->project->display_project_name;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getDisplayActivityActivityLocationAttribute(): ?string
-    {
-        if ($this->relationLoaded('activity') === false) {
-            return null;
-        }
-
-        return $this->activity->display_activity_location;
+        return $this->project->display_project_name;
     }
 
     /**
@@ -237,17 +207,11 @@ class ActivitySession extends Model
      */
     public function getProjectNatures(): ?Collection
     {
-        if ($this->relationLoaded('activity') === false) {
+        if ($this->relationLoaded('project') === false) {
             return null;
         }
 
-        $activity = $this->activity;
-
-        if ($activity->relationLoaded('project') === false) {
-            return null;
-        }
-
-        $project = $activity->project;
+        $project = $this->project;
 
         if ($project->relationLoaded('projectNatures') === false) {
             return null;

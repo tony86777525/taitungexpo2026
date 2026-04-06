@@ -2,7 +2,7 @@
 
 namespace App\Filament\Resources\ActivitySessions\Schemas;
 
-use App\Models\Activity;
+use App\Models\Project;
 use Closure;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Placeholder;
@@ -24,13 +24,14 @@ class ActivitySessionForm
     {
         return $schema
             ->components([
-                Select::make('activity_id')
-                    ->label('活動')
+                Select::make('project_id')
+                    ->label('計畫')
                     ->relationship(
-                        name: 'activity',
+                        name: 'project',
+                        titleAttribute: 'id',
                         modifyQueryUsing: fn (Builder $query) => $query->orderBy('id'),
                     )
-                    ->getOptionLabelFromRecordUsing(fn (Model $record) => "{$record->project->display_name}")
+                    ->getOptionLabelFromRecordUsing(fn (Model $record) => "{$record->display_name}")
                     ->live()
                     ->afterStateUpdated(function (string|int|null $state, Set $set) {
                         if (! $state) {
@@ -38,12 +39,12 @@ class ActivitySessionForm
                         }
 
                         // 讀取關聯資料
-                        $activity = Activity::find($state);
+                        $project = Project::find($state);
 
-                        if ($activity) {
+                        if ($project) {
                             // 將關聯資料設定到其他欄位
-                            $set('start_time', $activity->activity_start_time);
-                            $set('end_time', $activity->activity_end_time);
+                            $set('start_time', $project->project_start_time);
+                            $set('end_time', $project->project_end_time);
                         }
                     })
                     ->required(),
@@ -51,16 +52,16 @@ class ActivitySessionForm
                     ->label('場次日期')
                     ->required()
                     ->minDate(function (Get $get) {
-                        $activityId = $get('activity_id');
-                        if (! $activityId) return null;
+                        $projectId = $get('project_id');
+                        if (!$projectId) return null;
 
-                        return Activity::find($activityId)?->activity_start_date;
+                        return Project::find($projectId)?->project_start_date;
                     })
                     ->maxDate(function (Get $get) {
-                        $activityId = $get('activity_id');
-                        if (! $activityId) return null;
+                        $projectId = $get('project_id');
+                        if (! $projectId) return null;
 
-                        return Activity::find($activityId)?->activity_end_date;
+                        return Project::find($projectId)?->project_end_date;
                     })
                     ->maxWidth('sm'),
                 Grid::make(6)
@@ -81,15 +82,15 @@ class ActivitySessionForm
                             ->label('') // 隱藏 Label
                             ->columnSpanFull()
                             ->content(function (Get $get) {
-                                $activityId = $get('activity_id');
-                                if (! $activityId) return '請先選擇活動';
+                                $projectId = $get('project_id');
+                                if (! $projectId) return '請先選擇計畫';
 
                                 // 這裡只會查詢一次
-                                $activity = Activity::find($activityId);
+                                $project = Project::find($projectId);
 
-                                if (! $activity) return '';
+                                if (!$project) return '';
 
-                                return "場次可選時間區間：{$activity->display_time_range}";
+                                return "場次可選時間區間：{$project->display_time_range}";
                             })
                     ]),
                 Grid::make(6)

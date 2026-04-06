@@ -32,7 +32,7 @@ class ActivitySessionCalendar extends CalendarWidget
 
         return ActivitySession::query()
             ->with([
-                'activity',
+                'project',
                 'activityReservations',
             ])
             ->get()
@@ -53,7 +53,7 @@ class ActivitySessionCalendar extends CalendarWidget
                 $vipText = "vip （{$remainingVipGroupCount} / {$denominator}）";
 
                 return CalendarEvent::make($activitySession)
-                    ->title("{$normalText}\n{$vipText}\n{$activitySession->activity->project->venue_number}")
+                    ->title("{$normalText}\n{$vipText}\n{$activitySession->project->venue_number}")
                     // 設定開始與結束時間 (需為 Carbon 物件或字串)
                     ->start(Carbon::parse($activitySession->date . ' ' . $activitySession->start_time))
                     ->end(Carbon::parse($activitySession->date . ' ' . $activitySession->end_time))

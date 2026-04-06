@@ -24,7 +24,7 @@ class ActivityReservationsTable
             ->reorderable('sort_order')
             ->defaultSort('sort_order')
             ->columns([
-                TextColumn::make('activitySession.activity.project.display_name')
+                TextColumn::make('activitySession.project.display_name')
                     ->label('計畫活動')
                     ->searchable(),
                 TextColumn::make('activitySession.display_info')
@@ -66,7 +66,7 @@ class ActivityReservationsTable
                 SelectFilter::make('date')
                     ->label('選擇場次')
                     ->relationship('activitySession', 'date') // 關聯名稱, 顯示的欄位名
-                    ->getOptionLabelFromRecordUsing(fn (Model $record) => "{$record->display_info} - {$record->activity->project->venue_number}")
+                    ->getOptionLabelFromRecordUsing(fn (Model $record) => "{$record->display_info} - {$record->project->venue_number}")
                     ->indicator(function (array $data): ?string {
                         if (! $data['value']) {
                             return null;
@@ -80,7 +80,7 @@ class ActivityReservationsTable
                         }
 
                         // 這裡回傳你想要顯示在篩選器標籤上的自定義文字
-                        return "{$record->activity->project->venue_number}";
+                        return "{$record->project->venue_number}";
                     })
                     ->searchable() // 開啟搜尋功能
                     ->preload(),    // 進入頁面時就載入所有選項

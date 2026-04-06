@@ -77,11 +77,11 @@ class DashBoard extends Page implements HasForms, HasTable
                 'heading' => '待審核預約資料',
             ]))
             ->columns([
-                Tables\Columns\TextColumn::make('activitySession.activity.project.zone.name_tw')->label('展區')
+                Tables\Columns\TextColumn::make('activitySession.project.zone.name_tw')->label('展區')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('activitySession.date')->label('日期')
                     ->sortable(),
-                Tables\Columns\TextColumn::make('activitySession.activity.project.venue_number')->label('場館'),
+                Tables\Columns\TextColumn::make('activitySession.project.venue_number')->label('場館'),
                 Tables\Columns\TextColumn::make('time')->label('時段')
                     ->getStateUsing(fn ($record) => "{$record->activitySession->start_time} ~ {$record->activitySession->end_time}")
                     ->sortable(),

@@ -21,9 +21,8 @@ class ActivityReservationForm
     {
         $activitySessions = ActivitySession::query()
             ->with([
-                'activity',
-                'activity.project',
-                'activity.project.zone'
+                'project',
+                'project.zone'
             ])
             ->where('group_regular', '>', 0)
             ->get();
@@ -72,7 +71,7 @@ class ActivityReservationForm
 
                             $remainingGroupCount = $denominator - $currentGroupCount;
 
-                            return [$activitySession->id => "{$activitySession->activity->project->venue_number} - {$activitySession->display_date} - {$activitySession->display_time_range}(剩餘{$remainingGroupCount}/{$denominator})"];
+                            return [$activitySession->id => "{$activitySession->project->venue_number} - {$activitySession->display_date} - {$activitySession->display_time_range}(剩餘{$remainingGroupCount}/{$denominator})"];
                         });
                     })
                     ->required()
