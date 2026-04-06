@@ -20,7 +20,7 @@
         <div class="section__content wow fadeIn" data-wow-duration="0.5s" data-wow-delay="1s">
             <div class="container">
                 <div class="filterGroup filterGroup--default js-filterGroup">
-                    <div class="filterGroup__selector" role="button" aria-haspopup="listbox" aria-expanded="false">
+                    <div class="filterGroup__selector" aria-haspopup="listbox" aria-expanded="false">
                         <ul class="filterOption jc-center" role="listbox">
                             <li class="filterOption__item js-filterOption-item @empty($currentTagId) is-active @endif" data-filter-id="all" role="option">
                                 <a

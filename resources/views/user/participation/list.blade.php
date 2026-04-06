@@ -66,16 +66,20 @@
             </div>
             <div class="section__content wow fadeIn" data-wow-duration="0.3s" data-wow-delay="0.5s">
                 <div class="container">
-                    <div class="filterGroup filterGroup--fakeSelect js-filterGroup-select" aria-haspopup="listbox" aria-expanded="false">
-                        <div class="filterSelect js-filterSelect">
-                            <span class="filterSelect__text f-h4 js-selectedOption">{{ __('participation.list.filters.filterTxt1') }}</span>
-                        </div>
+                    <div class="filterGroup filterGroup--fakeSelect js-filterGroup-select">
                         <div class="filterGroup__selector" aria-haspopup="listbox" aria-expanded="false">
+                            <div class="filterSelect js-filterSelect">
+                                @if(empty($currentProjectCategoryId))
+                                    <span class="filterSelect__text f-h4 js-selectedOption">{{ __('participation.list.filters.filterTxt1') }}</span>
+                                @elseif(!empty($projectCategories->firstWhere('id', $currentProjectCategoryId)))
+                                    <span class="filterSelect__text f-h4 js-selectedOption">{{ $projectCategories->firstWhere('id', $currentProjectCategoryId)->display_name }}</span>
+                                @endif
+                            </div>
                             <ul class="filterOption jc-center" role="listbox">
                                 <li class="filterOption__item js-filterOption-item @empty($currentProjectCategoryId) is-active @endif" data-filter-id="all" role="option">
                                     <a
                                         @if (!empty($currentProjectCategoryId))
-                                            href="{{ lang_route('user.news.list') }}"
+                                            href="{{ lang_route('user.participation.list') }}#list"
                                         @endif
                                         class="text">{{ __('participation.list.filters.filterTxt1') }}</a>
                                 </li>
@@ -84,7 +88,7 @@
                                         <li class="filterOption__item js-filterOption-item @if($projectCategory->is_current_project_category) is-active @endif" role="option">
                                             <a
                                                 @if($projectCategory->is_current_project_category === false)
-                                                    href="{{ $projectCategory->display_url }}"
+                                                    href="{{ $projectCategory->display_url }}#list"
                                                 @endif
                                                 class="text"
                                             >{{ $projectCategory->display_name }}</a>
@@ -105,7 +109,7 @@
                                                 <div class="venue__label">{{ $project->display_venue_number }}</div>
                                             </div>
                                             <div class="title f-h4">{{ $project->display_project_name }}</div>
-                                            <div class="department f-h6">{{ $project->display_executing_unit_name }}</span></div>
+                                            <div class="department f-h6">{{ $project->display_executing_unit_name }}></div>
                                         </div>
                                     </a>
                                 @endforeach

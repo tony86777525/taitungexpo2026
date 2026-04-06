@@ -96,16 +96,20 @@
             </div>
             <div class="section__content wow fadeIn" data-wow-duration="0.3s" data-wow-delay="0.5s">
                 <div class="container">
-                    <div class="filterGroup filterGroup--fakeSelect js-filterGroup-select" aria-haspopup="listbox" aria-expanded="false">
-                        <div class="filterSelect js-filterSelect">
-                            <span class="filterSelect__text f-h4 js-selectedOption">ALL</span>
-                        </div>
+                    <div class="filterGroup filterGroup--fakeSelect js-filterGroup-select">
                         <div class="filterGroup__selector" aria-haspopup="listbox" aria-expanded="false">
+                            <div class="filterSelect js-filterSelect">
+                                @if(empty($currentBrandTagId))
+                                    <span class="filterSelect__text f-h4 js-selectedOption">{{ __('brand.list.filters.filterTxt1') }}</span>
+                                @elseif(!empty($brandTags->firstWhere('id', $currentBrandTagId)))
+                                    <span class="filterSelect__text f-h4 js-selectedOption">{{ $brandTags->firstWhere('id', $currentBrandTagId)->display_name }}</span>
+                                @endif
+                            </div>
                             <ul class="filterOption jc-center" role="listbox">
                                 <li class="filterOption__item js-filterOption-item @empty($currentBrandTagId) is-active @endif" data-filter-id="all" role="option">
                                     <a
                                         @if (!empty($currentBrandTagId))
-                                            href="{{ lang_route('user.brand.list') }}"
+                                            href="{{ lang_route('user.brand.list') }}#list"
                                         @endif
                                         class="text">{{ __('brand.list.filters.filterTxt1') }}</a>
                                 </li>
@@ -114,7 +118,7 @@
                                         <li class="filterOption__item js-filterOption-item @if($brandTag->is_current_brand_tag) is-active @endif" role="option">
                                             <a
                                                 @if($brandTag->is_current_brand_tag === false)
-                                                    href="{{ $brandTag->display_url }}"
+                                                    href="{{ $brandTag->display_url }}#list"
                                                 @endif
                                                 class="text"
                                             >{{ $brandTag->display_name }}</a>
