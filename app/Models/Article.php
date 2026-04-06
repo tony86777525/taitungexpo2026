@@ -99,7 +99,7 @@ class Article extends Model
      */
     public function getDisplayUrlAttribute(): string
     {
-        return $this->url ?: route('user.news.detail', ['id' => $this->id]);
+        return $this->url ?: lang_route('user.news.detail', ['id' => $this->id]);
     }
 
     /**

@@ -217,6 +217,14 @@ class Activity extends Model
     }
 
     /**
+     * @return string
+     */
+    public function getDisplayUrlAttribute(): string
+    {
+        return lang_route('user.event.detail', ['id' => $this->id]);
+    }
+
+    /**
      * @return Collection|null
      */
     public function getProjectNatures(): ?Collection

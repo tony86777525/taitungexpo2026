@@ -1,7 +1,7 @@
 @extends('user.layout.wrapper')
 
 @section('metas')
-    <meta name="api-get-event-list" content="{{ route('api.get.event.list') }}">
+    <meta name="api-get-event-list" content="{{ lang_route('api.get.event.list') }}">
 @endsection
 
 @push('styles')

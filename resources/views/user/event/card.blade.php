@@ -40,7 +40,7 @@
     </div>
     <ul class="cardItem__action">
         <li>
-            <a href="{{ route('user.event.detail', ['id' => $activity->id]) }}" class="btn btn--goDetail" target="_blank"><span class="btn__text">READ MORE</span></a>
+            <a href="{{ $activity->display_url }}" class="btn btn--goDetail" target="_blank"><span class="btn__text">READ MORE</span></a>
         </li>
     </ul>
 </div>

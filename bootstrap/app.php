@@ -14,7 +14,6 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->alias([
             'set.web.language' => \App\Http\Middleware\SetUserLanguage::class,
-            'set.api.language' => \App\Http\Middleware\SetApiLanguage::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {

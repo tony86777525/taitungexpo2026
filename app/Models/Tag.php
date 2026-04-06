@@ -51,7 +51,7 @@ class Tag extends Model
 
     public function getDisplayUrlAttribute()
     {
-        return route('user.news.list', ['tag' => $this->id]);
+        return lang_route('user.news.list', ['tag' => $this->id]);
     }
 
     /**

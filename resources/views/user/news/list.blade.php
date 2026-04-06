@@ -26,7 +26,7 @@
                                 <li class="filterOption__item js-filterOption-item @empty($currentTagId) is-active @endif" data-filter-id="all" role="option">
                                     <a
                                         @if (!empty($currentTagId))
-                                            href="{{ route('user.news.list') }}"
+                                            href="{{ lang_route('user.news.list') }}"
                                         @endif
                                         class="text"
                                     >{{ __('news.filter-text.filter1') }}</a>

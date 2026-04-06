@@ -141,7 +141,7 @@
                     <span class="title f-title-primary is-pageTitle">{{ __('index.section-title.latest-news') }}</span>
                     <ul class="action">
                         <li>
-                            <a href="{{ route('user.news.list') }}" class="btn btn--goSubpage is-light"><span class="btn__text">MORE</span></a>
+                            <a href="{{ lang_route('user.news.list') }}" class="btn btn--goSubpage is-light"><span class="btn__text">MORE</span></a>
                         </li>
                     </ul>
                 </div>
@@ -407,7 +407,7 @@
                 <span class="title f-title-primary is-pageTitle">{{ __('index.section-title.today-event') }}</span>
                 <ul class="action">
                     <li>
-                        <a href="#" class="btn btn--goSubpage is-light"><span class="btn__text">MORE</span></a>
+                        <a href="{{ lang_route('user.event.list') }}" class="btn btn--goSubpage is-light"><span class="btn__text">MORE</span></a>
                     </li>
                 </ul>
             </div>

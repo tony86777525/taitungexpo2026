@@ -6,7 +6,7 @@ use App\Http\Controllers\Api\EventController;
 
 Route::group([
     'as' => 'api.',
-    'middleware' => ['set.api.language'],
+    'middleware' => ['set.web.language'],
 ], function () {
     Route::post('/get/event/list', [EventController::class, 'getEventList'])
         ->name('get.event.list');
