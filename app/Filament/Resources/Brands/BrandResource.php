@@ -23,7 +23,7 @@ class BrandResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
-    protected static ?string $recordTitleAttribute = '品牌授權';
+//    protected static ?string $recordTitleAttribute = '品牌授權';
 
     protected static ?string $modelLabel = '品牌授權';
 

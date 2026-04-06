@@ -9,6 +9,7 @@ use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
 
 class CurationNaturesTable
 {
@@ -17,20 +18,28 @@ class CurationNaturesTable
         return $table
             ->columns([
                 TextColumn::make('name_tw')
+                    ->label('策展議題（中）')
                     ->searchable(),
                 TextColumn::make('name_en')
+                    ->label('策展議題（英）')
                     ->searchable(),
                 IconColumn::make('is_active')
+                    ->label('啟用狀態')
                     ->boolean(),
                 TextColumn::make('created_at')
-                    ->dateTime()
+                    ->label('建立時間')
+                    ->dateTime('Y年m月d日 H:i:s')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('updated_at')
-                    ->dateTime()
+                    ->label('最後更新時間')
+                    ->dateTime('Y年m月d日 H:i:s')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
+            ->modifyQueryUsing(fn (Builder $query) => $query
+                ->orderBy('id', 'asc') // 第二排序條件
+            )
             ->filters([
                 //
             ])

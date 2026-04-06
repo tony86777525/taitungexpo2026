@@ -21,6 +21,10 @@ class ZoneForm
                 TextInput::make('name_en')
                     ->label('展區名稱（英）')
                     ->required(),
+                Toggle::make('is_only_activity')
+                    ->label('活動限定使用')
+                    ->required()
+                    ->default(0),
                 Toggle::make('is_active')
                     ->label('啟用狀態')
                     ->required()

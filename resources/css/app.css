@@ -9,3 +9,13 @@
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
 }
+
+/* 確保 RichEditor 內部的顏色自定義屬性能夠被正確應用 */
+.custom-rich-editor .color {
+    color: var(--color);
+}
+
+/* 如果有深色模式，也需要考慮 --dark-color */
+.dark .custom-rich-editor .color {
+    color: var(--dark-color);
+}

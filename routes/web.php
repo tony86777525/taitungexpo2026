@@ -1,10 +1,13 @@
 <?php
 
-use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\ActivityReservationController;
+use App\Http\Controllers\User\IndexController;
+use App\Http\Controllers\User\NewsController;
+use App\Http\Controllers\User\EventController;
+use App\Http\Controllers\User\ParticipationController;
+use App\Http\Controllers\User\BrandController;
 use Illuminate\Support\Facades\Route;
-
 
 Route::group([
     'as' => 'user.',
@@ -88,31 +91,50 @@ Route::group([
     Route::get('/', [IndexController::class, 'index'])
         ->name('index');
 
-    Route::get('/news/list', function () {
-        return view('user.news.list');
-    })->name('news.list');
+    // 最新消息
+    Route::get('/news/list', [NewsController::class, 'index'])
+        ->name('news.list');
+    Route::get('/news/detail/{id}/', [NewsController::class, 'detail'])
+        ->name('news.detail')
+        ->whereNumber('id');
 
-    Route::get('/news/detail/{id}/', function () {
-        return view('user.news.detail');
-    })->name('news.detail');
+    // 活動行事曆
+    Route::get('/event/list', [EventController::class, 'index'])
+        ->name('event.list');
+    Route::get('/event/detail/{id}/', [EventController::class, 'detail'])
+        ->name('event.detail')
+        ->whereNumber('id');
 
+    // 民間參與計畫
+    Route::get('/participation/list', [ParticipationController::class, 'index'])
+        ->name('participation.list');
+    Route::get('/participation/detail/{id}/', [ParticipationController::class, 'detail'])
+        ->name('participation.detail')
+        ->whereNumber('id');
+
+    // 品牌授權專區
+    Route::get('/brand/list', [BrandController::class, 'index'])
+        ->name('brand.list');
+    Route::get('/brand/detail/{id}/', [BrandController::class, 'detail'])
+        ->name('brand.detail')
+        ->whereNumber('id');
+
+    // 展會概覽（第二批）
+    Route::get('/about/overview', function () {
+        return view('user.frontend.about.overview');
+    })->name('about.overview');
     // 主題介紹
     Route::get('/about/themes', function () {
-        return view('user.frontend.about.themes');
+        return view('user.about.themes');
     })->name('about.themes');
     // 策展論述
     Route::get('/about/statement', function () {
-        return view('user.frontend.about.statement');
+        return view('user.about.statement');
     })->name('about.statement');
     // 形象識別系統
     Route::get('/about/vi', function () {
-        return view('user.frontend.about.vi');
+        return view('user.about.vi');
     })->name('about.vi');
-    // 最新消息
-    // 列表
-    Route::get('/news/list', function () {
-        return view('user.frontend.news.list');
-    })->name('news.list');
 });
 
 Route::get('/activity', [ActivityController::class, 'index'])->name('activity.index');

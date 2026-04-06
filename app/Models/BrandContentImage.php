@@ -27,4 +27,12 @@ class BrandContentImage extends Model
     {
         return $this->belongsTo(BrandContent::class);
     }
+
+    /**
+     * @return string
+     */
+    public function getDisplayUrlAttribute(): string
+    {
+        return asset('storage/' . $this->url);
+    }
 }

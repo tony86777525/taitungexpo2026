@@ -23,7 +23,7 @@ class ActivityResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
-    protected static ?string $recordTitleAttribute = '活動';
+//    protected static ?string $recordTitleAttribute = '活動';
 
     protected static ?string $modelLabel = '活動';
 

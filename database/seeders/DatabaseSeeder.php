@@ -17,7 +17,9 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             ActivityNatureSeeder::class,
+            BrandTagSeeder::class,
             CurationNatureSeeder::class,
+            ParticipationTypeSeeder::class,
             ProjectCategorySeeder::class,
             ProjectNatureSeeder::class,
             ProjectTypeSeeder::class,

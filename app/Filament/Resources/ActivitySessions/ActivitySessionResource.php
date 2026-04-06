@@ -23,7 +23,7 @@ class ActivitySessionResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
-    protected static ?string $recordTitleAttribute = '團體導覽預約場次';
+//    protected static ?string $recordTitleAttribute = '團體導覽預約場次';
 
     protected static ?string $modelLabel = '團體導覽預約場次';
 

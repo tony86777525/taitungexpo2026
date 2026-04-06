@@ -27,4 +27,12 @@ class ActivityContentImage extends Model
     {
         return $this->belongsTo(ActivityContent::class);
     }
+
+    /**
+     * @return string
+     */
+    public function getDisplayUrlAttribute(): string
+    {
+        return asset('storage/' . $this->url);
+    }
 }

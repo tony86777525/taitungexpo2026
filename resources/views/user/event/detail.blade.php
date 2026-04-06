@@ -3,112 +3,138 @@
 @push('styles')
     @vite('resources/scss/user/event/detail.scss')
 @endpush
-    
+
 @push('scripts')
     @vite('resources/js/user/event/detail.js')
 @endpush
 
 @section('content')
-<main class="main">
-    <!-- news start -->
-    <section id="news" class="section section--news">
-        <div class="section__title wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s">
-            <div class="container">
-                <span class="title f-title-primary">最新消息</span>
-                <ul class="action">
-                    <li>
-                        <a href="#" class="btn btn--goSubpage is-light"><span class="btn__text">MORE</span></a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="section__content wow fadeIn" data-wow-duration="0.5s" data-wow-delay="1s">
-            <div class="container">
-                <div class="tabGroup tabGroup--default js-tabGroup">
-                    <div class="tabGroup__selector" role="button" aria-haspopup="listbox" aria-expanded="false">
-                        <ul class="tabOption jc-center" role="listbox">
-                            <li class="tabOption__item is-active" role="option"><span class="text">全部消息</span></li>
-                            <li class="tabOption__item" role="option"><span class="text">官方公告</span></li>
-                            <li class="tabOption__item" role="option"><span class="text">活動消息</span></li>
-                            <li class="tabOption__item" role="option"><span class="text">媒體新聞</span></li>
+    <main class="main">
+        <div class="m-subPage">
+            <div class="m-element m-subPage__head">
+                <div class="container">
+                    <div class="pageLabel">
+                        @if($activity->getProjectTypes()->isNotEmpty())
+                            @foreach($activity->getProjectTypes() as $projectTypes)
+                                <span class="pageLabel__text">{{ $projectTypes->display_name }}</span>
+                            @endforeach
+                        @endif
+                    </div>
+                    <div class="wrapper">
+                        <div class="team"><a href="#">{{ $activity->display_project_name }}</a></div>
+                        <div class="title f-title-primary is-pageTitle">{{ $activity->display_title }}</div>
+                        <ul class="datas">
+                            <li class="datas__item datas__item--date">
+                                <div class="label"><div class="label__text f-h5">{{ __('event.sub-page.datas.dates') }}｜</div></div>
+                                <div class="content"><span class="content__text f-h5">{{ $activity->display_date_range_detail }}</span></div>
+                            </li>
+                            <li class="datas__item datas__item--time">
+                                <div class="label"><div class="label__text f-h5">{{ __('event.sub-page.datas.time') }}｜</div></div>
+                                <div class="content"><span class="content__text f-h5">{{ $activity->display_time_range }}</span></div>
+                            </li>
+                            @if(!empty($activity->display_activity_location))
+                                <li class="datas__item datas__item--location">
+                                    <div class="content">
+                                        @if(!empty($activity->display_map_link))
+                                            <a href="{{ $activity->display_map_link }}" class="content__text f-h5">{{ $activity->display_activity_location }}</a>
+                                        @else
+                                            <span class="content__text f-h5">{{ $activity->display_activity_location }}</span>
+                                        @endif
+                                    </div>
+                                </li>
+                            @endif
+                            @if($activity->getNatures()->isNotEmpty())
+                                <li class="datas__item datas__item--natures">
+                                    <div class="label"><div class="label__text f-h5">{{ __('event.sub-page.datas.natures') }}｜</div></div>
+                                    <div class="content">
+                                        <div class="content__list">
+                                            @foreach($activity->getNatures() as $nature)
+                                                <span class="f-h5">{{ $nature->display_name }}</span>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                </li>
+                            @endif
                         </ul>
                     </div>
                 </div>
-                <div class="cardsList cardsList--fall">
-                    <div class="cardItem cardItem--news">
-                        <div class="cardItem__image">
-                            <img src="https://picsum.photos/id/232/300/300" alt="news_title">
-                        </div>
-                        <div class="cardItem__text">
-                            <div class="date">2026.3.17</div>
-                            <div class="title f-h4">新聞標題</div>
-                            <ul class="action">
-                                <li>
-                                    <a href="#" class="btn btn--goDetail" target="_blank"><span class="btn__text">READ MORE</span></a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="cardItem cardItem--news">
-                            <div class="cardItem__image">
-                                <img src="https://picsum.photos/id/233/300/300" alt="東博聯名便當特約店家揭曉！擴大徵選69家好店正式成軍">
-                            </div>
-                            <div class="cardItem__text">
-                                <div class="date">2026.3.19</div>
-                                <div class="title f-h4">東博聯名便當特約店家揭曉！擴大徵選69家好店正式成軍</div>
-                                <ul class="action">
-                                    <li>
-                                        <a href="#" class="btn btn--goDetail" target="_blank"><span class="btn__text">READ MORE</span></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="cardItem cardItem--news">
-                            <div class="cardItem__image">
-                                <img src="https://picsum.photos/id/234/300/300" alt="東博聯名便當特約店家揭曉！擴大徵選69家好店正式成軍">
-                            </div>
-                            <div class="cardItem__text">
-                                <div class="date">2026.3.19</div>
-                                <div class="title f-h4">東博聯名便當特約店家揭曉！擴大徵選69家好店正式成軍</div>
-                                <ul class="action">
-                                    <li>
-                                        <a href="#" class="btn btn--goDetail" target="_blank"><span class="btn__text">READ MORE</span></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="cardItem cardItem--news">
-                            <div class="cardItem__image">
-                                <img src="https://picsum.photos/id/235/300/300" alt="2026台東博覽會首展《紅土之上棒球特展》3/21松菸開展，重現台東棒球百年榮光">
-                            </div>
-                            <div class="cardItem__text">
-                                <div class="date">2026.2.26</div>
-                                <div class="title f-h4">2026台東博覽會首展《紅土之上棒球特展》3/21松菸開展，重現台東棒球百年榮光</div>
-                                <ul class="action">
-                                    <li>
-                                        <a href="#" class="btn btn--goDetail" target="_blank"><span class="btn__text">READ MORE</span></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="cardItem cardItem--news">
-                            <div class="cardItem__image">
-                                <img src="https://picsum.photos/id/236/300/300" alt="縣府辦理《冠軍之路》電影欣賞 預告2026台東博覽會：紅土之上棒球特展">
-                            </div>
-                            <div class="cardItem__text">
-                                <div class="date">2026.2.25</div>
-                                <div class="title f-h4">縣府辦理《冠軍之路》電影欣賞 預告2026台東博覽會：紅土之上棒球特展</div>
-                                <ul class="action">
-                                    <li>
-                                        <a href="#" class="btn btn--goDetail" target="_blank"><span class="btn__text">READ MORE</span></a>
-                                    </li>
-                                </ul>
+            </div>
+            {{-- 活動內容：有圖片輪播 --}}
+            @foreach($activity->getContents() ?: collect() as $activityContent)
+                <div class="m-element m-subPage__summary">
+                    <div class="container">
+                        <div class="summary">
+                            @if(!empty($activityContent->getImages()))
+
+                                <div class="summary__image">
+                                    <div class="imageList imageList--editor imageSwiper">
+                                        <div class="swiper js-editorImgSwiper">
+                                            <div class="swiper-wrapper">
+                                                @foreach($activityContent->getImages() as $activityContentImage)
+                                                    <div class="swiper-slide">
+                                                        <div class="imgWrap">
+                                                            <img src="{{ $activityContentImage->display_url }}" alt="{{ $activityContentImage->alt_text }}">
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                        <div class="swiper-button-next"></div>
+                                        <div class="swiper-button-prev"></div>
+                                    </div>
+                                </div>
+                            @endif
+                            <div class="summary__text">
+                                {{-- 標題 --}}
+                                <div class="title"><span class="f-title-secondary">{{ $activityContent->display_title }}</span></div>
+                                {{-- 內文 --}}
+                                <div class="intro">
+                                    <div class="customEditor">
+                                        {!! $activityContent->display_content !!}
+                                    </div>
+                                </div>
+                                {{-- 項目 --}}
+                                @if(!empty($brandContent->display_item_text))
+                                    <ul class="list">
+                                        <li><span class="f-h5">{{ $brandContent->display_item_text }}</span></li>
+                                    </ul>
+                                @endif
+                                {{-- 連結按鈕 --}}
+                                @if(!empty($activityContent->getLinks()))
+                                    <ul class="links">
+                                        @foreach($activityContent->getLinks() as $activityContentLink)
+                                            <li><a
+                                                    href="{{ $activityContentLink->display_url }}"
+                                                    class="btn btn--customLink"
+                                                ><span class="btn__text">{{ $activityContentLink->display_name }}</span></a></li>
+                                        @endforeach
+                                    </ul>
+                                @endif
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            @endforeach
+            {{-- 活動相簿 --}}
+            @if(!empty($activity->getImages()))
+                <div class="m-element m-subPage__gallery">
+                    <div class="imageList imageList--gallery imageSwiper">
+                        <div class="swiper js-galleryImgSwiper">
+                            <div class="swiper-wrapper">
+                                @foreach($activity->getImages() as $activityImage)
+                                    <div class="swiper-slide">
+                                        <div class="imgWrap">
+                                            <img src="{{ $activityImage->display_url }}" alt="{{ $activityImage->alt_text }}">
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                </div>
+            @endif
         </div>
-    </section>
-    <!-- news end -->
-</main>
+    </main>
 @endsection

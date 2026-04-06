@@ -9,6 +9,7 @@ use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
 
 class ActivitySessionsTable
 {
@@ -18,11 +19,8 @@ class ActivitySessionsTable
             ->reorderable('sort_order')
             ->defaultSort('sort_order')
             ->columns([
-                TextColumn::make('activity.project.display_name')
+                TextColumn::make('project.display_type_and_venue_number_name')
                     ->label('計畫')
-                    ->searchable(),
-                TextColumn::make('activity.title_tw')
-                    ->label('活動')
                     ->searchable(),
                 TextColumn::make('display_date')
                     ->label('場次日期')
@@ -60,6 +58,10 @@ class ActivitySessionsTable
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
+            ->modifyQueryUsing(fn (Builder $query) => $query
+                ->orderBy('sort_order', 'asc') // 第一排序條件
+                ->orderBy('id', 'desc') // 第二排序條件
+            )
             ->filters([
                 //
             ])

@@ -12,7 +12,7 @@ class ActivityReservationInfolist
     {
         return $schema
             ->components([
-                TextEntry::make('activitySession.activity.project.display_name')
+                TextEntry::make('activitySession.project.display_type_and_venue_number_name')
                     ->label('計畫活動'),
                 TextEntry::make('activitySession.display_info')
                     ->label('場次資訊'),
@@ -28,6 +28,10 @@ class ActivityReservationInfolist
                     ->label('預計參與人數'),
                 TextEntry::make('notes')
                     ->label('備註（選填）')
+                    ->formatStateUsing(fn (string $state) => nl2br($state))
+                    ->html(),
+                TextEntry::make('status_notes')
+                    ->label('未通過原因（選填）')
                     ->formatStateUsing(fn (string $state) => nl2br($state))
                     ->html(),
                 TextEntry::make('display_status')

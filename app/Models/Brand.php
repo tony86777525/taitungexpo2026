@@ -2,9 +2,11 @@
 
 namespace App\Models;
 
+use App\Enums\Language;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Support\Collection;
 
 class Brand extends Model
 {
@@ -62,5 +64,122 @@ class Brand extends Model
     public function images(): HasMany
     {
         return $this->hasMany(BrandImage::class);
+    }
+
+    /**
+     * Get the tags for the article.
+     * 品牌分類
+     *
+     * @return BelongsToMany
+     */
+    public function tags(): BelongsToMany
+    {
+        return $this->belongsToMany(BrandTag::class, 'brand_tag_relations');
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getDisplayNameAttribute(): ?string
+    {
+        if (app()->getLocale() === Language::EN->value && !empty($this->name_en)) {
+            return $this->name_en;
+        }
+
+        return $this->name_tw;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDisplayThumbnailAttribute(): string
+    {
+        return asset('storage/' . $this->thumbnail_url);
+    }
+
+    /**
+     * @return string
+     */
+    public function getDisplayUrlAttribute(): string
+    {
+        return lang_route('user.brand.detail', ['id' => $this->id]);
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getDisplayDescriptionAttribute(): ?string
+    {
+        if (app()->getLocale() === Language::EN->value && !empty($this->description_en)) {
+            return $this->description_en;
+        }
+
+        return $this->description_tw;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getDisplayTagNameAttribute(): ?string
+    {
+        if ($this->relationLoaded('tags') === false) {
+            return null;
+        }
+
+        if ($this->tags->isEmpty()) {
+            return null;
+        }
+
+        $tag = $this->tags->first();
+
+        return $tag->display_name ?: null;
+    }
+
+    /**
+     * @return Collection|null
+     */
+    public function getLinks(): Collection|null
+    {
+        if ($this->relationLoaded('links') === false) {
+            return null;
+        }
+
+        if ($this->links->isEmpty()) {
+            return null;
+        }
+
+        return $this->links;
+    }
+
+    /**
+     * @return Collection|null
+     */
+    public function getContents(): Collection|null
+    {
+        if ($this->relationLoaded('contents') === false) {
+            return null;
+        }
+
+        if ($this->contents->isEmpty()) {
+            return null;
+        }
+
+        return $this->contents;
+    }
+
+    /**
+     * @return Collection|null
+     */
+    public function getImages(): Collection|null
+    {
+        if ($this->relationLoaded('images') === false) {
+            return null;
+        }
+
+        if ($this->images->isEmpty()) {
+            return null;
+        }
+
+        return $this->images;
     }
 }

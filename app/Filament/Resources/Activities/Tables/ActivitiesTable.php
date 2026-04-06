@@ -9,6 +9,7 @@ use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
 
 class ActivitiesTable
 {
@@ -20,7 +21,7 @@ class ActivitiesTable
             ->columns([
                 TextColumn::make('project')
                     ->label('計畫名稱')
-                    ->getStateUsing(fn ($record) => $record->project->display_name),
+                    ->getStateUsing(fn ($record) => $record->project->display_type_and_venue_number_name),
                 TextColumn::make('title_tw')
                     ->label('活動標題（中）')
                     ->searchable(),
@@ -53,6 +54,10 @@ class ActivitiesTable
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
+            ->modifyQueryUsing(fn (Builder $query) => $query
+                ->orderBy('sort_order', 'asc') // 第一排序條件
+                ->orderBy('id', 'desc') // 第二排序條件
+            )
             ->filters([
                 //
             ])

@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Collection;
 
 class Activity extends Model
 {
@@ -29,18 +30,16 @@ class Activity extends Model
         'activity_location_en',
         // 地圖連結
         'map_link',
-        // 報名資訊（中）
-        'registration_info_tw',
-        // 報名資訊（英）
-        'registration_info_en',
+        // 報名資訊
+        'participation_type_id',
+        // 報名資訊連結
+        'participation_link',
         // 縮略圖
         'thumbnail_url',
         // 活動卡片導向連結
         'url',
-        // 導覽預約資訊（中）
-        'tour_info_tw',
-        // 導覽預約資訊（英）
-        'tour_info_en',
+        // 顯示導覽預約資訊
+        'show_tour_info',
         // 啟用狀態
         'is_active',
         // 排序順序
@@ -49,6 +48,7 @@ class Activity extends Model
 
     protected $casts = [
         'is_active' => 'boolean',
+        'show_tour_info' => 'boolean',
     ];
 
     /**
@@ -85,6 +85,17 @@ class Activity extends Model
     }
 
     /**
+     * Get the participation type for the activity.
+     * 報名資訊
+     *
+     * @return BelongsTo
+     */
+    public function participationType(): BelongsTo
+    {
+        return $this->belongsTo(ParticipationType::class, 'participation_type_id');
+    }
+
+    /**
      * Get the images for the activity.
      * 活動相簿
      *
@@ -107,17 +118,6 @@ class Activity extends Model
     }
 
     /**
-     * Get the images for the activity.
-     * 活動相簿
-     *
-     * @return HasMany
-     */
-    public function activitySessions(): HasMany
-    {
-        return $this->hasMany(ActivitySession::class);
-    }
-
-    /**
      * 活動期間-日期
      *
      * @return string
@@ -131,6 +131,19 @@ class Activity extends Model
     }
 
     /**
+     * 活動期間-日期
+     *
+     * @return string
+     */
+    public function getDisplayDateRangeDetailAttribute(): string
+    {
+        $startDate = Carbon::create($this->activity_start_date)->translatedFormat('Y.n.j（D）');
+        $endDate = Carbon::create($this->activity_end_date)->translatedFormat('Y.n.j（D）');
+
+        return "{$startDate}－{$endDate}";
+    }
+
+    /**
      * 活動期間-每日開放時間
      *
      * @return string
@@ -140,7 +153,7 @@ class Activity extends Model
         $startTime = Carbon::create($this->activity_start_time)->translatedFormat('H:i');
         $endTime = Carbon::create($this->activity_end_time)->translatedFormat('H:i');
 
-        return "{$startTime} ~ {$endTime}";
+        return "{$startTime}-{$endTime}";
     }
 
     /**
@@ -165,5 +178,171 @@ class Activity extends Model
         }
 
         return $this->activity_location_tw;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getDisplayProjectNameAttribute(): ?string
+    {
+        if ($this->relationLoaded('project') === false) {
+            return null;
+        }
+
+        return $this->project->display_project_name;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getDisplayParticipationTypeNameAttribute(): ?string
+    {
+        if ($this->relationLoaded('participationType') === false) {
+            return null;
+        }
+
+        return $this->participationType->display_name;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getDisplayParticipationTypeLinkNameAttribute(): ?string
+    {
+        if ($this->relationLoaded('participationType') === false) {
+            return null;
+        }
+
+        return $this->participationType->display_link_name;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDisplayUrlAttribute(): string
+    {
+        return lang_route('user.event.detail', ['id' => $this->id]);
+    }
+
+    /**
+     * @return Collection|null
+     */
+    public function getProjectNatures(): ?Collection
+    {
+        if ($this->relationLoaded('project') === false) {
+            return null;
+        }
+
+        $project = $this->project;
+
+        if ($project->relationLoaded('projectNatures') === false) {
+            return null;
+        }
+
+        return $project->projectNatures;
+    }
+
+    /**
+     * @return Collection|null
+     */
+    public function getProjectTypes(): ?Collection
+    {
+        if ($this->relationLoaded('projectTypes') === false) {
+            return null;
+        }
+
+        return $this->projectTypes;
+    }
+
+    /**
+     * @return Collection|null
+     */
+    public function getNatures(): ?Collection
+    {
+        if ($this->relationLoaded('activityNatures') === false) {
+            return null;
+        }
+
+        return $this->activityNatures;
+    }
+
+    /**
+     * @return Collection|null
+     */
+    public function getContents(): Collection|null
+    {
+        if ($this->relationLoaded('contents') === false) {
+            return null;
+        }
+
+        if ($this->contents->isEmpty()) {
+            return null;
+        }
+
+        return $this->contents;
+    }
+
+    /**
+     * @return Collection|null
+     */
+    public function getImages(): Collection|null
+    {
+        if ($this->relationLoaded('images') === false) {
+            return null;
+        }
+
+        if ($this->images->isEmpty()) {
+            return null;
+        }
+
+        return $this->images;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function canDisplayParticipationInfo(): bool
+    {
+        if (empty($this->participation_type_id)) {
+            return false;
+        }
+
+        if ($this->relationLoaded('participationType') === false) {
+            return false;
+        }
+
+        $participationType = $this->participationType;
+
+        if (empty($participationType)) {
+            return false;
+        }
+
+        return true;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function canDisplayParticipationInfoLink(): bool
+    {
+        if (empty($this->participation_link)) {
+            return false;
+        }
+
+        if ($this->relationLoaded('participationType') === false) {
+            return false;
+        }
+
+        $participationType = $this->participationType;
+
+        if (empty($participationType)) {
+            return false;
+        }
+
+        if (empty($participationType->display_link_name)) {
+            return false;
+        }
+
+        return true;
     }
 }

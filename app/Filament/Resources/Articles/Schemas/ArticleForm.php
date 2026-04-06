@@ -33,9 +33,9 @@ class ArticleForm
                     ->label('消息分類')
                     ->relationship(
                         name: 'tags',
-                        titleAttribute: 'name_tw',
                         modifyQueryUsing: fn (Builder $query) => $query->orderBy('id'),
                     )
+                    ->getOptionLabelFromRecordUsing(fn ($record) => $record->display_all_name)
                     ->multiple()
                     ->preload()
                     ->maxItems(1),
@@ -71,9 +71,26 @@ class ArticleForm
                             ->label('標題（英）'),
                         RichEditor::make('content_tw')
                             ->label('內文（中）')
+                            ->extraInputAttributes(['class' => 'custom-rich-editor'])
+                            ->toolbarButtons([
+                                ['bold', 'italic', 'underline', 'strike', 'link'],
+                                ['alignStart', 'alignCenter', 'alignEnd'],
+                                ['bulletList', 'orderedList'],
+                                ['undo', 'redo'],
+                            ])
+//                            ->toolbarButtons([
+//                                'textColorPicker', // This enables the color picker tool
+//                            ])
                             ->required(),
                         RichEditor::make('content_en')
                             ->label('內文（英）')
+                            ->extraInputAttributes(['class' => 'custom-rich-editor'])
+                            ->toolbarButtons([
+                                ['bold', 'italic', 'underline', 'strike', 'link'],
+                                ['alignStart', 'alignCenter', 'alignEnd'],
+                                ['bulletList', 'orderedList'],
+                                ['undo', 'redo'],
+                            ])
                             ->required(),
                         TextInput::make('item_text_tw')
                             ->label('項目文字（中）'),

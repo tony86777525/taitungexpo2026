@@ -25,7 +25,7 @@ class PrivateSectorProjectResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
-    protected static ?string $recordTitleAttribute = '民間參與計畫';
+//    protected static ?string $recordTitleAttribute = '民間參與計畫';
 
     protected static ?string $modelLabel = '民間參與計畫';
 

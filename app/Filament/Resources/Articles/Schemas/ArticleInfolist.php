@@ -43,8 +43,14 @@ class ArticleInfolist
                     ->schema([
                         TextEntry::make('title_tw')->label('標題（中）')->placeholder('-'),
                         TextEntry::make('title_en')->label('標題（英）')->placeholder('-'),
-                        TextEntry::make('content_tw')->label('內文（中）')->placeholder('-'),
-                        TextEntry::make('content_en')->label('內文（英）')->placeholder('-'),
+                        TextEntry::make('content_tw')
+                            ->label('內文（中）')
+                            ->prose()
+                            ->placeholder('-'),
+                        TextEntry::make('content_en')
+                            ->label('內文（英）')
+                            ->prose()
+                            ->placeholder('-'),
                         TextEntry::make('item_text_tw')->label('項目文字（中）')->placeholder('-'),
                         TextEntry::make('item_text_en')->label('項目文字（英）')->placeholder('-'),
                         RepeatableEntry::make('links')

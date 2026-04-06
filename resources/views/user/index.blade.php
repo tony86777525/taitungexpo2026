@@ -40,12 +40,9 @@
         </div>
         <div class="intro">
             <div class="container">
-                <p class="intro__text introText f-p wow fadeIn" data-json-key="text" data-wow-duration="0.3s" data-wow-delay="1s"
-                    data-json-key="introText1">在台東，「慢」不只是速度，更是一種選擇——選擇與自然共生，與土地共鳴的生活哲學。</p>
-                <p class="intro__text introText f-p wow fadeIn" data-json-key="text" data-wow-duration="0.3s" data-wow-delay="1s"
-                    data-json-key="introText2">2026 台東博覽會，以「慢經濟」為策展核心，綻放「台東藍」為願景，融合南島文化精神與永續發展理念，鋪展山之路、海之路，到通往世界之路的未來藍圖。</p>
-                <p class="intro__text introText f-p wow fadeIn" data-json-key="text" data-wow-duration="0.3s" data-wow-delay="1s"
-                    data-json-key="introText3">誠摯邀請每一位踏上台東的人，放慢腳步，品味這片土地的靜謐與豐盛，找回生活最純粹的節奏。</p>
+                <p class="intro__text introText f-p wow fadeIn" data-wow-duration="0.3s" data-wow-delay="1s">{{ __('index.hero.paragraph1') }}</p>
+                <p class="intro__text introText f-p wow fadeIn" data-wow-duration="0.3s" data-wow-delay="1s">{{ __('index.hero.paragraph2') }}</p>
+                <p class="intro__text introText f-p wow fadeIn" data-wow-duration="0.3s" data-wow-delay="1s">{{ __('index.hero.paragraph3') }}</p>
             </div>
         </div>
     </section>
@@ -141,10 +138,10 @@
         <section class="section section--news">
             <div class="section__title wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s">
                 <div class="container">
-                    <span class="title f-title-primary">{{ __('frontend.articles') }}</span>
+                    <span class="title f-title-primary is-pageTitle">{{ __('index.section-title.latest-news') }}</span>
                     <ul class="action">
                         <li>
-                            <a href="{{ route('user.news.list') }}" class="btn btn--goSubpage is-light"><span class="btn__text">MORE</span></a>
+                            <a href="{{ lang_route('user.news.list') }}" class="btn btn--goSubpage is-light"><span class="btn__text">MORE</span></a>
                         </li>
                     </ul>
                 </div>
@@ -187,7 +184,7 @@
     <section class="section section--exhibition">
         <div class="section__title wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s">
             <div class="container">
-                    <span class="title f-title-primary">展區一覽</span>
+                <span class="title f-title-primary is-pageTitle">{{ __('index.section-title.exhibition-area') }}</span>
                 <ul class="action">
                     <li>
                         <a href="#" class="btn btn--goSubpage is-dark"><span class="btn__text">MORE</span></a>
@@ -203,14 +200,14 @@
                             <span class="tabSelect__text f-h4 js-selectedOption">A 舊站特區</span>
                         </div>
                         <ul class="tabOption jc-start js-tabOption" role="listbox">
-                            <li class="tabOption__item js-tabOption-item is-active" data-tab-id="exh-a" role="option"><span class="text">A 舊站特區</span></li>
-                            <li class="tabOption__item js-tabOption-item" data-tab-id="exh-b" role="option"><span class="text">B 美術館區</span></li>
-                            <li class="tabOption__item js-tabOption-item" data-tab-id="exh-c" role="option"><span class="text">C 美學館區</span></li>
-                            <li class="tabOption__item js-tabOption-item" data-tab-id="exh-d" role="option"><span class="text">D 北町區</span></li>
-                            <li class="tabOption__item js-tabOption-item" data-tab-id="exh-e" role="option"><span class="text">E 總圖區</span></li>
-                            <li class="tabOption__item js-tabOption-item" data-tab-id="exh-f" role="option"><span class="text">F 臨海區</span></li>
-                            <!-- <li class="tabOption__item js-tabOption-item" data-tab-id="exh-g" role="option"><span class="text">G 就藝會區</span></li>
-                            <li class="tabOption__item js-tabOption-item" data-tab-id="exh-h" role="option"><span class="text">H 衛星展區</span></li> -->
+                            <li class="tabOption__item js-tabOption-item is-active" data-tab-id="exh-a" role="option"><span class="text">{{ __('index.tab-title.tab1') }}</span></li>
+                            <li class="tabOption__item js-tabOption-item" data-tab-id="exh-b" role="option"><span class="text">{{ __('index.tab-title.tab2') }}</span></li>
+                            <li class="tabOption__item js-tabOption-item" data-tab-id="exh-c" role="option"><span class="text">{{ __('index.tab-title.tab3') }}</span></li>
+                            <li class="tabOption__item js-tabOption-item" data-tab-id="exh-d" role="option"><span class="text">{{ __('index.tab-title.tab4') }}</span></li>
+                            <li class="tabOption__item js-tabOption-item" data-tab-id="exh-e" role="option"><span class="text">{{ __('index.tab-title.tab5') }}</span></li>
+                            <li class="tabOption__item js-tabOption-item" data-tab-id="exh-f" role="option"><span class="text">{{ __('index.tab-title.tab6') }}</span></li>
+                            <li class="tabOption__item js-tabOption-item" data-tab-id="exh-g" role="option"><span class="text">{{ __('index.tab-title.tab7') }}</span></li>
+                            <li class="tabOption__item js-tabOption-item" data-tab-id="exh-h" role="option"><span class="text">{{ __('index.tab-title.tab8') }}</span></li>
                         </ul>
                     </div>
                     <div class="tabGroup__content js-tabGroup-content">
@@ -399,6 +396,7 @@
                 </div>
             </div>
         </div>
+        @include('user.layout.balloon')
     </section>
     <!-- exhibition end -->
 
@@ -406,32 +404,32 @@
     <section class="section section--dayOf">
         <div class="section__title wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s">
             <div class="container">
-                <span class="title f-title-primary">{{ __('frontend.today_activity_list') }}</span>
+                <span class="title f-title-primary is-pageTitle">{{ __('index.section-title.today-event') }}</span>
                 <ul class="action">
                     <li>
-                        <a href="#" class="btn btn--goSubpage is-light"><span class="btn__text">MORE</span></a>
+                        <a href="{{ lang_route('user.event.list') }}" class="btn btn--goSubpage is-light"><span class="btn__text">MORE</span></a>
                     </li>
                 </ul>
             </div>
         </div>
-        @if($activitySessions->isNotEmpty())
+        @if($activities->isNotEmpty())
             <div class="section__content wow fadeIn" data-wow-duration="0.5s" data-wow-delay="1s">
                 <div class="container">
                     <div class="cardsList cardsList--swiper cardsSwiper">
                         <div class="swiper js-cardSwiper">
                             <div class="swiper-wrapper">
-                                @foreach($activitySessions as $activitySession)
+                                @foreach($activities as $activity)
                                     <div class="swiper-slide">
                                         <div class="cardItem cardItem--dayOf">
                                             <div class="cardItem__text">
-                                                <div class="time">{{ $activitySession->display_time_range }}</div>
-                                                <div class="title f-h4">{{ $activitySession->display_project_name }}</div>
+                                                <div class="time">{{ $activity->display_time_range }}</div>
+                                                <div class="title f-h4">{{ $activity->display_title }}</div>
                                                 <div class="project">
-                                                    <div class="project__name"><span class="f-h5">{{ $activitySession->display_project_name }}</span></div>
-                                                    <div class="project__location"><span class="f-h5">{{ $activitySession->display_activity_activity_location }}</span></div>
-                                                    @if($activitySession->getProjectNatures()->isNotEmpty())
+                                                    <div class="project__name"><span class="f-h5">{{ $activity->display_project_name }}</span></div>
+                                                    <div class="project__location"><span class="f-h5">{{ $activity->display_activity_location }}</span></div>
+                                                    @if($activity->getProjectNatures()->isNotEmpty())
                                                         <ul class="project__nature">
-                                                            @foreach($activitySession->getProjectNatures() as $nature)
+                                                            @foreach($activity->getProjectNatures() as $nature)
                                                                 <li><span class="f-h5">{{ $nature->display_name }}</span></li>
                                                             @endforeach
                                                         </ul>

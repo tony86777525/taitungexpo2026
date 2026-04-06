@@ -12,10 +12,17 @@ class CurationNatureForm
     {
         return $schema
             ->components([
-                TextInput::make('name_tw'),
-                TextInput::make('name_en'),
-                Toggle::make('is_active')
+                TextInput::make('name_tw')
+                    ->label('策展議題（中）')
                     ->required(),
-            ]);
+                TextInput::make('name_en')
+                    ->label('策展議題（英）')
+                    ->required(),
+                Toggle::make('is_active')
+                    ->label('啟用狀態')
+                    ->required()
+                    ->default(1),
+            ])
+            ->columns(1);
     }
 }

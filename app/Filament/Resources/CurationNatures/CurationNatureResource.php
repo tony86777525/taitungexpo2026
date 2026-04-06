@@ -23,7 +23,7 @@ class CurationNatureResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
-    protected static ?string $recordTitleAttribute = '策展議題';
+//    protected static ?string $recordTitleAttribute = '策展議題';
 
     protected static ?string $modelLabel = '策展議題';
 

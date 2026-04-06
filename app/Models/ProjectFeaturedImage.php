@@ -27,4 +27,12 @@ class ProjectFeaturedImage extends Model
     {
         return $this->belongsTo(Project::class);
     }
+
+    /**
+     * @return string
+     */
+    public function getDisplayUrlAttribute(): string
+    {
+        return asset('storage/' . $this->url);
+    }
 }

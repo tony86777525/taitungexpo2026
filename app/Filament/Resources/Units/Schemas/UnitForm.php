@@ -24,8 +24,7 @@ class UnitForm
                     ->disk('public')
                     ->directory('unit_image')
                     ->visibility('public')
-                    ->image()
-                    ->required(),
+                    ->image(),
                 TextInput::make('link')
                     ->label('單位連結')
                     ->url(),

@@ -11,10 +11,13 @@ use Carbon\Carbon;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Pages\Page;
+use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Contracts\HasTable;
 use Filament\Tables\Concerns\InteractsWithTable;
 use Filament\Tables\Table;
 use Filament\Tables;
+use UnitEnum;
+use BackedEnum;
 
 class DashBoard extends Page implements HasForms, HasTable
 {
@@ -22,7 +25,13 @@ class DashBoard extends Page implements HasForms, HasTable
 
     protected string $view = 'filament.pages.dashboard';
 
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+
     protected static ?string $title = '2026台東博覽會-團體導覽預約申請';
+
+    protected static UnitEnum|string|null $navigationGroup = 'Home';
+
+    protected static ?int $navigationSort = 20;
 
     public function getBookedInfo(): array
     {
@@ -77,11 +86,11 @@ class DashBoard extends Page implements HasForms, HasTable
                 'heading' => '待審核預約資料',
             ]))
             ->columns([
-                Tables\Columns\TextColumn::make('activitySession.activity.project.zone.name_tw')->label('展區')
+                Tables\Columns\TextColumn::make('activitySession.project.zone.name_tw')->label('展區')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('activitySession.date')->label('日期')
                     ->sortable(),
-                Tables\Columns\TextColumn::make('activitySession.activity.project.venue_number')->label('場館'),
+                Tables\Columns\TextColumn::make('activitySession.project.venue_number')->label('場館'),
                 Tables\Columns\TextColumn::make('time')->label('時段')
                     ->getStateUsing(fn ($record) => "{$record->activitySession->start_time} ~ {$record->activitySession->end_time}")
                     ->sortable(),

@@ -97,6 +97,8 @@ class ApproveActivityReservation extends EditRecord
                 Textarea::make('notes')
                     ->label('備註（選填）')
                     ->disabled(),
+                Textarea::make('status_notes')
+                    ->label('未通過原因（選填）'),
                 Select::make('status')
                     ->label('狀態')
                     ->options(ActivityReservationStatus::options())
@@ -125,8 +127,10 @@ class ApproveActivityReservation extends EditRecord
 
     public function approve(): void
     {
+        $formData = $this->form->getState();
         // 稍後實現
         $this->record->status = ActivityReservationStatus::CONFIRMED;
+        $this->record->status_notes = $formData['status_notes'] ?? null;
         $this->record->save();
 
         $this->sendMail();
@@ -141,8 +145,10 @@ class ApproveActivityReservation extends EditRecord
 
     public function reject(): void
     {
+        $formData = $this->form->getState();
         // 稍後實現
         $this->record->status = ActivityReservationStatus::CANCELLED;
+        $this->record->status_notes = $formData['status_notes'] ?? null;
         $this->record->save();
 
         $this->sendMail();

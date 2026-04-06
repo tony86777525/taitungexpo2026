@@ -22,6 +22,9 @@ class ZoneInfolist
                     ->label('展區名稱（英）')
                     ->placeholder('-'),
                 IconEntry::make('is_active')
+                    ->label('活動限定使用')
+                    ->boolean(),
+                IconEntry::make('is_active')
                     ->label('啟用狀態')
                     ->boolean(),
                 TextEntry::make('created_at')

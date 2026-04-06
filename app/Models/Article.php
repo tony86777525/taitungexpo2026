@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Support\Collection;
 
 class Article extends Model
 {
@@ -66,9 +67,9 @@ class Article extends Model
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getDisplayTitleAttribute(): string
+    public function getDisplayTitleAttribute(): ?string
     {
         if (app()->getLocale() === Language::EN->value && !empty($this->title_en)) {
             return $this->title_en;
@@ -98,6 +99,56 @@ class Article extends Model
      */
     public function getDisplayUrlAttribute(): string
     {
-        return $this->url ?: route('user.news.detail', $this->id);
+        return $this->url ?: lang_route('user.news.detail', ['id' => $this->id]);
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getDisplayTagNameAttribute(): ?string
+    {
+        if ($this->relationLoaded('tags') === false) {
+            return null;
+        }
+
+        if ($this->tags->isEmpty()) {
+            return null;
+        }
+
+        $tag = $this->tags->first();
+
+        return $tag->display_name ?: null;
+    }
+
+    /**
+     * @return Collection|null
+     */
+    public function getContents(): Collection|null
+    {
+        if ($this->relationLoaded('contents') === false) {
+            return null;
+        }
+
+        if ($this->contents->isEmpty()) {
+            return null;
+        }
+
+        return $this->contents;
+    }
+
+    /**
+     * @return Collection|null
+     */
+    public function getImages(): Collection|null
+    {
+        if ($this->relationLoaded('images') === false) {
+            return null;
+        }
+
+        if ($this->images->isEmpty()) {
+            return null;
+        }
+
+        return $this->images;
     }
 }

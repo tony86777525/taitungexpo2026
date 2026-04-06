@@ -27,4 +27,12 @@ class ProjectContentImage extends Model
     {
         return $this->belongsTo(ProjectContent::class);
     }
+
+    /**
+     * @return string
+     */
+    public function getDisplayUrlAttribute(): string
+    {
+        return asset('storage/' . $this->url);
+    }
 }

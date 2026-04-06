@@ -23,7 +23,7 @@ class ZoneResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
-    protected static ?string $recordTitleAttribute = '展區';
+//    protected static ?string $recordTitleAttribute = '展區';
 
     protected static ?string $modelLabel = '展區';
 
