@@ -67,9 +67,9 @@ class Article extends Model
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getDisplayTitleAttribute(): string
+    public function getDisplayTitleAttribute(): ?string
     {
         if (app()->getLocale() === Language::EN->value && !empty($this->title_en)) {
             return $this->title_en;

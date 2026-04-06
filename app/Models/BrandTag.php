@@ -40,7 +40,10 @@ class BrandTag extends Model
         return "＃{$this->name_tw} / ＃{$this->name_en}";
     }
 
-    public function getDisplayNameAttribute()
+    /**
+     * @return string|null
+     */
+    public function getDisplayNameAttribute(): ?string
     {
         if (app()->getLocale() === Language::EN->value && !empty($this->name_en)) {
             return $this->name_en;

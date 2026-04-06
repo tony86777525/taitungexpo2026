@@ -66,9 +66,9 @@ class BrandContent extends Model
 
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getDisplayTitleAttribute(): string
+    public function getDisplayTitleAttribute(): ?string
     {
         if (app()->getLocale() === Language::EN->value && !empty($this->title_en)) {
             return $this->title_en;
@@ -78,9 +78,9 @@ class BrandContent extends Model
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getDisplayItemTextAttribute(): string
+    public function getDisplayItemTextAttribute(): ?string
     {
         if (app()->getLocale() === Language::EN->value && !empty($this->item_text_en)) {
             return $this->item_text_en;
@@ -90,9 +90,9 @@ class BrandContent extends Model
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getDisplayContentAttribute(): string
+    public function getDisplayContentAttribute(): ?string
     {
         if (app()->getLocale() === Language::EN->value && !empty($this->content_en)) {
             return $this->content_en;

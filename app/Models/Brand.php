@@ -78,9 +78,9 @@ class Brand extends Model
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getDisplayNameAttribute(): string
+    public function getDisplayNameAttribute(): ?string
     {
         if (app()->getLocale() === Language::EN->value && !empty($this->name_en)) {
             return $this->name_en;
@@ -106,9 +106,9 @@ class Brand extends Model
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getDisplayDescriptionAttribute(): string
+    public function getDisplayDescriptionAttribute(): ?string
     {
         if (app()->getLocale() === Language::EN->value && !empty($this->description_en)) {
             return $this->description_en;

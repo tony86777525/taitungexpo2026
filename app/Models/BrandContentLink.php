@@ -32,9 +32,9 @@ class BrandContentLink extends Model
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getDisplayNameAttribute(): string
+    public function getDisplayNameAttribute(): ?string
     {
         if (app()->getLocale() === Language::EN->value && !empty($this->name_en)) {
             return $this->name_en;
@@ -44,9 +44,9 @@ class BrandContentLink extends Model
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getDisplayUrlAttribute(): string
+    public function getDisplayUrlAttribute(): ?string
     {
         if (app()->getLocale() === Language::EN->value && !empty($this->url_en)) {
             return $this->url_en;
