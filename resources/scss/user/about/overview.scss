@@ -148,6 +148,14 @@ $path: '../../../images/about';
 			margin-bottom: 0;
 		}
 
+		&--theme {
+			margin-top: rem(20);
+
+			@include rwd-min(768px) {
+				margin-top: 0;
+			}
+		}
+
 		&__title {
 			text-align: center;
 			
