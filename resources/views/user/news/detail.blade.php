@@ -56,9 +56,11 @@
                                 </div>
                             </div>
                             {{-- 項目 --}}
-                            <ul class="list">
-                                <li><span class="f-h5">{{ $articleContent->display_item_text }}</span></li>
-                            </ul>
+                            @if(!empty($brandContent->display_item_text))
+                                <ul class="list">
+                                    <li><span class="f-h5">{{ $brandContent->display_item_text }}</span></li>
+                                </ul>
+                            @endif
                             {{-- 連結按鈕 --}}
                             @if(!empty($articleContent->getLinks()))
                                 <ul class="links">
