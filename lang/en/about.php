@@ -295,5 +295,22 @@ return [
             ]
         ]
 
+    ],
+    'overview' => [
+        'page-title' => 'Exhibition Overview',
+        'section1' => [
+            'title' => 'Theme Exhibitions',
+            'desc' => 'Across five major exhibition zones in Taitung City and satellite venues throughout Taiwan, a total of 21 official theme exhibitions await your exploration.',
+            'filters' => [
+                'filterTxt1' => 'Central Taitung District',
+                'filterTxt2' => 'Just Art',
+                'filterTxt3' => 'Art Museum',
+                'filterTxt4' => 'Beiding',
+                'filterTxt5' => 'Seaside',
+                'filterTxt6' => 'Living Art Center',
+                'filterTxt7' => 'Library',
+                'filterTxt8' => 'Satellite Areas',
+            ]
+        ],
     ]
 ];

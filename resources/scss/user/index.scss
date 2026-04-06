@@ -42,10 +42,10 @@ $path: '../../images/index';
 		&:before {
 			padding-top: calc((1080 / 1920) * 100%);
 		}
+	}
 
-		&:after {
-			height: 35%;
-		}
+	@include rwd-min(1825px) {
+		background-size: cover;
 	}
 
     .hero {

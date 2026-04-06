@@ -38,6 +38,7 @@ $pagePath: '/resources/images';
             border-width: rem(1);
             border-style: solid;
             border-color: $secondary;
+            background-color: $white;
             @include transition(all, .3s, ease-in);
             border-radius: 50%;
             background-size: contain;
@@ -59,13 +60,15 @@ $pagePath: '/resources/images';
             }
 
             &:hover {
-                border-color: #003893;
+                border-color: $primary-hover;
+                background-color: $primary-hover;
                 background-image: url('#{$pagePath}/arrow_pager-prev-b.svg');
             }
 
             @include rwd-not-hover {
                 &:hover {
                     border-color: $secondary;
+                    background-color: $white;
                     background-image: url('#{$pagePath}/arrow_pager-prev-w.svg');
                 }
             }
@@ -85,7 +88,8 @@ $pagePath: '/resources/images';
             }
 
             &:hover {
-                border-color: #003893;
+                border-color: $primary-hover;
+                background-color: $primary-hover;
                 background-image: url('#{$pagePath}/arrow_pager-next-b.svg');
             }
 
@@ -149,6 +153,11 @@ $pagePath: '/resources/images';
         &--ellipsis {
             width: rem(19);
             height: rem(3);
+            
+            .text {
+                font-size: 0;
+            }
+
             &:before {
                 padding-top: rem(3);
                 width: rem(19);

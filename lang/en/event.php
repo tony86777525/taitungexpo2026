@@ -30,7 +30,7 @@ return [
         ],
         'group-tour' => [
             'text' => 'Group Tour Reservation Available',
-            'link-text' => 'Group Tour Reservation'
+            'link-text' => 'Reserve'
         ]
     ],
     'sub-page' => [

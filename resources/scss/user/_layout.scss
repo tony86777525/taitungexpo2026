@@ -182,7 +182,7 @@ $path: '/resources/images';
 		justify-content: flex-start;
 		position: absolute;
 		background-color: $white;
-		padding: rem(20);
+		padding: rem(20) rem(20) rem(20) rem(34);
 		top: 0;
 		left: -100%;
 		width: 77%;
@@ -260,10 +260,6 @@ $path: '/resources/images';
 
 		& > .menuText {
 			padding: rem(20) 0;
-
-			@include rwd-min(1280px) {
-				padding: rem(35) rem(18);
-			}
 		}
 
 		&--parent {
@@ -284,6 +280,10 @@ $path: '/resources/images';
 			&.is-open {
 
 				& > .menuText {
+					span {
+						color: $primary-hover;
+					}
+
 					&:after {
 						@include rotate(-180);
 						background-image: url('#{$path}/arrow_nav-active.svg');
@@ -316,6 +316,7 @@ $path: '/resources/images';
 	display: none;
 	border-left: rem(1) solid $secondary;
 	padding-left: rem(10);
+	margin-left: rem(8);
 
 	@include rwd-min(1280px) {
 		position: absolute;
@@ -326,6 +327,7 @@ $path: '/resources/images';
 		padding: rem(8) rem(18);
 		border-left: none;
 		margin-top: 0;
+		margin-left: 0;
 		border-left: 0;
 		box-shadow: 0 rem(4) rem(4) rgba(16, 55, 141, 0.08);
 	}
@@ -357,6 +359,7 @@ $path: '/resources/images';
 		}
 	}
 }
+
 .menuText {
 	display: flex;
 	align-items: center;
@@ -365,12 +368,9 @@ $path: '/resources/images';
 
 	span {
 		display: block;
-		font-size: rem(15);
-		line-height: 1.2;
 		position: relative;
 		top: 0;
 		transition: .3s;
-		font-weight: 500;
 		color: $secondary;
 		white-space: nowrap;
 	}
@@ -448,6 +448,60 @@ $path: '/resources/images';
 	right: rem(10);
 	bottom: rem(100);
 	gap: rem(10);
+	transition: opacity 0.4s ease, visibility 0.4s ease;
+
+	.quickBtn {
+		display: block;
+		@include transition(all, .3s, ease-in);
+
+		img {
+			width: 100%;
+		}
+
+		&--traffic {
+			width: rem(80);
+
+			@include rwd-min(769px) {
+				width: rem(90);
+			}
+
+			&:hover {
+				width: rem(96);
+			}
+
+			@include rwd-not-hover {
+				&:hover {
+					width: rem(80);
+				}
+
+				@include rwd-min(769px) {
+					&:hover {
+						width: rem(90);
+					}
+				}
+			}
+		}
+		
+		&--goTop {
+			width: rem(50);
+
+			&:hover {
+				width: rem(54);
+			}
+
+			@include rwd-not-hover {
+				&:hover {
+					width: rem(50);
+				}
+
+				@include rwd-min(769px) {
+					&:hover {
+						width: rem(50);
+					}
+				}
+			}
+		}
+	}
 }
 
 //footer

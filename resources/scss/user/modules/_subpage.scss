@@ -79,6 +79,7 @@ $modulePath: '/resources/images';
     div,
     p {
         color: $secondary;
+        word-break: break-all;
     }
 }
 
@@ -173,6 +174,7 @@ $modulePath: '/resources/images';
 
         .title {
             color: $secondary;
+            word-break: break-all;
         }
 
         .datas {

@@ -1,7 +1,3 @@
-import './modules/navbar';
-// import '../../modules/modal';
-// import '../../modules/megaModal';
-// import '../../modules/collapse';
 import CarouselSlider from './modules/mediaSwiper';
 import CardSwiper from './modules/cardSwiper';
 import SelectTab from './modules/selectTab';

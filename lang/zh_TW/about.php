@@ -293,6 +293,22 @@ return [
                 'mbImg' => 'images/about/vi/img_amazing-mb-zh.svg',
             ]
         ]
-
+    ],
+    'overview' => [
+        'page-title' => '展會概覽',
+        'section1' => [
+            'title' => '主題展區',
+            'desc' => '橫跨台東市區5大主展區＋全台衛星展區，共21檔官方主題展，等您來探索！',
+            'filters' => [
+                'filterTxt1' => 'A 舊站特區',
+                'filterTxt2' => 'B 就藝會區',
+                'filterTxt3' => 'C 美術館區',
+                'filterTxt4' => 'D 北町區',
+                'filterTxt5' => 'E 臨海區',
+                'filterTxt6' => 'F 美學館區',
+                'filterTxt7' => 'G 總圖區',
+                'filterTxt8' => 'H 衛星展區',
+            ]
+        ],
     ]
 ];
