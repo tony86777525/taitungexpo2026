@@ -10,7 +10,7 @@
                 </div>
             </div>
             <div class="l-header__logo d-flex">
-                <a class="logoItem" href="{{ route('user.frontend.index') }}" rel="noopener noreferrer">
+                <a class="logoItem" href="{{ lang_route('user.frontend.index') }}" rel="noopener noreferrer">
                     <img src="{{ asset('images/logo_expo.svg') }}" alt="2026 Taitung EXPO 台東博覽會">
                 </a>
             </div>
@@ -25,8 +25,8 @@
                         </div>
                     </div>
                     <ul class="mainMenu">
-                        <li class="mainMenu__item mainMenu__item--single"><a href="{{ route('user.frontend.news.list') }}" class="menuText"><span>{{ __('layout.navigation.nav1') }}</span></a></li>
-                        <li class="mainMenu__item mainMenu__item--single"><a href="{{ route('user.frontend.event.list') }}" class="menuText"><span>{{ __('layout.navigation.nav2') }}</span></a></li>
+                        <li class="mainMenu__item mainMenu__item--single"><a href="{{ lang_route('user.frontend.news.list') }}" class="menuText"><span>{{ __('layout.navigation.nav1') }}</span></a></li>
+                        <li class="mainMenu__item mainMenu__item--single"><a href="{{ lang_route('user.frontend.event.list') }}" class="menuText"><span>{{ __('layout.navigation.nav2') }}</span></a></li>
                         <li class="mainMenu__item mainMenu__item--parent js-submenu-switcher">
                             <div class="menuText"><span>{{ __('layout.navigation.nav3') }}</span></div>
                             <ul class="subMenu">
@@ -37,24 +37,24 @@
                         <li class="mainMenu__item mainMenu__item--parent js-submenu-switcher">
                             <div class="menuText"><span>{{ __('layout.navigation.nav4') }}</span></div>
                             <ul class="subMenu">
-                                <li class="subMenu__item"><a href="{{ route('user.frontend.about.themes') }}" class="menuText"><span>{{ __('layout.navigation.nav4-1') }}</span></a></li>
-                                <li class="subMenu__item"><a href="{{ route('user.frontend.about.statement') }}" class="menuText"><span>{{ __('layout.navigation.nav4-2') }}</span></a></li>
-                                <li class="subMenu__item"><a href="{{ route('user.frontend.about.vi') }}" class="menuText"><span>{{ __('layout.navigation.nav4-3') }}</span></a></li>
-                                <li class="subMenu__item"><a href="{{ route('user.frontend.about.overview') }}" class="menuText"><span>{{ __('layout.navigation.nav4-4') }}</span></a></li>
+                                <li class="subMenu__item"><a href="{{ lang_route('user.frontend.about.themes') }}" class="menuText"><span>{{ __('layout.navigation.nav4-1') }}</span></a></li>
+                                <li class="subMenu__item"><a href="{{ lang_route('user.frontend.about.statement') }}" class="menuText"><span>{{ __('layout.navigation.nav4-2') }}</span></a></li>
+                                <li class="subMenu__item"><a href="{{ lang_route('user.frontend.about.vi') }}" class="menuText"><span>{{ __('layout.navigation.nav4-3') }}</span></a></li>
+                                <li class="subMenu__item"><a href="{{ lang_route('user.frontend.about.overview') }}" class="menuText"><span>{{ __('layout.navigation.nav4-4') }}</span></a></li>
                             </ul>
                         </li>
                         <li class="mainMenu__item mainMenu__item--parent js-submenu-switcher">
                             <div class="menuText"><span>{{ __('layout.navigation.nav5') }}</span></div>
                             <ul class="subMenu">
-                                <li class="subMenu__item"><a href="{{ route('user.frontend.participation.list') }}" class="menuText"><span>{{ __('layout.navigation.nav5-1') }}</span></a></li>
-                                <li class="subMenu__item"><a href="{{ route('user.frontend.participation.list') }}#list" class="menuText"><span>{{ __('layout.navigation.nav5-2') }}</span></a></li>
+                                <li class="subMenu__item"><a href="{{ lang_route('user.frontend.participation.list') }}" class="menuText"><span>{{ __('layout.navigation.nav5-1') }}</span></a></li>
+                                <li class="subMenu__item"><a href="{{ lang_route('user.frontend.participation.list') }}#list" class="menuText"><span>{{ __('layout.navigation.nav5-2') }}</span></a></li>
                             </ul>
                         </li>
                         <li class="mainMenu__item mainMenu__item--parent js-submenu-switcher">
                             <div class="menuText"><span>{{ __('layout.navigation.nav6') }}</span></div>
                             <ul class="subMenu">
-                                <li class="subMenu__item"><a href="{{ route('user.frontend.brand.list') }}" class="menuText"><span>{{ __('layout.navigation.nav6-1') }}</span></a></li>
-                                <li class="subMenu__item"><a href="{{ route('user.frontend.brand.list') }}#list" class="menuText"><span>{{ __('layout.navigation.nav6-2') }}</span></a></li>
+                                <li class="subMenu__item"><a href="{{ lang_route('user.frontend.brand.list') }}" class="menuText"><span>{{ __('layout.navigation.nav6-1') }}</span></a></li>
+                                <li class="subMenu__item"><a href="{{ lang_route('user.frontend.brand.list') }}#list" class="menuText"><span>{{ __('layout.navigation.nav6-2') }}</span></a></li>
                             </ul>
                         </li>
                         <li class="mainMenu__item mainMenu__item--parent js-submenu-switcher">
