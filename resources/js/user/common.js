@@ -30,7 +30,6 @@ if (stickyBtn) {
 const goTopBtn = document.querySelector('.js-goTop');
 
 if (goTopBtn) {
-	console.log('123')
     goTopBtn.addEventListener('click', (e) => {
         e.preventDefault();
         window.scrollTo({
@@ -54,22 +53,5 @@ $(function(){
 	$(".js-navClose").on('click', function () {
 		$(".js-navigation").removeClass("is-open");
 		$('body').removeClass('openNav');
-	});
-
-    var headerH = $('.l-header').outerHeight(true);
-	$(".js-anchor").on('click', function (e) {
-
-		if (this.hash !== "") {
-			e.preventDefault();
-
-			var hash = this.hash;
-
-			$('html, body').animate({
-				scrollTop: ($(hash).offset().top) - (headerH + 50)
-			}, 800);
-
-			$(".js-navigation").removeClass("is-open");
-			$('body').removeClass('openNav');
-		}
 	});
 });

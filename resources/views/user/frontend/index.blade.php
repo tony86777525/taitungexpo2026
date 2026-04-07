@@ -62,6 +62,13 @@
                                 Your browser does not support the video tag.
                             </video>
                         </div>
+                        <!-- Slide 1: webP圖片 -->
+                        <div class="swiper-slide videoFrame">
+                            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop" alt="Mountain landscape">
+                            <div class="videoFrame__text">
+                                <div class="paragraph">說明文字說明文字說明文字說明文字說明文字說明文字說明文字說明文字說明文字說明文字說明文字</div>
+                            </div>
+                        </div>
                     </div>
                     <div class="swiper-nav">
                         <div class="swiper-button-prev"></div>

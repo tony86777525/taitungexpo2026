@@ -180,12 +180,15 @@ $path: '../../../images/event';
 		background-color: $white;
 		width: rem(70);
 		padding: rem(10) 0;
+		@include transition(all, .4s, ease-in);
 		
 		@include rwd-min(769px) {
 			width: rem(110);
 		}
 
 		.dateBtn__text {
+			@include transition(all, .3s, ease-in);
+
 			&--weekday {
 				color: $secondary;
 				margin-bottom: rem(10);
@@ -220,6 +223,25 @@ $path: '../../../images/event';
 			}
 		}
 
+		&:hover {
+			.dateBtn__text {
+				&--weekday,
+				&--day {
+					color: $primary;
+				}
+			}
+		}
+
+		@include rwd-not-hover {
+			&:hover {
+				.dateBtn__text {
+					&--weekday,
+					&--day {
+						color: $secondary;
+					}
+				}
+			}
+		}
 	}
 
 	.swiper-button-next,

@@ -321,7 +321,7 @@ $path: '/resources/images';
 	@include rwd-min(1280px) {
 		position: absolute;
 		top: 100%;
-		left: rem(-10);
+		left: 0;
 		min-width: rem(160);
 		background: $white;
 		padding: rem(8) rem(18);
@@ -375,12 +375,17 @@ $path: '/resources/images';
 		white-space: nowrap;
 	}
 
-	&:hover,
-	&.is-current {
+	&:hover{
 		text-decoration: none;
 
 		span {
 			top: -3px;
+			color: $primary-hover;
+		}
+	}
+
+	&.is-current {
+		span {
 			color: $primary-hover;
 		}
 	}
@@ -516,12 +521,17 @@ $path: '/resources/images';
 	font-weight: 300;
 	text-align: center;
 
+	.sponsorLogo {
+
+	}
+
 	.blankLogo {
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		flex-wrap: nowrap;
 		column-gap: rem(30);
+		margin-top: rem(30);
 
 		.logo__item {
 			display: block;
@@ -540,6 +550,13 @@ $path: '/resources/images';
 
 			&--text {
 				width: rem(91);
+			}
+
+			&--ndc {
+				width: rem(131)
+			}
+			&--bp {
+				width: rem(79);
 			}
 
 			@include rwd-min(769px) {

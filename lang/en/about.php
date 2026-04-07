@@ -43,7 +43,7 @@ return [
                 'events' => [
                     'events1' => [
                         'locate' => 'A2',
-                        'name' => 'Super Taitung, Back to Nature!',
+                        'name' => 'Super Taitung：Back to the Nature',
                         'href' => '#'
                     ],
                     'events2' => [
@@ -61,7 +61,7 @@ return [
                 'events' => [
                     'events1' => [
                         'locate' => 'L1',
-                        'name' => 'Tribal and Community Streetscape Enhancement Program',
+                        'name' => 'Community Corner Revitalization Grant Program',
                         'href="#'
                     ]
                 ]
@@ -74,7 +74,7 @@ return [
                 'events' => [
                     'events1' => [
                         'locate' => 'C1',
-                        'name' => 'Pan-Pacific International Residency Exchange Triennial',
+                        'name' => 'Pan-Pacific Triennial: Archipelagic Encounters',
                         'href' => '#'
                     ]
                 ]
@@ -93,12 +93,17 @@ return [
                 'events' => [
                     'events1' => [
                         'locate' => 'C2',
-                        'name' => '臺東聲音藝術節',
+                        'name' => 'TAITUNG SOUND ART FESTIVAL',
                         'href' => '#'
                     ],
-                    'events1' => [
+                    'events2' => [
+                        'locate' => 'E1',
+                        'name' => "Oh! You've Got It",
+                        'href' => '#'
+                    ],
+                    'events3' => [
                         'locate' => 'I9',
-                        'name' => '「Face Taitung 台東臉譜」台東博覽會開幕音樂會',
+                        'name' => 'Face Taitung: Taitung Expo Opening Concert',
                         'href' => '#'
                     ],
                 ]
@@ -111,7 +116,7 @@ return [
                 'events' => [
                     'events1' => [
                         'locate' => 'A4',
-                        'name' => '東Go！台東人漂移拼搏主題展',
+                        'name' => 'So Please Don’t Go! Taitung Drifters in Motion',
                         'href' => '#',
                     ]
                 ]
@@ -124,52 +129,47 @@ return [
                 'events' => [
                     'events1' => [
                         'locate' => 'A6',
-                        'name' => '未來人孵化器 教育展',
+                        'name' => 'Awaken Your Potential',
                         'href' => '#'
                     ],
                     'events2' => [
                         'locate' => 'B1',
-                        'name' => '南島文化客廳連線行動計畫',
+                        'name' => 'Austronesian Cultural Living Room Connecting Action',
                         'href' => '#'
                     ],
                     'events3' => [
                         'locate' => 'C3',
-                        'name' => '臺東工藝展',
+                        'name' => 'Craft Taitung',
                         'href' => '#'
                     ],
                     'events4' => [
                         'locate' => 'D2',
-                        'name' => '藝起來我家',
+                        'name' => 'Mi casa Music & Art Festival',
                         'href' => '#'
                     ],
                     'events5' => [
-                        'locate' => 'E1',
-                        'name' => '凹！你是有的',
+                        'locate' => 'F1',
+                        'name' => 'IN BETWEEN',
                         'href' => '#'
                     ],
                     'events6' => [
-                        'locate' => 'F1',
-                        'name' => '潮界帶 IN-BETWEEN',
+                        'locate' => 'G1',
+                        'name' => 'Co-Editing TAITUNG',
                         'href' => '#'
                     ],
                     'events7' => [
-                        'locate' => 'G1',
-                        'name' => '共編台東',
+                        'locate' => 'H1',
+                        'name' => 'Baseball on Red Clay Exhibition',
                         'href' => '#'
                     ],
                     'events8' => [
-                        'locate' => 'H1',
-                        'name' => '紅土之上：棒球特展',
+                        'locate' => 'I7',
+                        'name' => 'Austro Daily',
                         'href' => '#'
                     ],
                     'events9' => [
-                        'locate' => 'I7',
-                        'name' => '日日南島：南島開箱',
-                        'href' => '#'
-                    ],
-                    'events10' => [
                         'locate' => 'I8',
-                        'name' => '東博限定便當',
+                        'name' => 'Taitung Expo Bento',
                         'href' => '#'
                     ],
                 ]
@@ -182,7 +182,7 @@ return [
                 'events' => [
                     'events1' => [
                         'locate' => 'I6',
-                        'name' => '台東慢經濟指南-島島生活提案所',
+                        'name' => 'Tau Tau a Taitung slow guide',
                         'href' => '#'
                     ]
                 ]
@@ -195,22 +195,22 @@ return [
                 'events' => [
                     'events1' => [
                         'locate' => 'A5',
-                        'name' => '夢想東升 熱氣球WALK IN',
+                        'name' => 'Walk‑In Taitung',
                         'href' => '#'
                     ],
                     'events2' => [
                         'locate' => 'G2',
-                        'name' => '臺東藝穗節靜態回顧展',
+                        'name' => 'Taitung Fringe Festival — Taitung Expo: A Performance Retrospective',
                         'href' => '#'
                     ],
                     'events3' => [
                         'locate' => 'I3',
-                        'name' => '臺東藝穗節馬戲特區',
+                        'name' => 'Taitung Fringe Festival-Taitung Expo Circus Zone',
                         'href' => '#'
                     ],
                     'events4' => [
                         'locate' => 'I5',
-                        'name' => '自然醒療癒基地',
+                        'name' => 'Natural Awakening Healing Base',
                         'href' => '#'
                     ],
                 ]
@@ -223,22 +223,22 @@ return [
                 'events' => [
                     'events1' => [
                         'locate' => 'A1',
-                        'name' => '台東博覽會主場館：活的學校',
+                        'name' => 'Taitung Expo Main Venue: The Living School',
                         'href' => '#'
                     ],
                     'events2' => [
                         'locate' => 'A7',
-                        'name' => '台東舊站 >>> 台東線',
+                        'name' => 'Taitung Old Station → TAITUNG Line',
                         'href' => '#'
                     ],
                     'events3' => [
                         'locate' => 'E2',
-                        'name' => '永續島進行事',
+                        'name' => 'The On-going Journey of the Sustainable Island',
                         'href' => '#'
                     ],
                     'events4' => [
                         'locate' => 'I1',
-                        'name' => '東日晒桑-台東老城區散策計畫',
+                        'name' => 'Taitung Go Sun',
                         'href' => '#'
                     ],
                 ]

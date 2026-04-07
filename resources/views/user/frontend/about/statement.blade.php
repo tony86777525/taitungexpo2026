@@ -223,4 +223,5 @@
         @endforeach
     </div>
 </div>
+@include('user.frontend.layout.stickyBtns')
 @endsection

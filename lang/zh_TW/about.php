@@ -73,7 +73,7 @@ return [
                 'events' => [
                     'events1' => [
                         'locate' => 'C1',
-                        'name' => '泛太平洋國際駐村交流三年展',
+                        'name' => '2026泛太平洋國際駐村交流展',
                         'href' => '#'
                     ]
                 ]
@@ -95,9 +95,14 @@ return [
                         'name' => '臺東聲音藝術節',
                         'href' => '#'
                     ],
-                    'events1' => [
+                    'events2' => [
+                        'locate' => 'E1',
+                        'name' => '凹！你是有的',
+                        'href' => '#'
+                    ],
+                    'events3' => [
                         'locate' => 'I9',
-                        'name' => '「Face Taitung 台東臉譜」台東博覽會開幕音樂會',
+                        'name' => 'Face Taitung 台東臉譜：台東博覽會開幕音樂會',
                         'href' => '#'
                     ],
                 ]
@@ -142,35 +147,30 @@ return [
                         'href' => '#'
                     ],
                     'events5' => [
-                        'locate' => 'E1',
-                        'name' => '凹！你是有的',
-                        'href' => '#'
-                    ],
-                    'events6' => [
                         'locate' => 'F1',
                         'name' => '潮界帶 IN-BETWEEN',
                         'href' => '#'
                     ],
-                    'events7' => [
+                    'events6' => [
                         'locate' => 'G1',
                         'name' => '共編台東',
                         'href' => '#'
                     ],
-                    'events8' => [
+                    'events7' => [
                         'locate' => 'H1',
                         'name' => '紅土之上：棒球特展',
                         'href' => '#'
                     ],
-                    'events9' => [
+                    'events8' => [
                         'locate' => 'I7',
                         'name' => '日日南島：南島開箱',
                         'href' => '#'
                     ],
-                    'events10' => [
+                    'events9' => [
                         'locate' => 'I8',
                         'name' => '東博限定便當',
                         'href' => '#'
-                    ],
+                    ]
                 ]
             ],
             'wheel7' => [

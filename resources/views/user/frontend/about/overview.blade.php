@@ -339,4 +339,5 @@
     {{-- map end --}}
     @include('user.layout.marquee')
 </main>
+@include('user.frontend.layout.stickyBtns')
 @endsection
