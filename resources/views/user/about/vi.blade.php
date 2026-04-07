@@ -103,4 +103,5 @@
         {{-- video end --}}
         @include('user.layout.marquee')
     </main>
+    @include('user.layout.stickyBtns')
 @endsection
