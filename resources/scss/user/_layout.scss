@@ -375,7 +375,8 @@ $path: '/resources/images';
 		white-space: nowrap;
 	}
 
-	&:hover {
+	&:hover,
+	&.is-current {
 		text-decoration: none;
 
 		span {
