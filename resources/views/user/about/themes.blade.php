@@ -59,7 +59,7 @@
                         </div>
                         <div class="file__name wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s"><span class="text f-title-primary">{{ __('about.themes.file.title') }}</span></div>
                         <ul class="file__action wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s">
-                            <li><a href="#" class="btn btn--blankPage is-dark" target="_blank"><span class="btn__text">DOWNLOAD</span></a></li>
+                            <li><a href="https://reurl.cc/DbRj3d" class="btn btn--blankPage is-dark" target="_blank"><span class="btn__text">DOWNLOAD</span></a></li>
                         </ul>
                     </div>
                 </div>

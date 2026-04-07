@@ -36,7 +36,7 @@
                         </div>
                         <div class="introImage wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s">
                             <img src="{{ asset(__('about.vi.intro.pcImg')) }}" class="display--pc">
-                            <img src="{{ asset(__('about.vi.intro.pcImg')) }}" class="display--mb">
+                            <img src="{{ asset(__('about.vi.intro.mbImg')) }}" class="display--mb">
                         </div>
                     </div>
                 </div>
@@ -89,11 +89,9 @@
             <div class="section__content">
                 <div class="container">
                     <div class="viGroup viGroup--video wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s">
-                        <div class="container">
-                            <div class="viGroup__content">
-                                <div class="videoFrame">
-                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/-r_XCaG2WhY?si=hX_7aMpLsmbghZq0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                                </div>
+                        <div class="viGroup__content">
+                            <div class="videoFrame">
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/-r_XCaG2WhY?si=hX_7aMpLsmbghZq0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                             </div>
                         </div>
                     </div>
