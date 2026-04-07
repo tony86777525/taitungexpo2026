@@ -329,7 +329,7 @@
                             <img src="{{ asset('images/index/exhMap/exhMap_a.webp') }}" alt="">
                         </div>
                         <ul class="map__action wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s">
-                            <li><a href="#" class="btn btn--blankPage is-yellow" target="_blank"><span class="btn__text">展區地圖下載</span></a></li>
+                            <li><a href="https://reurl.cc/4lmy8L" class="btn btn--blankPage is-yellow" target="_blank"><span class="btn__text">展區地圖下載</span></a></li>
                             <li><a href="#" class="btn btn--blankPage is-yellow" target="_blank"><span class="btn__text">以GOOGLE地圖開啟</span></a></li>
                         </ul>
                     </div>

@@ -65,4 +65,5 @@
         <div class="marquee__content"><span class="title">EXPO 2026</span><span class="slogan">SLOW FOR LIFE</span><span class="title">EXPO 2026</span><span class="slogan">SLOW FOR LIFE</span><span class="title">EXPO 2026</span><span class="slogan">SLOW FOR LIFE</span></div>
     </h3>
 </main>
+@include('user.frontend.layout.stickyBtns')
 @endsection

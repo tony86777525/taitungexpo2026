@@ -148,14 +148,6 @@ $path: '../../../images/about';
 			margin-bottom: 0;
 		}
 
-		&--theme {
-			margin-top: rem(20);
-
-			@include rwd-min(768px) {
-				margin-top: 0;
-			}
-		}
-
 		&__title {
 			text-align: center;
 			
@@ -222,12 +214,28 @@ $path: '../../../images/about';
 				justify-content: center;
 			}
 		}
+
+		&--theme {
+			margin-top: rem(20);
+
+			@include rwd-min(768px) {
+				margin-top: 0;
+			}
+		}
+
+		&--partner {
+			.eventGroup__content {
+
+				.cardsList {
+					padding-left: 0;
+				}
+			}
+		}
 	}
 
 	.featuresList {
 		@include list-reset;
 		overflow-x: scroll;
-		padding-left: rem(30);
 
 		& > li  {
 			position: relative;
@@ -235,8 +243,13 @@ $path: '../../../images/about';
 			margin-right: rem(20);
 			@include box-sizing(content-box);
 
+			&:first-child {
+				padding-left: rem(30);
+			}
+
 			&:last-child {
 				padding-right: rem(30);
+				margin-right: 0;
 			}
 		}
 
@@ -247,6 +260,10 @@ $path: '../../../images/about';
 
 			& > li {
 				width: auto;
+
+				&:first-child {
+					padding-left: 0;
+				}
 
 				&:last-child {
 					padding-right: 0;

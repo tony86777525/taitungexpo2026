@@ -191,6 +191,7 @@ $path: '/resources/images';
                 border-radius: rem(4);
                 font-size: rem(18);
                 font-weight: 500;
+                @include transition(all, .3s, ease-in);
             }
         }
 
@@ -354,8 +355,11 @@ $path: '/resources/images';
 	&--dayOf {
 
 		.cardItem__text {
+            position: relative;
+            height: rem(364);
             padding: rem(26) rem(30);
-
+            @include box-sizing(border-box);
+            
 			.time {
 				color: $primary-hover;
 			    margin-bottom: rem(10);
@@ -369,6 +373,14 @@ $path: '/resources/images';
 			}
 
             .project {
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                padding: 0 rem(30) rem(26);
                 margin-top: rem(82);
                 
                 @include rwd-min(769px) {
@@ -380,6 +392,8 @@ $path: '/resources/images';
                 }
                 .project__nature {
                     margin-top: rem(6);
+                    overflow: hidden;
+                    align-items: flex-start;
                 }
             }
 		}
@@ -782,6 +796,35 @@ $path: '/resources/images';
             .cardItem__image {
                 img {
                     @include scale(1.02);
+                }
+            }
+
+            .cardItem__text {
+                .venue {
+                    .venue__label {
+                        background-color: $primary-hover;
+                        color: $white;
+                        border-color: $primary-hover;
+                    }
+                }
+            }
+        }
+
+        @include rwd-not-hover {
+            &:hover {
+                .cardItem__image {
+                    img {
+                        @include scale(1);
+                    }
+                }
+                .cardItem__text {
+                    .venue {
+                        .venue__text {
+                            background-color: transparent;
+                            color: $secondary;
+                            border-color: $secondary;
+                        }
+                    }
                 }
             }
         }

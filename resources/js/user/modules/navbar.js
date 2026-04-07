@@ -59,7 +59,24 @@ function initDesktopHover() {
   });
 }
 
-// 視窗縮放時，若從手機跨到桌機，清掉手動開啟的狀態
+function initAnchorClose() {
+    document.querySelectorAll('.subMenu .menuText[href*="#"]').forEach(link => {
+        link.addEventListener('click', () => {
+            if (!isMobile()) return;
+
+            const linkPath = link.pathname;
+            const currentPath = window.location.pathname;
+
+            if (linkPath === currentPath) {
+              closeAllSubMenus();
+
+              document.querySelector('.js-navigation')?.classList.remove('is-open');
+              document.body.classList.remove('openNav');
+            }
+        });
+    });
+}
+
 window.addEventListener('resize', () => {
   if (!isMobile()) {
     closeAllSubMenus();
@@ -69,4 +86,5 @@ window.addEventListener('resize', () => {
 document.addEventListener('DOMContentLoaded', () => {
   initMobileClick();
   initDesktopHover();
+  initAnchorClose();
 });
