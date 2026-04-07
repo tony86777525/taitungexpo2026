@@ -43,6 +43,21 @@ body {
                             font-size: rem(14);
                             line-height: 1.5;
                         }
+
+                        
+                    }
+
+                    &.is-current,
+                    &:hover {
+                        & > span {
+                            font-weight: 700;
+                        }
+                    }
+
+                    @include rwd-not-hover {
+                        & > span {
+                            font-weight: 500;
+                        }
                     }
                 }
             }
@@ -60,6 +75,19 @@ body {
                         @include rwd-min(1280px) {
                             font-size: rem(14);
                             font-weight: 500;
+                        }
+                    }
+
+                    &.is-current,
+                    &:hover {
+                        & > span {
+                            font-weight: 700;
+                        }
+                    }
+
+                    @include rwd-not-hover {
+                        & > span {
+                            font-weight: 400;
                         }
                     }
                 }
@@ -427,6 +455,19 @@ body {
                             line-height: calc(18 / 15);
                         }
                     }
+
+                    &.is-current,
+                    &:hover {
+                        & > span {
+                            font-weight: 700;
+                        }
+                    }
+
+                    @include rwd-not-hover {
+                        & > span {
+                            font-weight: 500;
+                        }
+                    }
                 }
             }
         }
@@ -441,8 +482,20 @@ body {
                         letter-spacing: rem(1);
                         
                         @include rwd-min(1280px) {
-                            font-weight: bold;
                             line-height: calc(18 / 15);
+                        }
+                    }
+
+                    &.is-current,
+                    &:hover {
+                        & > span {
+                            font-weight: 700;
+                        }
+                    }
+                    
+                    @include rwd-not-hover {
+                        & > span {
+                            font-weight: 400;
                         }
                     }
                 }

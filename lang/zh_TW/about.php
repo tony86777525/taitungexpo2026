@@ -22,7 +22,7 @@ return [
             ],
         ],
         'file' => [
-            'title' => 'Taitung Expo Brand Manual',
+            'title' => '台東博覽會品牌手冊',
         ]
     ],
     'statement' => [
