@@ -140,7 +140,8 @@ class ActivitySessionForm
                     ->default(1),
                 Textarea::make('tour_venue_note')
                     ->label('團體導覽場館備註')
-                    ->required(),
+                    ->required()
+                    ->helperText('(※提供各場館導覽預約相關補充資訊，將顯示於報名頁面及確認信中)'),
                 TextInput::make('contact_name')
                     ->label('單位/聯絡人')
                     ->required(),

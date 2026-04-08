@@ -157,24 +157,6 @@ class ActivityForm
                 Checkbox::make('show_tour_info')
                     ->label('顯示導覽預約資訊')
                     ->default(false),
-                RichEditor::make('tour_info_tw')
-                    ->label('導覽預約資訊（中）')
-                    ->extraInputAttributes(['class' => 'custom-rich-editor'])
-                    ->toolbarButtons([
-                        ['bold', 'italic', 'underline', 'strike', 'link'],
-                        ['alignStart', 'alignCenter', 'alignEnd'],
-                        ['bulletList', 'orderedList'],
-                        ['undo', 'redo'],
-                    ]),
-                RichEditor::make('tour_info_en')
-                    ->label('導覽預約資訊（英）')
-                    ->extraInputAttributes(['class' => 'custom-rich-editor'])
-                    ->toolbarButtons([
-                        ['bold', 'italic', 'underline', 'strike', 'link'],
-                        ['alignStart', 'alignCenter', 'alignEnd'],
-                        ['bulletList', 'orderedList'],
-                        ['undo', 'redo'],
-                    ]),
                 Select::make('activityNatures')
                     ->label('活動性質')
                     ->relationship(
