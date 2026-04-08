@@ -472,37 +472,37 @@ $path: '/resources/images';
 			}
 
 			&:hover {
-				width: rem(96);
+				@include scale(1.066666);
 			}
 
 			@include rwd-not-hover {
 				&:hover {
-					width: rem(80);
+					@include scale(1);
 				}
 
 				@include rwd-min(769px) {
 					&:hover {
-						width: rem(90);
+						@include scale(1);
 					}
 				}
 			}
 		}
-		
+
 		&--goTop {
 			width: rem(50);
 
 			&:hover {
-				width: rem(54);
+				@include scale(1.08);
 			}
 
 			@include rwd-not-hover {
 				&:hover {
-					width: rem(50);
+					@include scale(1);
 				}
 
 				@include rwd-min(769px) {
 					&:hover {
-						width: rem(50);
+						@include scale(1);
 					}
 				}
 			}

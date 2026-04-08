@@ -65,7 +65,7 @@ $path: '/resources/images';
             }
 
             &.is-active {
-                
+
                 .cardItem {
                     &:nth-child(n+4) {
                         display: block;
@@ -91,12 +91,12 @@ $path: '/resources/images';
 	&__image {
 		position: relative;
         overflow: hidden;
-        
+
 		&:before {
             content: '';
 			display: block;
 		}
-        
+
 		img {
             @include fit-cover;
             @include transition(all, .3s, ease-in);
@@ -277,7 +277,7 @@ $path: '/resources/images';
                     background-color: $bg-3;
                     padding: rem(4) rem(10);
                     overflow: hidden;
-                    
+
                     span {
                         @include ellipsis;
                         color: $white;
@@ -359,7 +359,7 @@ $path: '/resources/images';
             height: rem(364);
             padding: rem(26) rem(30);
             @include box-sizing(border-box);
-            
+
 			.time {
 				color: $primary-hover;
 			    margin-bottom: rem(10);
@@ -382,7 +382,7 @@ $path: '/resources/images';
                 width: 100%;
                 padding: 0 rem(30) rem(26);
                 margin-top: rem(82);
-                
+
                 @include rwd-min(769px) {
                     margin-top: rem(126);
                 }
@@ -410,7 +410,7 @@ $path: '/resources/images';
 
         .cardItem__venue {
             flex: 0 0 rem(72);
-            
+
             @include rwd-min(769px) {
                 flex: 0 0 rem(84);
             }
@@ -577,7 +577,7 @@ $path: '/resources/images';
 
                 & > li {
                     color: $primary-hover;
-                    
+
                     &:first-child {
                         margin-left: 0;
                     }
@@ -685,7 +685,7 @@ $path: '/resources/images';
                 }
 
                 .reserveLink {
-                    
+
                     .reserveLink__text {
                         color: $white;
                     }
@@ -738,7 +738,7 @@ $path: '/resources/images';
                     }
 
                     .reserveLink {
-                        
+
                         .reserveLink__text {
                             color: $primary-hover;
                         }
@@ -864,6 +864,19 @@ $path: '/resources/images';
             .cardItem__image {
                 img {
                     filter: grayscale(0);
+                }
+            }
+        }
+
+
+        @include rwd-not-hover {
+
+            &:hover {
+
+                .cardItem__image {
+                    img {
+                        filter: grayscale(0);
+                    }
                 }
             }
         }

@@ -208,7 +208,7 @@
                 <div class="eventGroup__content">
                     <div class="container">
                         <div class="action">
-                            <button class="btn btn--blankPage is-light"><span class="btn__text">MORE</span></button>
+                            <a href="{{ lang_route('user.frontend.news.list') }}" class="btn btn--blankPage is-light"><span class="btn__text">MORE</span></a>
                         </div>
                     </div>
                 </div>
@@ -226,82 +226,14 @@
                                 <ul class="featuresList swiper-wrapper">
                                     <li class="swiper-slide">
                                         <div class="featuresBox">
-                                            <img src="{{ asset('images/about/features/img_feature-1.png') }}" alt="台東炮炸寒單爺" class="featureImage">
-                                            <a href="https://www.zztaitung.com/20114/taitung-bombhandan-2" class="featureText featureText--front" target="_blank">{!! __('about.statement.features.feature1') !!}</a>
+                                            <img src="{{ asset('images/about/overview/img_feature-1.webp') }}" alt="國立臺灣史前文化博物館" class="featureImage">
+                                            <a href="https://www.nmp.gov.tw" class="featureText featureText--front" target="_blank">{!! __('about.overview.features.feature1') !!}</a>
                                         </div>
                                     </li>
                                     <li class="swiper-slide">
                                         <div class="featuresBox">
-                                            <img src="{{ asset('images/about/features/img_feature-2.png') }}" alt="自然醒慢活祭" class="featureImage">
-                                            <a href="https://www.taitungspiritfestival.tw" class="featureText featureText--front" target="_blank">{!! __('about.statement.features.feature2') !!}</a>
-                                        </div>
-                                    </li>
-                                    <li class="swiper-slide">
-                                        <div class="featuresBox">
-                                            <img src="{{ asset('images/about/features/img_feature-3.png') }}" alt="臺東慢食節" class="featureImage">
-                                            <a href="https://slowfoodtaitung.tw/festival" class="featureText featureText--front" target="_blank">{!! __('about.statement.features.feature3') !!}</a>
-                                        </div>
-                                    </li>
-                                    <li class="swiper-slide">
-                                        <div class="featuresBox">
-                                            <img src="{{ asset('images/about/features/img_feature-4.png') }}" alt="PASIWALI原住民族國際音樂節" class="featureImage">
-                                            <a href="https://taiwanpasiwalifestival.com" class="featureText featureText--front" target="_blank">{!! __('about.statement.features.feature4') !!}</a>
-                                        </div>
-                                    </li>
-                                    <li class="swiper-slide">
-                                        <div class="featuresBox">
-                                            <img src="{{ asset('images/about/features/img_feature-5.png') }}" alt="台東最美星空" class="featureImage">
-                                            <a href="https://www.facebook.com/StarryTaitung/?locale=zh_TW" class="featureText featureText--front" target="_blank">{!! __('about.statement.features.feature5') !!}</a>
-                                        </div>
-                                    </li>
-                                    <li class="swiper-slide">
-                                        <div class="featuresBox">
-                                            <img src="{{ asset('images/about/features/img_feature-6.png') }}" alt="臺灣國際熱氣球嘉年華" class="featureImage">
-                                            <a href="https://balloontaiwan.taitung.gov.tw/zh-tw" class="featureText featureText--front" target="_blank">{!! __('about.statement.features.feature6') !!}</a>
-                                        </div>
-                                    </li>
-                                    <li class="swiper-slide">
-                                        <div class="featuresBox">
-                                            <img src="{{ asset('images/about/features/img_feature-7.png') }}" alt="臺灣國際衝浪公開賽" class="featureImage">
-                                            <a href="https://www.facebook.com/taiwanopenofsurfing/" class="featureText featureText--front" target="_blank">{!! __('about.statement.features.feature7') !!}</a>
-                                        </div>
-                                    </li>
-                                    <li class="swiper-slide">
-                                        <div class="featuresBox">
-                                            <img src="{{ asset('images/about/features/img_feature-8.png') }}" alt="東海岸大地藝術節" class="featureImage">
-                                            <a href="https://www.eastcoast-nsa.gov.tw/teclandart/" class="featureText featureText--front" target="_blank">{!! __('about.statement.features.feature8') !!}</a>
-                                        </div>
-                                    </li>
-                                    <li class="swiper-slide">
-                                        <div class="featuresBox multiple">
-                                            <img src="{{ asset('images/about/features/img_feature-9.png') }}" alt="南迴藝術季 縱谷大地藝術季" class="featureImage">
-                                            <div class="featureText featureText--front">{!! __('about.statement.features.feature9.front') !!}</div>
-                                            <div class="featureText featureText--back" data-links-container>
-                                                <a href="https://www.facebook.com/NanhuiArtProject/?locale=zh_TW" target="_blank" data-link-index="0">{!! __('about.statement.features.feature9.text1') !!}</a>
-                                                <a href="https://www.eastcoast-nsa.gov.tw/teclandart/" target="_blank" data-link-index="1">{!! __('about.statement.features.feature9.text2') !!}</a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="swiper-slide">
-                                        <div class="featuresBox multiple">
-                                            <img src="{{ asset('images/about/features/img_feature-10.png') }}" alt="臺東藝術節 臺東藝穗節" class="featureImage">
-                                            <div class="featureText featureText--front">{!! __('about.statement.features.feature10.front') !!}</div>
-                                            <div class="featureText featureText--back" data-links-container>
-                                                <a href="https://www.facebook.com/Taitungartsfestival/?locale=zh_TW" target="_blank" data-link-index="0">{!! __('about.statement.features.feature10.text1') !!}</a>
-                                                <a href="https://www.taitungfringefestival.com" target="_blank" data-link-index="1">{!! __('about.statement.features.feature10.text2') !!}</a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="swiper-slide">
-                                        <div class="featuresBox">
-                                            <img src="{{ asset('images/about/features/img_feature-11.png') }}" alt="池上秋收稻穗藝術節" class="featureImage">
-                                            <a href="https://www.facebook.com/Chishangarts.org" class="featureText featureText--front" target="_blank">{!! __('about.statement.features.feature11') !!}</a>
-                                        </div>
-                                    </li>
-                                    <li class="swiper-slide">
-                                        <div class="featuresBox">
-                                            <img src="{{ asset('images/about/features/img_feature-12.png') }}" alt="台東光祭" class="featureImage">
-                                            <a href="https://www.facebook.com/TaitungLightFestival/?locale=zh_TW" class="featureText featureText--front" target="_blank">{!! __('about.statement.features.feature12') !!}</a>
+                                            <img src="{{ asset('images/about/overview/img_feature-2.webp') }}" alt="江賢二藝術園區" class="featureImage">
+                                            <a href="https://www.paulchiang.org/?locale=tw" class="featureText featureText--front" target="_blank">{!! __('about.overview.features.feature2') !!}</a>
                                         </div>
                                     </li>
                                 </ul>
