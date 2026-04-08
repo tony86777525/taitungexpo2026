@@ -300,7 +300,7 @@ return [
         'page-title' => 'Exhibition Overview',
         'section1' => [
             'title' => 'Theme Exhibitions',
-            'desc' => 'Across five major exhibition zones in Taitung City and satellite venues throughout Taiwan, a total of 21 official theme exhibitions await your exploration.',
+            'desc' => 'Across 8 exhibition zones in Taitung City and satellite exhibitions across Taiwan, 22 official exhibitions are waiting to be explored!',
             'filters' => [
                 'filterTxt1' => 'Central Taitung District',
                 'filterTxt2' => 'Just Art',
@@ -313,15 +313,27 @@ return [
             ]
         ],
         'section2' => [
-            'title' => 'Featured Events',
+            'title' => 'Special Events',
             'desc' => 'Limited-time programs during the 2026 Taitung Expo — don’t miss out!',
         ],
         'section3' => [
             'title' => 'Community Exhibitions',
-            'desc' => 'Aligned with the UN 2030 SDGs and advancing civic participation, 23 community-led proposals across diverse fields are presented.',
+            'desc' => 'In the spirit of the UN 2030 SDGs and civic participation, 22 community proposals spanning a range of fields are on show.',
         ],
         'section4' => [
             'title' => 'Partner Exhibitions',
         ],
+        'features' => [
+            'feature1' => 'National Museum of Prehistory',
+            'feature2' => 'Paul Chiang Art Center'
+        ],
+        'map' => [
+            'button1' => 'Information Centers',
+            'button2' => 'Google Map'
+        ],
+        'collapseText' => [
+            'expand' => 'Click to Expand',
+            'collapse' => 'Click to Collapse'
+        ]
     ]
 ];

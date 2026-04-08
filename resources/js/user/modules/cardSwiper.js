@@ -57,6 +57,11 @@ class CardSwiper {
         const element = this.element;
         const cardCount = element.querySelectorAll('.swiper-slide').length
 
+        if (cardCount < 4) {
+            element.classList.add('swiper-disabled');
+            return;
+        }
+
         let nextBtn = element.querySelector('.swiper-button-next');
         let prevBtn = element.querySelector('.swiper-button-prev');
         
@@ -82,7 +87,7 @@ class CardSwiper {
                 prevEl: prevBtn,
             },
             breakpoints: {
-                1024: { slidesPerView: 3 }
+                769: { slidesPerView: 3 }
             },
         };
 
@@ -99,6 +104,8 @@ class CardSwiper {
             this.swiper = null; 
             this.log(`Swiper 銷毀 [${this.selector}]`);
         }
+
+        this.element.classList.remove('swiper-disabled');
     }
 
     static initAll(selector = '.js-cardSwiper', options = {}) {

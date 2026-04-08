@@ -53,7 +53,7 @@ $path: '../../../images/event';
 	.section__content {
 		.searchBar {
 			margin-bottom: rem(50);
-			
+
 			@include rwd-min(769px) {
 				margin-bottom: rem(20);
 			}
@@ -69,7 +69,7 @@ $path: '../../../images/event';
 		flex-wrap: wrap;
 		align-items: center;
 		gap: rem(20);
-		
+
 		@include rwd-min(769px) {
 			justify-content: center;
 			flex-wrap: nowrap;
@@ -134,7 +134,7 @@ $path: '../../../images/event';
 		overflow-x: auto;
 		width: calc(100% - rem(74));
 		margin: 0 auto;
-		
+
 		@include rwd-min(768px) {
 			column-gap: rem(10);
 			justify-content: center;
@@ -181,7 +181,7 @@ $path: '../../../images/event';
 		width: rem(70);
 		padding: rem(10) 0;
 		@include transition(all, .4s, ease-in);
-		
+
 		@include rwd-min(769px) {
 			width: rem(110);
 		}
@@ -214,6 +214,12 @@ $path: '../../../images/event';
 		.dateBtn__day {
 		}
 
+		&:hover {
+			.dateBtn__text {
+				color: $primary;
+			}
+		}
+
 		&.is-selected {
 			border-radius: rem(10);
 			background-color: $bg-3;
@@ -221,13 +227,10 @@ $path: '../../../images/event';
 			.dateBtn__text {
 				color: $white;
 			}
-		}
 
-		&:hover {
-			.dateBtn__text {
-				&--weekday,
-				&--day {
-					color: $primary;
+			&:hover {
+				.dateBtn__text {
+					color: $white;
 				}
 			}
 		}
@@ -241,6 +244,18 @@ $path: '../../../images/event';
 					}
 				}
 			}
+
+			&.is-selected {
+				&:hover {
+					.dateBtn__text {
+						color: $white;
+					}
+				}
+			}
+		}
+
+		&:focus {
+			outline: none;
 		}
 	}
 
