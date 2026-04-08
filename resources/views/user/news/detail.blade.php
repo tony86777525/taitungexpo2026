@@ -99,4 +99,5 @@
             @endif
         </div>
     </main>
+    @include('user.layout.subPage-popup')
 @endsection
