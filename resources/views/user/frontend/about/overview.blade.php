@@ -110,7 +110,7 @@
                                     </div>
                                 </div>
                                 <div class="action js-collapse-action">
-                                    <button class="btn btn--collapse is-light js-collapse-button"><span class="btn__text">完整內容</span></button>
+                                    <button class="btn btn--collapse is-light js-collapse-button"><span class="btn__text" data-expand-text="{{ __('about.overview.collapseText.expand') }}"  data-collapse-text="{{ __('about.overview.collapseText.collapse') }}">{{ __('about.overview.collapseText.expand') }}</span></button>
                                 </div>
                             </div>
                         </div>
@@ -193,7 +193,7 @@
                             </div>
                         </div>
                         <div class="action js-collapse-action">
-                            <button class="btn btn--collapse is-light js-collapse-button"><span class="btn__text">完整內容</span></button>
+                            <button class="btn btn--collapse is-light js-collapse-button"><span class="btn__text" data-expand-text="{{ __('about.overview.collapseText.expand') }}"  data-collapse-text="{{ __('about.overview.collapseText.collapse') }}">{{ __('about.overview.collapseText.expand') }}</span></button>
                         </div>
                     </div>
                 </div>
@@ -258,11 +258,11 @@
             <div class="section__content wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.8s">
                 <div class="map">
                     <div class="map__image wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s">
-                        <img src="{{ asset('images/index/exhMap/exhMap_a.webp') }}" alt="">
+                        <img src="{{ asset('images/about/overview/img_exhMap-all.png') }}" alt="">
                     </div>
                     <ul class="map__action wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s">
                         <li><a href="#" class="btn btn--blankPage is-yellow" target="_blank"><span class="btn__text">展區地圖下載</span></a></li>
-                        <li><a href="#" class="btn btn--blankPage is-yellow" target="_blank"><span class="btn__text">以GOOGLE地圖開啟</span></a></li>
+                        <li><a href="https://reurl.cc/4lmy8L" class="btn btn--blankPage is-yellow" target="_blank"><span class="btn__text">以GOOGLE地圖開啟</span></a></li>
                     </ul>
                 </div>
             </div>

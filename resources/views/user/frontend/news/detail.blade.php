@@ -98,22 +98,22 @@
 					<div class="swiper-wrapper">
 						<div class="swiper-slide">
 							<div class="imgWrap">
-								<img src="https://picsum.photos/id/236/300/300" alt="">
+								<img src="https://picsum.photos/id/236/626/469" alt="">
 							</div>
 						</div>
 						<div class="swiper-slide">
 							<div class="imgWrap">
-								<img src="https://picsum.photos/id/238/300/300" alt="">
+								<img src="https://picsum.photos/id/238/626/469" alt="">
 							</div>
 						</div>
 						<div class="swiper-slide">
 							<div class="imgWrap">
-								<img src="https://picsum.photos/id/240/300/300" alt="">
+								<img src="https://picsum.photos/id/240/626/469" alt="">
 							</div>
 						</div>
 						<div class="swiper-slide">
 							<div class="imgWrap">
-								<img src="https://picsum.photos/id/242/300/300" alt="">
+								<img src="https://picsum.photos/id/242/626/469" alt="">
 							</div>
 						</div>
 					</div>
@@ -124,4 +124,5 @@
 		</div>
 	</div>
 </main>
+@include('user.frontend.layout.subPage-popup')
 @endsection

@@ -9,13 +9,88 @@ class ImageSwiper {
         this.selector = selector;
         this.swiper = null;
         this.options = options;
-        this.type = options.type || 'editor'; // 'editor' 或 'gallery'
+        this.type = options.type || 'editor';
         
         this.element = document.querySelector(this.selector);
         if (!this.element) return;
 
         this.initLogic();
         this.setupResizeListener();
+
+        this.bindEvents();
+    }
+
+    bindEvents() {
+        if (this.type === 'gallery') {
+            this.element.addEventListener('click', (e) => {
+                const targetImg = e.target.closest('.imgWrap img');
+                if (targetImg) {
+                    const imgSrc = targetImg.getAttribute('src');
+                    if (this.swiper && this.swiper.autoplay) {
+                        this.swiper.autoplay.stop();
+                    }
+                    ImageSwiper._activeInstance = this; 
+                    this.showPopup('popup', imgSrc);
+                }
+            });
+        }
+
+        const popup = document.getElementById('popup');
+        if (popup && !popup.dataset.eventBound) {
+            const closeBtn = popup.querySelector('.btn--closePopup');
+            const overlay = popup.querySelector('.popup__overlay');
+
+            const closeHandler = () => {
+                const active = ImageSwiper._activeInstance; 
+
+                if (active) {
+                    active.hidePopup();
+                    if (active.type === 'gallery' && active.swiper && active.swiper.autoplay) {
+                        active.swiper.autoplay.start();
+                    }
+                    ImageSwiper._activeInstance = null;
+                } else {
+                    this.hidePopup();
+                }
+            };
+
+            [closeBtn, overlay].forEach(el => {
+                if (el) el.addEventListener('click', closeHandler);
+            });
+
+            popup.dataset.eventBound = "true";
+        }
+    }
+
+    hidePopup() {
+        const body = document.body;
+        const popup = document.getElementById('popup');
+        if (!popup) return;
+
+        popup.classList.remove('active');
+        body.classList.remove('openPopup');
+
+        const popupImg = popup.querySelector('.popupBox__content img');
+        if (popupImg) {
+            popupImg.style.opacity = '0';
+
+            setTimeout(() => {
+                popupImg.src = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
+            }, 300);
+        }
+    }
+
+    showPopup(popupId, imgSrc) {
+        const popup = document.getElementById(popupId);
+        const popupImg = popup.querySelector('.popupBox__content img');
+
+        if (popup && popupImg) {
+            popupImg.src = imgSrc;
+            popupImg.style.opacity = '1';
+
+            popup.classList.add('active');
+            document.body.classList.add('openPopup');
+        }
     }
 
     _debounce(func, wait = 200) {
@@ -111,5 +186,5 @@ class ImageSwiper {
         });
     }
 }
-
+ImageSwiper._activeInstance = null;
 export default ImageSwiper;

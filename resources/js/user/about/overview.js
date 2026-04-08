@@ -3,7 +3,7 @@ import SelectFilter from '../modules/selectFilter';
 
 document.addEventListener("DOMContentLoaded", function () {
     const cardSwipers = CardSwiper.initAll(".js-cardSwiper", {
-        debug: true,
+        debug: true
     });
     
     const filter = new SelectFilter('.js-filterGroup-select');
@@ -64,10 +64,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (isExpanded) {
                 applyExpanded(list);
-                btnText.textContent = "收起內容";
+                btnText.textContent = btnText.dataset.collapseText;
             } else {
                 applyCollapsed(list);
-                btnText.textContent = "完整內容";
+                btnText.textContent = btnText.dataset.expandText;
             }
         });
 

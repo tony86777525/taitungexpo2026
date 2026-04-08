@@ -321,5 +321,17 @@ return [
         'section4' => [
             'title' => '響應展區',
         ],
+        'features' => [
+            'feature1' => '國立臺灣史前文化博物館',
+            'feature2' => '江賢二藝術園區'
+        ],
+        'map' => [
+            'button1' => '展區地圖下載',
+            'button2' => '以GOOGLE地圖開啟'
+        ],
+        'collapseText' => [
+            'expand' => '點擊展開完整內容',
+            'collapse' => '點擊收合內容'
+        ]
     ]
 ];

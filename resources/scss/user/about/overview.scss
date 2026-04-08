@@ -494,14 +494,8 @@ $path: '../../../images/about';
 			position: relative;
 			margin-bottom: rem(30);
 
-			&:before {
-				content: '';
-				display: block;
-				padding-top: calc((550 / 978) * 100%);
-			}
-
 			img {
-				@include fit-cover;
+				width: 100%;
 			}
 		}
 

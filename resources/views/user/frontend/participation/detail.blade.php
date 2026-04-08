@@ -187,4 +187,5 @@
 		</div>
 	</div>
 </main>
+@include('user.frontend.layout.subPage-popup')
 @endsection
