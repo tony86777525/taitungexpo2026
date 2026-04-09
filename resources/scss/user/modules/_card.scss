@@ -966,6 +966,35 @@ $path: '/resources/images';
                     @include scale(1.02);
                 }
             }
+
+            .cardItem__text {
+                .venue {
+                    .venue__label {
+                        background-color: $primary-hover;
+                        color: $white;
+                        border-color: $primary-hover;
+                    }
+                }
+            }
+        }
+
+        @include rwd-not-hover {
+            &:hover {
+                .cardItem__image {
+                    img {
+                        @include scale(1);
+                    }
+                }
+                .cardItem__text {
+                    .venue {
+                        .venue__text {
+                            background-color: transparent;
+                            color: $secondary;
+                            border-color: $secondary;
+                        }
+                    }
+                }
+            }
         }
 	}
 }

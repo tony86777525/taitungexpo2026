@@ -134,7 +134,7 @@ return [
                     ],
                     'events2' => [
                         'locate' => 'B1',
-                        'name' => 'Austronesian Cultural Living Room Connecting Action',
+                        'name' => 'Austronesian Cultural Living Room: Connecting Action',
                         'href' => '#'
                     ],
                     'events3' => [
@@ -210,7 +210,7 @@ return [
                     ],
                     'events4' => [
                         'locate' => 'I5',
-                        'name' => 'Natural Awakening Healing Base',
+                        'name' => 'Taitung Spirit Festival',
                         'href' => '#'
                     ],
                 ]
