@@ -55,11 +55,9 @@ class HomeBannerForm
                     ->placeholder('僅支援 WebP 格式<br>比例為 16:9')
                     ->required(),
                 TextInput::make('name_tw')
-                    ->label('文字（中）')
-                    ->required(),
+                    ->label('文字（中）'),
                 TextInput::make('name_en')
-                    ->label('文字（英）')
-                    ->required(),
+                    ->label('文字（英）'),
                 TextInput::make('link')
                     ->label('連結')
                     ->url(),
