@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Filament\Resources\ActivitySessions\Schemas;
+namespace App\Filament\Resources\ActivitySessionNormals\Schemas;
 
 use Filament\Infolists\Components\IconEntry;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Schema;
 
-class ActivitySessionInfolist
+class ActivitySessionNormalInfolist
 {
     public static function configure(Schema $schema): Schema
     {
@@ -25,7 +25,9 @@ class ActivitySessionInfolist
                     ->getStateUsing(fn ($record) => "{$record->quota_min} ~ {$record->quota_max}"),
                 TextEntry::make('group_max')
                     ->label('可預約總組數')
-                    ->numeric(),
+                    ->getStateUsing(function ($record) {
+                        return "{$record->group_max}【已預約組數{$record->bookedActivityReservations()->count()}】";
+                    }),
                 TextEntry::make('tour_venue_note')
                     ->label('團體導覽場館備註')
                     ->formatStateUsing(fn (string $state) => nl2br($state))

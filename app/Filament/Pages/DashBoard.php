@@ -4,9 +4,11 @@ namespace App\Filament\Pages;
 
 use App\Enums\ActivityReservationStatus;
 use App\Enums\ActivityReservationType;
+use App\Enums\ActivitySessionType;
 use App\Filament\Resources\ActivityReservations\ActivityReservationResource;
 use App\Models\ActivityReservation;
 use App\Models\ActivitySession;
+use App\Models\ActivitySessionVip;
 use Carbon\Carbon;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
@@ -56,15 +58,14 @@ class DashBoard extends Page implements HasForms, HasTable
         $joinCount = ActivityReservation::query()
             ->sum('participants_quota');
 
-        $bookedVipCount = ActivityReservation::query()
-            ->rightJoin('activity_sessions', 'activity_reservations.activity_session_id', '=', 'activity_sessions.id')
-            ->where('type', ActivityReservationType::VIP)
+        $bookedVipCount = ActivitySessionVip::query()
+            ->join('activity_reservations', 'activity_reservations.activity_session_id', '=', 'activity_sessions.id')
             ->where('activity_sessions.date', Carbon::now()->format('Y-m-d'))
             ->count();
 
-        $vipCount = ActivitySession::query()
+        $vipCount = ActivitySessionVip::query()
             ->where('date', Carbon::now()->format('Y-m-d'))
-            ->sum('group_vip');
+            ->sum('group_max');
 
         $unbookedVipCount = $vipCount - $bookedVipCount;
 

@@ -71,7 +71,7 @@ class ApproveActivityReservation extends EditRecord
 
                             return "{$record->activitySession->display_info}(剩餘{$remainingGroupCount}/{$denominator})" ?? '-';
                         } elseif ($isVip === false && $activitySession->canBookNormalGroup($currentGroupCount)) {
-                            $denominator = $activitySession->normal_group_count;
+                            $denominator = $activitySession->group_count;
                             $remainingGroupCount = $denominator - $currentGroupCount;
 
                             return "{$record->activitySession->display_info}(剩餘{$remainingGroupCount}/{$denominator})" ?? '-';

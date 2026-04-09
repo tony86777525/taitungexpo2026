@@ -24,36 +24,22 @@ class ActivitySessionCalendar extends CalendarWidget
 
     protected function getEvents(FetchInfo $info): Collection | array | Builder
     {
-        $activityReservationCounts = ActivityReservation::query()
-            ->select('activity_session_id', 'type', DB::raw('count(*) as count'))
-            ->where('status', ActivityReservationStatus::CONFIRMED->value)
-            ->groupBy('activity_session_id', 'type')
-            ->get();
-
         return ActivitySession::query()
             ->with([
                 'project',
-                'activityReservations',
+            ])
+            ->withCount([
+                'bookedActivityReservations',
             ])
             ->get()
-            ->map(function (ActivitySession $activitySession) use ($activityReservationCounts) {
-                $currentNormalGroupCount = $activityReservationCounts->first(function ($count) use ($activitySession) {
-                    return $activitySession->id === $count->activity_session_id && $count->type === ActivityReservationType::NORMAL;
-                })?->count ?? 0;
+            ->map(function (ActivitySession $activitySession) {
+                $currentGroupCount = $activitySession->booked_activity_reservations_count;
+                $groupCountStatusText = "{$currentGroupCount} / {$activitySession->group_max}";
 
-                $normalText = "一般 （{$currentNormalGroupCount} / {$activitySession->normal_group_count}）";
-
-                $currentVipGroupCount = $activityReservationCounts->first(function ($count) use ($activitySession) {
-                    return $activitySession->id === $count->activity_session_id && $count->type === ActivityReservationType::VIP;
-                })?->count ?? 0;
-
-                $denominator = $activitySession->vip_group_count;
-                $remainingVipGroupCount = $denominator - $currentVipGroupCount;
-
-                $vipText = "vip （{$remainingVipGroupCount} / {$denominator}）";
+                $typeText = $activitySession->type?->label() ?? 'Normal';
 
                 return CalendarEvent::make($activitySession)
-                    ->title("{$normalText}\n{$vipText}\n{$activitySession->project->venue_number}")
+                    ->title("【{$typeText}】{$groupCountStatusText}\n{$activitySession->project->venue_number}")
                     // 設定開始與結束時間 (需為 Carbon 物件或字串)
                     ->start(Carbon::parse($activitySession->date . ' ' . $activitySession->start_time))
                     ->end(Carbon::parse($activitySession->date . ' ' . $activitySession->end_time))

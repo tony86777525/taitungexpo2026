@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use App\Enums\ActivityReservationStatus;
-use App\Enums\ActivityReservationType;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOneThrough;
@@ -11,8 +10,6 @@ use Illuminate\Database\Eloquent\Relations\HasOneThrough;
 class ActivityReservation extends Model
 {
     protected $fillable = [
-        // 預約類型 (1:普通, 2:vip)
-        'type',
         // 聯絡人姓名
         'contact_name',
         // 聯絡電話
@@ -38,7 +35,6 @@ class ActivityReservation extends Model
     protected function casts(): array
     {
         return [
-            'type' => ActivityReservationType::class,
             'status' => ActivityReservationStatus::class,
         ];
     }
