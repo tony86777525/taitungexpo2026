@@ -44,7 +44,7 @@
                             </div>
                             <div class="filterGroup__content js-filterGroup-content">
                                 <div class="cardsList cardsList--collapseScroll js-collapse-list">
-                                    <div class="cardItem cardItem--overview" data-filter-target="exh-b">
+                                    <a href="#" class="cardItem cardItem--overview" data-filter-target="exh-b">
                                         <div class="cardItem__image">
                                             <img src="https://picsum.photos/id/516/300/300" alt="brand_title">
                                         </div>
@@ -59,8 +59,8 @@
                                                 <div class="project__theme"><span class="f-h5">#空氣</span></div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="cardItem cardItem--overview" data-filter-target="exh-a">
+                                    </a>
+                                    <a href="#" class="cardItem cardItem--overview" data-filter-target="exh-a">
                                         <div class="cardItem__image">
                                             <img src="https://picsum.photos/id/233/300/300" alt="brand_title">
                                         </div>
@@ -75,8 +75,8 @@
                                                 <div class="project__theme"><span class="f-h5">#水</span></div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="cardItem cardItem--overview" data-filter-target="exh-c">
+                                    </a>
+                                    <a href="#" class="cardItem cardItem--overview" data-filter-target="exh-c">
                                         <div class="cardItem__image">
                                             <img src="https://picsum.photos/id/232/300/300" alt="brand_title">
                                         </div>
@@ -91,8 +91,8 @@
                                                 <div class="project__theme"><span class="f-h5">#種子</span></div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="cardItem cardItem--overview" data-filter-target="exh-e">
+                                    </a>
+                                    <a href="#" class="cardItem cardItem--overview" data-filter-target="exh-e">
                                         <div class="cardItem__image">
                                             <img src="https://picsum.photos/id/212/300/300" alt="brand_title">
                                         </div>
@@ -107,7 +107,7 @@
                                                 <div class="project__theme"><span class="f-h5">#聲音</span></div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </a>
                                 </div>
                                 <div class="action js-collapse-action">
                                     <button class="btn btn--collapse is-light js-collapse-button"><span class="btn__text" data-expand-text="{{ __('about.overview.collapseText.expand') }}"  data-collapse-text="{{ __('about.overview.collapseText.collapse') }}">{{ __('about.overview.collapseText.expand') }}</span></button>
@@ -127,7 +127,7 @@
                 <div class="eventGroup__content">
                     <div class="container">
                         <div class="cardsList cardsList--collapseScroll js-collapse-list">
-                            <div class="cardItem cardItem--overview" data-filter-target="exh-b">
+                            <a href="#" class="cardItem cardItem--overview" data-filter-target="exh-b">
                                 <div class="cardItem__image">
                                     <img src="https://picsum.photos/id/516/300/300" alt="brand_title">
                                 </div>
@@ -142,8 +142,8 @@
                                         <div class="project__theme"><span class="f-h5">#空氣</span></div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="cardItem cardItem--overview" data-filter-target="exh-a">
+                            </a>
+                            <a href="#" class="cardItem cardItem--overview" data-filter-target="exh-a">
                                 <div class="cardItem__image">
                                     <img src="https://picsum.photos/id/233/300/300" alt="brand_title">
                                 </div>
@@ -158,8 +158,8 @@
                                         <div class="project__theme"><span class="f-h5">#水</span></div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="cardItem cardItem--overview" data-filter-target="exh-c">
+                            </a>
+                            <a href="#" class="cardItem cardItem--overview" data-filter-target="exh-c">
                                 <div class="cardItem__image">
                                     <img src="https://picsum.photos/id/232/300/300" alt="brand_title">
                                 </div>
@@ -174,8 +174,8 @@
                                         <div class="project__theme"><span class="f-h5">#種子</span></div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="cardItem cardItem--overview" data-filter-target="exh-e">
+                            </a>
+                            <a href="#" class="cardItem cardItem--overview" data-filter-target="exh-e">
                                 <div class="cardItem__image">
                                     <img src="https://picsum.photos/id/212/300/300" alt="brand_title">
                                 </div>
@@ -190,7 +190,7 @@
                                         <div class="project__theme"><span class="f-h5">#聲音</span></div>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <div class="action js-collapse-action">
                             <button class="btn btn--collapse is-light js-collapse-button"><span class="btn__text" data-expand-text="{{ __('about.overview.collapseText.expand') }}"  data-collapse-text="{{ __('about.overview.collapseText.collapse') }}">{{ __('about.overview.collapseText.expand') }}</span></button>
@@ -261,7 +261,7 @@
                         <img src="{{ asset('images/about/overview/img_exhMap-all.png') }}" alt="">
                     </div>
                     <ul class="map__action wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s">
-                        <li><a href="#" class="btn btn--blankPage is-yellow" target="_blank"><span class="btn__text">{{ __('about.overview.map.button1') }}</span></a></li>
+                        {{-- <li><a href="#" class="btn btn--blankPage is-yellow" target="_blank"><span class="btn__text">{{ __('about.overview.map.button1') }}</span></a></li> --}}
                         <li><a href="https://reurl.cc/4lmy8L" class="btn btn--blankPage is-yellow" target="_blank"><span class="btn__text">{{ __('about.overview.map.button2') }}</span></a></li>
                     </ul>
                 </div>
