@@ -25,8 +25,8 @@
                         </div>
                     </div>
                     <ul class="mainMenu">
-                        <li class="mainMenu__item mainMenu__item--single"><a href="{{ lang_route('user.news.list') }}" class="menuText"><span>{{ __('layout.navigation.nav1') }}</span></a></li>
-                        <li class="mainMenu__item mainMenu__item--single"><a href="{{ lang_route('user.event.list') }}" class="menuText"><span>{{ __('layout.navigation.nav2') }}</span></a></li>
+                        <li class="mainMenu__item mainMenu__item--single"><a href="{{ lang_route('user.news.list') }}" class="menuText {{ request()->routeIs('user.news.list') ? 'is-current' : '' }}"><span>{{ __('layout.navigation.nav1') }}</span></a></li>
+                        <li class="mainMenu__item mainMenu__item--single"><a href="{{ lang_route('user.event.list') }}" class="menuText {{ request()->routeIs('user.event.list') ? 'is-current' : '' }}"><span>{{ __('layout.navigation.nav2') }}</span></a></li>
                         <li class="mainMenu__item mainMenu__item--parent js-submenu-switcher">
                             <div class="menuText"><span>{{ __('layout.navigation.nav3') }}</span></div>
                             <ul class="subMenu">
@@ -35,23 +35,23 @@
                             </ul>
                         </li>
                         <li class="mainMenu__item mainMenu__item--parent js-submenu-switcher">
-                            <div class="menuText"><span>{{ __('layout.navigation.nav4') }}</span></div>
+                            <div class="menuText {{ request()->routeIs('user.about*') ? 'is-current' : '' }}"><span>{{ __('layout.navigation.nav4') }}</span></div>
                             <ul class="subMenu">
                                 <li class="subMenu__item"><a href="{{ lang_route('user.about.themes') }}" class="menuText"><span>{{ __('layout.navigation.nav4-1') }}</span></a></li>
                                 <li class="subMenu__item"><a href="{{ lang_route('user.about.statement') }}" class="menuText"><span>{{ __('layout.navigation.nav4-2') }}</span></a></li>
                                 <li class="subMenu__item"><a href="{{ lang_route('user.about.vi') }}" class="menuText"><span>{{ __('layout.navigation.nav4-3') }}</span></a></li>
-                                <li class="subMenu__item"><a href="{{ lang_route('user.about.overview') }}" class="menuText"><span>{{ __('layout.navigation.nav4-4') }}</span></a></li>
+                                <li class="subMenu__item"><a href="#" class="menuText"><span>{{ __('layout.navigation.nav4-4') }}</span></a></li>
                             </ul>
                         </li>
                         <li class="mainMenu__item mainMenu__item--parent js-submenu-switcher">
-                            <div class="menuText"><span>{{ __('layout.navigation.nav5') }}</span></div>
+                            <div class="menuText {{ request()->routeIs('user.participation*') ? 'is-current' : '' }}"><span>{{ __('layout.navigation.nav5') }}</span></div>
                             <ul class="subMenu">
                                 <li class="subMenu__item"><a href="{{ lang_route('user.participation.list') }}" class="menuText"><span>{{ __('layout.navigation.nav5-1') }}</span></a></li>
                                 <li class="subMenu__item"><a href="{{ lang_route('user.participation.list') }}#list" class="menuText"><span>{{ __('layout.navigation.nav5-2') }}</span></a></li>
                             </ul>
                         </li>
                         <li class="mainMenu__item mainMenu__item--parent js-submenu-switcher">
-                            <div class="menuText"><span>{{ __('layout.navigation.nav6') }}</span></div>
+                            <div class="menuText {{ request()->routeIs('user.brand*') ? 'is-current' : '' }}"><span>{{ __('layout.navigation.nav6') }}</span></div>
                             <ul class="subMenu">
                                 <li class="subMenu__item"><a href="{{ lang_route('user.brand.list') }}" class="menuText"><span>{{ __('layout.navigation.nav6-1') }}</span></a></li>
                                 <li class="subMenu__item"><a href="{{ lang_route('user.brand.list') }}#list" class="menuText"><span>{{ __('layout.navigation.nav6-2') }}</span></a></li>

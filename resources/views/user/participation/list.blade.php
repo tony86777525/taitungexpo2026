@@ -109,7 +109,7 @@
                                                 <div class="venue__label">{{ $project->display_venue_number }}</div>
                                             </div>
                                             <div class="title f-h4">{{ $project->display_project_name }}</div>
-                                            <div class="department f-h6">{{ $project->display_executing_unit_name }}></div>
+                                            <div class="department f-h6">{{ $project->display_executing_unit_name }}</div>
                                         </div>
                                     </a>
                                 @endforeach

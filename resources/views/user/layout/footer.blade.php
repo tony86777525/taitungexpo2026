@@ -16,6 +16,10 @@
             <li class="f-section-h5">{{ __('layout.footer.by.executed-key') }}｜{{ __('layout.footer.by.executed-value') }}</li>
         </ul>
         <div class="blankLogo">
+            <span class="logo__item logo__item--ndc" target="_blank"><img src="{{ asset('images/logo_ndc.svg') }}" alt="國家發展會"></span>
+            <span class="logo__item logo__item--bp" target="_blank"><img src="{{ asset('images/logo_bp.svg') }}" alt="雙語政策"></span>
+        </div>
+        <div class="blankLogo">
             <a href="https://www.facebook.com/taitungexpo2026/" class="logo__item logo__item--icon" target="_blank"><img src="{{ asset('images/logo_sns-fb.svg') }}" alt="2026台東博覽會 Taitung Expo Facebook"></a>
             <a href="https://www.instagram.com/2026taitungexpo/" class="logo__item logo__item--icon" target="_blank"><img src="{{ asset('images/logo_sns-ig.svg') }}" alt="2026台東博覽會TAITUNG EXPO Instagram"></a>
             <a href="https://lihi1.com/qe3iE" class="logo__item logo__item--icon" target="_blank"><img src="{{ asset('images/logo_ttPush.svg') }}" alt="TTPush踢一下"></a>
