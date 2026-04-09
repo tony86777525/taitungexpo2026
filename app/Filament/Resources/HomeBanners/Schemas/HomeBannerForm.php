@@ -33,6 +33,7 @@ class HomeBannerForm
                     ->validationMessages([
                         'mimetypes' => '僅支援 MP4/ＷebM 格式影片。',
                     ])
+                    ->maxSize(102400)
                     ->placeholder('僅支援 MP4/ＷebM 格式<br>比例為 16:9')
                     ->required(),
                 FileUpload::make('media_url')
