@@ -208,7 +208,7 @@
                 <div class="eventGroup__content">
                     <div class="container">
                         <div class="action">
-                            <a href="{{ lang_route('user.frontend.news.list') }}" class="btn btn--blankPage is-light"><span class="btn__text">MORE</span></a>
+                            <a href="{{ lang_route('user.frontend.participation.list') }}" class="btn btn--blankPage is-light"><span class="btn__text">MORE</span></a>
                         </div>
                     </div>
                 </div>

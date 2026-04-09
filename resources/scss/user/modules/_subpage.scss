@@ -97,7 +97,7 @@ $modulePath: '/resources/images';
     }
 
     &__head {
-        
+
         .container {
             position: relative;
             display: flex;
@@ -148,7 +148,7 @@ $modulePath: '/resources/images';
             position: absolute;
             top: rem(-50);
             right: 0;
-            
+
             @include rwd-min(769px) {
                 top: 0;
             }
@@ -239,7 +239,7 @@ $modulePath: '/resources/images';
                     flex-wrap: nowrap;
                     color: $secondary;
                     @include line-clamp(1);
-                
+
                     span {
                         display: inline-block;
                         white-space: nowrap;
@@ -317,7 +317,7 @@ $modulePath: '/resources/images';
 
         .swiper-button-next {
             right: rem(15);
-            
+
             @include rwd-min(769px) {
                 right: rem(-58);
             }
@@ -352,7 +352,7 @@ $modulePath: '/resources/images';
                 }
             }
         }
-        
+
         .imgWrap {
             position: relative;
 
@@ -420,6 +420,8 @@ $modulePath: '/resources/images';
     &__gallery {
         .imgWrap {
             position: relative;
+            cursor: pointer;
+            @include transition(all, .3s, ease-in);
 
             &:before {
                 content: '';
@@ -430,11 +432,26 @@ $modulePath: '/resources/images';
             img {
                 @include fit-cover;
             }
+
+            &:hover {
+                @include translateY(rem(-5));
+            }
+
+            @include rwd-not-hover {
+                &:hover {
+                    @include translateY(0)
+                }
+            }
         }
 
         .swiper-wrapper {
             overflow-x: scroll;
             padding-left: rem(30);
+            padding-top: rem(5);
+
+            @include rwd-not-hover {
+                padding-top: 0;
+            }
 
             .swiper-slide {
                 width: rem(313);
@@ -480,7 +497,7 @@ $modulePath: '/resources/images';
 
         .swiper-button-next {
             right: rem(15);
-            
+
             @include rwd-min(769px) {
                 right: rem(-58);
             }
@@ -514,7 +531,7 @@ $modulePath: '/resources/images';
 
         .department {
             margin-bottom: rem(20);
-            
+
             @include rwd-min(769px) {
                 margin-bottom: rem(40);
             }
@@ -522,7 +539,7 @@ $modulePath: '/resources/images';
             &:last-child {
                 margin-bottom: 0;
             }
-            
+
             &__title {
                 margin-bottom: rem(10);
 
@@ -557,7 +574,7 @@ $modulePath: '/resources/images';
 
 .popup {
     &__overlay {
-	    background-color: rgba(0, 0, 0, 0.87);
+	    background-color: rgba(0, 0, 0, 0.6);
     }
 }
 .popupBox {
