@@ -55,19 +55,72 @@
                 <div class="section__content wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.8s">
                     <div class="swiper videoSwiper js-mediaSwiper">
                         <div class="swiper-wrapper">
-                            <!-- Slide 3: webM影片 -->
-                            <div class="swiper-slide videoFrame" data-video="true">
-                                <video playsinline controls muted>
-                                    <source src="{{ asset('images/index/hero.mp4') }}" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
+                            <!-- Slide 0: YouTube影片 -->
+                            <div class="swiper-slide videoFrame" data-youtube="true">
+                                <iframe id="youtube-player-1"
+                                        src="https://www.youtube.com/embed/L1jH8EZP5zQ?enablejsapi=1&autoplay=1&mute=1&controls=1&rel=0"
+                                        allow="autoplay; encrypted-media"
+                                        allowfullscreen>
+                                </iframe>
                             </div>
+
                             <!-- Slide 1: webP圖片 -->
                             <div class="swiper-slide videoFrame">
                                 <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop" alt="Mountain landscape">
-                                <div class="videoFrame__text">
-                                    <div class="paragraph">說明文字說明文字說明文字說明文字說明文字說明文字說明文字說明文字說明文字說明文字說明文字</div>
-                                </div>
+                            </div>
+
+                            <!-- Slide 2: webP圖片 -->
+                            <div class="swiper-slide videoFrame">
+                                <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&h=600&fit=crop" alt="Nature scene">
+                            </div>
+
+                            <!-- Slide 3: webM影片 -->
+                            <div class="swiper-slide videoFrame" data-video="true">
+                                <video playsinline controls muted>
+                                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+
+                            <!-- Slide 4: webP圖片 -->
+                            <div class="swiper-slide videoFrame">
+                                <img src="https://images.unsplash.com/photo-1511593358241-7eea1f3c84e5?w=800&h=600&fit=crop" alt="Sunset">
+                            </div>
+
+                            <!-- Slide 5: webM影片 -->
+                            <div class="swiper-slide videoFrame" data-video="true">
+                                <video playsinline controls muted>
+                                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+
+                            <!-- Slide 6: webP圖片 -->
+                            <div class="swiper-slide videoFrame">
+                                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&h=600&fit=crop" alt="Beach">
+                            </div>
+
+                            <!-- Slide 7: YouTube影片 -->
+                            <div class="swiper-slide videoFrame" data-youtube="true">
+                                <iframe id="youtube-player-2"
+                                        src="https://www.youtube.com/embed/dQw4w9WgXcQ?enablejsapi=1&autoplay=1&mute=1&controls=1&rel=0"
+                                        allow="autoplay; encrypted-media"
+                                        allowfullscreen>
+                                </iframe>
+                            </div>
+
+                            <!-- Slide 8: webP圖片 -->
+                            <div class="swiper-slide videoFrame">
+                                <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop" alt="Mountain">
+                            </div>
+
+                            <!-- Slide 9: YouTube影片 -->
+                            <div class="swiper-slide videoFrame" data-youtube="true">
+                                <iframe id="youtube-player-3"
+                                        src="https://www.youtube.com/embed/M7lc1UVf-VE?enablejsapi=1&autoplay=1&mute=1&controls=1&rel=0"
+                                        allow="autoplay; encrypted-media"
+                                        allowfullscreen>
+                                </iframe>
                             </div>
                         </div>
                         <div class="swiper-nav">
@@ -161,7 +214,7 @@
                             <div class="tabContent js-tabList-item is-active" data-tab-content="exh-a">
                                 <div class="exhMap">
                                     <div class="exhMap__mapImage">
-                                        <img src="{{ asset('images/index/exhMap/exhMap_a.webp') }}" alt="A 舊站特區" class="image">
+                                        <img src="{{ asset('images/index/exhMap/exhMap_a.png') }}" alt="A 舊站特區" class="image">
                                     </div>
                                     <div class="exhMap__mapList">
                                         <div class="exhibitionList">
@@ -272,7 +325,7 @@
                             <div class="tabContent js-tabList-item" data-tab-content="exh-b">
                                 <div class="exhMap">
                                     <div class="exhMap__mapImage">
-                                        <img src="{{ asset('images/index/exhMap/exhMap_b.webp') }}" alt="B 美術館區" class="image">
+                                        <img src="{{ asset('images/index/exhMap/exhMap_b.png') }}" alt="B 美術館區" class="image">
                                     </div>
                                     <div class="exhMap__mapList">
                                         B 美術館區 內容
@@ -282,7 +335,7 @@
                             <div class="tabContent js-tabList-item" data-tab-content="exh-c">
                                 <div class="exhMap">
                                     <div class="exhMap__mapImage">
-                                        <img src="{{ asset('images/index/exhMap/exhMap_c.webp') }}" alt="C 美學館區" class="image">
+                                        <img src="{{ asset('images/index/exhMap/exhMap_c.png') }}" alt="C 美學館區" class="image">
                                     </div>
                                     <div class="exhMap__mapList">
                                         C 美學館區 內容
@@ -292,7 +345,7 @@
                             <div class="tabContent js-tabList-item" data-tab-content="exh-d">
                                 <div class="exhMap">
                                     <div class="exhMap__mapImage">
-                                        <img src="{{ asset('images/index/exhMap/exhMap_d.webp') }}" alt="D 北町區" class="image">
+                                        <img src="{{ asset('images/index/exhMap/exhMap_d.png') }}" alt="D 北町區" class="image">
                                     </div>
                                     <div class="exhMap__mapList">
                                         D 北町區 內容
@@ -302,7 +355,7 @@
                             <div class="tabContent js-tabList-item" data-tab-content="exh-e">
                                 <div class="exhMap">
                                     <div class="exhMap__mapImage">
-                                        <img src="{{ asset('images/index/exhMap/exhMap_e.webp') }}" alt="E 總圖區" class="image">
+                                        <img src="{{ asset('images/index/exhMap/exhMap_e.png') }}" alt="E 總圖區" class="image">
                                     </div>
                                     <div class="exhMap__mapList">
                                         E 總圖區 內容
@@ -312,33 +365,33 @@
                             <div class="tabContent js-tabList-item" data-tab-content="exh-f">
                                 <div class="exhMap">
                                     <div class="exhMap__mapImage">
-                                        <img src="{{ asset('images/index/exhMap/exhMap_f.webp') }}" alt="F 臨海區" class="image">
+                                        <img src="{{ asset('images/index/exhMap/exhMap_f.png') }}" alt="F 臨海區" class="image">
                                     </div>
                                     <div class="exhMap__mapList">
                                         F 臨海區 內容
                                     </div>
                                 </div>
                             </div>
-                            <!-- <div class="tabContent js-tabList-item" data-tab-content="exh-g">
-                            <div class="exhMap">
-                                <div class="exhMap__mapImage">
-                                    <img src="{{ asset('images/index/exhMap/exhMap_g.webp') }}" alt="G 就藝會區" class="image">
-                                </div>
-                                <div class="exhMap__mapList">
-                                    G 就藝會區 內容
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tabContent js-tabList-item" data-tab-content="exh-h">
-                            <div class="exhMap">
-                                <div class="exhMap__mapImage">
-                                    <img src="{{ asset('images/index/exhMap/exhMap_h.webp') }}" alt="H 衛星展區" class="image">
-                                </div>
-                                <div class="exhMap__mapList">
-                                    H 衛星展區 內容
+                            <div class="tabContent js-tabList-item" data-tab-content="exh-g">
+                                <div class="exhMap">
+                                    <div class="exhMap__mapImage">
+                                        <img src="{{ asset('images/index/exhMap/exhMap_g.png') }}" alt="G 就藝會區" class="image">
+                                    </div>
+                                    <div class="exhMap__mapList">
+                                        G 就藝會區 內容
+                                    </div>
                                 </div>
                             </div>
-                        </div> -->
+                            <div class="tabContent js-tabList-item" data-tab-content="exh-h">
+                                <div class="exhMap">
+                                    <div class="exhMap__mapImage">
+                                        <img src="{{ asset('images/index/exhMap/exhMap_h.png') }}" alt="H 衛星展區" class="image">
+                                    </div>
+                                    <div class="exhMap__mapList">
+                                        H 衛星展區 內容
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
