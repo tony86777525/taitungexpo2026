@@ -623,3 +623,38 @@ $modulePath: '/resources/images';
         }
     }
 }
+
+.lang--en {
+    .customEditor {
+        div,
+        p {
+            font-size: rem(15);
+            line-height: 1.5;
+            font-weight: 300;
+            letter-spacing: rem(1.5);
+
+            @include rwd-min(769px) {
+                font-size: rem(16);
+                letter-spacing: rem(1.6);
+            }
+        }
+    }
+}
+
+.lang--zh {
+    .customEditor {
+        div,
+        p {
+            font-size: rem(17);
+            line-height: 1.75;
+            font-weight: 300;
+            letter-spacing: rem(1.7);
+            text-align: justify;
+
+            @include rwd-min(769px) {
+                font-size: rem(18);
+                letter-spacing: rem(1.8);
+            }
+        }
+    }
+}
