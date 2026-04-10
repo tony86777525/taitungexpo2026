@@ -13,7 +13,11 @@ class ListActivitySessionNormals extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            CreateAction::make(),
+            CreateAction::make()
+                ->label('單筆新增'),
+            CreateAction::make('create_batch')
+                ->label('批次新增')
+                ->url(ActivitySessionNormalResource::getUrl('create_batch')),
         ];
     }
 }

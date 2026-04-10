@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\ActivitySessionNormals;
 
 use App\Filament\Resources\ActivitySessionNormals\Pages\CreateActivitySessionNormal;
+use App\Filament\Resources\ActivitySessionNormals\Pages\CreateBatchActivitySessionNormal;
 use App\Filament\Resources\ActivitySessionNormals\Pages\EditActivitySessionNormal;
 use App\Filament\Resources\ActivitySessionNormals\Pages\ListActivitySessionNormals;
 use App\Filament\Resources\ActivitySessionNormals\Pages\ViewActivitySessionNormal;
@@ -56,6 +57,7 @@ class ActivitySessionNormalResource extends Resource
         return [
             'index' => ListActivitySessionNormals::route('/'),
             'create' => CreateActivitySessionNormal::route('/create'),
+            'create_batch' => CreateBatchActivitySessionNormal::route('/create_batch'),
             'view' => ViewActivitySessionNormal::route('/{record}'),
             'edit' => EditActivitySessionNormal::route('/{record}/edit'),
         ];
