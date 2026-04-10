@@ -58,9 +58,9 @@ Route::group([
         })->name('event.detail');
 
         // 交通資訊（第二批）
-        // Route::get('/traffic', function () {
-        //     return view('user.frontend.traffic');
-        // });
+        Route::get('/traffic', function () {
+            return view('user.frontend.traffic');
+        })->name('traffic');
 
         // 民間參與計畫
         // 列表
