@@ -161,7 +161,7 @@
                                         </div>
                                         <div class="exhMap__mapList">
                                             <div class="cardsList cardsList--exhMap">
-                                                @foreach($zone->projects as $project)
+                                                @foreach($zone->exhibitionOverviewProjects as $project)
                                                     <a href="#" class="cardItem cardItem--exhMap">
                                                         <div class="cardItem__venue">
                                                             <div class="label"><img src="{{ $project->display_thumbnail }}" alt="{{ $project->display_project_name }}"></div>

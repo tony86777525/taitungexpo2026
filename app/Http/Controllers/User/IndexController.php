@@ -32,10 +32,11 @@ class IndexController extends Controller
 
         $zones = Zone::query()
             ->with([
-                'projects',
-                'projects.curationNatures',
+                'exhibitionOverviewProjects',
+                'exhibitionOverviewProjects.curationNatures',
             ])
             ->where('is_active', true)
+            ->where('is_only_activity', false)
             ->get();
 
         return view('user.index', compact(

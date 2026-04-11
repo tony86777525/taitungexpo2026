@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Enums\Language;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use App\Enums\ProjectType;
 
 class Zone extends Model
 {
@@ -35,6 +36,32 @@ class Zone extends Model
     public function projects(): HasMany
     {
         return $this->hasMany(Project::class);
+    }
+
+    /**
+     * Get the exhibition overview projects for the zone.
+     * 計畫
+     *
+     * @return HasMany
+     */
+    public function exhibitionOverviewProjects(): HasMany
+    {
+        return $this
+            ->hasMany(Project::class)
+            ->where('type', ProjectType::EXHIBITION_OVERVIEW);
+    }
+
+    /**
+     * Get the exhibition overview projects for the zone.
+     * 計畫
+     *
+     * @return HasMany
+     */
+    public function privateSectorProjects(): HasMany
+    {
+        return $this
+            ->hasMany(Project::class)
+            ->where('type', ProjectType::PRIVATE_SECTOR_PROJECT);
     }
 
     /**
