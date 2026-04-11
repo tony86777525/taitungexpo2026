@@ -224,107 +224,111 @@
                                     <img src="{{ asset('images/index/exhMap/exhMap_a.png') }}" alt="A 舊站特區" class="image">
                                 </div>
                                 <div class="exhMap__mapList">
-                                    <div class="exhibitionList">
-                                        <div class="exhibitionList__item">
-                                            <div class="cardsList cardsList--exhMap">
-                                                <a href="#" class="cardItem cardItem--exhMap">
-                                                    <div class="cardItem__venue">
-                                                        <span class="text">A1</span>
-                                                    </div>
-                                                    <div class="cardItem__text">
-                                                        <div class="title f-h4">活動名稱</div>
-                                                        <div class="project">
-                                                            <div class="project__location"><span class="f-h6">台東鹿野高台</span></div>
-                                                            <div class="project__type"><span class="f-h5">#台東品牌</span></div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                                <a href="#" class="cardItem cardItem--exhMap">
-                                                    <div class="cardItem__venue">
-                                                        <span class="text">A1</span>
-                                                    </div>
-                                                    <div class="cardItem__text">
-                                                        <div class="title f-h4">活動名稱</div>
-                                                        <div class="project">
-                                                            <div class="project__location"><span class="f-h6">台東鹿野高台</span></div>
-                                                            <div class="project__type"><span class="f-h5">#台東品牌</span></div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                                <a href="#" class="cardItem cardItem--exhMap">
-                                                    <div class="cardItem__venue">
-                                                        <span class="text">A1</span>
-                                                    </div>
-                                                    <div class="cardItem__text">
-                                                        <div class="title f-h4">活動名稱</div>
-                                                        <div class="project">
-                                                            <div class="project__location"><span class="f-h6">台東鹿野高台</span></div>
-                                                            <div class="project__type"><span class="f-h5">#台東品牌</span></div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                                <a href="#" class="cardItem cardItem--exhMap">
-                                                    <div class="cardItem__venue">
-                                                        <span class="text">A1</span>
-                                                    </div>
-                                                    <div class="cardItem__text">
-                                                        <div class="title f-h4">活動名稱</div>
-                                                        <div class="project">
-                                                            <div class="project__location"><span class="f-h6">台東鹿野高台</span></div>
-                                                            <div class="project__type"><span class="f-h5">#台東品牌</span></div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                                <a href="#" class="cardItem cardItem--exhMap">
-                                                    <div class="cardItem__venue">
-                                                        <span class="text">B1</span>
-                                                    </div>
-                                                    <div class="cardItem__text">
-                                                        <div class="title f-h4">活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱</div>
-                                                        <div class="project">
-                                                            <div class="project__location"><span class="f-h6">台東鹿野高台台東鹿野高台台東鹿野高台台東鹿野高台台東鹿野高台</span></div>
-                                                            <div class="project__type"><span class="f-h5">#台東品牌</span></div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                                <a href="#" class="cardItem cardItem--exhMap">
-                                                    <div class="cardItem__venue">
-                                                        <span class="text">C2</span>
-                                                    </div>
-                                                    <div class="cardItem__text">
-                                                        <div class="title f-h4">活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱</div>
-                                                        <div class="project">
-                                                            <div class="project__location"><span class="f-h6">台東鹿野高台台東鹿野高台台東鹿野高台台東鹿野高台台東鹿野高台</span></div>
-                                                            <div class="project__type"><span class="f-h5">#台東品牌台東品牌台東品牌台東品牌台東品牌台東品牌台東品牌台東品牌台東品牌台東品牌</span></div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                                <a href="#" class="cardItem cardItem--exhMap">
-                                                    <div class="cardItem__venue">
-                                                        <span class="text">B1</span>
-                                                    </div>
-                                                    <div class="cardItem__text">
-                                                        <div class="title f-h4">活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱</div>
-                                                        <div class="project">
-                                                            <div class="project__location"><span class="f-h6">台東鹿野高台台東鹿野高台台東鹿野高台台東鹿野高台台東鹿野高台</span></div>
-                                                            <div class="project__type"><span class="f-h5">#台東品牌</span></div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                                <a href="#" class="cardItem cardItem--exhMap">
-                                                    <div class="cardItem__venue">
-                                                        <span class="text">A1</span>
-                                                    </div>
-                                                    <div class="cardItem__text">
-                                                        <div class="title f-h4">活動名稱</div>
-                                                        <div class="project">
-                                                            <div class="project__location"><span class="f-h6">台東鹿野高台</span></div>
-                                                            <div class="project__type"><span class="f-h5">#台東品牌</span></div>
-                                                        </div>
-                                                    </div>
-                                                </a>
+                                    <div class="cardsList cardsList--exhMap">
+                                        <a href="#" class="cardItem cardItem--exhMap">
+                                            <div class="cardItem__venue">
+                                                <div class="label"><img src="{{ asset('images/icon_balloon-2.svg') }}" alt=""></div>
+                                                <span class="text">A1</span>
                                             </div>
-                                        </div>
+                                            <div class="cardItem__text">
+                                                <div class="title f-h4">活動名稱</div>
+                                                <div class="project">
+                                                    <div class="project__location"><span class="f-h6">台東鹿野高台</span></div>
+                                                    <div class="project__type"><span class="f-h5">#台東品牌</span></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="cardItem cardItem--exhMap">
+                                            <div class="cardItem__venue">
+                                                <div class="label"><img src="{{ asset('images/icon_balloon-3.svg') }}" alt=""></div>
+                                                <span class="text">A1</span>
+                                            </div>
+                                            <div class="cardItem__text">
+                                                <div class="title f-h4">活動名稱</div>
+                                                <div class="project">
+                                                    <div class="project__location"><span class="f-h6">台東鹿野高台</span></div>
+                                                    <div class="project__type"><span class="f-h5">#台東品牌</span></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="cardItem cardItem--exhMap">
+                                            <div class="cardItem__venue">
+                                                <div class="label"><img src="{{ asset('images/icon_balloon-4.svg') }}" alt=""></div>
+                                                <span class="text">A1</span>
+                                            </div>
+                                            <div class="cardItem__text">
+                                                <div class="title f-h4">活動名稱</div>
+                                                <div class="project">
+                                                    <div class="project__location"><span class="f-h6">台東鹿野高台</span></div>
+                                                    <div class="project__type"><span class="f-h5">#台東品牌</span></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="cardItem cardItem--exhMap">
+                                            <div class="cardItem__venue">
+                                                <div class="label"><img src="{{ asset('images/icon_balloon-5.svg') }}" alt=""></div>
+                                                <span class="text">A1</span>
+                                            </div>
+                                            <div class="cardItem__text">
+                                                <div class="title f-h4">活動名稱</div>
+                                                <div class="project">
+                                                    <div class="project__location"><span class="f-h6">台東鹿野高台</span></div>
+                                                    <div class="project__type"><span class="f-h5">#台東品牌</span></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="cardItem cardItem--exhMap">
+                                            <div class="cardItem__venue">
+                                                <div class="label"><img src="{{ asset('images/icon_balloon-6.svg') }}" alt=""></div>
+                                                <span class="text">B1</span>
+                                            </div>
+                                            <div class="cardItem__text">
+                                                <div class="title f-h4">活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱</div>
+                                                <div class="project">
+                                                    <div class="project__location"><span class="f-h6">台東鹿野高台台東鹿野高台台東鹿野高台台東鹿野高台台東鹿野高台</span></div>
+                                                    <div class="project__type"><span class="f-h5">#台東品牌</span></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="cardItem cardItem--exhMap">
+                                            <div class="cardItem__venue">
+                                                <div class="label"><img src="{{ asset('images/icon_balloon-7.svg') }}" alt=""></div>
+                                                <span class="text">C2</span>
+                                            </div>
+                                            <div class="cardItem__text">
+                                                <div class="title f-h4">活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱</div>
+                                                <div class="project">
+                                                    <div class="project__location"><span class="f-h6">台東鹿野高台台東鹿野高台台東鹿野高台台東鹿野高台台東鹿野高台</span></div>
+                                                    <div class="project__type"><span class="f-h5">#台東品牌台東品牌台東品牌台東品牌台東品牌台東品牌台東品牌台東品牌台東品牌台東品牌</span></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="cardItem cardItem--exhMap">
+                                            <div class="cardItem__venue">
+                                                <div class="label"><img src="{{ asset('images/icon_balloon-8.svg') }}" alt=""></div>
+                                                <span class="text">B1</span>
+                                            </div>
+                                            <div class="cardItem__text">
+                                                <div class="title f-h4">活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱</div>
+                                                <div class="project">
+                                                    <div class="project__location"><span class="f-h6">台東鹿野高台台東鹿野高台台東鹿野高台台東鹿野高台台東鹿野高台</span></div>
+                                                    <div class="project__type"><span class="f-h5">#台東品牌</span></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="cardItem cardItem--exhMap">
+                                            <div class="cardItem__venue">
+                                                <div class="label"><img src="{{ asset('images/icon_balloon-9.svg') }}" alt=""></div>
+                                                <span class="text">A1</span>
+                                            </div>
+                                            <div class="cardItem__text">
+                                                <div class="title f-h4">活動名稱</div>
+                                                <div class="project">
+                                                    <div class="project__location"><span class="f-h6">台東鹿野高台</span></div>
+                                                    <div class="project__type"><span class="f-h5">#台東品牌</span></div>
+                                                </div>
+                                            </div>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
