@@ -248,6 +248,18 @@ class Project extends Model
     }
 
     /**
+     * @return string|null
+     */
+    public function getDisplayProjectLocationAttribute(): ?string
+    {
+        if (app()->getLocale() === Language::EN->value && !empty($this->project_location_en)) {
+            return $this->project_location_en;
+        }
+
+        return $this->project_location_tw;
+    }
+
+    /**
      * @return string
      */
     public function getDisplayThumbnailAttribute(): string
@@ -301,6 +313,24 @@ class Project extends Model
         $projectCategory = $this->projectCategories->first();
 
         return "＃{$projectCategory->display_name}" ?: null;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getDisplayCurationNatureNameAttribute(): ?string
+    {
+        if ($this->relationLoaded('curationNatures') === false) {
+            return null;
+        }
+
+        if ($this->curationNatures->isEmpty()) {
+            return null;
+        }
+
+        $curationNature = $this->curationNatures->first();
+
+        return "＃{$curationNature->display_name}" ?: null;
     }
 
     /**

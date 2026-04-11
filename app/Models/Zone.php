@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
+use App\Enums\Language;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Zone extends Model
 {
@@ -25,6 +27,17 @@ class Zone extends Model
     ];
 
     /**
+     * Get the projects for the zone.
+     * 計畫
+     *
+     * @return HasMany
+     */
+    public function projects(): HasMany
+    {
+        return $this->hasMany(Project::class);
+    }
+
+    /**
      * @return string|null
      */
     public function getDisplayAllNameAttribute(): ?string
@@ -32,19 +45,42 @@ class Zone extends Model
         return "{$this->name_tw} / {$this->name_en}";
     }
 
+
     /**
-     * @return string
+     * @return string|null
      */
-    public function getDisplayNameAttribute(): string
+    public function getDisplayNameAttribute(): ?string
     {
-        return "{$this->code}{$this->name_tw}";
+        if (app()->getLocale() === Language::EN->value && !empty($this->name_en)) {
+            return $this->name_en;
+        }
+
+        return $this->name_tw;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getDisplayCodeNameAttribute(): ?string
+    {
+        return "{$this->code}{$this->display_name}";
     }
 
     /**
      * @return string
      */
-    public function getDisplayNameEnAttribute(): string
+    public function getDisplayHtmlTagAttribute(): string
     {
-        return "{$this->code}{$this->name_en}";
+        return "zone-{$this->id}";
+    }
+
+    /**
+     * @return string
+     */
+    public function getDisplayMapImageAttribute(): string
+    {
+        $lower = strtolower($this->code);
+
+        return asset("images/index/exhMap/exhMap_{$lower}.png");
     }
 }

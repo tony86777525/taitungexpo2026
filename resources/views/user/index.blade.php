@@ -147,198 +147,44 @@
                                 <span class="tabSelect__text f-h4 js-selectedOption">A 舊站特區</span>
                             </div>
                             <ul class="tabOption jc-start js-tabOption" role="listbox">
-                                <li class="tabOption__item js-tabOption-item is-active" data-tab-id="exh-a" role="option"><span class="text">{{ __('index.tab-title.tab1') }}</span></li>
-                                <li class="tabOption__item js-tabOption-item" data-tab-id="exh-b" role="option"><span class="text">{{ __('index.tab-title.tab2') }}</span></li>
-                                <li class="tabOption__item js-tabOption-item" data-tab-id="exh-c" role="option"><span class="text">{{ __('index.tab-title.tab3') }}</span></li>
-                                <li class="tabOption__item js-tabOption-item" data-tab-id="exh-d" role="option"><span class="text">{{ __('index.tab-title.tab4') }}</span></li>
-                                <li class="tabOption__item js-tabOption-item" data-tab-id="exh-e" role="option"><span class="text">{{ __('index.tab-title.tab5') }}</span></li>
-                                <li class="tabOption__item js-tabOption-item" data-tab-id="exh-f" role="option"><span class="text">{{ __('index.tab-title.tab6') }}</span></li>
-                                <li class="tabOption__item js-tabOption-item" data-tab-id="exh-g" role="option"><span class="text">{{ __('index.tab-title.tab7') }}</span></li>
-                                <li class="tabOption__item js-tabOption-item" data-tab-id="exh-h" role="option"><span class="text">{{ __('index.tab-title.tab8') }}</span></li>
+                                @foreach($zones as $zone)
+                                    <li class="tabOption__item js-tabOption-item @if($loop->first) is-active @endif" data-tab-id="{{ $zone->display_html_tag }}" role="option"><span class="text">{{ $zone->display_code_name }}</span></li>
+                                @endforeach
                             </ul>
                         </div>
                         <div class="tabGroup__content js-tabGroup-content">
-                            <div class="tabContent js-tabList-item is-active" data-tab-content="exh-a">
-                                <div class="exhMap">
-                                    <div class="exhMap__mapImage">
-                                        <img src="{{ asset('images/index/exhMap/exhMap_a.png') }}" alt="A 舊站特區" class="image">
-                                    </div>
-                                    <div class="exhMap__mapList">
-                                        <div class="exhibitionList">
-                                            <div class="exhibitionList__item">
-                                                <div class="cardsList cardsList--exhMap">
+                            @foreach($zones as $zone)
+                                <div class="tabContent js-tabList-item @if($loop->first) is-active @endif" data-tab-content="{{ $zone->display_html_tag }}">
+                                    <div class="exhMap">
+                                        <div class="exhMap__mapImage">
+                                            <img src="{{ $zone->display_map_image }}" alt="{{ $zone->display_code_name }}" class="image">
+                                        </div>
+                                        <div class="exhMap__mapList">
+                                            <div class="cardsList cardsList--exhMap">
+                                                @foreach($zone->projects as $project)
                                                     <a href="#" class="cardItem cardItem--exhMap">
                                                         <div class="cardItem__venue">
-                                                            <span class="text">A1</span>
+                                                            <div class="label"><img src="{{ $project->display_thumbnail }}" alt="{{ $project->display_project_name }}"></div>
+                                                            <span class="text">{{ $project->display_venue_number }}</span>
                                                         </div>
                                                         <div class="cardItem__text">
-                                                            <div class="title f-h4">活動名稱</div>
+                                                            <div class="title f-h4">{{ $project->display_project_name }}</div>
                                                             <div class="project">
-                                                                <div class="project__location"><span class="f-h6">台東鹿野高台</span></div>
-                                                                <div class="project__type"><span class="f-h5">#台東品牌</span></div>
+                                                                @if(!empty($project->display_project_location))
+                                                                    <div class="project__location"><span class="f-h6">{{ $project->display_project_location }}</span></div>
+                                                                @endif
+                                                                @if(!empty($project->display_curation_nature_name))
+                                                                    <div class="project__type"><span class="f-h5">{{ $project->display_curation_nature_name }}</span></div>
+                                                                @endif
                                                             </div>
                                                         </div>
                                                     </a>
-                                                    <a href="#" class="cardItem cardItem--exhMap">
-                                                        <div class="cardItem__venue">
-                                                            <span class="text">A1</span>
-                                                        </div>
-                                                        <div class="cardItem__text">
-                                                            <div class="title f-h4">活動名稱</div>
-                                                            <div class="project">
-                                                                <div class="project__location"><span class="f-h6">台東鹿野高台</span></div>
-                                                                <div class="project__type"><span class="f-h5">#台東品牌</span></div>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                    <a href="#" class="cardItem cardItem--exhMap">
-                                                        <div class="cardItem__venue">
-                                                            <span class="text">A1</span>
-                                                        </div>
-                                                        <div class="cardItem__text">
-                                                            <div class="title f-h4">活動名稱</div>
-                                                            <div class="project">
-                                                                <div class="project__location"><span class="f-h6">台東鹿野高台</span></div>
-                                                                <div class="project__type"><span class="f-h5">#台東品牌</span></div>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                    <a href="#" class="cardItem cardItem--exhMap">
-                                                        <div class="cardItem__venue">
-                                                            <span class="text">A1</span>
-                                                        </div>
-                                                        <div class="cardItem__text">
-                                                            <div class="title f-h4">活動名稱</div>
-                                                            <div class="project">
-                                                                <div class="project__location"><span class="f-h6">台東鹿野高台</span></div>
-                                                                <div class="project__type"><span class="f-h5">#台東品牌</span></div>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                    <a href="#" class="cardItem cardItem--exhMap">
-                                                        <div class="cardItem__venue">
-                                                            <span class="text">B1</span>
-                                                        </div>
-                                                        <div class="cardItem__text">
-                                                            <div class="title f-h4">活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱</div>
-                                                            <div class="project">
-                                                                <div class="project__location"><span class="f-h6">台東鹿野高台台東鹿野高台台東鹿野高台台東鹿野高台台東鹿野高台</span></div>
-                                                                <div class="project__type"><span class="f-h5">#台東品牌</span></div>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                    <a href="#" class="cardItem cardItem--exhMap">
-                                                        <div class="cardItem__venue">
-                                                            <span class="text">C2</span>
-                                                        </div>
-                                                        <div class="cardItem__text">
-                                                            <div class="title f-h4">活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱</div>
-                                                            <div class="project">
-                                                                <div class="project__location"><span class="f-h6">台東鹿野高台台東鹿野高台台東鹿野高台台東鹿野高台台東鹿野高台</span></div>
-                                                                <div class="project__type"><span class="f-h5">#台東品牌台東品牌台東品牌台東品牌台東品牌台東品牌台東品牌台東品牌台東品牌台東品牌</span></div>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                    <a href="#" class="cardItem cardItem--exhMap">
-                                                        <div class="cardItem__venue">
-                                                            <span class="text">B1</span>
-                                                        </div>
-                                                        <div class="cardItem__text">
-                                                            <div class="title f-h4">活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱活動名稱</div>
-                                                            <div class="project">
-                                                                <div class="project__location"><span class="f-h6">台東鹿野高台台東鹿野高台台東鹿野高台台東鹿野高台台東鹿野高台</span></div>
-                                                                <div class="project__type"><span class="f-h5">#台東品牌</span></div>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                    <a href="#" class="cardItem cardItem--exhMap">
-                                                        <div class="cardItem__venue">
-                                                            <span class="text">A1</span>
-                                                        </div>
-                                                        <div class="cardItem__text">
-                                                            <div class="title f-h4">活動名稱</div>
-                                                            <div class="project">
-                                                                <div class="project__location"><span class="f-h6">台東鹿野高台</span></div>
-                                                                <div class="project__type"><span class="f-h5">#台東品牌</span></div>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </div>
+                                                @endforeach
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="tabContent js-tabList-item" data-tab-content="exh-b">
-                                <div class="exhMap">
-                                    <div class="exhMap__mapImage">
-                                        <img src="{{ asset('images/index/exhMap/exhMap_b.png') }}" alt="B 美術館區" class="image">
-                                    </div>
-                                    <div class="exhMap__mapList">
-                                        B 美術館區 內容
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tabContent js-tabList-item" data-tab-content="exh-c">
-                                <div class="exhMap">
-                                    <div class="exhMap__mapImage">
-                                        <img src="{{ asset('images/index/exhMap/exhMap_c.png') }}" alt="C 美學館區" class="image">
-                                    </div>
-                                    <div class="exhMap__mapList">
-                                        C 美學館區 內容
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tabContent js-tabList-item" data-tab-content="exh-d">
-                                <div class="exhMap">
-                                    <div class="exhMap__mapImage">
-                                        <img src="{{ asset('images/index/exhMap/exhMap_d.png') }}" alt="D 北町區" class="image">
-                                    </div>
-                                    <div class="exhMap__mapList">
-                                        D 北町區 內容
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tabContent js-tabList-item" data-tab-content="exh-e">
-                                <div class="exhMap">
-                                    <div class="exhMap__mapImage">
-                                        <img src="{{ asset('images/index/exhMap/exhMap_e.png') }}" alt="E 總圖區" class="image">
-                                    </div>
-                                    <div class="exhMap__mapList">
-                                        E 總圖區 內容
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tabContent js-tabList-item" data-tab-content="exh-f">
-                                <div class="exhMap">
-                                    <div class="exhMap__mapImage">
-                                        <img src="{{ asset('images/index/exhMap/exhMap_f.png') }}" alt="F 臨海區" class="image">
-                                    </div>
-                                    <div class="exhMap__mapList">
-                                        F 臨海區 內容
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tabContent js-tabList-item" data-tab-content="exh-g">
-                                <div class="exhMap">
-                                    <div class="exhMap__mapImage">
-                                        <img src="{{ asset('images/index/exhMap/exhMap_g.png') }}" alt="G 就藝會區" class="image">
-                                    </div>
-                                    <div class="exhMap__mapList">
-                                        G 就藝會區 內容
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tabContent js-tabList-item" data-tab-content="exh-h">
-                                <div class="exhMap">
-                                    <div class="exhMap__mapImage">
-                                        <img src="{{ asset('images/index/exhMap/exhMap_h.png') }}" alt="H 衛星展區" class="image">
-                                    </div>
-                                    <div class="exhMap__mapList">
-                                        H 衛星展區 內容
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>

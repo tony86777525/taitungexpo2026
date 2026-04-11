@@ -106,7 +106,6 @@ class ExhibitionOverviewForm
                         modifyQueryUsing: fn (Builder $query) => $query->orderBy('id'),
                     )
                     ->getOptionLabelFromRecordUsing(fn ($record) => $record->display_all_name)
-                    ->multiple()
                     ->preload(),
                 Repeater::make('featured_images')
                     ->label('主視覺')

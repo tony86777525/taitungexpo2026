@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Activity;
 use App\Models\ActivitySession;
 use App\Models\Article;
+use App\Models\Zone;
 use Carbon\Carbon;
 
 class IndexController extends Controller
@@ -29,9 +30,18 @@ class IndexController extends Controller
             ->orderBy('sort_order')
             ->get();
 
+        $zones = Zone::query()
+            ->with([
+                'projects',
+                'projects.curationNatures',
+            ])
+            ->where('is_active', true)
+            ->get();
+
         return view('user.index', compact(
             'articles',
-            'activities'
+            'activities',
+            'zones',
         ));
     }
 }
