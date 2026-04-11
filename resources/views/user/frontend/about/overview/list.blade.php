@@ -1,11 +1,11 @@
 @extends('user.frontend.layout.wrapper')
 
 @push('styles')
-    @vite('resources/scss/user/about/overview.scss')
+    @vite('resources/scss/user/about/overview/list.scss')
 @endpush
 
 @push('scripts')
-    @vite('resources/js/user/about/overview.js')
+    @vite('resources/js/user/about/overview/list.js')
 @endpush
 
 @section('content')
