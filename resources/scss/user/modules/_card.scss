@@ -129,18 +129,17 @@ $path: '/resources/images';
         display: flex;
         align-items: flex-start;
         justify-content: flex-start;
+        gap: rem(16);
 
-        &:before {
-            content: '';
+        .label {
             display: block;
             width: rem(16);
             height: rem(39);
             flex: 0 0 rem(16);
-            background-image: url('#{$path}/deco_venue.svg');
-            background-repeat: no-repeat;
-            background-size: contain;
-            background-position: center;
-            margin-right: rem(16);
+
+            img {
+                width: 100%;
+            }
 
             @include rwd-min(769px) {
                 width: rem(18);
