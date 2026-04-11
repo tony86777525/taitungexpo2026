@@ -219,6 +219,14 @@ class Activity extends Model
     /**
      * @return string
      */
+    public function getDisplayThumbnailAttribute(): string
+    {
+        return asset('storage/' . $this->thumbnail_url);
+    }
+
+    /**
+     * @return string
+     */
     public function getDisplayUrlAttribute(): string
     {
         return lang_route('user.event.detail', ['id' => $this->id]);
