@@ -1,7 +1,7 @@
 <div class="cardItem cardItem--event" data-filter-target="event">
     <div class="cardWrap">
         <div class="cardItem__image">
-            <img src="https://picsum.photos/id/236/580/435" alt="縣府辦理《冠軍之路》電影欣賞 預告2026台東博覽會：紅土之上棒球特展">
+            <img src="{{ $activity->display_thumbnail }}" alt="{{ $activity->display_title }}">
         </div>
         <div class="cardItem__text">
             <div class="time">{{ $activity->display_time_range }}</div>
