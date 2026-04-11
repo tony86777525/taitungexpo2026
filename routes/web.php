@@ -91,6 +91,16 @@ Route::group([
         // Route::get('/style', function () {
         //     return view('user.frontend.style');
         // });
+
+        // 預約表單（第二批）
+        // 表單填寫
+        Route::get('/reservation/form', function () {
+            return view('user.frontend.reservation/form');
+        })->name('reservation.form');
+        // 表單完成
+        Route::get('/reservation/complete', function () {
+            return view('user.frontend.reservation/complete');
+        })->name('reservation.complete');
     });
 
     Route::get('/', [IndexController::class, 'index'])
