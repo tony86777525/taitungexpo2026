@@ -133,14 +133,14 @@ class ActivitySessionNormalBatchForm
                     ]),
                 Section::make(function (Get $get) {
                     $projectId = $get('project_id');
-                    if (! $projectId) return '選擇場次時間區間（請先選擇計畫）';
+                    if (! $projectId) return '選擇場次時段（請先選擇計畫）';
 
                     // 這裡只會查詢一次
                     $project = Project::find($projectId);
 
                     if (!$project) return '';
 
-                    return "選擇場次時間區間（可選時間區間：{$project->display_time_range}）";
+                    return "選擇場次時段（可選時段：{$project->display_time_range}）";
                 })
                     ->schema([
                         Repeater::make('time_slots')
@@ -158,12 +158,16 @@ class ActivitySessionNormalBatchForm
                                     ->required()
                                     ->maxWidth('sm'),
                             ])
+                            ->default([
+                                ['start_time' => '09:30', 'end_time' => '10:00'],
+                                ['start_time' => '11:00', 'end_time' => '11:30'],
+                                ['start_time' => '14:00', 'end_time' => '14:30'],
+                                ['start_time' => '16:00', 'end_time' => '16:30'],
+                            ])
                             ->required()
                             ->addActionLabel('新增時段')
                             ->columns(1)
                             ->grid(4)
-                            ->defaultItems(1)
-                            ->minItems(1)
                             ->reorderable(false),
                     ]),
                 Grid::make(6)

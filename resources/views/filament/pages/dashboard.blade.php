@@ -1,6 +1,6 @@
 @php
     list(
-        $count,
+        $todayGroupCount,
         $pendingCount,
         $confirmedCount,
         $cancelledCount,
@@ -22,7 +22,7 @@
         <div class="grid grid-cols-6 gap-0 border border-gray-300 bg-white mb-6 text-center shadow-sm">
             <div class="border-r border-gray-300 p-2">
                 <p class="bg-gray-100 font-bold border-b -m-2 mb-2 p-1">今日團體數</p>
-                <p class="text-lg font-bold">{{ $count }}</p>
+                <p class="text-lg font-bold">{{ $todayGroupCount }}</p>
             </div>
             <div class="border-r border-gray-300 p-2">
                 <p class="bg-gray-100 font-bold border-b -m-2 mb-2 p-1">待審核</p>

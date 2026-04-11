@@ -12,6 +12,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\TimePicker;
 use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Components\Grid;
+use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Utilities\Get;
 use Filament\Schemas\Components\Utilities\Set;
 use Filament\Schemas\Schema;
@@ -64,7 +65,17 @@ class ActivitySessionForm
                         return Project::find($projectId)?->project_end_date;
                     })
                     ->maxWidth('sm'),
-                Grid::make(6)
+                Section::make(function (Get $get) {
+                    $projectId = $get('project_id');
+                    if (! $projectId) return '選擇場次時段（請先選擇計畫）';
+
+                    // 這裡只會查詢一次
+                    $project = Project::find($projectId);
+
+                    if (!$project) return '';
+
+                    return "選擇場次時段（場次可選時段：{$project->display_time_range}）";
+                })
                     ->schema([
                         TimePicker::make('start_time')
                             ->label('場次開始時段')
@@ -77,22 +88,8 @@ class ActivitySessionForm
                             ->seconds(false)
                             ->required()
                             ->maxWidth('sm'),
-                        // 這裡就是集中顯示的動態文字
-                        Placeholder::make('time_range_info')
-                            ->label('') // 隱藏 Label
-                            ->columnSpanFull()
-                            ->content(function (Get $get) {
-                                $projectId = $get('project_id');
-                                if (! $projectId) return '請先選擇計畫';
-
-                                // 這裡只會查詢一次
-                                $project = Project::find($projectId);
-
-                                if (!$project) return '';
-
-                                return "場次可選時間區間：{$project->display_time_range}";
-                            })
-                    ]),
+                    ])
+                    ->columns(6),
                 Grid::make(6)
                     ->schema([
                         TextInput::make('quota_min')

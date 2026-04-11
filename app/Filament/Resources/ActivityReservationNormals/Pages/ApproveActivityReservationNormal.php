@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Filament\Resources\ActivityReservations\Pages;
+namespace App\Filament\Resources\ActivityReservationNormals\Pages;
 
 use App\Enums\ActivityReservationStatus;
 use App\Enums\ActivityReservationType;
 use App\Filament\Resources\ActivityReservations\ActivityReservationResource;
-use App\Models\ActivityReservation;
+use App\Models\ActivityReservationNormal;
 use App\Services\MailService;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
@@ -19,15 +19,15 @@ use Filament\Notifications\Notification;
 use Filament\Actions\Action;
 use Illuminate\Support\Facades\Mail;
 
-class ApproveActivityReservation extends EditRecord
+class ApproveActivityReservationNormal extends EditRecord
 {
     protected static string $resource = ActivityReservationResource::class;
 
-    protected static ?string $title = '審核預約';
+    protected static ?string $title = '【一般】審核預約';
 
     protected function resolveRecord(int | string $key): Model
     {
-        return ActivityReservation::findOrFail($key);
+        return ActivityReservationNormal::findOrFail($key);
     }
 
     public function getBreadcrumbs(): array
@@ -40,45 +40,29 @@ class ApproveActivityReservation extends EditRecord
 
     public function form(Schema $schema): Schema
     {
-        $activityReservationCounts = ActivityReservation::query()
-            ->select('activity_session_id', 'type', DB::raw('count(*) as count'))
-            ->where('status', ActivityReservationStatus::CONFIRMED->value)
-            ->groupBy('activity_session_id', 'type')
-            ->get();
-
         return $schema
             ->components([
-                TextEntry::make('type')
-                    ->label('預約類型')
-                    ->getStateUsing(fn ($record) => $record->type->label() ?? '-'),
-                TextEntry::make('activity_info')
+                TextEntry::make('activitySessionNormal.display_option')
                     ->label('團體導覽預約場次')
-                    ->getStateUsing(function ($record) use ($activityReservationCounts) {
-                        $isVip = $record->type === ActivityReservationType::VIP;
+//                    ->relationship(
+//                        name: 'activitySessionVip',
+//                        modifyQueryUsing: fn (Builder $query) => $query
+//                            ->with([
+//                                'project',
+//                                'project.zone',
+//                            ])
+//                            ->withCount([
+//                                'bookedActivityReservations',
+//                            ])
+//                    )
+                    ->getStateUsing(function ($record) {
+                        $record->load([
+                            'activitySessionNormal',
+                            'activitySessionNormal.project',
+                            'activitySessionNormal.project.zone',
+                        ]);
 
-                        $currentType = $isVip === true ? ActivityReservationType::VIP : ActivityReservationType::NORMAL;
-
-                        $activitySession = $record->activitySession;
-
-                        $currentGroupCount = $activityReservationCounts->first(function ($count) use ($activitySession, $currentType) {
-                            return $activitySession->id === $count->activity_session_id && $count->type === $currentType;
-                        })?->count ?? 0;
-
-                        if (
-                            $isVip === true && $activitySession->canBookVipGroup($currentGroupCount)
-                        ) {
-                            $denominator = $activitySession->vip_group_count;
-                            $remainingGroupCount = $denominator - $currentGroupCount;
-
-                            return "{$record->activitySession->display_info}(剩餘{$remainingGroupCount}/{$denominator})" ?? '-';
-                        } elseif ($isVip === false && $activitySession->canBookNormalGroup($currentGroupCount)) {
-                            $denominator = $activitySession->group_count;
-                            $remainingGroupCount = $denominator - $currentGroupCount;
-
-                            return "{$record->activitySession->display_info}(剩餘{$remainingGroupCount}/{$denominator})" ?? '-';
-                        }
-
-                        return "{$activitySession->activity->project->venue_number} - {$record->activitySession->display_info}(報名已額滿)" ?? '-';
+                        return $record->activitySessionNormal->display_option_title ?? '-';
                     }),
                 TextInput::make('contact_name')
                     ->label('聯絡人姓名')
@@ -134,7 +118,7 @@ class ApproveActivityReservation extends EditRecord
         $this->record->status_notes = $formData['status_notes'] ?? null;
         $this->record->save();
 
-        $this->sendMail();
+        $this->sendMailApprove();
 
         Notification::make()
             ->title('預約已核准')
@@ -152,7 +136,7 @@ class ApproveActivityReservation extends EditRecord
         $this->record->status_notes = $formData['status_notes'] ?? null;
         $this->record->save();
 
-        $this->sendMail();
+        $this->sendMailReject();
 
         Notification::make()
             ->title('預約已拒絕')
@@ -163,8 +147,27 @@ class ApproveActivityReservation extends EditRecord
     }
 
 
-    public function sendMail(): void
+    public function sendMailApprove(): void
     {
-        MailService::SendMailWhenApproveActivityReservation($this->record);
+        $this->record->load([
+            'activitySession',
+            'activitySession',
+            'activitySession.project',
+            'activitySession.project.zone',
+        ]);
+
+        MailService::SendMailWhenApproveActivityReservationNormal($this->record);
+    }
+
+    public function sendMailReject(): void
+    {
+        $this->record->load([
+            'activitySession',
+            'activitySession',
+            'activitySession.project',
+            'activitySession.project.zone',
+        ]);
+
+        MailService::SendMailWhenRejectActivityReservationNormal($this->record);
     }
 }

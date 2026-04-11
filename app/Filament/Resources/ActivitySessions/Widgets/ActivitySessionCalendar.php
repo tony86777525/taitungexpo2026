@@ -15,12 +15,14 @@ use Guava\Calendar\ValueObjects\FetchInfo;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\DB;
+use Guava\Calendar\Enums\CalendarViewType;
 
 class ActivitySessionCalendar extends CalendarWidget
 {
     protected bool $eventClickEnabled = true;
     protected ?string $defaultEventClickAction = 'edit';
+
+    protected CalendarViewType $calendarView = CalendarViewType::TimeGridWeek;
 
     protected function getEvents(FetchInfo $info): Collection | array | Builder
     {
@@ -33,8 +35,7 @@ class ActivitySessionCalendar extends CalendarWidget
             ])
             ->get()
             ->map(function (ActivitySession $activitySession) {
-                $currentGroupCount = $activitySession->booked_activity_reservations_count;
-                $groupCountStatusText = "{$currentGroupCount} / {$activitySession->group_max}";
+                $groupCountStatusText = "{$activitySession->group_booked_count} / {$activitySession->group_max_count}";
 
                 $typeText = $activitySession->type?->label() ?? 'Normal';
 

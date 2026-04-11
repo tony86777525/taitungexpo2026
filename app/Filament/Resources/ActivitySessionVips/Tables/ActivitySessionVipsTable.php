@@ -19,8 +19,7 @@ class ActivitySessionVipsTable
             ->reorderable('sort_order')
             ->columns([
                 TextColumn::make('project.display_type_and_venue_number_name')
-                    ->label('計畫')
-                    ->searchable(),
+                    ->label('計畫'),
                 TextColumn::make('display_date')
                     ->label('場次日期')
                     ->sortable(),

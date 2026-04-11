@@ -3,11 +3,10 @@
 namespace App\Filament\Pages;
 
 use App\Enums\ActivityReservationStatus;
-use App\Enums\ActivityReservationType;
 use App\Enums\ActivitySessionType;
-use App\Filament\Resources\ActivityReservations\ActivityReservationResource;
+use App\Filament\Resources\ActivityReservationNormals\ActivityReservationNormalResource;
 use App\Models\ActivityReservation;
-use App\Models\ActivitySession;
+use App\Models\ActivityReservationNormal;
 use App\Models\ActivitySessionVip;
 use Carbon\Carbon;
 use Filament\Forms\Concerns\InteractsWithForms;
@@ -37,39 +36,67 @@ class DashBoard extends Page implements HasForms, HasTable
 
     public function getBookedInfo(): array
     {
-        $count = ActivityReservation::query()
+        $data = ActivityReservation::query()
+            ->select(
+                'activity_sessions.type AS type',
+                'activity_reservations.status AS status',
+                'activity_sessions.date AS date',
+                'activity_reservations.participants_quota AS participants_quota',
+            )
             ->rightJoin('activity_sessions', 'activity_reservations.activity_session_id', '=', 'activity_sessions.id')
-            ->select('activity_sessions.date')
-            ->where('activity_sessions.date', Carbon::now()->format('Y-m-d'))
+            ->rightJoin('projects', 'projects.id', '=', 'activity_sessions.project_id')
+//            ->where('activity_reservations.status', ActivityReservationStatus::CONFIRMED)
+            ->where('activity_sessions.is_active', true)
+            ->where('projects.is_active', true)
+//            ->where('activity_sessions.date', Carbon::now()->format('Y-m-d'))
+            ->get();
+
+        $todayGroupCount = $data
+            ->filter(function ($item) {
+                return $item->date === Carbon::now()->format('Y-m-d')
+                    && $item->status === ActivityReservationStatus::CONFIRMED;
+            })
             ->count();
 
-        $pendingCount = ActivityReservation::query()
-            ->where('status', ActivityReservationStatus::PENDING)
+        $pendingCount = $data
+            ->filter(function ($item) {
+                return $item->status === ActivityReservationStatus::PENDING;
+            })
             ->count();
 
-        $confirmedCount = ActivityReservation::query()
-            ->where('status', ActivityReservationStatus::CONFIRMED)
+        $confirmedCount = $data
+            ->filter(function ($item) {
+                return $item->status === ActivityReservationStatus::CONFIRMED;
+            })
             ->count();
 
-        $cancelledCount = ActivityReservation::query()
-            ->where('status', ActivityReservationStatus::CANCELLED)
+        $cancelledCount = $data
+            ->filter(function ($item) {
+                return $item->status === ActivityReservationStatus::CANCELLED;
+            })
             ->count();
 
-        $joinCount = ActivityReservation::query()
+        $joinCount = $data
             ->sum('participants_quota');
 
-        $bookedVipCount = ActivitySessionVip::query()
-            ->join('activity_reservations', 'activity_reservations.activity_session_id', '=', 'activity_sessions.id')
-            ->where('activity_sessions.date', Carbon::now()->format('Y-m-d'))
+        $bookedVipCount = $data
+            ->filter(function ($item) {
+                return $item->status === ActivityReservationStatus::CONFIRMED
+                    && $item->type === ActivitySessionType::VIP->value
+                    && $item->date === Carbon::now()->format('Y-m-d');
+            })
             ->count();
 
         $vipCount = ActivitySessionVip::query()
-            ->where('date', Carbon::now()->format('Y-m-d'))
+            ->rightJoin('projects', 'projects.id', '=', 'activity_sessions.project_id')
+            ->where('activity_sessions.is_active', true)
+            ->where('projects.is_active', true)
+            ->where('activity_sessions.date', Carbon::now()->format('Y-m-d'))
             ->sum('group_max');
 
         $unbookedVipCount = $vipCount - $bookedVipCount;
 
-        return [$count, $pendingCount, $confirmedCount, $cancelledCount, $joinCount, $bookedVipCount, $unbookedVipCount];
+        return [$todayGroupCount, $pendingCount, $confirmedCount, $cancelledCount, $joinCount, $bookedVipCount, $unbookedVipCount];
     }
 
     /**
@@ -79,12 +106,12 @@ class DashBoard extends Page implements HasForms, HasTable
     {
         return $table
             ->query(
-                ActivityReservation::query()
+                ActivityReservationNormal::query()
                     ->where('status', ActivityReservationStatus::PENDING)
                     ->orderBy('id', 'desc')
             )
             ->heading(view('filament.common.table_heading', [
-                'heading' => '待審核預約資料',
+                'heading' => '【一般】待審核預約資料',
             ]))
             ->columns([
                 Tables\Columns\TextColumn::make('activitySession.project.zone.name_tw')->label('展區')
@@ -105,8 +132,8 @@ class DashBoard extends Page implements HasForms, HasTable
                     ->color(fn ($record) => $record->status->color()),
             ])
             ->recordUrl(
-                function (ActivityReservation $record): string {
-                    return ActivityReservationResource::getUrl('approve', ['record' => $record]);
+                function (ActivityReservationNormal $record): string {
+                    return ActivityReservationNormalResource::getUrl('approve', ['record' => $record]);
                 }
             )
             ->paginated(false);

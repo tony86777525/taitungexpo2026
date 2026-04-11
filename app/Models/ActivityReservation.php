@@ -3,13 +3,20 @@
 namespace App\Models;
 
 use App\Enums\ActivityReservationStatus;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOneThrough;
 
 class ActivityReservation extends Model
 {
+    protected $table = 'activity_reservations';
+
     protected $fillable = [
+        // 導覽領隊人
+        'guide_leader_name',
+        // 導覽領隊人聯絡方式
+        'guide_leader_contact',
         // 聯絡人姓名
         'contact_name',
         // 聯絡電話
@@ -44,30 +51,23 @@ class ActivityReservation extends Model
      */
     public function activitySession(): BelongsTo
     {
-        return $this->belongsTo(ActivitySession::class);
+        return $this->belongsTo(ActivitySession::class, 'activity_session_id');
     }
 
     /**
-     * Get the activity for the activity reservation.
+     * Get the activity session normal for the activity reservation.
      */
-    public function activity(): HasOneThrough
+    public function activitySessionNormal(): BelongsTo
     {
-        return $this->hasOneThrough(
-            Activity::class,         // 最終目標 Model
-            ActivitySession::class,  // 中間層級 Model
-            'id',                    // ActivitySession 的主鍵 (或 ActivityReservation 指向它的外鍵)
-            'id',                    // Activity 的主鍵
-            'activity_session_id',   // ActivityReservation 指向 ActivitySession 的外鍵
-            'activity_id'            // ActivitySession 指向 Activity 的外鍵
-        );
+        return $this->belongsTo(ActivitySessionNormal::class, 'activity_session_id');
     }
 
     /**
-     * @return string
+     * Get the activity session vip for the activity reservation.
      */
-    public function getDisplayTypeAttribute(): string
+    public function activitySessionVip(): BelongsTo
     {
-        return $this->type->label();
+        return $this->belongsTo(ActivitySessionVip::class, 'activity_session_id');
     }
 
     /**
@@ -85,5 +85,20 @@ class ActivityReservation extends Model
         }
 
         return '';
+    }
+
+    /**
+     * @return string
+     */
+    public function getOrderNumberAttribute(): string
+    {
+        if (empty($this->activitySession->project->display_venue_number)) {
+            return '';
+        }
+
+        $venueNumber = $this->activitySession->project->display_venue_number;
+        $datetime = Carbon::parse($this->created_at)->format('YmdHis');
+
+        return "{$datetime}-{$venueNumber}-{$this->id}";
     }
 }

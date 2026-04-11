@@ -91,13 +91,33 @@ class ActivitySession extends Model
     // canBookVipGroup() -> canBookGroup()
 
     /**
-     * 可預約團數
+     * 已預約團數
      *
      * @return integer
      */
-    public function getGroupCountAttribute(): int
+    public function getGroupBookedCountAttribute(): int
+    {
+        return $this->booked_activity_reservations_count ?? 0;
+    }
+
+    /**
+     * 可預約團數上限
+     *
+     * @return integer
+     */
+    public function getGroupMaxCountAttribute(): int
     {
         return $this->group_max;
+    }
+
+    /**
+     * 剩餘可預約團數
+     *
+     * @return integer
+     */
+    public function getGroupRemainingCountAttribute(): int
+    {
+        return $this->group_max_count - $this->group_booked_count;
     }
 
     /**
@@ -143,6 +163,27 @@ class ActivitySession extends Model
         }
 
         return null;
+    }
+
+    /**
+     * 場次日期
+     *
+     * @return string
+     */
+    public function getDisplayOptionTitleAttribute(): string
+    {
+        if ($this->relationLoaded('project') === false) {
+            return '';
+        }
+
+        if ($this->group_remaining_count <= 0) {
+            $groupCountNotice = "報名已額滿";
+
+        } else {
+            $groupCountNotice = "剩餘{$this->group_remaining_count}/{$this->group_max_count}";
+        }
+
+        return "{$this->project->display_type_and_venue_number_name} - {$this->display_date} - {$this->display_time_range}($groupCountNotice)";
     }
 
     /**

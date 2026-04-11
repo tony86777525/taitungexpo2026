@@ -2,10 +2,10 @@
 
 namespace App\Models;
 
-use App\Enums\ActivitySessionType;
+use App\Enums\ActivityReservationType;
 use Illuminate\Database\Eloquent\Builder;
 
-class ActivitySessionNormal extends ActivitySession
+class ActivityReservationNormal extends ActivityReservation
 {
     /**
      * @return void
@@ -14,7 +14,9 @@ class ActivitySessionNormal extends ActivitySession
     {
         // 強制這個 Model 只能看到一般場次資料
         static::addGlobalScope('normal', function (Builder $builder) {
-            $builder->where('activity_sessions.type', ActivitySessionType::NORMAL->value);
+            $builder->whereHas('activitySession', function ($query) {
+                $query->where('type', ActivityReservationType::NORMAL->value);
+            });
         });
     }
 }
