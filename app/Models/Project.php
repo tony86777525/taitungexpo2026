@@ -216,8 +216,8 @@ class Project extends Model
      */
     public function getDisplayDateRangeAttribute(): string
     {
-        $startDate = Carbon::create($this->project_start_date)->translatedFormat('n/j D');
-        $endDate = Carbon::create($this->project_end_date)->translatedFormat('n/j D');
+        $startDate = Carbon::create($this->project_start_date)->translatedFormat('Y.n.j（D）');
+        $endDate = Carbon::create($this->project_end_date)->translatedFormat('Y.n.j（D）');
 
         return "{$startDate} ~ {$endDate}";
     }
@@ -262,17 +262,33 @@ class Project extends Model
     /**
      * @return string
      */
+    public function getDisplayLogoAttribute(): string
+    {
+        return asset('storage/' . $this->logo_url);
+    }
+
+    /**
+     * @return string
+     */
     public function getDisplayThumbnailAttribute(): string
     {
         return asset('storage/' . $this->thumbnail_url);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getDisplayUrlAttribute(): string
+    public function getDisplayUrlAttribute(): ?string
     {
-        return lang_route('user.participation.detail', ['id' => $this->id]);
+        if ($this->type === ProjectType::PRIVATE_SECTOR_PROJECT) {
+            return lang_route('user.participation.detail', ['id' => $this->id]);
+        }
+
+        if ($this->type === ProjectType::EXHIBITION_OVERVIEW) {
+            return lang_route('user.about.overview.detail', ['id' => $this->id]);
+        }
+
+        return null;
     }
 
     /**
@@ -312,7 +328,7 @@ class Project extends Model
 
         $projectCategory = $this->projectCategories->first();
 
-        return "＃{$projectCategory->display_name}" ?: null;
+        return "{$projectCategory->display_name}" ?: null;
     }
 
     /**
@@ -330,8 +346,27 @@ class Project extends Model
 
         $curationNature = $this->curationNatures->first();
 
-        return "＃{$curationNature->display_name}" ?: null;
+        return "{$curationNature->display_name}" ?: null;
     }
+
+    /**
+     * @return string|null
+     */
+    public function getDisplayProjectNatureNameAttribute(): ?string
+    {
+        if ($this->relationLoaded('projectNatures') === false) {
+            return null;
+        }
+
+        if ($this->projectNatures->isEmpty()) {
+            return null;
+        }
+
+        $projectNature = $this->projectNatures->first();
+
+        return "{$projectNature->display_name}" ?: null;
+    }
+
 
     /**
      * @return Collection|null
@@ -387,5 +422,21 @@ class Project extends Model
         }
 
         return $this->images;
+    }
+
+    /**
+     * @return Collection|null
+     */
+    public function getProjectUnitTypes(): Collection|null
+    {
+        if ($this->relationLoaded('projectUnitTypes') === false) {
+            return null;
+        }
+
+        if ($this->projectUnitTypes->isEmpty()) {
+            return null;
+        }
+
+        return $this->projectUnitTypes;
     }
 }

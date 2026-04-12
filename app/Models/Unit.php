@@ -59,4 +59,12 @@ class Unit extends Model
 
         return $this->name_tw;
     }
+
+    /**
+     * @return string
+     */
+    public function getDisplayImageAttribute(): string
+    {
+        return asset('storage/' . $this->image_url);
+    }
 }

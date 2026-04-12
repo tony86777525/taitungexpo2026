@@ -1,12 +1,11 @@
 <?php
 
-use App\Http\Controllers\ActivityController;
-use App\Http\Controllers\ActivityReservationController;
 use App\Http\Controllers\User\IndexController;
 use App\Http\Controllers\User\NewsController;
 use App\Http\Controllers\User\EventController;
 use App\Http\Controllers\User\ParticipationController;
 use App\Http\Controllers\User\BrandController;
+use App\Http\Controllers\User\OverviewController;
 use Illuminate\Support\Facades\Route;
 
 Route::group([
@@ -134,10 +133,6 @@ Route::group([
         ->name('brand.detail')
         ->whereNumber('id');
 
-    // 展會概覽（第二批）
-    Route::get('/about/overview', function () {
-        return view('user.frontend.about.overview');
-    })->name('about.overview');
     // 主題介紹
     Route::get('/about/themes', function () {
         return view('user.about.themes');
@@ -150,8 +145,11 @@ Route::group([
     Route::get('/about/vi', function () {
         return view('user.about.vi');
     })->name('about.vi');
-});
 
-Route::get('/activity', [ActivityController::class, 'index'])->name('activity.index');
-Route::get('/activity/{sessionId}/reservation', [ActivityReservationController::class, 'create'])->name('activity.reservation.form');
-Route::post('/activity/reservation', [ActivityReservationController::class, 'store'])->name('activity.reservation.store');
+    // 展會概覽（第二批）
+    Route::get('/about/overview', [OverviewController::class, 'index'])
+        ->name('about.overview');
+    Route::get('/about/overview/detail/{id}/', [OverviewController::class, 'detail'])
+        ->name('about.overview.detail')
+        ->whereNumber('id');
+});
