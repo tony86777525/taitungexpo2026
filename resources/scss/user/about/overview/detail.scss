@@ -1,0 +1,21 @@
+@charset "UTF-8";
+@use '../../variables' as *;
+@use '../../mixin' as *;
+@use '../../normalize';
+@use '../../layout';
+@use '../../language';
+@use '../../common';
+@use '../../modules/button';
+@use '../../modules/popup';
+@use '../../modules/subpage';
+
+$commonPath: '../../../../images';
+$path: '../../../../images/about';
+
+.main {
+	padding-top: rem(70);
+
+	@include rwd-min(1280px) {
+		padding-top: rem(88);
+	}
+}

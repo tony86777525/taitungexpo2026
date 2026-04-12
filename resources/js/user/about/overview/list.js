@@ -1,5 +1,5 @@
-import CardSwiper from "../modules/cardSwiper";
-import SelectFilter from '../modules/selectFilter';
+import CardSwiper from "../../modules/cardSwiper";
+import SelectFilter from '../../modules/selectFilter';
 
 document.addEventListener("DOMContentLoaded", function () {
     const cardSwipers = CardSwiper.initAll(".js-cardSwiper", {

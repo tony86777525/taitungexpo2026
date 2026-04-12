@@ -34,10 +34,15 @@ Route::group([
             return view('user.frontend.about.vi');
         })->name('about.vi');
 
-        // 展會概覽（第二批）
-        Route::get('/about/overview', function () {
-            return view('user.frontend.about.overview');
-        })->name('about.overview');
+        // 展會概覽
+        // 列表
+        Route::get('/about/overview/', function () {
+            return view('user.frontend.about.overview.list');
+        })->name('about.overview.list');
+        // 子分頁
+        Route::get('/about/overview/detail', function () {
+            return view('user.frontend.about.overview.detail');
+        })->name('about.overview.detail');
 
         // 最新消息
         // 列表
@@ -86,6 +91,16 @@ Route::group([
         // Route::get('/style', function () {
         //     return view('user.frontend.style');
         // });
+
+        // 預約表單（第二批）
+        // 表單填寫
+        Route::get('/reservation/form', function () {
+            return view('user.frontend.reservation/form');
+        })->name('reservation.form');
+        // 表單完成
+        Route::get('/reservation/complete', function () {
+            return view('user.frontend.reservation/complete');
+        })->name('reservation.complete');
     });
 
     Route::get('/', [IndexController::class, 'index'])
