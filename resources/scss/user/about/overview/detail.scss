@@ -19,3 +19,11 @@ $path: '../../../../images/about';
 		padding-top: rem(88);
 	}
 }
+
+.m-subPage {
+	&__head {
+		.title {
+			max-width: calc(100% - rem(130));
+		}
+	}
+}
