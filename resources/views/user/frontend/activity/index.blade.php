@@ -22,7 +22,7 @@
                 <ul>
                 @foreach($activity->activitySessions as $session)
                     <li>
-                        <span>(已預約{{ $session->activityReservations->count() }}/{{ $session->group_count }})</span>
+                        <span>(已預約{{ $session->activityReservations->count() }}/{{ $session->normal_group_count }})</span>
                         <span> - </span>
                         <a
                             href="/activity/{{ $session->id }}/reservation"

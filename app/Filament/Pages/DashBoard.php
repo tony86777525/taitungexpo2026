@@ -36,6 +36,8 @@ class DashBoard extends Page implements HasForms, HasTable
 
     public function getBookedInfo(): array
     {
+        $currentUser = auth()->user();
+
         $data = ActivityReservation::query()
             ->select(
                 'activity_sessions.type AS type',
@@ -45,10 +47,14 @@ class DashBoard extends Page implements HasForms, HasTable
             )
             ->rightJoin('activity_sessions', 'activity_reservations.activity_session_id', '=', 'activity_sessions.id')
             ->rightJoin('projects', 'projects.id', '=', 'activity_sessions.project_id')
-//            ->where('activity_reservations.status', ActivityReservationStatus::CONFIRMED)
             ->where('activity_sessions.is_active', true)
             ->where('projects.is_active', true)
-//            ->where('activity_sessions.date', Carbon::now()->format('Y-m-d'))
+            // 分場館預約系統管理者 只能看到所屬場館的內容
+            ->when($currentUser->hasRole('venue_reservation_system_admin') && !empty($currentUser->project_id), function ($query) use ($currentUser) {
+                $query
+                    ->where('activity_sessions.project_id', $currentUser->project_id)
+                    ->where('activity_sessions.type', ActivitySessionType::NORMAL);
+            })
             ->get();
 
         $todayGroupCount = $data
@@ -77,6 +83,9 @@ class DashBoard extends Page implements HasForms, HasTable
             ->count();
 
         $joinCount = $data
+            ->filter(function ($item) {
+                return $item->status === ActivityReservationStatus::CONFIRMED;
+            })
             ->sum('participants_quota');
 
         $bookedVipCount = $data
@@ -102,13 +111,22 @@ class DashBoard extends Page implements HasForms, HasTable
     /**
      * 這是 HasTable 介面要求的方法，定義預設表格（這裡設為全部預約）。
      */
-    public function table(Table $table): Table
+    public function table(Table $table): ?Table
     {
+        $currentUser = auth()->user();
+
+        $activityReservationNormalQuery = ActivityReservationNormal::query()
+            ->select('activity_reservations.*')
+            ->rightJoin('activity_sessions', 'activity_reservations.activity_session_id', '=', 'activity_sessions.id')
+            ->where('status', ActivityReservationStatus::PENDING)
+            ->when($currentUser->hasRole('venue_reservation_system_admin') && !empty($currentUser->project_id), function ($query) use ($currentUser) {
+                $query->where('activity_sessions.project_id', $currentUser->project_id);
+            })
+            ->orderBy('activity_reservations.id', 'desc');
+
         return $table
             ->query(
-                ActivityReservationNormal::query()
-                    ->where('status', ActivityReservationStatus::PENDING)
-                    ->orderBy('id', 'desc')
+                $activityReservationNormalQuery
             )
             ->heading(view('filament.common.table_heading', [
                 'heading' => '【一般】待審核預約資料',
