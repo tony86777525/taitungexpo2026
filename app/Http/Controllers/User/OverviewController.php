@@ -5,11 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Enums\ProjectType;
 use App\Enums\ZoneCode;
 use App\Http\Controllers\Controller;
-use App\Models\Article;
-use App\Models\Brand;
-use App\Models\BrandTag;
 use App\Models\Project;
-use App\Models\Tag;
 use App\Models\Zone;
 use Illuminate\Http\Request;
 
@@ -21,11 +17,13 @@ class OverviewController extends Controller
 
         $zones = Zone::query()
             ->select('zones.*')
-            ->rightJoin('projects', 'projects.zone_id', '=', 'zones.id')
+            ->whereHas('projects', function ($query) {
+                $query
+                    ->where('is_active', true)
+                    ->where('type', ProjectType::EXHIBITION_OVERVIEW);
+            })
             ->where('zones.is_active', true)
             ->where('zones.is_only_activity', false)
-            ->where('projects.is_active', true)
-            ->where('projects.type', ProjectType::EXHIBITION_OVERVIEW)
             ->get();
 
         $exhibitionOverviewProjects = collect();
