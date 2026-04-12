@@ -121,7 +121,8 @@ $btnPath: '/resources/images';
     }
 
     &--goSubpage,
-    &--blankPage {
+    &--blankPage,
+    &--submit {
         display: flex;
         align-items: center;
         padding: rem(9) rem(19);

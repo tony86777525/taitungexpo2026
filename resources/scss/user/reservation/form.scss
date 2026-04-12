@@ -10,3 +10,21 @@
 
 $commonPath: '../../../images';
 $path: '../../../images/reservation';
+
+.main {
+	padding-top: rem(70);
+
+	@include rwd-min(1280px) {
+		padding-top: rem(88);
+	}
+}
+
+.section--intro {
+    min-height: 100dvh;
+}
+
+.section--form {
+    .section__content {
+        padding: rem(80) 0;
+    }
+}
