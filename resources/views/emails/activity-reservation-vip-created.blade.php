@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>預約審核結果通知</title>
+    <title>VIP團體導覽預約通知</title>
 </head>
 <body>
     <h1>團體導覽申請已通過</h1>

@@ -1,16 +1,18 @@
 <?php
 
-namespace App\Filament\Resources\ActivitySessions\Schemas;
+namespace App\Filament\Resources\ActivitySessionNormals\Schemas;
 
+use App\Enums\ActivitySessionType;
 use App\Models\Project;
-use Closure;
 use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Placeholder;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\TimePicker;
 use Filament\Forms\Components\Toggle;
+use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Utilities\Get;
@@ -18,13 +20,16 @@ use Filament\Schemas\Components\Utilities\Set;
 use Filament\Schemas\Schema;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\HtmlString;
 
-class ActivitySessionForm
+class ActivitySessionNormalForm
 {
     public static function configure(Schema $schema): Schema
     {
         return $schema
             ->components([
+                Hidden::make('type')
+                    ->default(ActivitySessionType::NORMAL),
                 Select::make('project_id')
                     ->label('計畫')
                     ->relationship(
@@ -66,16 +71,16 @@ class ActivitySessionForm
                     })
                     ->maxWidth('sm'),
                 Section::make(function (Get $get) {
-                    $projectId = $get('project_id');
-                    if (! $projectId) return '選擇場次時段（請先選擇計畫）';
+                        $projectId = $get('project_id');
+                        if (! $projectId) return '選擇場次時段（請先選擇計畫）';
 
-                    // 這裡只會查詢一次
-                    $project = Project::find($projectId);
+                        // 這裡只會查詢一次
+                        $project = Project::find($projectId);
 
-                    if (!$project) return '';
+                        if (!$project) return '';
 
-                    return "選擇場次時段（場次可選時段：{$project->display_time_range}）";
-                })
+                        return "選擇場次時段（場次可選時段：{$project->display_time_range}）";
+                    })
                     ->schema([
                         TimePicker::make('start_time')
                             ->label('場次開始時段')

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Enums\ActivityReservationStatus;
-use App\Enums\ActivityReservationType;
 use App\Models\ActivityReservation;
 use App\Models\ActivitySession;
 use Carbon\Carbon;
@@ -25,8 +24,7 @@ class ActivityReservationController extends Controller
                 'activity.project.zone',
                 'activityReservations' => function ($query) {
                     $query
-                        ->where('status', '!=', ActivityReservationStatus::CANCELLED)
-                        ->where('type', ActivityReservationType::NORMAL);
+                        ->where('status', '!=', ActivityReservationStatus::CANCELLED);
                 },
             ])
             ->where('id', $sessionId)
@@ -40,9 +38,9 @@ class ActivityReservationController extends Controller
             return "場次已過期<br><a href=\"{$url}\">返回</a>";
         }
 
-        $normalGroupCount = $activitySession->activityReservations->count();
+        $groupCount = $activitySession->activityReservations->count();
 
-        if (!$activitySession->canBookNormalGroup($normalGroupCount)) {
+        if (!$activitySession->canBookGroup($groupCount)) {
             return "場次預約已滿<br><a href=\"{$url}\">返回</a>";
         }
 
@@ -63,9 +61,9 @@ class ActivityReservationController extends Controller
         ]);
 
         $activitySession = ActivitySession::find($validated['activity_session_id']);
-        $normal_group_count = $activitySession->activityReservations->where('type', ActivityReservationType::NORMAL)->count();
+        $group_count = $activitySession->activityReservations->count();
 
-        if (!$activitySession->canBookNormalGroup($normal_group_count)) {
+        if (!$activitySession->canBookGroup($group_count)) {
             return redirect()->route('activity.index')->with('success', '預約已滿');
         }
 

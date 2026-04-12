@@ -13,8 +13,8 @@ use App\Filament\Resources\ActivityReservations\Schemas\ActivityReservationInfol
 use App\Filament\Resources\ActivityReservations\Tables\ActivityReservationsTable;
 use App\Models\ActivityReservation;
 use BackedEnum;
-use Illuminate\Database\Eloquent\Builder;
 use UnitEnum;
+use Illuminate\Database\Eloquent\Builder;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -31,6 +31,9 @@ class ActivityReservationResource extends Resource
     protected static ?string $modelLabel = '團體導覽預約申請';
 
     protected static UnitEnum|string|null $navigationGroup = 'Activity Sessions';
+
+    // 不顯示頁面
+    protected static bool $shouldRegisterNavigation = false;
 
     public static function form(Schema $schema): Schema
     {

@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Filament\Resources\ActivitySessions\Schemas;
+namespace App\Filament\Resources\ActivitySessionVips\Schemas;
 
+use App\Enums\ActivitySessionType;
 use App\Models\Project;
-use Closure;
 use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Placeholder;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
@@ -19,12 +20,14 @@ use Filament\Schemas\Schema;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
-class ActivitySessionForm
+class ActivitySessionVipForm
 {
     public static function configure(Schema $schema): Schema
     {
         return $schema
             ->components([
+                Hidden::make('type')
+                    ->default(ActivitySessionType::VIP),
                 Select::make('project_id')
                     ->label('計畫')
                     ->relationship(

@@ -29,6 +29,9 @@ class ActivitySessionResource extends Resource
 
     protected static UnitEnum|string|null $navigationGroup = 'Activity Sessions';
 
+    // 不顯示頁面
+    protected static bool $shouldRegisterNavigation = false;
+
     public static function form(Schema $schema): Schema
     {
         return ActivitySessionForm::configure($schema);

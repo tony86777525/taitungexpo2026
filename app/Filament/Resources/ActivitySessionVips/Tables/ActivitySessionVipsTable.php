@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Resources\ActivitySessions\Tables;
+namespace App\Filament\Resources\ActivitySessionVips\Tables;
 
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
@@ -11,17 +11,15 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 
-class ActivitySessionsTable
+class ActivitySessionVipsTable
 {
     public static function configure(Table $table): Table
     {
         return $table
             ->reorderable('sort_order')
-            ->defaultSort('sort_order')
             ->columns([
                 TextColumn::make('project.display_type_and_venue_number_name')
-                    ->label('計畫')
-                    ->searchable(),
+                    ->label('計畫'),
                 TextColumn::make('display_date')
                     ->label('場次日期')
                     ->sortable(),
@@ -33,7 +31,7 @@ class ActivitySessionsTable
                     ->getStateUsing(fn ($record) => "{$record->quota_min} ~ {$record->quota_max}")
                     ->sortable(),
                 TextColumn::make('group_max')
-                    ->label('可預約總組數 (※一般＋ VIP 預約名額)')
+                    ->label('可預約總組數')
                     ->numeric()
                     ->sortable(),
                 IconColumn::make('is_active')

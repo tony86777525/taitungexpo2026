@@ -3,8 +3,7 @@
 namespace App\Models;
 
 use App\Enums\ActivityReservationStatus;
-use App\Enums\ActivityReservationType;
-use App\Enums\Language;
+use App\Enums\ActivitySessionType;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -13,9 +12,13 @@ use Illuminate\Support\Collection;
 
 class ActivitySession extends Model
 {
+    protected $table = 'activity_sessions';
+
     protected $fillable = [
         // 計畫
         'project_id',
+        // 場次類型 (1:普通, 2:vip)
+        'type',
         // 預約日期
         'date',
         // 預約開始時段
@@ -26,12 +29,8 @@ class ActivitySession extends Model
         'quota_min',
         // 建議人數上限
         'quota_max',
-        // 可預約總組數 (※一般＋ VIP 預約名額)
+        // 可預約總組數
         'group_max',
-        // 保留「VIP 預約」組數 (※建議每時段至少保留 1 組)
-        'group_vip',
-        // 開放「一般預約」組數 (※對外開放預約名額)
-        'group_regular',
         // 團體導覽場館備註
         'tour_venue_note',
         // 單位/聯絡人
@@ -47,6 +46,7 @@ class ActivitySession extends Model
     ];
 
     protected $casts = [
+        'type' => ActivitySessionType::class,
         'is_active' => 'boolean',
     ];
 
@@ -58,7 +58,7 @@ class ActivitySession extends Model
      */
     public function project(): BelongsTo
     {
-        return $this->belongsTo(Project::class);
+        return $this->belongsTo(Project::class, 'project_id', 'id');
     }
 
     /**
@@ -69,12 +69,12 @@ class ActivitySession extends Model
      */
     public function activityReservations(): HasMany
     {
-        return $this->hasMany(ActivityReservation::class);
+        return $this->hasMany(ActivityReservation::class, 'activity_session_id', 'id');
     }
 
     /**
-     * Get the activity reservations for the activity session.
-     * 活動內容
+     * Booked activity reservations
+     * 已預約成功
      *
      * @return HasMany
      */
@@ -84,55 +84,65 @@ class ActivitySession extends Model
             ->where('status', ActivityReservationStatus::CONFIRMED->value);
     }
 
+    // delect
+    // normal_group_count -> group_count
+    // canBookNormalGroup() -> canBookGroup()
+    // vip_group_count -> group_count
+    // canBookVipGroup() -> canBookGroup()
+
     /**
-     * 可預約普通團數
+     * 已預約團數
      *
      * @return integer
      */
-    public function getNormalGroupCountAttribute(): int
+    public function getGroupBookedCountAttribute(): int
     {
-        return $this->group_regular;
+        return $this->booked_activity_reservations_count ?? 0;
     }
 
     /**
-     * 是否可以預約普通團
+     * 可預約團數上限
+     *
+     * @return integer
+     */
+    public function getGroupMaxCountAttribute(): int
+    {
+        return $this->group_max;
+    }
+
+    /**
+     * 剩餘可預約團數
+     *
+     * @return integer
+     */
+    public function getGroupRemainingCountAttribute(): int
+    {
+        return $this->group_max_count - $this->group_booked_count;
+    }
+
+    /**
+     * 是否可以預約
      *
      * @param integer $currentGroupCount
      * @return boolean
      */
-    public function canBookNormalGroup(int $currentGroupCount): bool
+    public function canBookGroup(int $currentGroupCount): bool
     {
-        return ($this->group_regular) > $currentGroupCount;
+        return ($this->group_max) > $currentGroupCount;
     }
 
     /**
-     * 可預約VIP團數
+     * 取得狀態文字顏色
      *
-     * @return integer
+     * @return string|null
      */
-    public function getVipGroupCountAttribute(): int
+    public function getBookedStatusColorAttribute(): ?string
     {
-        return $this->group_vip;
-    }
-
-    /**
-     * 是否可以預約普通團
-     *
-     * @param integer $currentGroupCount
-     * @return boolean
-     */
-    public function canBookVipGroup(int $currentGroupCount): bool
-    {
-        return ($this->group_vip) > $currentGroupCount;
-    }
-
-    public function getBookedStatusColorAttribute()
-    {
-        if ($this->relationLoaded('activityReservations') === false) {
+        if (is_null($this->booked_activity_reservations_count)) {
             return null;
         }
 
-        $bookedCount = $this->activityReservations->count();
+        $bookedCount = $this->booked_activity_reservations_count;
 
         if ($this->group_max === 0) {
             return 'gray';
@@ -153,6 +163,27 @@ class ActivitySession extends Model
         }
 
         return null;
+    }
+
+    /**
+     * 場次日期
+     *
+     * @return string
+     */
+    public function getDisplayOptionTitleAttribute(): string
+    {
+        if ($this->relationLoaded('project') === false) {
+            return '';
+        }
+
+        if ($this->group_remaining_count <= 0) {
+            $groupCountNotice = "報名已額滿";
+
+        } else {
+            $groupCountNotice = "剩餘{$this->group_remaining_count}/{$this->group_max_count}";
+        }
+
+        return "{$this->project->display_type_and_venue_number_name} - {$this->display_date} - {$this->display_time_range}($groupCountNotice)";
     }
 
     /**
