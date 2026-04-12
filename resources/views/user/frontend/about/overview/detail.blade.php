@@ -14,7 +14,13 @@
 		<div class="m-element m-subPage__head">
 			<div class="container">
 				<div class="pageLabel"><span class="pageLabel__text">#計畫類型</span></div>
+				<div class="logo">
+					<div class="imgWrap">
+						<img src="https://picsum.photos/50/123" alt="">
+					</div>
+				</div>
 				<div class="wrapper">
+                	<div class="team">團隊名稱</div>
 					<div class="title f-title-primary is-pageTitle">計畫標題</div>
 					<ul class="datas">
 						<li class="datas__item datas__item--date">
