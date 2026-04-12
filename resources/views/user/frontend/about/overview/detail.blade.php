@@ -20,7 +20,6 @@
 					</div>
 				</div>
 				<div class="wrapper">
-                	<div class="team">團隊名稱</div>
 					<div class="title f-title-primary is-pageTitle">計畫標題</div>
 					<ul class="datas">
 						<li class="datas__item datas__item--date">
