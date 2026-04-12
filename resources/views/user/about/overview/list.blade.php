@@ -40,7 +40,7 @@
                                                 role="option"
                                             >
                                                 <a
-                                                    href="{{ lang_route('user.about.overview') }}?zone={{ $zone->id }}"
+                                                    href="{{ lang_route('user.about.overview', ['zone' => $zone->id]) }}"
                                                     class="text"
                                                 >{{ $zone->display_code_name }}</a>
                                             </li>
