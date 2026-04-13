@@ -16,19 +16,17 @@ class ArticlesTable
     public static function configure(Table $table): Table
     {
         return $table
-            ->reorderable('sort_order')
-            ->defaultSort('sort_order')
             ->columns([
+                TextColumn::make('published_at')
+                    ->label('日期')
+                    ->date('Y年m月d日')
+                    ->sortable(),
                 TextColumn::make('title_tw')
                     ->label('消息標題（中）')
                     ->searchable(),
                 TextColumn::make('title_en')
                     ->label('消息標題（英）')
                     ->searchable(),
-                TextColumn::make('published_at')
-                    ->label('日期')
-                    ->date('Y年m月d日')
-                    ->sortable(),
 //                ImageColumn::make('thumbnail_url')
 //                    ->label('縮略圖')
 //                    ->disk('public'),
@@ -47,8 +45,8 @@ class ArticlesTable
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->modifyQueryUsing(fn (Builder $query) => $query
-                ->orderBy('sort_order', 'asc') // 第一排序條件
-                ->orderBy('id', 'desc') // 第二排序條件
+                ->orderBy('published_at', 'DESC') // 第一排序條件
+                ->orderBy('id', 'DESC') // 第二排序條件
             )
             ->filters([
                 //

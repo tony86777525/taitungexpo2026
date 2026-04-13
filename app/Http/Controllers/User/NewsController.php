@@ -32,7 +32,8 @@ class NewsController extends Controller
                     $query->where('tags.id', $currentTagId);
                 });
             })
-            ->orderBy('sort_order')
+            ->orderBy('published_at', 'DESC')
+            ->orderBy('id', 'DESC')
             ->paginate(9)
             ->withQueryString()
             ->onEachSide(1);

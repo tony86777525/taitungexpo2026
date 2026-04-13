@@ -46,6 +46,8 @@ class OverviewController extends Controller
                 ->where('type', ProjectType::EXHIBITION_OVERVIEW)
                 ->where('is_active', true)
                 ->where('zone_id', $currentZoneId)
+                ->orderBy('zone_id')
+                ->orderBy('project_number')
                 ->get();
 
             abort_if(empty($exhibitionOverviewProjects), 404);

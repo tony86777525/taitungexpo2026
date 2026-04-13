@@ -15,7 +15,8 @@ class IndexController extends Controller
     {
         $articles = Article::query()
             ->where('is_active', true)
-            ->orderBy('sort_order')
+            ->orderBy('published_at', 'DESC')
+            ->orderBy('id', 'DESC')
             ->limit(12)
             ->get();
 
@@ -32,7 +33,11 @@ class IndexController extends Controller
 
         $zones = Zone::query()
             ->with([
-                'exhibitionOverviewProjects',
+                'exhibitionOverviewProjects' => function ($query) {
+                    $query
+                        ->orderBy('zone_id')
+                        ->orderBy('project_number');
+                },
                 'exhibitionOverviewProjects.curationNatures',
             ])
             ->where('is_active', true)

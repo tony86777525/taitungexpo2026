@@ -38,7 +38,8 @@ class ParticipationController extends Controller
                     $query->where('project_categories.id', $currentProjectCategoryId);
                 });
             })
-            ->orderBy('sort_order')
+            ->orderBy('zone_id')
+            ->orderBy('project_number')
             ->paginate(9)
             ->withQueryString()
             ->onEachSide(1);

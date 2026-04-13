@@ -17,8 +17,6 @@ class ExhibitionOverviewsTable
     public static function configure(Table $table): Table
     {
         return $table
-            ->reorderable('sort_order')
-            ->defaultSort('sort_order')
             ->columns([
                 TextColumn::make('venue_number')
                     ->label('場館編號')
@@ -47,8 +45,8 @@ class ExhibitionOverviewsTable
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->modifyQueryUsing(fn (Builder $query) => $query
-                ->orderBy('sort_order', 'asc') // 第一排序條件
-                ->orderBy('id', 'desc') // 第二排序條件
+                ->orderBy('zone_id')
+                ->orderBy('project_number')
             )
             ->filters([
                 //
