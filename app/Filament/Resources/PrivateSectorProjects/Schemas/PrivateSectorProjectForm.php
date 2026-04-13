@@ -112,14 +112,14 @@ class PrivateSectorProjectForm
                             ->rules([
                                 Rule::dimensions()
                                     ->maxWidth(1966)
-                                    ->maxHeight(1103)
-                                    ->ratio(16 / 9),
+                                    ->maxHeight(1103),
+//                                    ->ratio(16 / 9),
                             ])
                             ->validationMessages([
-                                'dimensions' => '圖片尺寸必須為 1966x1103 px以內 且比例為 16:9。',
+                                'dimensions' => '圖片尺寸必須為 1966x1103 px以內。',
                                 'mimetypes' => '僅支援 WebP 格式圖片。',
                             ])
-                            ->placeholder('僅支援 WebP 格式<br>尺寸必須為 1966x1103 px以內<br>比例為 16:9'),
+                            ->placeholder('僅支援 WebP 格式<br>尺寸必須為 1966x1103 px以內'),
                         TextInput::make('alt_text')
                             ->label('Alt文字'),
                     ])
