@@ -33,7 +33,7 @@ class CreateBatchActivitySessionNormal extends CreateRecord
         $startDate = $data['start_date'];
         $endDate = $data['end_date'];
         $timeSlots = $data['time_slots'] ?? [];
-        $defaultRecord = collect($data)->except(['start_date', 'end_date', 'time_slots', 'excluded_dates']);
+        $defaultRecord = collect($data)->except(['start_date', 'end_date', 'time_slots', 'excluded_dates', 'excluded_days']);
 
         // 建立日期區間迭代器
         $periodDates = CarbonPeriod::create($startDate, $endDate);
