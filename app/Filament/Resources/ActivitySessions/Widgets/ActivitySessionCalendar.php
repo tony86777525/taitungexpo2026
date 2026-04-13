@@ -26,7 +26,7 @@ class ActivitySessionCalendar extends CalendarWidget
     protected bool $eventClickEnabled = true;
     protected ?string $defaultEventClickAction = 'edit';
 
-    public ?string $venueFilter = null;
+    public ?array $venuesFilter = null;
 
     protected CalendarViewType $calendarView = CalendarViewType::TimeGridWeek;
 
@@ -52,21 +52,25 @@ class ActivitySessionCalendar extends CalendarWidget
                     ->where('activity_sessions.project_id', $currentUser->project_id)
                     ->where('activity_sessions.type', ActivitySessionType::NORMAL);
             })
-            ->when($this->venueFilter, function ($query) {
-                // \D+ 匹配非數字（即字母），\d+ 匹配數字
-                // P<name> 是 PHP 正規表達式的命名分組語法
-                if (preg_match('/(?P<zone>\D+)(?P<project_number>\w+)/', $this->venueFilter, $matches)) {
-                    $result = [
-                        'zone' => $matches['zone'],
-                        'project_number' => $matches['project_number'],
-                    ];
+            ->when(!empty($this->venuesFilter), function ($query) {
+                $query->where(function ($query) {
+                    foreach ($this->venuesFilter as $venue) {
+                        // \D+ 匹配非數字（即字母），\d+ 匹配數字
+                        // P<name> 是 PHP 正規表達式的命名分組語法
+                        if (preg_match('/(?P<zone>\D+)(?P<project_number>\w+)/', $venue, $matches)) {
+                            $result = [
+                                'zone' => $matches['zone'],
+                                'project_number' => $matches['project_number'],
+                            ];
 
-                    $query
-                        ->where('zones.code', $result['zone'])
-                        ->where('projects.project_number', $result['project_number']);
-                } else {
-                    return $query->where(DB::raw(1), 0);
-                }
+                            $query
+                                ->orWhere('zones.code', $result['zone'])
+                                ->where('projects.project_number', $result['project_number']);
+                        } else {
+                            return $query->where(DB::raw(1), 0);
+                        }
+                    }
+                });
             })
             ->orderBy('activity_sessions.start_time')
             ->get()
@@ -146,15 +150,15 @@ class ActivitySessionCalendar extends CalendarWidget
                 ->icon('heroicon-m-funnel')
                 // 2. 每次打開 Modal 時，將目前的類別屬性值填入表單
                 ->mountUsing(fn ($form) => $form->fill([
-                    'venue' => $this->venueFilter,
+                    'venues' => $this->venuesFilter,
                 ]))
                 ->form([
-                    \Filament\Forms\Components\Radio::make('venue')
+                    \Filament\Forms\Components\CheckboxList::make('venues')
                         ->label('場館')
                         ->options($venues),
                 ])
                 ->action(function ($data) {
-                    $this->venueFilter = $data['venue'];
+                    $this->venuesFilter = $data['venues'];
                     // 關鍵：通知 Calendar 重新抓取資料
                     $this->refreshRecords();
                 })
@@ -164,7 +168,7 @@ class ActivitySessionCalendar extends CalendarWidget
                 ->label('清除')
                 ->color('gray')
                 ->action(function () {
-                    $this->venueFilter = null;
+                    $this->venuesFilter = null;
                     $this->refreshRecords();
                 })
         ];
