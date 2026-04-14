@@ -80,7 +80,6 @@ return [
         ],
         'remark' => [
             'title' => 'Remarks (Optional)',
-            'errMsg' => ''
         ],
         'hint' => 'Please complete the application form and review the following notes before scrolling down and clicking the “Submit Application” button.',
         'notices' => [
