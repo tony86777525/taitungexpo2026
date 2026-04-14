@@ -93,12 +93,12 @@ Route::group([
 
         // 預約表單（第二批）
         // 表單填寫
-        Route::get('/reservation/form', function () {
-            return view('user.frontend.reservation/form');
-        })->name('reservation.form');
+        Route::get('/reservation', function () {
+            return view('user.frontend.reservation.index');
+        })->name('reservation.index');
         // 表單完成
         Route::get('/reservation/complete', function () {
-            return view('user.frontend.reservation/complete');
+            return view('user.frontend.reservation.complete');
         })->name('reservation.complete');
     });
 
