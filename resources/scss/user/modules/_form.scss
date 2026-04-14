@@ -85,6 +85,13 @@ $decoPath: '/resources/images';
         border-radius: rem(20);
     }
 
+    &--captcha {
+        border: rem(1) solid $secondary;
+        padding: rem(8.5) rem(20);
+        width: 100%;
+        border-radius: rem(10);
+    }
+
     &--radio {
         display: none;
 
@@ -176,6 +183,29 @@ $decoPath: '/resources/images';
         display: block;
         color: $secondary;
         word-break: keep-all;
+    }
+}
+
+
+.captcha {
+    max-width: rem(183);
+    margin-left: auto;
+    margin-right: auto;
+
+    &__image {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        column-gap: rem(10);
+
+        .img {
+            width: rem(143);
+            flex: 0 0 rem(143)
+        }
+    }
+
+    &__input {
+        margin-top: rem(10);
     }
 }
 
