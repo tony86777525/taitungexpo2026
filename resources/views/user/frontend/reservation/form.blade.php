@@ -171,7 +171,7 @@
 	<div class="form__foot">
 		<div class="container">
 			<div class="notice">
-				<div class="notice___title">{{ __('reservation.form.notices.title') }}</div>
+				<div class="notice__title">{{ __('reservation.form.notices.title') }}</div>
 				<ul class="notice__list f-p">
 					<li><span class="f-h5">{{ __('reservation.form.notices.lists.list-item1') }}</span></li>
 					<li><span class="f-h5">{{ __('reservation.form.notices.lists.list-item2') }}</span></li>
