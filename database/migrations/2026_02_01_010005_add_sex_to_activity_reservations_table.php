@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('activity_reservations', function (Blueprint $table) {
-            $table->string('contact_sex')->nullable()->comment('聯絡人性別')->after('contact_name');
+            $table->tinyInteger('contact_sex')->default(1)->comment('聯絡人性別')->after('contact_name');
         });
     }
 

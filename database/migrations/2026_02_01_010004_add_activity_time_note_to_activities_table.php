@@ -25,7 +25,7 @@ return new class extends Migration
     {
         Schema::table('activities', function (Blueprint $table) {
             // 執行 rollback 時移除該欄位
-            $table->dropColumn('activity_time_note_tw, activity_time_note_en');
+            $table->dropColumn(['activity_time_note_tw', 'activity_time_note_en']);
         });
     }
 };

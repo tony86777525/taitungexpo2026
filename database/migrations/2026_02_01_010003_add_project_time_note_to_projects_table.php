@@ -26,7 +26,7 @@ return new class extends Migration
     {
         Schema::table('projects', function (Blueprint $table) {
             // 執行 rollback 時移除該欄位
-            $table->dropColumn('project_time_note_tw, project_time_note_en');
+            $table->dropColumn(['project_time_note_tw', 'project_time_note_en']);
             $table->string('project_time_note')->nullable()->comment('開放時間備註')->after('project_end_time');
         });
     }
