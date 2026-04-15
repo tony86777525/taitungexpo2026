@@ -22,6 +22,168 @@ $path: '../../../images/reservation';
 
 .section--intro {
     padding: rem(80) 0;
+
+    .container {
+        max-width: rem(800);
+        margin: 0 auto;
+    }
+
+    .steps {
+        .steps__item {
+            margin-bottom: rem(67);
+
+            @include rwd-min(769px) {
+                margin-bottom: rem(77);
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .stepItem {
+        &__title {
+            position: relative;
+            border: rem(1) solid $bg-2;
+            padding: rem(50) rem(20) rem(30);
+            border-radius: rem(40);
+            background-color: $white;
+            
+            @include rwd-min(769px) {
+                padding: rem(24) rem(60) rem(24) rem(40);
+                border-radius: rem(100);
+            }
+
+            &:after {
+                content: '';
+                display: block;
+                position: absolute;
+                top: rem(-27);
+                right: 0;
+                width: rem(70);
+                height: rem(70);
+                background-size: rem(70);
+                background-repeat: no-repeat;
+                background-position: center;
+                
+                @include rwd-min(769px) {
+                    width: rem(86);
+                    height: rem(86);
+                    top: 50%;
+                    right: rem(-46);
+                    @include translateY(-50%);
+                    background-size: rem(86);
+                }
+            }
+
+            .number {
+                position: absolute;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: rem(70);
+                height: rem(70);
+                background-color: $yellow;
+                color: $white;
+                border-radius: 50%;
+                left: 0;
+                top: rem(-27);
+                @include f-unbounded;
+                font-size: rem(36);
+                line-height: 1.4;
+                font-weight: bold;
+                letter-spacing: rem(3.6);
+
+
+                @include rwd-min(769px) {
+                    top: rem(-35);
+                    left: rem(-35);
+                }
+            }
+
+            .intro {
+                display: flex;
+                flex-direction: column;
+                gap: rem(10);
+                
+                @include rwd-min(769px) {
+                    flex-direction: row;
+                    gap: rem(20);
+                }
+
+                &__topic {
+                    color: $secondary;
+                }
+
+                &__desc {
+                    flex: 1;
+                    color: $bg-3;
+
+                    @include rwd-min(769px) {
+                        padding-top: rem(7);
+                    }
+                }
+            }
+        }
+
+        &__list {
+            @include list-reset;
+            margin-top: rem(20);
+
+            @include rwd-min(769px) {
+                margin-top: rem(40);
+                padding: 0 rem(40);
+            }
+
+            & > li {
+                position: relative;
+                padding-left: rem(26);
+                margin-bottom: rem(10);
+                color: $secondary;
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    width: rem(16);
+                    height: rem(16);
+                    border-radius: 50%;
+                    background-color: $yellow;
+                }
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+
+                .highlight {
+                    color: $bg-3;
+                }
+            }
+        }
+
+        &--step1 {
+            .stepItem__title {
+                &:after {
+                    background-image: url('#{$path}/icon_step-1.svg');
+                }
+            }
+        }
+        &--step2 {
+            .stepItem__title {
+                &:after {
+                    background-image: url('#{$path}/icon_step-2.svg');
+                }
+            }
+        }
+        &--step3 {
+            .stepItem__title {
+                &:after {
+                    background-image: url('#{$path}/icon_step-3.svg');
+                }
+            }
+        }
+    } 
 }
 
 .section--form {
@@ -172,6 +334,15 @@ $path: '../../../images/reservation';
 
 .lang {
 	&--en {
+        .section--intro {
+            .stepItem__list {
+                & > li {
+                    &:before {
+                        top: rem(0);
+                    }
+                }
+            }
+        }
 		.section--form {
 			.form__foot {
                 .notice__list {
@@ -186,6 +357,15 @@ $path: '../../../images/reservation';
     }
 
 	&--zh {
+        .section--intro {
+            .stepItem__list {
+                & > li {
+                    &:before {
+                        top: rem(6);
+                    }
+                }
+            }
+        }
 		.section--form {
 			.form__foot {
                 .notice__list {
