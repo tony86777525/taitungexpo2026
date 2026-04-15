@@ -38,6 +38,12 @@ class ExhibitionOverviewInfolist
                 TextEntry::make('project_time')
                     ->label('計畫時間-每日開放時間')
                     ->getStateUsing(fn ($record) => "{$record->display_time_range}"),
+                TextEntry::make('project_time_note_tw')
+                    ->label('開放時間備註（中）')
+                    ->placeholder('-'),
+                TextEntry::make('project_time_note_en')
+                    ->label('開放時間備註（英）')
+                    ->placeholder('-'),
                 TextEntry::make('project_location_tw')
                     ->label('計畫地點（中）')
                     ->placeholder('-'),

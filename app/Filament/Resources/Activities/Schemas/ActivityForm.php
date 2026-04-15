@@ -113,6 +113,10 @@ class ActivityForm
                             ->required()
                             ->maxWidth('sm'),
                     ]),
+                TextInput::make('activity_time_note_tw')
+                    ->label('開放時間備註（中）'),
+                TextInput::make('activity_time_note_en')
+                    ->label('開放時間備註（英）'),
                 TextInput::make('activity_location_tw')
                     ->label('活動地點（中）')
                     ->required(),

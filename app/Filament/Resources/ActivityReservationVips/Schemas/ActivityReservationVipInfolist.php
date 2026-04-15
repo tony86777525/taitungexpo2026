@@ -19,7 +19,7 @@ class ActivityReservationVipInfolist
                     ->label('導覽領隊人'),
                 TextEntry::make('guide_leader_contact')
                     ->label('領隊人聯絡方式'),
-                TextEntry::make('contact_name')
+                TextEntry::make('display_contact_dear_name')
                     ->label('vip團體聯絡人'),
                 TextEntry::make('contact_phone')
                     ->label('聯絡電話'),

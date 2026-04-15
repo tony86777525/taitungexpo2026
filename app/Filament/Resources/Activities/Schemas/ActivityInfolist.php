@@ -27,6 +27,12 @@ class ActivityInfolist
                 TextEntry::make('time')
                     ->label('活動時間')
                     ->getStateUsing(fn ($record) => "{$record->display_time_range}"),
+                TextEntry::make('activity_time_note_tw')
+                    ->label('開放時間備註（中）')
+                    ->placeholder('-'),
+                TextEntry::make('activity_time_note_en')
+                    ->label('開放時間備註（英）')
+                    ->placeholder('-'),
                 TextEntry::make('activity_location_tw')
                     ->label('活動地點（中）')
                     ->placeholder('-'),

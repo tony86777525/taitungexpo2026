@@ -31,8 +31,8 @@ class ActivityReservationVipsTable
                 TextColumn::make('guide_leader_contact')
                     ->label('領隊人聯絡方式')
                     ->searchable(),
-                TextColumn::make('contact_name')
-                    ->label('聯絡人姓名')
+                TextColumn::make('display_contact_dear_name')
+                    ->label('聯絡人')
                     ->searchable(),
                 TextColumn::make('contact_phone')
                     ->label('聯絡電話')

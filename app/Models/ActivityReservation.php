@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use App\Enums\ActivityReservationStatus;
+use App\Enums\ContactSex;
+use App\Enums\Language;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -19,6 +21,8 @@ class ActivityReservation extends Model
         'guide_leader_contact',
         // 聯絡人姓名
         'contact_name',
+        // 聯絡人性別
+        'contact_sex',
         // 聯絡電話
         'contact_phone',
         // 電子郵件
@@ -43,6 +47,7 @@ class ActivityReservation extends Model
     {
         return [
             'status' => ActivityReservationStatus::class,
+            'contact_sex' => ContactSex::class,
         ];
     }
 
@@ -100,5 +105,18 @@ class ActivityReservation extends Model
         $datetime = Carbon::parse($this->created_at)->format('YmdHis');
 
         return "{$datetime}-{$venueNumber}-{$this->id}";
+    }
+
+
+    /**
+     * @return string|null
+     */
+    public function getDisplayContactDearNameAttribute(): ?string
+    {
+        if (app()->getLocale() === Language::EN->value) {
+            return "{$this->contact_sex->labelEn()}{$this->contact_name}";
+        }
+
+        return "{$this->contact_name}{$this->contact_sex->labelTw()}";
     }
 }

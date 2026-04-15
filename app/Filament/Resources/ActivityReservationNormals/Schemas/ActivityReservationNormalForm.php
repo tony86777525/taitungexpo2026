@@ -2,11 +2,14 @@
 
 namespace App\Filament\Resources\ActivityReservationNormals\Schemas;
 
+use App\Enums\ContactSex;
 use App\Models\ActivitySessionNormal;
+use Filament\Forms\Components\Radio;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Infolists\Components\TextEntry;
+use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Utilities\Get;
 use Filament\Schemas\Schema;
 use Illuminate\Database\Eloquent\Builder;
@@ -37,9 +40,20 @@ class ActivityReservationNormalForm
                     ->getOptionLabelFromRecordUsing(fn (Model $record) => "{$record->display_option_title}")
                     ->required()
                     ->live(),
-                TextInput::make('contact_name')
-                    ->label('聯絡人姓名')
-                    ->required(),
+                Grid::make([
+                    'default' => 4, // 將這一列分成 4 格
+                ])
+                    ->schema([
+                        TextInput::make('contact_name')
+                            ->label('聯絡人姓名')
+                            ->required(),
+                        Radio::make('contact_sex')
+                            ->label('聯絡人性別')
+                            ->options(ContactSex::options())
+                            ->required()
+                            ->inline()
+                            ->columnSpan(1),
+                    ]),
                 TextInput::make('contact_phone')
                     ->label('聯絡電話')
                     ->required(),

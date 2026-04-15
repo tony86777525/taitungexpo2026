@@ -65,7 +65,10 @@ class ApproveActivityReservationNormal extends EditRecord
                         return $record->activitySessionNormal->display_option_title ?? '-';
                     }),
                 TextInput::make('contact_name')
-                    ->label('聯絡人姓名')
+                    ->label('聯絡人')
+                    ->formatStateUsing(function ($record) {
+                        return $record->display_contact_dear_name;
+                    })
                     ->disabled(),
                 TextInput::make('contact_phone')
                     ->label('聯絡電話')

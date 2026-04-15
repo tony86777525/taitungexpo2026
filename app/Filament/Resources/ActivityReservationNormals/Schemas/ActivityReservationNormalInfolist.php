@@ -15,8 +15,8 @@ class ActivityReservationNormalInfolist
                     ->label('計畫活動'),
                 TextEntry::make('activitySession.display_info')
                     ->label('場次資訊'),
-                TextEntry::make('contact_name')
-                    ->label('聯絡人姓名'),
+                TextEntry::make('display_contact_dear_name')
+                    ->label('聯絡人'),
                 TextEntry::make('contact_phone')
                     ->label('聯絡電話'),
                 TextEntry::make('contact_email')

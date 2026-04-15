@@ -78,8 +78,10 @@ class ExhibitionOverviewForm
                             ->default(Carbon::parse('18:00'))
                             ->maxWidth('sm'),
                     ]),
-                TextInput::make('project_time_note')
-                    ->label('開放時間備註'),
+                TextInput::make('project_time_note_tw')
+                    ->label('開放時間備註（中）'),
+                TextInput::make('project_time_note_en')
+                    ->label('開放時間備註（英）'),
                 TextInput::make('project_location_tw')
                     ->label('計畫地點（中）')
                     ->required(),

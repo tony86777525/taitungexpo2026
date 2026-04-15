@@ -21,9 +21,14 @@ class Activity extends Model
         // 活動日期
         'activity_start_date',
         'activity_end_date',
-        // 活動時間
+        // 活動開始時間
         'activity_start_time',
+        // 活動結束時間
         'activity_end_time',
+        // 開放時間備註（中）
+        'activity_time_note_tw',
+        // 開放時間備註（英）
+        'activity_time_note_en',
         // 活動地點（中）
         'activity_location_tw',
         // 活動地點（英）
@@ -154,6 +159,18 @@ class Activity extends Model
         $endTime = Carbon::create($this->activity_end_time)->translatedFormat('H:i');
 
         return "{$startTime}-{$endTime}";
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getDisplayActivityTimeNoteAttribute(): ?string
+    {
+        if (app()->getLocale() === Language::EN->value && !empty($this->activity_time_note_en)) {
+            return $this->activity_time_note_en;
+        }
+
+        return $this->activity_time_note_tw;
     }
 
     /**

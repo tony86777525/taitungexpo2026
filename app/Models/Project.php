@@ -35,8 +35,10 @@ class Project extends Model
         'project_start_time',
         // 計畫結束時間
         'project_end_time',
-        // 開放時間備註
-        'project_time_note',
+        // 開放時間備註（中）
+        'project_time_note_tw',
+        // 開放時間備註（英）
+        'project_time_note_en',
         // 地點（中）
         'project_location_tw',
         // 地點（英）
@@ -245,6 +247,18 @@ class Project extends Model
         }
 
         return $this->project_name_tw;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getDisplayProjectTimeNoteAttribute(): ?string
+    {
+        if (app()->getLocale() === Language::EN->value && !empty($this->project_time_note_en)) {
+            return $this->project_time_note_en;
+        }
+
+        return $this->project_time_note_tw;
     }
 
     /**

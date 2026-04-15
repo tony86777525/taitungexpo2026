@@ -25,8 +25,8 @@ class ActivityReservationNormalsTable
                     ->label('計畫活動'),
                 TextColumn::make('activitySession.display_info')
                     ->label('場次資訊'),
-                TextColumn::make('contact_name')
-                    ->label('聯絡人姓名')
+                TextColumn::make('display_contact_dear_name')
+                    ->label('聯絡人')
                     ->searchable(),
                 TextColumn::make('contact_phone')
                     ->label('聯絡電話')
