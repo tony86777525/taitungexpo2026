@@ -21,7 +21,39 @@ $path: '../../../images/reservation';
 }
 
 .section--intro {
-    padding: rem(80) 0;
+    padding-top: rem(161);
+    padding-bottom: rem(60);
+    background-image: url('#{$path}/bg_intro-top-mb.svg');
+    background-repeat: repeat-x;
+    background-position: center top;
+    background-size: rem(390) auto;
+
+    @include rwd-min(769px) {
+        padding-top: rem(172);
+        padding-bottom: rem(100);
+        background-image: url('#{$path}/bg_intro-top-mb.svg');
+        background-size: auto rem(172);
+    }
+
+    .section__title {
+		margin-bottom: rem(67);
+
+        @include rwd-min(769px) {
+            margin-bottom: rem(77);
+        }
+
+		.title {
+			color: $secondary;
+		}
+
+        .container {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: nowrap;
+			justify-content: center;
+			align-items: center;
+		}
+	}
 
     .container {
         max-width: rem(800);
@@ -42,6 +74,15 @@ $path: '../../../images/reservation';
         }
     }
 
+    .declaration {
+        color: $bg-3;
+        margin-top: rem(10);
+
+        @include rwd-min(769px) {
+            padding: 0 rem(40);
+        }
+    }
+
     .stepItem {
         &__title {
             position: relative;
@@ -49,7 +90,7 @@ $path: '../../../images/reservation';
             padding: rem(50) rem(20) rem(30);
             border-radius: rem(40);
             background-color: $white;
-            
+
             @include rwd-min(769px) {
                 padding: rem(24) rem(60) rem(24) rem(40);
                 border-radius: rem(100);
@@ -66,7 +107,7 @@ $path: '../../../images/reservation';
                 background-size: rem(70);
                 background-repeat: no-repeat;
                 background-position: center;
-                
+
                 @include rwd-min(769px) {
                     width: rem(86);
                     height: rem(86);
@@ -106,7 +147,7 @@ $path: '../../../images/reservation';
                 display: flex;
                 flex-direction: column;
                 gap: rem(10);
-                
+
                 @include rwd-min(769px) {
                     flex-direction: row;
                     gap: rem(20);
@@ -183,7 +224,7 @@ $path: '../../../images/reservation';
                 }
             }
         }
-    } 
+    }
 }
 
 .section--form {

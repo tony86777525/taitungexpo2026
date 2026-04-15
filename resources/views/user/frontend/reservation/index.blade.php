@@ -59,6 +59,7 @@
                         </ul>
                     </div>
                 </div>
+                <div class="declaration f-h5">2026台東博覽會保留團體導覽預約最終審核權及各項規則調整權。</div>
             </div>
         </div>
 	</section>

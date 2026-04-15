@@ -1,0 +1,152 @@
+@charset "UTF-8";
+@use 'variables' as *;
+@use 'mixin' as *;
+@use 'normalize';
+@use 'layout';
+@use 'language';
+@use 'common';
+@use 'modules/button';
+
+$commonPath: '../../images';
+$path: '../../images/style';
+
+.main {
+	padding-top: rem(70);
+
+	@include rwd-min(1280px) {
+		padding-top: rem(88);
+	}
+}
+
+.section {
+	.section__title {
+
+		.container {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: nowrap;
+			justify-content: space-between;
+			align-items: center;
+			padding: 0 rem(30);
+
+			@include rwd-min(561px) {
+				padding: 0;
+			}
+
+			.action {
+				@include list-reset;
+			}
+		}
+	}
+}
+
+.section--media {
+	position: relative;
+	z-index: 5;
+	background-color: $white;
+	padding: rem(80) 0;
+
+	@include rwd-min(769px) {
+		padding: rem(100) 0;
+	}
+
+	.container {
+
+		@include rwd-min(769px) {
+			padding: 0 rem(101);
+		}
+	}
+
+	.section__content {
+		position: relative;
+	}
+
+    .videoFrame {
+	    background-color: $white;
+
+        &:before {
+            padding-top: calc((550 / 978) * 100%);
+        }
+    }
+}
+
+.videoSwiper {
+	position: relative;
+
+	& ~ .swiper-button-next,
+	& ~ .swiper-button-prev {
+		display: block;
+		background-repeat: no-repeat;
+		border-radius: 50%;
+		box-shadow: 0 rem(4) rem(4) rgba(16, 55, 141, 0.08);
+		width: rem(31);
+		height: rem(31);
+		background-size: rem(31);
+		@include transition(all, .3s, ease-in);
+
+		&.swiper-button-lock {
+			display: none;
+		}
+
+		&:after {
+			content: '';
+		}
+
+		@include rwd-min(769px) {
+			width: rem(38);
+			height: rem(38);
+			background-size: rem(38);
+		}
+	}
+
+	& ~ .swiper-button-prev {
+		background-image: url('#{$commonPath}/arrow_slide-prev-w.svg');
+
+        @include rwd-min(769px) {
+			left: rem(-51);
+		}
+
+		&:hover {
+			background-image: url('#{$commonPath}/arrow_slide-prev-b.svg');
+		}
+
+		@include rwd-not-hover {
+			&:hover {
+				background-image: url('#{$commonPath}/arrow_slide-prev-w.svg');
+			}
+		}
+	}
+
+	& ~ .swiper-button-next {
+		background-image: url('#{$commonPath}/arrow_slide-next-w.svg');
+
+        @include rwd-min(769px) {
+			right: rem(-51);
+		}
+
+		&:hover {
+			background-image: url('#{$commonPath}/arrow_slide-next-b.svg');
+		}
+
+		@include rwd-not-hover {
+			&:hover {
+				background-image: url('#{$commonPath}/arrow_slide-next-w.svg');
+			}
+		}
+	}
+
+    & ~ .swiper-pagination-bullets.swiper-pagination-horizontal {
+        bottom: rem(-34);
+        font-size: 0;
+
+        .swiper-pagination-bullet {
+            width: rem(14);
+            height: rem(14);
+            margin: 0 rem(15);
+        }
+
+        .swiper-pagination-bullet-active {
+            background-color: $bg-3;
+        }
+    }
+}

@@ -1,7 +1,8 @@
 import Swiper from 'swiper';
-import { Autoplay, Navigation} from 'swiper/modules';
+import { Autoplay, Navigation, Pagination} from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 class CarouselSlider {
     constructor(selector, options = {}) {
@@ -293,7 +294,7 @@ class CarouselSlider {
 
     initSwiper() {
         const defaultOptions = {
-            modules: [Navigation, Autoplay],
+            modules: [Navigation, Autoplay, Pagination],
             autoplay: false,
             loop: false,
             navigation: {
