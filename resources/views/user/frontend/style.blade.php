@@ -10,7 +10,7 @@
 
 @section('content')
 <main class="main">
-    <section class="section section--media">
+    <section id="media" class="section section--media">
         <div class="container">
             <div class="section__content wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.8s">
                 <div class="swiper videoSwiper js-mediaSwiper">
@@ -39,5 +39,60 @@
             </div>
         </div>
     </section>
+    <section id="guide" class="section section--guide">
+        <div class="section__title wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s">
+            <div class="container">
+                <span class="title f-title-primary">{{ __('style.guide.title') }}</span>
+            </div>
+        </div>
+        <div class="section__content wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s">
+            <div class="container">
+                <div class="summary">
+                    <div class="summary__image">
+                        <div class="imgWrap">
+                            <img src="{{ asset('images/style/img_guide.jpg') }}" alt="{{ __('style.guide.title') }}">
+                        </div>
+                    </div>
+                    <div class="summary__text">
+                        <div class="title">{{ __('style.guide.summary.title') }}</div>
+                        <div class="intro f-p">{{ __('style.guide.summary.intro') }}</div>
+                        <ul class="links">
+                            <li><a class="btn btn--blank is-dark" target="_blank"><span class="btn__text">{{ __('style.guide.summary.btnText1') }}</span></a></li>
+                            {{-- <li><a href="#" class="btn btn--blank is-dark" target="_blank"><span class="btn__text">{{ __('style.guide.summary.btnText2') }}</span></a></li> --}}
+                            {{-- <li><a href="#" class="btn btn--blank is-dark" target="_blank"><span class="btn__text">{{ __('style.guide.summary.btnText3') }}</span></a></li> --}}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="documentary" class="section section--documentary">
+        <div class="section__title wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s">
+            <div class="container">
+                <span class="title f-title-primary">{{ __('style.documentary.title') }}</span>
+            </div>
+        </div>
+        <div class="section__content wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s">
+            <div class="container">
+                <div class="summary">
+                    <div class="summary__image">
+                        <div class="imgWrap">
+                            <img src="{{ asset('images/style/img_documentary.jpg') }}" alt="{{ __('style.documentary.title') }}">
+                        </div>
+                    </div>
+                    <div class="summary__text">
+                        <div class="title">{{ __('style.documentary.summary.title') }}</div>
+                        <div class="intro f-p">{{ __('style.documentary.summary.intro') }}</div>
+                        <ul class="links">
+                            <li><a class="btn btn--blank is-light" target="_blank"><span class="btn__text">{{ __('style.documentary.summary.btnText1') }}</span></a></li>
+                            {{-- <li><a href="#" class="btn btn--blank is-light" target="_blank"><span class="btn__text">{{ __('style.documentary.summary.btnText2') }}</span></a></li> --}}
+                            {{-- <li><a href="#" class="btn btn--blank is-light" target="_blank"><span class="btn__text">{{ __('style.documentary.summary.btnText3') }}</span></a></li> --}}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </main>
+@include('user.frontend.layout.stickyBtns')
 @endsection

@@ -45,4 +45,5 @@ return [
             'executed-value' => 'Wonderful Design Studio',
         ]
     ],
+    'fixedTraffic' => 'images/btn-map-en.svg'
 ];
