@@ -194,6 +194,7 @@ $path: '../../../../images/about';
 
 				@include rwd-min(768px) {
 					padding-left: 0;
+					margin-top: rem(50);
 				}
 
 				.cardItem {

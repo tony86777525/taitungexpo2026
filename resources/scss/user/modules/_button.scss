@@ -111,6 +111,7 @@ $btnPath: '/resources/images';
                 @include rotate(45);
             }
         }
+
         @include rwd-not-hover {
             &:hover {
                 &:after {
@@ -144,12 +145,6 @@ $btnPath: '/resources/images';
             background-repeat: no-repeat;
             margin-left: rem(10);
             @include transition(all, .3s, ease-in-out);
-        }
-
-        .btn__text {
-            @include f-unbounded;
-            font-size: rem(14);
-            font-weight: 600;
         }
 
         &.is-dark {
@@ -270,6 +265,16 @@ $btnPath: '/resources/images';
                     @include rotate(0);
                 }
             }
+        }
+    }
+
+    &--goSubpage {
+
+        .btn__text {
+            @include f-unbounded;
+            font-size: rem(14);
+            font-weight: 600;
+            line-height: calc(17 / 14);
         }
     }
 

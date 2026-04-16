@@ -4,7 +4,7 @@
 			<div class="container">
 				{{-- 預約日期（必選） --}}
 				<div class="formRow is-necessary">
-					<div class="formRow__title"><span class="text f-p">{{ __('reservation.form.date.title') }}</span></div>
+					<div class="formRow__title f-p"><span class="text f-p">{{ __('reservation.form.date.title') }}</span></div>
 					<div class="formRow__element">
 						<div class="formElement formElement--datepicker">
 							<input id="datepicker" class="fancyInput fancyInput--datepicker f-h6" readonly>
@@ -16,7 +16,7 @@
 				</div>
 				{{-- 展區（必選） --}}
 				<div class="formRow is-necessary">
-					<div class="formRow__title"><span class="text f-p">{{ __('reservation.form.zone.title') }}</span></div>
+					<div class="formRow__title f-p"><span class="text f-p">{{ __('reservation.form.zone.title') }}</span></div>
 					<div class="formRow__element">
 						<div class="formElement formElement--select">
 							<select id="sel-zone" class="fancySelect">
@@ -38,7 +38,7 @@
 				</div>
 				{{-- 預約場館（必選） --}}
 				<div class="formRow is-necessary">
-					<div class="formRow__title"><span class="text f-p">{{ __('reservation.form.venue.title') }}</span></div>
+					<div class="formRow__title f-p"><span class="text f-p">{{ __('reservation.form.venue.title') }}</span></div>
 					<div class="formRow__element formElement--select">
 						<div class="formElement formElement--select">
 							<select id="sel-venue" class="fancySelect">
@@ -52,7 +52,7 @@
 				</div>
 				{{-- 預約時段（必選） --}}
 				<div class="formRow is-necessary">
-					<div class="formRow__title"><span class="text f-p">{{ __('reservation.form.time.title') }}</span></div>
+					<div class="formRow__title f-p"><span class="text f-p">{{ __('reservation.form.time.title') }}</span></div>
 					<div class="formRow__element">
 						<div class="formElement formElement--select">
 							<select id="sel-time" class="fancySelect">
@@ -76,7 +76,7 @@
 				<hr>
 				{{-- 聯絡人姓名（必填） --}}
 				<div class="formRow is-necessary">
-					<div class="formRow__title"><span class="text f-p">{{ __('reservation.form.name.title') }}</span></div>
+					<div class="formRow__title f-p"><span class="text f-p">{{ __('reservation.form.name.title') }}</span></div>
 					<div class="formRow__element">
 						<div class="formElement">
 							<input type="text" id="name" class="fancyInput fancyInput--text f-h6" placeholder="" >
@@ -94,7 +94,7 @@
 				</div>
 				{{-- 聯絡電話（必填） --}}
 				<div class="formRow is-necessary">
-					<div class="formRow__title"><span class="text f-p">{{ __('reservation.form.tel.title') }}</span></div>
+					<div class="formRow__title f-p"><span class="text f-p">{{ __('reservation.form.tel.title') }}</span></div>
 					<div class="formRow__element">
 						<div class="formElement">
 							<input type="tel" id="phone" class="fancyInput fancyInput--text f-h6" placeholder="">
@@ -107,22 +107,22 @@
 				{{-- 電子郵件（必填） --}}
 				{{-- 電子郵件必須檢查格式是否為mail --}}
 				<div class="formRow is-necessary">
-					<div class="formRow__title"><span class="text f-p">{{ __('reservation.form.email.title') }}</span></div>
+					<div class="formRow__title f-p"><span class="text f-p">{{ __('reservation.form.email.title') }}</span></div>
 					<div class="formRow__element">
 						<div class="formElement">
 							<input type="email" id="email" class="fancyInput fancyInput--text f-h6 js-mailInput" placeholder="">
 						</div>
 					</div>
 					<div class="formRow__hint">
-						<div class="mailValid js-mailValid" data-valid-text="{{ __('reservation.form.email.valid.true') }}"  data-valid-text="{{ __('reservation.form.email.valid.false') }}">
-							<span class="js-mailValid-text"></span>
+						<div class="mailValid js-mailValid is-valid" data-valid-text="{{ __('reservation.form.email.valid.true') }}"  data-invalid-text="{{ __('reservation.form.email.valid.false') }}">
+							<span class="f-h6 js-mailValid-text">{{ __('reservation.form.email.valid.true') }}</span>
 						</div>
 						<div class="errMsg f-h6">{{ __('reservation.form.email.errMsg') }}</div>
 					</div>
 				</div>
 				{{-- 預約團體名稱（必填） --}}
 				<div class="formRow is-necessary">
-					<div class="formRow__title"><span class="text f-p">{{ __('reservation.form.org.title') }}</span></div>
+					<div class="formRow__title f-p"><span class="text f-p">{{ __('reservation.form.org.title') }}</span></div>
 					<div class="formRow__element">
 						<div class="formElement">
 							<input type="text" id="org" class="fancyInput fancyInput--text f-h6" placeholder="">
@@ -134,7 +134,7 @@
 				</div>
 				{{-- 預計參加人數（必選） --}}
 				<div class="formRow is-necessary">
-					<div class="formRow__title"><span class="text f-p">{{ __('reservation.form.count.title') }}</span></div>
+					<div class="formRow__title f-p"><span class="text f-p">{{ __('reservation.form.count.title') }}</span></div>
 					<div class="formRow__element">
 						<div class="formElement formElement--select">
 							<select id="sel-count" class="fancySelect">
@@ -153,7 +153,7 @@
 				</div>
 				{{-- 備註（選填） --}}
 				<div class="formRow">
-					<div class="formRow__title"><span class="text f-p">{{ __('reservation.form.remark.title') }}</span></div>
+					<div class="formRow__title f-p"><span class="text f-p">{{ __('reservation.form.remark.title') }}</span></div>
 					<div class="formRow__element">
 						<div class="formElement">
 							<textarea id="remark" rows="4" class="fancyTextarea f-h6"></textarea>
@@ -192,7 +192,7 @@
 				</div>
 			</div>
 			<ul class="actions">
-				<li><button id="submit" type="submit" class="btn btn--submit is-dark"><span class="btn__text">提交申請</span></button></li>
+				<li><button id="submit" type="submit" class="btn btn--submit is-dark"><span class="btn__text">{{ __('reservation.form.actions.submit') }}</span></button></li>
 			</ul>
 		</div>
 	</div>

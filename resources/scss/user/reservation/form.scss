@@ -161,6 +161,11 @@ $path: '../../../images/reservation';
                     flex: 1;
                     color: $bg-3;
 
+                    .highlight {
+                        background-color: $yellow;
+                        padding-left: rem(4); 
+                    }
+
                     @include rwd-min(769px) {
                         padding-top: rem(7);
                     }

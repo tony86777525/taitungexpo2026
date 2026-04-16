@@ -69,8 +69,37 @@ $decoPath: '/resources/images';
     &__hint {
         margin-top: rem(10);
 
+        .mailValid {
+            padding-left: rem(27);
+            background-repeat: no-repeat;
+            background-position: left center;
+
+            &.is-valid {
+                background-image: url('#{$decoPath}/icon_valid.svg');
+            }
+
+            &.is-invalid {
+                background-image: url('#{$decoPath}/icon_invalid.svg');
+            }
+
+            span {
+                display: block;
+                color: $secondary;
+            }
+        }
+
         .errMsg {
             color: #D40000;
+        }
+    }
+
+    &.is-necessary {
+        .formRow__title {
+            &:after {
+                content: '*';
+                color: $primary-hover;
+                margin-left: rem(6);
+            }
         }
     }
 }
