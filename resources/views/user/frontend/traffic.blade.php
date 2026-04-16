@@ -101,7 +101,7 @@
             </div>
         </div>
     </section>
-    <section class="section section--route">
+    <section id="route" class="section section--route">
         @include('user.frontend.modules.wave_traffic-pc')
         <div class="section__title wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s">
             <div class="container">

@@ -88,9 +88,9 @@ Route::group([
         })->name('brand.detail');
 
         // 東博STYLE（第二批）
-        // Route::get('/style', function () {
-        //     return view('user.frontend.style');
-        // });
+        Route::get('/style', function () {
+            return view('user.frontend.style');
+        })->name('style');
 
         // 預約表單（第二批）
         // 表單填寫

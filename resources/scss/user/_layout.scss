@@ -459,6 +459,8 @@ $path: '/resources/images';
 	.quickBtn {
 		display: block;
 		@include transition(all, .3s, ease-in);
+		border-radius: 50%;
+		box-shadow: 0 rem(4) rem(4) rgba(16, 55, 141, 0.08);
 
 		img {
 			width: 100%;

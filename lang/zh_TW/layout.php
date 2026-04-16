@@ -45,4 +45,5 @@ return [
             'executed-value' => '玩美文創設計工作室',
         ]
     ],
+    'fixedTraffic' => 'images/btn-map-zh.svg'
 ];
