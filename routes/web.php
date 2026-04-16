@@ -6,6 +6,7 @@ use App\Http\Controllers\User\EventController;
 use App\Http\Controllers\User\ParticipationController;
 use App\Http\Controllers\User\BrandController;
 use App\Http\Controllers\User\OverviewController;
+use App\Http\Controllers\User\ReservationController;
 use Illuminate\Support\Facades\Route;
 
 Route::group([
@@ -108,28 +109,28 @@ Route::group([
     // 最新消息
     Route::get('/news/list', [NewsController::class, 'index'])
         ->name('news.list');
-    Route::get('/news/detail/{id}/', [NewsController::class, 'detail'])
+    Route::get('/news/detail/{id}', [NewsController::class, 'detail'])
         ->name('news.detail')
         ->whereNumber('id');
 
     // 活動行事曆
     Route::get('/event/list', [EventController::class, 'index'])
         ->name('event.list');
-    Route::get('/event/detail/{id}/', [EventController::class, 'detail'])
+    Route::get('/event/detail/{id}', [EventController::class, 'detail'])
         ->name('event.detail')
         ->whereNumber('id');
 
     // 民間參與計畫
     Route::get('/participation/list', [ParticipationController::class, 'index'])
         ->name('participation.list');
-    Route::get('/participation/detail/{id}/', [ParticipationController::class, 'detail'])
+    Route::get('/participation/detail/{id}', [ParticipationController::class, 'detail'])
         ->name('participation.detail')
         ->whereNumber('id');
 
     // 品牌授權專區
     Route::get('/brand/list', [BrandController::class, 'index'])
         ->name('brand.list');
-    Route::get('/brand/detail/{id}/', [BrandController::class, 'detail'])
+    Route::get('/brand/detail/{id}', [BrandController::class, 'detail'])
         ->name('brand.detail')
         ->whereNumber('id');
 
@@ -152,4 +153,16 @@ Route::group([
     Route::get('/about/overview/detail/{id}/', [OverviewController::class, 'detail'])
         ->name('about.overview.detail')
         ->whereNumber('id');
+
+    // 預約表單（第二批）
+    Route::get('/reservation', [ReservationController::class, 'index'])
+        ->name('reservation.index');
+    Route::get('/reservation/{id}', [ReservationController::class, 'project'])
+        ->name('reservation.project')
+        ->whereNumber('id');
+    Route::post('/reservation/store', [ReservationController::class, 'store'])
+        ->name('reservation.store');
+    Route::get('/reservation/complete', function () {
+        return view('user.frontend.reservation.complete');
+    })->name('reservation.complete');
 });

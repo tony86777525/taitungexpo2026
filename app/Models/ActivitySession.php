@@ -123,12 +123,11 @@ class ActivitySession extends Model
     /**
      * 是否可以預約
      *
-     * @param integer $currentGroupCount
      * @return boolean
      */
-    public function canBookGroup(int $currentGroupCount): bool
+    public function getCanBookAttribute(): bool
     {
-        return ($this->group_max) > $currentGroupCount;
+        return ($this->group_max) > $this->group_booked_count;
     }
 
     /**
@@ -194,6 +193,18 @@ class ActivitySession extends Model
     public function getDisplayDateAttribute(): string
     {
         $date = Carbon::create($this->date)->translatedFormat('n/j D');
+
+        return "{$date}";
+    }
+
+    /**
+     * 場次日期
+     *
+     * @return string
+     */
+    public function getDisplayDateForDatepickerAttribute(): string
+    {
+        $date = Carbon::create($this->date)->translatedFormat('Y-m-d');
 
         return "{$date}";
     }

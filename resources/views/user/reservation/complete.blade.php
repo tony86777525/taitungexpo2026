@@ -5,7 +5,16 @@
 @endpush
 
 @section('content')
-<main class="main">
-    完成
-</main>
+    <main class="main">
+        @if(session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+        @if(session('fail'))
+            <div class="alert alert-success">
+                {{ session('fail') }}
+            </div>
+        @endif
+    </main>
 @endsection

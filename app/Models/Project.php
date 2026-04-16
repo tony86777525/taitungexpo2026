@@ -68,7 +68,8 @@ class Project extends Model
      */
     public function zone(): BelongsTo
     {
-        return $this->belongsTo(Zone::class);
+        return $this->belongsTo(Zone::class)
+            ->orderBy('code');
     }
 
     /**
