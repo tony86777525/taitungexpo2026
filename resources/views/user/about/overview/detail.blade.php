@@ -18,7 +18,7 @@
                     @endif
                     <div class="logo">
                         <div class="imgWrap">
-                            <img src="{{ $project->display_thumbnail }}" alt="{{ $project->display_project_name }}">
+                            <img src="{{ $project->display_logo }}" alt="{{ $project->display_project_name }}">
                         </div>
                     </div>
                     <div class="wrapper">
