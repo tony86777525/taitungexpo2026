@@ -32,7 +32,7 @@
                         </div>
                         <div class="searchBar__content searchBar__content--links">
                             <div class="text f-p">{{ __('event.top.search-text2-start') }}</div>
-                            <div class="action"><a href="{{ lang_route('user.about.overview') }}" class="btn btn--inside"><span class="btn__text">{{ __('event.top.link-text') }}</span></a></div>
+                            <div class="action"><a href="{{ lang_route('user.about.overview.list') }}" class="btn btn--inside"><span class="btn__text">{{ __('event.top.link-text') }}</span></a></div>
                             <div class="text f-p">{{ __('event.top.search-text2-end') }}</div>
                         </div>
                     </div>

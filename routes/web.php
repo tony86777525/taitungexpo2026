@@ -147,9 +147,19 @@ Route::group([
         return view('user.about.vi');
     })->name('about.vi');
 
+    // 東博STYLE（第二批）
+    Route::get('/style', function () {
+        return view('user.style');
+    })->name('style');
+
+    // 交通資訊（第二批）
+    Route::get('/traffic', function () {
+        return view('user.traffic');
+    })->name('traffic');
+
     // 展會概覽（第二批）
     Route::get('/about/overview', [OverviewController::class, 'index'])
-        ->name('about.overview');
+        ->name('about.overview.list');
     Route::get('/about/overview/detail/{id}/', [OverviewController::class, 'detail'])
         ->name('about.overview.detail')
         ->whereNumber('id');

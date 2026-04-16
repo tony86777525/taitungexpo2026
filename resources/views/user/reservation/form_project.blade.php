@@ -193,7 +193,13 @@
                 </ul>
             </div>
             <div class="captcha">
-                {{-- 驗證碼 --}}
+                <div class="captcha__image">
+                    <div class="img"><img src="https://picsum.photos/id/236/143/40" class="js-captcha-image"></div>
+                    <div class="refresh"><button class="btn btn--refresh js-captcha-image">refresh captcha</button></div>
+                </div>
+                <div class="captcha__input">
+                    <input type="text" class="fancyInput fancyInput--captcha f-h6 js-captch-input" placeholder="{{ __('reservation.form.captcha.placeholder') }}">
+                </div>
             </div>
             <ul class="actions">
                 <li><button id="submit" type="submit" class="btn btn--submit is-dark"><span class="btn__text">提交申請</span></button></li>
