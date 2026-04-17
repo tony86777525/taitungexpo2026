@@ -148,7 +148,7 @@
                             </div>
                             <ul class="tabOption jc-start js-tabOption" role="listbox">
                                 @foreach($zones as $zone)
-                                    <li class="tabOption__item js-tabOption-item @if($loop->first) is-active @endif" data-tab-id="{{ $zone->display_html_tag }}" role="option"><span class="text">{{ $zone->display_code_name }}</span></li>
+                                    <li class="tabOption__item js-tabOption-item @if($loop->first) is-active @endif" data-tab-id="{{ $zone->display_html_tag }}" role="option"><span class="text"><span class="symbol">{{ $zone->code }}</span>{{ $zone->display_name }}</span></li>
                                 @endforeach
                             </ul>
                         </div>

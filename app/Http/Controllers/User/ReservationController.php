@@ -69,7 +69,7 @@ class ReservationController extends Controller
             ->map(function ($data) {
                 return [
                     'value' => $data->project->id,
-                    'label' => $data->project->display_venue_number,
+                    'label' => $data->project->display_venue_number_and_name,
                 ];
             })
             ->unique()
@@ -170,7 +170,7 @@ class ReservationController extends Controller
             ->map(function ($data) {
                 return [
                     'value' => $data->project->id,
-                    'label' => $data->project->display_venue_number,
+                    'label' => $data->project->display_venue_number_and_name,
                 ];
             })
             ->unique()

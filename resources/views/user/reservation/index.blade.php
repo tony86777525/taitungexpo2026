@@ -29,7 +29,7 @@
                                 <span class="number">1</span>
                                 <div class="intro">
                                     <h3 class="intro__topic f-title-secondary">{{ __('reservation.steps.step1.title') }}</h3>
-                                    <span class="intro__desc f-p">{{ __('reservation.steps.step1.desc') }}</span>
+                                    <span class="intro__desc f-p">{!! __('reservation.steps.step1.desc') !!}</span>
                                 </div>
                             </div>
                             <ul class="stepItem__list">
@@ -64,7 +64,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="declaration f-h5">2026台東博覽會保留團體導覽預約最終審核權及各項規則調整權。</div>
+                    <div class="declaration f-h5">{{ __('reservation.rule') }}</div>
                 </div>
             </div>
         </section>

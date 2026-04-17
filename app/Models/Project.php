@@ -317,6 +317,14 @@ class Project extends Model
     }
 
     /**
+     * @return string
+     */
+    public function getDisplayVenueNumberAndNameAttribute(): string
+    {
+        return "{$this->zone->code}{$this->project_number}{$this->display_project_name}";
+    }
+
+    /**
      * @return string|null
      */
     public function getDisplayExecutingUnitNameAttribute(): ?string

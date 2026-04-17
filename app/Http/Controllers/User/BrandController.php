@@ -34,7 +34,7 @@ class BrandController extends Controller
                 });
             })
             ->orderBy('sort_order')
-            ->paginate(9)
+            ->paginate(1)
             ->withQueryString()
             ->onEachSide(1);
 

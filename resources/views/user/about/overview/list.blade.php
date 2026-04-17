@@ -17,7 +17,7 @@
                 </div>
             </div>
             <div class="section__content">
-                <div class="eventGroup eventGroup--theme">
+                <div class="eventGroup eventGroup--theme" id="list">
                     <div class="eventGroup__title">
                         <div class="container">
                             <div class="title f-title-primary is-pageTitle">{{ __('about.overview.section1.title') }}</div>
@@ -29,7 +29,7 @@
                             <div class="filterGroup filterGroup--overview js-filterGroup-select">
                                 <div class="filterGroup__selector" aria-haspopup="listbox" aria-expanded="false">
                                     <div class="filterSelect js-filterSelect">
-                                        <span class="filterSelect__text f-h4 js-selectedOption">ALL</span>
+                                        <span class="filterSelect__text f-h4 js-selectedOption"><span class="symbol">{{ $zones->firstWhere('id', $currentZoneId)->code }}</span>{{ $zones->firstWhere('id', $currentZoneId)->display_name }}</span>
                                     </div>
 
                                     <ul class="filterOption jc-center" role="listbox">
@@ -40,9 +40,9 @@
                                                 role="option"
                                             >
                                                 <a
-                                                    href="{{ lang_route('user.about.overview.list', ['zone' => $zone->id]) }}"
+                                                    href="{{ lang_route('user.about.overview.list', ['zone' => $zone->id]) }}#list"
                                                     class="text"
-                                                >{{ $zone->display_code_name }}</a>
+                                                ><span class="symbol">{{ $zone->code }}</span>{{ $zone->display_name }}</a>
                                             </li>
                                         @endforeach
                                     </ul>
