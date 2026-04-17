@@ -5,6 +5,77 @@
 @use '../layout';
 @use '../language';
 @use '../common';
+@use '../modules/form';
+@use '../modules/button';
+@import '../../../../node_modules/@chenfengyuan/datepicker/dist/datepicker.css';
 
 $commonPath: '../../../images';
 $path: '../../../images/reservation';
+
+.main {
+	padding-top: rem(70);
+
+	@include rwd-min(1280px) {
+		padding-top: rem(88);
+	}
+}
+
+.section--complete {
+    background-color: $white;
+
+    &:before,
+    &:after {
+        content: '';
+        display: block;
+        height: rem(75);
+	    background-color: $white;
+        background-repeat: repeat-x;
+        background-size: contain;
+
+        @include rwd-min(769px) {
+            height: rem(172);
+        }
+    }
+
+    &:before {
+        margin-bottom: rem(100);
+        background-position: center top;
+        background-image: url('#{$path}/bg_complete-top-mb.svg');
+
+        @include rwd-min(769px) {
+            background-image: url('#{$path}/bg_complete-top-pc.svg');
+        }
+    }
+
+    &:after {
+        margin-top: rem(100);
+        background-position: center bottom;
+        background-image: url('#{$path}/bg_complete-bottom-mb.svg');
+
+        @include rwd-min(769px) {
+            background-image: url('#{$path}/bg_complete-bottom-pc.svg');
+        }
+    }
+
+    .container {
+        margin: 0 auto;
+    }
+
+    .section__content {
+        .paragraph {
+            p {
+                color: $secondary;
+                margin: 0;
+                text-align: center;
+            }
+        }
+
+        .action {
+            @include list-reset;
+            margin-top: rem(40);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}

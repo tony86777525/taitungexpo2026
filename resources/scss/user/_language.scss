@@ -132,6 +132,19 @@ body {
                 }
             }
 
+            &--blankPage,
+            &--submit {
+                @include f-unbounded;
+                font-size: rem(14);
+                line-height: 1.5;
+                letter-spacing: rem(0.56);
+
+                .btn__text {
+                    font-size: rem(15);
+                    letter-spacing: rem(1.5);
+                }
+            }
+
             &--customLink {
 
                 .btn__text {
@@ -534,6 +547,21 @@ body {
                     letter-spacing: rem(1.5);
                 }
             }
+
+            &--blankPage,
+            &--submit {
+                font-size: rem(14);
+                line-height: calc(20 / 14);
+                font-weight: 600;
+                letter-spacing: normal;
+
+                .btn__text {
+                    font-size: rem(15);
+                    line-height: calc(22 / 15);
+                    letter-spacing: rem(1.5);
+                }
+            }
+
 
             &--customLink {
 

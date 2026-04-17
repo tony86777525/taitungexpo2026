@@ -5,7 +5,7 @@ return [
     'steps' => [
         'step1' => [
             'title' => '預約開放',
-            'desc' => '於參訪日前 7 至 14 日開放預約',
+            'desc' => '於參訪日<span class="highlight">前7 至 14 日</span>開放預約',
             'list' => [
                 'list-item1' => '採線上預約制，於<span class="highlight">參訪日前 14 日開放預約，並於 7 日前截止受理</span>(以日曆天計)。',
             ],

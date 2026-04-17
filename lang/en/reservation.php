@@ -5,7 +5,7 @@ return [
     'steps' => [
         'step1' => [
             'title' => 'Reservation Window',
-            'desc' => 'Open 7–14 Days Before Visit',
+            'desc' => 'Open <span class="highlight">7–14 Days Before</span> Visit',
             'list' => [
                 'list-item1' => 'Reservations are available online only. Booking opens 14 days prior to the visit date and closes 7 days before the visit (calendar days)',
             ],
