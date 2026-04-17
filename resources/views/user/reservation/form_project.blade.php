@@ -6,7 +6,7 @@
             <div class="container">
                 {{-- 展區（必選） --}}
                 <div class="formRow is-necessary">
-                    <div class="formRow__title"><span class="text f-p">{{ __('reservation.form.zone.title') }}</span></div>
+                    <div class="formRow__title f-p"><span class="text f-p">{{ __('reservation.form.zone.title') }}</span></div>
                     <div class="formRow__element">
                         <div class="formElement formElement--select">
                             <select id="sel-zone" class="fancySelect" disabled readonly>
@@ -19,7 +19,7 @@
                 </div>
                 {{-- 預約場館（必選） --}}
                 <div class="formRow is-necessary">
-                    <div class="formRow__title"><span class="text f-p">{{ __('reservation.form.venue.title') }}</span></div>
+                    <div class="formRow__title f-p"><span class="text f-p">{{ __('reservation.form.venue.title') }}</span></div>
                     <div class="formRow__element formElement--select">
                         <div class="formElement formElement--select">
                             <select id="sel-venue" class="fancySelect" disabled readonly>
@@ -32,7 +32,7 @@
                 </div>
                 {{-- 預約日期（必選） --}}
                 <div class="formRow is-necessary">
-                    <div class="formRow__title"><span class="text f-p">{{ __('reservation.form.date.title') }}</span></div>
+                    <div class="formRow__title f-p"><span class="text f-p">{{ __('reservation.form.date.title') }}</span></div>
                     <div class="formRow__element">
                         <div class="formElement formElement--datepicker">
                             <input id="datepicker" name="date" class="fancyInput fancyInput--datepicker f-h6" value="{{ old('date') }}" readonly>
@@ -41,7 +41,7 @@
                 </div>
                 {{-- 預約時段（必選） --}}
                 <div class="formRow is-necessary">
-                    <div class="formRow__title"><span class="text f-p">{{ __('reservation.form.time.title') }}</span></div>
+                    <div class="formRow__title f-p"><span class="text f-p">{{ __('reservation.form.time.title') }}</span></div>
                     <div class="formRow__element">
                         <div class="formElement formElement--select">
                             <select id="sel-time" name="time_range" class="fancySelect">
@@ -65,7 +65,7 @@
                 <hr>
                 {{-- 聯絡人姓名（必填） --}}
                 <div class="formRow is-necessary">
-                    <div class="formRow__title"><span class="text f-p">{{ __('reservation.form.name.title') }}</span></div>
+                    <div class="formRow__title f-p"><span class="text f-p">{{ __('reservation.form.name.title') }}</span></div>
                     <div class="formRow__element">
                         <div class="formElement">
                             <input type="text" id="name" name="contact_name" class="fancyInput fancyInput--text f-h6" value="{{ old('contact_name') }}" placeholder="" >
@@ -104,7 +104,7 @@
                 </div>
                 {{-- 聯絡電話（必填） --}}
                 <div class="formRow is-necessary">
-                    <div class="formRow__title"><span class="text f-p">{{ __('reservation.form.tel.title') }}</span></div>
+                    <div class="formRow__title f-p"><span class="text f-p">{{ __('reservation.form.tel.title') }}</span></div>
                     <div class="formRow__element">
                         <div class="formElement">
                             <input type="tel" id="phone" name="contact_phone" class="fancyInput fancyInput--text f-h6" value="{{ old('contact_phone') }}" placeholder="">
@@ -119,7 +119,7 @@
                 {{-- 電子郵件（必填） --}}
                 {{-- 電子郵件必須檢查格式是否為mail --}}
                 <div class="formRow is-necessary">
-                    <div class="formRow__title"><span class="text f-p">{{ __('reservation.form.email.title') }}</span></div>
+                    <div class="formRow__title f-p"><span class="text f-p">{{ __('reservation.form.email.title') }}</span></div>
                     <div class="formRow__element">
                         <div class="formElement">
                             <input type="email" id="email" name="contact_email" class="fancyInput fancyInput--text f-h6 js-mailInput" value="{{ old('contact_email') }}" placeholder="">
@@ -133,7 +133,7 @@
                 </div>
                 {{-- 預約團體名稱（必填） --}}
                 <div class="formRow is-necessary">
-                    <div class="formRow__title"><span class="text f-p">{{ __('reservation.form.org.title') }}</span></div>
+                    <div class="formRow__title f-p"><span class="text f-p">{{ __('reservation.form.org.title') }}</span></div>
                     <div class="formRow__element">
                         <div class="formElement">
                             <input type="text" id="org" name="contact_group_name" class="fancyInput fancyInput--text f-h6" value="{{ old('contact_group_name') }}" placeholder="">
@@ -147,7 +147,7 @@
                 </div>
                 {{-- 預計參加人數（必選） --}}
                 <div class="formRow is-necessary">
-                    <div class="formRow__title"><span class="text f-p">{{ __('reservation.form.count.title') }}</span></div>
+                    <div class="formRow__title f-p"><span class="text f-p">{{ __('reservation.form.count.title') }}</span></div>
                     <div class="formRow__element">
                         <div class="formElement formElement--select">
                             <select id="sel-count" name="participants_quota" class="fancySelect">
@@ -163,7 +163,7 @@
                 </div>
                 {{-- 備註（選填） --}}
                 <div class="formRow">
-                    <div class="formRow__title"><span class="text f-p">{{ __('reservation.form.remark.title') }}</span></div>
+                    <div class="formRow__title f-p"><span class="text f-p">{{ __('reservation.form.remark.title') }}</span></div>
                     <div class="formRow__element">
                         <div class="formElement">
                             <textarea id="remark" name="status_notes" rows="4" class="fancyTextarea f-h6">{{ old('status_notes') }}</textarea>
@@ -202,7 +202,7 @@
                 </div>
             </div>
             <ul class="actions">
-                <li><button id="submit" type="submit" class="btn btn--submit is-dark"><span class="btn__text">提交申請</span></button></li>
+                <li><button id="submit" type="submit" class="btn btn--submit is-dark"><span class="btn__text">{{ __('reservation.form.actions.submit') }}</span></button></li>
             </ul>
         </div>
     </div>

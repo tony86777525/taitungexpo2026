@@ -162,7 +162,7 @@
                                         <div class="exhMap__mapList">
                                             <div class="cardsList cardsList--exhMap">
                                                 @foreach($zone->exhibitionOverviewProjects as $project)
-                                                    <a href="#" class="cardItem cardItem--exhMap">
+                                                    <a href="{{ $project->display_url }}" class="cardItem cardItem--exhMap">
                                                         <div class="cardItem__venue">
                                                             <div class="label"><img src="{{ $project->display_logo }}" alt="{{ $project->display_project_name }}"></div>
                                                             <span class="text">{{ $project->display_venue_number }}</span>
@@ -213,7 +213,7 @@
                                 <div class="swiper-wrapper">
                                     @foreach($activities as $activity)
                                         <div class="swiper-slide">
-                                            <div class="cardItem cardItem--dayOf">
+                                            <a href="{{ $activity->display_url }}" class="cardItem cardItem--dayOf">
                                                 <div class="cardItem__text">
                                                     <div class="time">{{ $activity->display_time_range }}</div>
                                                     <div class="title f-h4">{{ $activity->display_title }}</div>
@@ -229,7 +229,7 @@
                                                         @endif
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </a>
                                         </div>
                                     @endforeach
                                 </div>
