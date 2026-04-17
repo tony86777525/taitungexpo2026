@@ -164,10 +164,6 @@ $path: '../../../images/reservation';
                         background-color: $yellow;
                         padding-left: rem(4); 
                     }
-
-                    @include rwd-min(769px) {
-                        padding-top: rem(7);
-                    }
                 }
             }
         }
@@ -327,7 +323,30 @@ $path: '../../../images/reservation';
                     color: $secondary;
                     margin-bottom: rem(20);
                 }
+
+                &__content {
+                    .notiGroup {
+                        margin-bottom: rem(20);
+
+                        &:last-child {
+                            margin-bottom: 0;
+                        }
+
+                        .notiGroup__title {
+                            margin-bottom: rem(10);
+                        }
+                    }
+                }
                 
+                
+            }
+
+            .notiGroup {
+
+                &__title {
+                    color: $bg-3;
+                }
+
                 &__list {
                     @include list-reset;
 
@@ -401,7 +420,7 @@ $path: '../../../images/reservation';
         }
 		.section--form {
 			.form__foot {
-                .notice__list {
+                .notiGroup__list {
                     & > li {
                         &:before {
                             top: rem(8);
@@ -418,7 +437,15 @@ $path: '../../../images/reservation';
                 .intro {
                     @include rwd-min(769px) {
                         gap: rem(10);
-                        flex-direction: column;
+                        flex-direction: row;
+                    }
+
+                    &__desc {
+                        @include rwd-min(769px) {
+                            @include rwd-min(769px) {
+                                padding-top: rem(5);
+                            }
+                        }
                     }
                 }
             }
@@ -433,7 +460,7 @@ $path: '../../../images/reservation';
         }
 		.section--form {
 			.form__foot {
-                .notice__list {
+                .notiGroup__list {
                     & > li {
                         &:before {
                             top: rem(12);

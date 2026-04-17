@@ -67,6 +67,7 @@ $decoPath: '/resources/images';
     }
 
     &__hint {
+        display: none;
         margin-top: rem(10);
 
         .mailValid {
@@ -90,6 +91,10 @@ $decoPath: '/resources/images';
 
         .errMsg {
             color: #D40000;
+        }
+
+        &.is-active {
+            display: block;
         }
     }
 

@@ -84,6 +84,32 @@ function init() {
 	/* ── Email validation ────────────────────────────────────────────────────── */
 	const emailRule = /^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$/;
 
+	document.querySelectorAll('.js-mailInput').forEach(function(input) {
+		input.addEventListener('blur', function() {
+			const mailContent = this.value;
+			const formRowHint = this.closest('.formRow__element')
+									.nextElementSibling;
+			const mailValid = formRowHint.querySelector('.js-mailValid');
+			const mailValidText = mailValid.querySelector('.js-mailValid-text');
+
+			if (mailContent === '') {
+				formRowHint.classList.remove('is-active');
+				return;
+			}
+
+			formRowHint.classList.add('is-active');
+
+			if (emailRule.test(mailContent)) {
+				mailValid.classList.remove('is-invalid');
+				mailValid.classList.add('is-valid');
+				mailValidText.textContent = mailValid.dataset.validText;
+			} else {
+				mailValid.classList.remove('is-valid');
+				mailValid.classList.add('is-invalid');
+				mailValidText.textContent = mailValid.dataset.invalidText;
+			}
+		});
+	});
 
 	/* ── Submit ────────────────────────────────────────────────────────── */
 	document.querySelector('#submit').addEventListener('click', function () {

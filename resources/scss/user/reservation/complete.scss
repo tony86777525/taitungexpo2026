@@ -74,8 +74,10 @@ $path: '../../../images/reservation';
             @include list-reset;
             margin-top: rem(40);
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
             align-items: center;
+            gap: rem(20);
         }
     }
 }

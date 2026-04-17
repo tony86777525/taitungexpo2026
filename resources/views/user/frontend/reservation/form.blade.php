@@ -7,7 +7,7 @@
 					<div class="formRow__title f-p"><span class="text f-p">{{ __('reservation.form.date.title') }}</span></div>
 					<div class="formRow__element">
 						<div class="formElement formElement--datepicker">
-							<input id="datepicker" class="fancyInput fancyInput--datepicker f-h6" readonly>
+							<input id="datepicker" class="fancyInput fancyInput--datepicker f-h6" readonly placeholder="{{ __('reservation.form.date.placeholder') }}">
 						</div>
 					</div>
 					<div class="formRow__hint">
@@ -20,7 +20,7 @@
 					<div class="formRow__element">
 						<div class="formElement formElement--select">
 							<select id="sel-zone" class="fancySelect">
-								<option value="" disabled selected></option>
+								<option value="" disabled selected>{{ __('reservation.form.zone.placeholder') }}</option>
 								<option value="A">A 舊站特區</option>
 								<option value="B">B 就藝會區</option>
 								<option value="C">C 美術館區</option>
@@ -42,7 +42,7 @@
 					<div class="formRow__element formElement--select">
 						<div class="formElement formElement--select">
 							<select id="sel-venue" class="fancySelect">
-								<option value="" disabled selected></option>
+								<option value="" disabled selected>{{ __('reservation.form.venue.placeholder') }}</option>
 							</select>
 						</div>
 					</div>
@@ -56,7 +56,7 @@
 					<div class="formRow__element">
 						<div class="formElement formElement--select">
 							<select id="sel-time" class="fancySelect">
-								<option value="" disabled selected></option>
+								<option value="" disabled selected>{{ __('reservation.form.time.placeholder') }}</option>
 							</select>
 						</div>
 					</div>
@@ -79,7 +79,7 @@
 					<div class="formRow__title f-p"><span class="text f-p">{{ __('reservation.form.name.title') }}</span></div>
 					<div class="formRow__element">
 						<div class="formElement">
-							<input type="text" id="name" class="fancyInput fancyInput--text f-h6" placeholder="" >
+							<input type="text" id="name" class="fancyInput fancyInput--text f-h6" placeholder="{{ __('reservation.form.name.placeholder') }}" >
 						</div>
 						<div class="radioGroup radioGroup--gender">
 							<input type="radio" id="gender-mr" name="gender" class="fancyInput fancyInput--radio" value="mr" checked>
@@ -97,7 +97,7 @@
 					<div class="formRow__title f-p"><span class="text f-p">{{ __('reservation.form.tel.title') }}</span></div>
 					<div class="formRow__element">
 						<div class="formElement">
-							<input type="tel" id="phone" class="fancyInput fancyInput--text f-h6" placeholder="">
+							<input type="tel" id="phone" class="fancyInput fancyInput--text f-h6" placeholder="{{ __('reservation.form.tel.placeholder') }}">
 						</div>
 					</div>
 					<div class="formRow__hint">
@@ -110,12 +110,12 @@
 					<div class="formRow__title f-p"><span class="text f-p">{{ __('reservation.form.email.title') }}</span></div>
 					<div class="formRow__element">
 						<div class="formElement">
-							<input type="email" id="email" class="fancyInput fancyInput--text f-h6 js-mailInput" placeholder="">
+							<input type="email" id="email" class="fancyInput fancyInput--text f-h6 js-mailInput" placeholder="{{ __('reservation.form.email.placeholder') }}">
 						</div>
 					</div>
 					<div class="formRow__hint">
 						<div class="mailValid js-mailValid is-valid" data-valid-text="{{ __('reservation.form.email.valid.true') }}"  data-invalid-text="{{ __('reservation.form.email.valid.false') }}">
-							<span class="f-h6 js-mailValid-text">{{ __('reservation.form.email.valid.true') }}</span>
+							<span class="f-h6 js-mailValid-text"></span>
 						</div>
 						<div class="errMsg f-h6">{{ __('reservation.form.email.errMsg') }}</div>
 					</div>
@@ -125,7 +125,7 @@
 					<div class="formRow__title f-p"><span class="text f-p">{{ __('reservation.form.org.title') }}</span></div>
 					<div class="formRow__element">
 						<div class="formElement">
-							<input type="text" id="org" class="fancyInput fancyInput--text f-h6" placeholder="">
+							<input type="text" id="org" class="fancyInput fancyInput--text f-h6" placeholder="{{ __('reservation.form.org.placeholder') }}">
 						</div>
 					</div>
 					<div class="formRow__hint">
@@ -138,7 +138,7 @@
 					<div class="formRow__element">
 						<div class="formElement formElement--select">
 							<select id="sel-count" class="fancySelect">
-								<option value="" disabled selected></option>
+								<option value="" disabled selected>{{ __('reservation.form.count.placeholder') }}</option>
 								<option>10人以下</option>
 								<option>11–20人</option>
 								<option>21–30人</option>
@@ -156,7 +156,7 @@
 					<div class="formRow__title f-p"><span class="text f-p">{{ __('reservation.form.remark.title') }}</span></div>
 					<div class="formRow__element">
 						<div class="formElement">
-							<textarea id="remark" rows="4" class="fancyTextarea f-h6"></textarea>
+							<textarea id="remark" rows="4" class="fancyTextarea f-h6" placeholder="{{ __('reservation.form.remark.placeholder') }}"></textarea>
 						</div>
 					</div>
 				</div>
@@ -171,16 +171,32 @@
 	<div class="form__foot">
 		<div class="container">
 			<div class="notice">
-				<div class="notice__title">{{ __('reservation.form.notices.title') }}</div>
-				<ul class="notice__list f-p">
-					<li><span class="f-h5">{{ __('reservation.form.notices.lists.list-item1') }}</span></li>
-					<li><span class="f-h5">{{ __('reservation.form.notices.lists.list-item2') }}</span></li>
-					<li><span class="f-h5">{{ __('reservation.form.notices.lists.list-item3') }}</span></li>
-					<li><span class="f-h5">{{ __('reservation.form.notices.lists.list-item4') }}</span></li>
-					<li><span class="f-h5">{{ __('reservation.form.notices.lists.list-item5') }}</span></li>
-					<li><span class="f-h5">{{ __('reservation.form.notices.lists.list-item6') }}</span></li>
-					<li><span class="f-h5">{{ __('reservation.form.notices.lists.list-item7') }}</span></li>
-				</ul>
+				<div class="notice__title f-p">{{ __('reservation.form.notices.title') }}</div>
+				<div class="notice__content">
+					<div class="notiGroup">
+						<div class="notiGroup__title f-h5">{{ __('reservation.form.notices.content.reminders.title') }}</div>
+						<ul class="notiGroup__list">
+							<li><span class="f-h5">{{ __('reservation.form.notices.content.reminders.lists.list-item1') }}</span></li>
+							<li><span class="f-h5">{{ __('reservation.form.notices.content.reminders.lists.list-item2') }}</span></li>
+							<li><span class="f-h5">{{ __('reservation.form.notices.content.reminders.lists.list-item3') }}</span></li>
+						</ul>
+					</div>
+					<div class="notiGroup">
+						<div class="notiGroup__title f-h5">{{ __('reservation.form.notices.content.adjustments.title') }}</div>
+						<ul class="notiGroup__list">
+							<li><span class="f-h5">{{ __('reservation.form.notices.content.adjustments.lists.list-item1') }}</span></li>
+							<li><span class="f-h5">{{ __('reservation.form.notices.content.adjustments.lists.list-item2') }}</span></li>
+						</ul>
+					</div>
+					<div class="notiGroup">
+						<div class="notiGroup__title f-h5">{{ __('reservation.form.notices.content.other.title') }}</div>
+						<ul class="notiGroup__list">
+							<li><span class="f-h5">{{ __('reservation.form.notices.content.other.lists.list-item1') }}</span></li>
+							<li><span class="f-h5">{{ __('reservation.form.notices.content.other.lists.list-item2') }}</span></li>
+						</ul>
+					</div>
+				</div>
+				
 			</div>
 			<div class="captcha">
 				<div class="captcha__image">
