@@ -297,6 +297,12 @@ body {
 
         .tabGroup {
             &--select {
+                .tabSelect__text {
+                    .symbol {
+                        display: none;
+                    }
+                }
+
                 .tabOption__item {
                     .text {
                         font-size: rem(16);
@@ -329,6 +335,12 @@ body {
             }
 
             &--default {
+                .tabSelect__text {
+                    .symbol {
+                        display: none;
+                    }
+                }
+                
                 .tabOption__item {
                     .text {
                         font-size: rem(13);
@@ -350,6 +362,11 @@ body {
         .filterGroup {
             &--fakeSelect,
             &--overview {
+                .filterSelect__text {
+                    .symbol {
+                        display: none;
+                    }
+                }
                 .filterOption__item {
                     .text {
                         font-size: rem(16);
@@ -733,6 +750,12 @@ body {
         .tabGroup {
 
             &--default {
+                .tabSelect__text {
+                    .symbol {
+                        display: inline;
+                    }
+                }
+
                 .tabOption__item {
                     .text {
                         font-size: rem(14);
@@ -753,6 +776,11 @@ body {
             }
 
             &--select {
+                .tabSelect__text {
+                    .symbol {
+                        display: inline;
+                    }
+                }
                 .tabOption__item {
                     .text {
                         font-size: rem(18);
@@ -788,6 +816,12 @@ body {
         .filterGroup {
             &--fakeSelect,
             &--overview  {
+                .filterSelect__text {
+                    .symbol {
+                        display: inline;
+                    }
+                }
+
                 .filterOption__item {
                     .text {
                         font-size: rem(18);

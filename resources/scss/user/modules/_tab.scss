@@ -155,6 +155,10 @@ $decoPath: '/resources/images';
 
             &__text {
                 color: $secondary-dark;
+
+                .symbol {
+                    margin-right: rem(6);
+                }
             }
         }
 

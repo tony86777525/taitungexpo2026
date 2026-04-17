@@ -29,7 +29,7 @@
                         <div class="filterGroup filterGroup--overview js-filterGroup-select">
                             <div class="filterGroup__selector" aria-haspopup="listbox" aria-expanded="false">
                                 <div class="filterSelect js-filterSelect">
-                                    <span class="filterSelect__text f-h4 js-selectedOption">ALL</span>
+                                    <span class="filterSelect__text f-h4 js-selectedOption"><span class="symbol">A</span>{{ __('about.overview.section1.filters.filterTxt1') }}</span>
                                 </div>
                                 <ul class="filterOption jc-center" role="listbox">
                                     <li class="filterOption__item js-filterOption-item is-active" data-filter-id="exh-a" role="option"><span class="text"><span class="symbol">A</span>{{ __('about.overview.section1.filters.filterTxt1') }}</span></li>
