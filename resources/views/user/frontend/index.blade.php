@@ -207,14 +207,14 @@
                             <span class="tabSelect__text f-h4 js-selectedOption">{{ __('index.tab-title.tab1') }}</span>
                         </div>
                         <ul class="tabOption jc-start js-tabOption" role="listbox">
-                            <li class="tabOption__item js-tabOption-item is-active" data-tab-id="exh-a" role="option"><span class="text">{{ __('index.tab-title.tab1') }}</span></li>
-                            <li class="tabOption__item js-tabOption-item" data-tab-id="exh-b" role="option"><span class="text">{{ __('index.tab-title.tab2') }}</span></li>
-                            <li class="tabOption__item js-tabOption-item" data-tab-id="exh-c" role="option"><span class="text">{{ __('index.tab-title.tab3') }}</span></li>
-                            <li class="tabOption__item js-tabOption-item" data-tab-id="exh-d" role="option"><span class="text">{{ __('index.tab-title.tab4') }}</span></li>
-                            <li class="tabOption__item js-tabOption-item" data-tab-id="exh-e" role="option"><span class="text">{{ __('index.tab-title.tab5') }}</span></li>
-                            <li class="tabOption__item js-tabOption-item" data-tab-id="exh-f" role="option"><span class="text">{{ __('index.tab-title.tab6') }}</span></li>
-                            <li class="tabOption__item js-tabOption-item" data-tab-id="exh-g" role="option"><span class="text">{{ __('index.tab-title.tab7') }}</span></li>
-                            <li class="tabOption__item js-tabOption-item" data-tab-id="exh-h" role="option"><span class="text">{{ __('index.tab-title.tab8') }}</span></li>
+                            <li class="tabOption__item js-tabOption-item is-active" data-tab-id="exh-a" role="option"><span class="text"><span class="symbol">A</span>{{ __('index.tab-title.tab1') }}</span></li>
+                            <li class="tabOption__item js-tabOption-item" data-tab-id="exh-b" role="option"><span class="text"><span class="symbol">B</span>{{ __('index.tab-title.tab2') }}</span></li>
+                            <li class="tabOption__item js-tabOption-item" data-tab-id="exh-c" role="option"><span class="text"><span class="symbol">C</span>{{ __('index.tab-title.tab3') }}</span></li>
+                            <li class="tabOption__item js-tabOption-item" data-tab-id="exh-d" role="option"><span class="text"><span class="symbol">D</span>{{ __('index.tab-title.tab4') }}</span></li>
+                            <li class="tabOption__item js-tabOption-item" data-tab-id="exh-e" role="option"><span class="text"><span class="symbol">E</span>{{ __('index.tab-title.tab5') }}</span></li>
+                            <li class="tabOption__item js-tabOption-item" data-tab-id="exh-f" role="option"><span class="text"><span class="symbol">F</span>{{ __('index.tab-title.tab6') }}</span></li>
+                            <li class="tabOption__item js-tabOption-item" data-tab-id="exh-g" role="option"><span class="text"><span class="symbol">G</span>{{ __('index.tab-title.tab7') }}</span></li>
+                            <li class="tabOption__item js-tabOption-item" data-tab-id="exh-h" role="option"><span class="text"><span class="symbol">H</span>{{ __('index.tab-title.tab8') }}</span></li>
                         </ul>
                     </div>
                     <div class="tabGroup__content js-tabGroup-content">
