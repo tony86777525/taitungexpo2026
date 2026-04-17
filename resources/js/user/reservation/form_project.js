@@ -64,15 +64,17 @@ function init() {
         selectQuota.innerHTML = '<option value="">　</option>';
 
         if (currentSelect === selectTime) {
-            const currentActivitySession = window.filterActivitySessions[0];
-            window.filterParams.activity_session_id = currentActivitySession.activity_session_id;
-            selectActivitySession.value = window.filterParams.activity_session_id;
+            if (window.filterActivitySessions.length === 1) {
+                const currentActivitySession = window.filterActivitySessions[0];
+                window.filterParams.activity_session_id = currentActivitySession.activity_session_id;
+                selectActivitySession.value = window.filterParams.activity_session_id;
 
-            for (let i = currentActivitySession.quota_min; i <= currentActivitySession.quota_max; i++) {
-                // 建立新選項 (顯示文字為 i，數值為 i)
-                const opt = new Option(i, i);
-                // 將選項加入 select
-                selectQuota.add(opt);
+                for (let i = currentActivitySession.quota_min; i <= currentActivitySession.quota_max; i++) {
+                    // 建立新選項 (顯示文字為 i，數值為 i)
+                    const opt = new Option(i, i);
+                    // 將選項加入 select
+                    selectQuota.add(opt);
+                }
             }
         }
 

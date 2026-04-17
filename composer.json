@@ -10,6 +10,7 @@
         "androsamp/filament-rich-editor-textcolor": "^1.3",
         "bezhansalleh/filament-shield": "^4.1",
         "coolsam/flatpickr": "^5.0",
+        "dev-3bdulrahman/laravel-captcha": "^2.1",
         "filament/filament": "^4.5",
         "guava/calendar": "^2.1",
         "laravel/framework": "^12.0",

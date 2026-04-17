@@ -26,6 +26,7 @@ class ReservationController extends Controller
             ->withCount([
                 'bookedActivityReservations',
             ])
+            ->forFrontendCanBeBook()
             ->whereHas('project', function ($query) {
                 $query->where('is_active', true);
             })
@@ -34,7 +35,6 @@ class ReservationController extends Controller
             })
             ->where('is_active', true)
             ->get();
-
 
         abort_if($activitySessions->isEmpty(), 404);
 
@@ -126,6 +126,7 @@ class ReservationController extends Controller
             ->withCount([
                 'bookedActivityReservations',
             ])
+            ->forFrontendCanBeBook()
             ->whereHas('project', function ($query) {
                 $query->where('is_active', true);
             })
@@ -216,21 +217,46 @@ class ReservationController extends Controller
 
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'activity_session_id' => 'required|exists:activity_sessions,id',
-            'contact_name' => 'required|string|max:50',
-            'contact_sex' => 'required|integer|max:1',
-            'contact_phone' => 'required|string|max:50',
-            'contact_email' => 'required|email|max:100',
-            'contact_group_name' => 'required|string|max:100',
-            'participants_quota' => 'required|integer|min:1',
-            'status_notes' => 'nullable|string',
-        ]);
+        $validated = $request->validate(
+            [
+                'zone' => 'required|integer|max:50',
+                'venue' => 'required|integer|max:50',
+                'date' => 'required|string|max:10',
+                'time_range' => 'required|string|max:11',
+                'activity_session_id' => 'required|exists:activity_sessions,id',
+                'contact_name' => 'required|string|max:50',
+                'contact_sex' => 'required|integer|max:1',
+                'contact_phone' => 'required|string|max:50',
+                'contact_email' => 'required|email|max:100',
+                'contact_group_name' => 'required|string|max:100',
+                'participants_quota' => 'required|integer|min:1',
+                'status_notes' => 'nullable|string|max:255',
+                'captcha' => 'required|captcha',
+            ],
+            [
+                'zone.required' => __('reservation.form.zone.errMsg'),
+                'venue.required' => __('reservation.form.venue.errMsg'),
+                'date.required' => __('reservation.form.date.errMsg'),
+                'time_range.required' => __('reservation.form.time.errMsg'),
+                'contact_name.required' => __('reservation.form.name.errMsg'),
+                'contact_sex.required' => __('reservation.form.gender.errMsg'),
+                'contact_phone.required' => __('reservation.form.tel.errMsg'),
+                'contact_email.required' => __('reservation.form.email.errMsg'),
+                'contact_group_name.required' => __('reservation.form.org.errMsg'),
+                'participants_quota.required' => __('reservation.form.count.errMsg'),
+//                'captcha.required' => __('reservation.form.date.errMsg'),
+            ]
+        );
 
-        $activitySession = ActivitySessionNormal::find($validated['activity_session_id']);
+        $activitySession = ActivitySessionNormal::forFrontendCanBeBook()
+            ->find($validated['activity_session_id']);
+
+        if (empty($activitySession)) {
+            return redirect()->route('user.reservation.complete')->with('fail', '您預約的場次已結束報名，歡迎再看看其他場次!');
+        }
 
         if (!$activitySession->can_book) {
-            return redirect()->route('user.reservation.complete')->with('fail', '預約已滿!');
+            return redirect()->route('user.reservation.complete')->with('fail', '您預約的場次名額已滿，歡迎再看看其他場次!');
         }
 
         $reservation = new ActivityReservationNormal($validated);

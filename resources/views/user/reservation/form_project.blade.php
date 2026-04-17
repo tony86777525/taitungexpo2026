@@ -1,6 +1,8 @@
 <form id="reservation" action="{{ route('user.reservation.store') }}" method="POST" class="form form--reservation">
     @csrf
     <input type="hidden" id="activity_session_id" name="activity_session_id" value="{{ old('activity_session_id') }}">
+    <input type="hidden" name="zone" value="{{ old('zone') ?? $currentProject->zone->id }}">
+    <input type="hidden" name="venue" value="{{ old('venue') ?? $currentProject->id }}">
     <div class="form__body">
         <div class="wrap">
             <div class="container">
@@ -16,6 +18,11 @@
                             </select>
                         </div>
                     </div>
+                    @error('zone')
+                        <div class="formRow__hint">
+                            <div class="errMsg f-h6">{{ $message }}</div>
+                        </div>
+                    @enderror
                 </div>
                 {{-- 預約場館（必選） --}}
                 <div class="formRow is-necessary">
@@ -29,6 +36,11 @@
                             </select>
                         </div>
                     </div>
+                    @error('venue')
+                        <div class="formRow__hint">
+                            <div class="errMsg f-h6">{{ $message }}</div>
+                        </div>
+                    @enderror
                 </div>
                 {{-- 預約日期（必選） --}}
                 <div class="formRow is-necessary">
@@ -38,6 +50,11 @@
                             <input id="datepicker" name="date" class="fancyInput fancyInput--datepicker f-h6" value="{{ old('date') }}" readonly>
                         </div>
                     </div>
+                    @error('date')
+                        <div class="formRow__hint">
+                            <div class="errMsg f-h6">{{ $message }}</div>
+                        </div>
+                    @enderror
                 </div>
                 {{-- 預約時段（必選） --}}
                 <div class="formRow is-necessary">
@@ -52,6 +69,11 @@
                             </select>
                         </div>
                     </div>
+                    @error('time_range')
+                        <div class="formRow__hint">
+                            <div class="errMsg f-h6">{{ $message }}</div>
+                        </div>
+                    @enderror
                 </div>
                 {{-- 預約日期、展區、預約場館、預約時段都選擇過以後，.js-capacity-wrap要加上.is-active的樣式才會display: block --}}
                 <div class="formRow formRow--capacity js-capacity-wrap">
@@ -192,15 +214,29 @@
                     <li><span class="f-h5">{{ __('reservation.form.notices.lists.list-item7') }}</span></li>
                 </ul>
             </div>
-            <div class="captcha">
-                <div class="captcha__image">
-                    <div class="img"><img src="https://picsum.photos/id/236/143/40" class="js-captcha-image"></div>
-                    <div class="refresh"><button class="btn btn--refresh js-captcha-image">refresh captcha</button></div>
+
+            @include('captcha::captcha_reservation', [
+                'type' => 'image',
+                'difficulty' => 'medium',
+                'noise' => 'hard',
+                'colors' => 'noise',
+                'lines' => 'hard',
+            ])
+            @error('captcha')
+                <div class="formRow__hint">
+                    <div class="errMsg f-h6">{{ $message }}</div>
                 </div>
-                <div class="captcha__input">
-                    <input type="text" class="fancyInput fancyInput--captcha f-h6 js-captch-input" placeholder="{{ __('reservation.form.captcha.placeholder') }}">
-                </div>
-            </div>
+            @enderror
+
+{{--            <div class="captcha">--}}
+{{--                <div class="captcha__image">--}}
+{{--                    <div class="img"><img src="https://picsum.photos/id/236/143/40" class="js-captcha-image"></div>--}}
+{{--                    <div class="refresh"><button class="btn btn--refresh js-captcha-image">refresh captcha</button></div>--}}
+{{--                </div>--}}
+{{--                <div class="captcha__input">--}}
+{{--                    <input type="text" class="fancyInput fancyInput--captcha f-h6 js-captch-input" placeholder="{{ __('reservation.form.captcha.placeholder') }}">--}}
+{{--                </div>--}}
+{{--            </div>--}}
             <ul class="actions">
                 <li><button id="submit" type="submit" class="btn btn--submit is-dark"><span class="btn__text">{{ __('reservation.form.actions.submit') }}</span></button></li>
             </ul>
