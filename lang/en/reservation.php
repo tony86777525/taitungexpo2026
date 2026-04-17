@@ -32,19 +32,23 @@ return [
     'form' => [
         'date' => [
             'title' => 'Reservation Date',
-            'errMsg' => ''
+            'errMsg' => '',
+            'placeholder' => ''
         ],
         'zone' => [
             'title' => 'Exhibition Zone',
-            'errMsg' => ''
+            'errMsg' => '',
+            'placeholder' => ''
         ],
         'venue' => [
             'title' => 'Venue',
-            'errMsg' => ''
+            'errMsg' => '',
+            'placeholder' => ''
         ],
         'time' => [
             'title' => 'Time Slot',
-            'errMsg' => ''
+            'errMsg' => '',
+            'placeholder' => ''
         ],
         'capacity' => [
             'before' => 'Recommended Group Size for This Session',
@@ -56,11 +60,13 @@ return [
                 'male' => 'Mr.',
                 'female' => 'Ms.'
             ],
-            'errMsg' => ''
+            'errMsg' => '',
+            'placeholder' => ''
         ],
         'tel' => [
             'title' => 'Phone Number',
-            'errMsg' => ''
+            'errMsg' => '',
+            'placeholder' => ''
         ],
         'email' => [
             'title' => 'Email Address',
@@ -68,18 +74,22 @@ return [
                 'true' => 'Valid Email',
                 'false' => 'Invalid Email'
             ],
-            'errMsg' => ''
+            'errMsg' => '',
+            'placeholder' => ''
         ],
         'org' => [
             'title' => 'Group Name',
-            'errMsg' => ''
+            'errMsg' => '',
+            'placeholder' => ''
         ],
         'count' => [
             'title' => 'Expected Number of Participants',
-            'errMsg' => ''
+            'errMsg' => '',
+            'placeholder' => ''
         ],
         'remark' => [
             'title' => 'Remarks (Optional)',
+            'placeholder' => ''
         ],
         'hint' => 'Please complete the application form and review the following notes before scrolling down and clicking the “Submit Application” button.',
         'notices' => [

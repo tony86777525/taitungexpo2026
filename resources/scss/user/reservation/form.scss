@@ -149,7 +149,6 @@ $path: '../../../images/reservation';
                 gap: rem(10);
 
                 @include rwd-min(769px) {
-                    flex-direction: row;
                     gap: rem(20);
                 }
 
@@ -176,6 +175,7 @@ $path: '../../../images/reservation';
         &__list {
             @include list-reset;
             margin-top: rem(20);
+            padding-left: rem(20);
 
             @include rwd-min(769px) {
                 margin-top: rem(40);
@@ -381,6 +381,16 @@ $path: '../../../images/reservation';
 .lang {
 	&--en {
         .section--intro {
+
+            .stepItem__title {
+                .intro {
+                    @include rwd-min(769px) {
+                        gap: rem(10);
+                        flex-direction: column;
+                    }
+                }
+            }
+
             .stepItem__list {
                 & > li {
                     &:before {
@@ -404,6 +414,15 @@ $path: '../../../images/reservation';
 
 	&--zh {
         .section--intro {
+            .stepItem__title {
+                .intro {
+                    @include rwd-min(769px) {
+                        gap: rem(10);
+                        flex-direction: column;
+                    }
+                }
+            }
+
             .stepItem__list {
                 & > li {
                     &:before {

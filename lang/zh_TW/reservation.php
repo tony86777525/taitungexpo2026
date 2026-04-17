@@ -32,19 +32,23 @@ return [
     'form' => [
         'date' => [
             'title' => '預約日期',
-            'errMsg' => '請選擇預約日期'
+            'errMsg' => '請選擇預約日期',
+            'placeholder' => '請選擇預計參訪日期'
         ],
         'zone' => [
             'title' => '展區',
-            'errMsg' => '請選擇展區'
+            'errMsg' => '請選擇展區',
+            'placeholder' => '請選擇預計參訪展區'
         ],
         'venue' => [
             'title' => '預約場館',
-            'errMsg' => '請選擇預約場館'
+            'errMsg' => '請選擇預約場館',
+            'placeholder' => '請選擇預計參訪場館'
         ],
         'time' => [
             'title' => '預約時段',
-            'errMsg' => '請選擇預約時段'
+            'errMsg' => '請選擇預約時段',
+            'placeholder' => '請選擇預計參訪時段'
         ],
         'capacity' => [
             'before' => '本場次團體導覽建議人數為',
@@ -56,11 +60,13 @@ return [
                 'male' => '先生',
                 'female' => '小姐'
             ],
-            'errMsg' => '請填寫聯絡人姓名'
+            'errMsg' => '請填寫聯絡人姓名',
+            'placeholder' => '請填寫團體聯絡人姓名（1人為代表）'
         ],
         'tel' => [
             'title' => '聯絡電話',
-            'errMsg' => '請填寫聯絡電話'
+            'errMsg' => '請填寫聯絡電話',
+            'placeholder' => '請填寫聯絡人電話，以利後續聯繫'
         ],
         'email' => [
             'title' => '電子郵件',
@@ -68,18 +74,22 @@ return [
                 'true' => '有效電子郵件',
                 'false' => '無效電子郵件'
             ],
-            'errMsg' => '請填寫電子郵件'
+            'errMsg' => '請填寫電子郵件',
+            'placeholder' => '請填寫有效電子信箱，以利後續通知'
         ],
         'org' => [
             'title' => '預約團體名稱',
-            'errMsg' => '請填寫預約團體名稱'
+            'errMsg' => '請填寫預約團體名稱',
+            'placeholder' => '請填寫預計參訪之團體名稱'
         ],
         'count' => [
             'title' => '預計參與人數',
-            'errMsg' => '請選擇預計參與人數'
+            'errMsg' => '請選擇預計參與人數',
+            'placeholder' => '請選擇團體預計參訪人數'
         ],
         'remark' => [
             'title' => '備註（選填）',
+            'placeholder' => '如有需提供審核單位/預約場館之補充說明，請於此填寫'
         ],
         'hint' => '請填寫申請資料，並詳閱以下注意事項後，下滑點擊「提交申請」按鈕完成送出。',
         'notices' => [

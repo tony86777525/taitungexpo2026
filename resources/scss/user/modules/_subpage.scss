@@ -187,7 +187,7 @@ $modulePath: '/resources/images';
             &__item {
                 display: flex;
                 flex-wrap: nowrap;
-                align-items: center;
+                align-items: flex-start;
                 justify-content: flex-start;
 
                 &:before {

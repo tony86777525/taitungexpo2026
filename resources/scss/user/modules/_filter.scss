@@ -136,6 +136,10 @@ $filter-themes: (
                 padding: rem(17) rem(30);
                 color: $secondary-dark;
                 display: block;
+
+                .symbol {
+                    margin-right: rem(3);
+                }
             }
 
             &.is-active .text {

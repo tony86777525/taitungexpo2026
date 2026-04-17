@@ -239,8 +239,12 @@ $decoPath: '/resources/images';
 
 .lang--en {
     .fancyLabel{
-        &:before {}
-        &:after {}
+        &:before {
+            top: rem(6);
+        }
+        &:after {
+            top: rem(2)
+        }
     }
 }
 .lang--zh {
