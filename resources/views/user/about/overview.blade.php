@@ -32,14 +32,14 @@
                                         <span class="filterSelect__text f-h4 js-selectedOption">ALL</span>
                                     </div>
                                     <ul class="filterOption jc-center" role="listbox">
-                                        <li class="filterOption__item js-filterOption-item is-active" data-filter-id="exh-a" role="option"><span class="text"><span class="symbol">A</span>{{ __('about.overview.section1.filters.filterTxt1') }}</span></li>
-                                        <li class="filterOption__item js-filterOption-item" data-filter-id="exh-b" role="option"><span class="text"><span class="symbol">B</span>{{ __('about.overview.section1.filters.filterTxt2') }}</span></li>
-                                        <li class="filterOption__item js-filterOption-item" data-filter-id="exh-c" role="option"><span class="text"><span class="symbol">C</span>{{ __('about.overview.section1.filters.filterTxt3') }}</span></li>
-                                        <li class="filterOption__item js-filterOption-item" data-filter-id="exh-d" role="option"><span class="text"><span class="symbol">D</span>{{ __('about.overview.section1.filters.filterTxt4') }}</span></li>
-                                        <li class="filterOption__item js-filterOption-item" data-filter-id="exh-e" role="option"><span class="text"><span class="symbol">E</span>{{ __('about.overview.section1.filters.filterTxt5') }}</span></li>
-                                        <li class="filterOption__item js-filterOption-item" data-filter-id="exh-f" role="option"><span class="text"><span class="symbol">F</span>{{ __('about.overview.section1.filters.filterTxt6') }}</span></li>
-                                        <li class="filterOption__item js-filterOption-item" data-filter-id="exh-g" role="option"><span class="text"><span class="symbol">G</span>{{ __('about.overview.section1.filters.filterTxt7') }}</span></li>
-                                        <li class="filterOption__item js-filterOption-item" data-filter-id="exh-h" role="option"><span class="text"><span class="symbol">H</span>{{ __('about.overview.section1.filters.filterTxt8') }}</span></li>
+                                        <li class="filterOption__item js-filterOption-item is-active" data-filter-id="exh-a" role="option"><span class="text">{{ __('about.overview.section1.filters.filterTxt1') }}</span></li>
+                                        <li class="filterOption__item js-filterOption-item" data-filter-id="exh-b" role="option"><span class="text">{{ __('about.overview.section1.filters.filterTxt2') }}</span></li>
+                                        <li class="filterOption__item js-filterOption-item" data-filter-id="exh-c" role="option"><span class="text">{{ __('about.overview.section1.filters.filterTxt3') }}</span></li>
+                                        <li class="filterOption__item js-filterOption-item" data-filter-id="exh-d" role="option"><span class="text">{{ __('about.overview.section1.filters.filterTxt4') }}</span></li>
+                                        <li class="filterOption__item js-filterOption-item" data-filter-id="exh-e" role="option"><span class="text">{{ __('about.overview.section1.filters.filterTxt5') }}</span></li>
+                                        <li class="filterOption__item js-filterOption-item" data-filter-id="exh-f" role="option"><span class="text">{{ __('about.overview.section1.filters.filterTxt6') }}</span></li>
+                                        <li class="filterOption__item js-filterOption-item" data-filter-id="exh-g" role="option"><span class="text">{{ __('about.overview.section1.filters.filterTxt7') }}</span></li>
+                                        <li class="filterOption__item js-filterOption-item" data-filter-id="exh-h" role="option"><span class="text">{{ __('about.overview.section1.filters.filterTxt8') }}</span></li>
                                     </ul>
                                 </div>
                                 <div class="filterGroup__content js-filterGroup-content">
