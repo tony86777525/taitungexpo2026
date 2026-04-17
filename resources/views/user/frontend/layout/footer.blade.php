@@ -25,7 +25,7 @@
             <a href="https://lihi1.com/qe3iE" class="logo__item logo__item--icon" target="_blank"><img src="{{ asset('images/logo_ttPush.svg') }}" alt="TTPush踢一下"></a>
             <a href="https://culture.taitung.gov.tw" class="logo__item logo__item--text" target="_blank"><img src="{{ asset('images/logo_taitungCulture.svg') }}" alt="台東藝文平台"></a>
         </div>
-        <div class="copyright">Copyright &copy; 2025 臺東縣政府. All rights reserved</div>
+        <div class="copyright">Copyright &copy; 2026 臺東縣政府. All rights reserved</div>
     </div>
 </footer>
 <!-- footer end -->

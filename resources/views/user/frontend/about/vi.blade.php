@@ -91,7 +91,7 @@
                 <div class="viGroup viGroup--video wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s">
                     <div class="viGroup__content">
                         <div class="videoFrame">
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/-r_XCaG2WhY?si=hX_7aMpLsmbghZq0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/7rCqL7C_xME?si=Jn4nQoXAhsZa1MWY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                         </div>
                     </div>
                 </div>

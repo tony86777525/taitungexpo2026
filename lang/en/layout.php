@@ -41,7 +41,7 @@ return [
             'supervised-value' => 'National Development Council and Ministry of Culture Taiwan (R.O.C.)',
             'organized-key' => 'Organized by',
             'organized-value' => 'Taitung County Government',
-            'executed-key' => 'Executed by',
+            'executed-key' => 'Implemented by',
             'executed-value' => 'Wonderful Design Studio',
         ]
     ],

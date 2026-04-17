@@ -28,7 +28,7 @@ return [
     'statement' => [
         'page-title' => 'Expo Themes',
         'hero' => [
-            'title1' => '10 Themes X<br>Over 30 Official Exhibitions and Events X<br>14 Taitung Event Brands X<br>22 Community Proposals X<br>More than 150 Brand-Licensed Products',
+            'title1' => '10 Themes X<br>22 Featured Exhibitions X<br>200+ Special Events X<br>14 Taitung Event Brands<br>22 Community Proposals',
             'title2' => 'In 2026, you are invited to experience the diverse vitality of Taitung.',
             'paragraph1' => 'Beginning with a Slow Economy seed planted in Taitung’s soil, ideas take root, reach upward, and gradually unfold into themes: including "Air", "Water", "Natural Power", "Sound", "Drift", "Life", "Slow Economy", "The Taitung Brand", and "Sustainable Taitung". Together, layer by layer, they outline a vision of Slow Economy that is uniquely Taitung.',
             'hint' => 'Click a theme to learn more',
@@ -93,7 +93,7 @@ return [
                 'events' => [
                     'events1' => [
                         'locate' => 'C2',
-                        'name' => 'TAITUNG SOUND ART FESTIVAL',
+                        'name' => 'Taitung Sound Art Festival',
                         'href' => '#'
                     ],
                     'events2' => [
@@ -103,7 +103,7 @@ return [
                     ],
                     'events3' => [
                         'locate' => 'I9',
-                        'name' => 'Face Taitung: Taitung Expo Opening Concert',
+                        'name' => '2026 Taitung Expo Opening Concert',
                         'href' => '#'
                     ],
                 ]
@@ -116,7 +116,7 @@ return [
                 'events' => [
                     'events1' => [
                         'locate' => 'A4',
-                        'name' => 'So Please Don’t Go! Taitung Drifters in Motion',
+                        'name' => 'TTwilight Granden Theater –The Stories of Drifting and Striving in Taitun',
                         'href' => '#',
                     ]
                 ]
@@ -139,7 +139,7 @@ return [
                     ],
                     'events3' => [
                         'locate' => 'C3',
-                        'name' => 'Craft Taitung',
+                        'name' => 'Taitung Craft Exhibition',
                         'href' => '#'
                     ],
                     'events4' => [
@@ -149,7 +149,7 @@ return [
                     ],
                     'events5' => [
                         'locate' => 'F1',
-                        'name' => 'IN BETWEEN',
+                        'name' => 'In Between',
                         'href' => '#'
                     ],
                     'events6' => [
@@ -200,7 +200,7 @@ return [
                     ],
                     'events2' => [
                         'locate' => 'G2',
-                        'name' => 'Taitung Fringe Festival — Taitung Expo: A Performance Retrospective',
+                        'name' => 'Taitung Fringe Festival: A Performing Arts Retrospective',
                         'href' => '#'
                     ],
                     'events3' => [
@@ -300,7 +300,7 @@ return [
         'page-title' => 'Exhibition Overview',
         'section1' => [
             'title' => 'Theme Exhibitions',
-            'desc' => 'Across 8 exhibition zones in Taitung City and satellite exhibitions across Taiwan, 22 official exhibitions are waiting to be explored!',
+            'desc' => 'Across 7 exhibition zones in Taitung City and satellite exhibitions across Taitung, 22 official exhibitions are waiting to be explored!',
             'filters' => [
                 'filterTxt1' => 'Central Taitung District',
                 'filterTxt2' => 'Just Art',
