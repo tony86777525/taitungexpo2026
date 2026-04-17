@@ -240,6 +240,14 @@ $decoPath: '/resources/images';
     &__input {
         margin-top: rem(10);
     }
+
+    &__hint {
+        margin-top: rem(10);
+
+        .errMsg {
+            color: #D40000;
+        }
+    }
 }
 
 .lang--en {

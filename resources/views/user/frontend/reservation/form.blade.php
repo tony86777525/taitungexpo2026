@@ -206,6 +206,9 @@
 				<div class="captcha__input">
 					<input type="text" class="fancyInput fancyInput--captcha f-h6 js-captch-input" placeholder="{{ __('reservation.form.captcha.placeholder') }}">
 				</div>
+				<div class="captcha__hint">
+					<div class="errMsg f-h6">請輸入驗證碼</div>
+				</div>
 			</div>
 			<ul class="actions">
 				<li><button id="submit" type="submit" class="btn btn--submit is-dark"><span class="btn__text">{{ __('reservation.form.actions.submit') }}</span></button></li>
