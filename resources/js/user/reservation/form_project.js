@@ -88,7 +88,7 @@ function init() {
     }
 
     function renewSelect(currentSelect, newOptions, currentValue) {
-        currentSelect.innerHTML = '<option value="">　</option>';
+        currentSelect.innerHTML = `<option value="">${currentSelect.dataset.placeholder}</option>`;
         newOptions.forEach(newOption => {
             // simply omit non-allowed options
             const opt = document.createElement('option');

@@ -12,6 +12,7 @@
                     <div class="formRow__element">
                         <div class="formElement formElement--select">
                             <select id="sel-zone" class="fancySelect" disabled readonly>
+                                <option value="" disabled>{{ __('reservation.form.zone.placeholder') }}</option>
                                 @foreach($zoneOptions as $zoneOption)
                                     <option value="{{ $zoneOption['value'] }}" @if($zoneOption['value'] === $currentProject->zone->id) selected @endif>{{ $zoneOption['label'] }}</option>
                                 @endforeach
@@ -30,6 +31,7 @@
                     <div class="formRow__element formElement--select">
                         <div class="formElement formElement--select">
                             <select id="sel-venue" class="fancySelect" disabled readonly>
+                                <option value="" disabled>{{ __('reservation.form.venue.placeholder') }}</option>
                                 @foreach($projectOptions as $projectOption)
                                     <option value="{{ $projectOption['value'] }}" @if($projectOption['value'] === $currentProject->id) selected @endif>{{ $projectOption['label'] }}</option>
                                 @endforeach
@@ -47,7 +49,14 @@
                     <div class="formRow__title f-p"><span class="text f-p">{{ __('reservation.form.date.title') }}</span></div>
                     <div class="formRow__element">
                         <div class="formElement formElement--datepicker">
-                            <input id="datepicker" name="date" class="fancyInput fancyInput--datepicker f-h6" value="{{ old('date') }}" readonly>
+                            <input
+                                id="datepicker"
+                                name="date"
+                                class="fancyInput fancyInput--datepicker f-h6"
+                                value="{{ old('date') }}"
+                                placeholder="{{ __('reservation.form.date.placeholder') }}"
+                                readonly
+                            >
                         </div>
                     </div>
                     @error('date')
@@ -61,8 +70,8 @@
                     <div class="formRow__title f-p"><span class="text f-p">{{ __('reservation.form.time.title') }}</span></div>
                     <div class="formRow__element">
                         <div class="formElement formElement--select">
-                            <select id="sel-time" name="time_range" class="fancySelect">
-                                <option value="" selected></option>
+                            <select id="sel-time" name="time_range" class="fancySelect" data-placeholder="{{ __('reservation.form.time.placeholder') }}">
+                                <option value="" disabled selected>{{ __('reservation.form.time.placeholder') }}</option>
                                 @foreach($sessionTimeOptions as $sessionTimeOption)
                                     <option value="{{ $sessionTimeOption['value'] }}">{{ $sessionTimeOption['label'] }}</option>
                                 @endforeach
@@ -90,7 +99,14 @@
                     <div class="formRow__title f-p"><span class="text f-p">{{ __('reservation.form.name.title') }}</span></div>
                     <div class="formRow__element">
                         <div class="formElement">
-                            <input type="text" id="name" name="contact_name" class="fancyInput fancyInput--text f-h6" value="{{ old('contact_name') }}" placeholder="" >
+                            <input
+                                type="text"
+                                id="name"
+                                name="contact_name"
+                                class="fancyInput fancyInput--text f-h6"
+                                value="{{ old('contact_name') }}"
+                                placeholder="{{ __('reservation.form.name.placeholder') }}"
+                            >
                         </div>
                         <div class="radioGroup radioGroup--gender">
                             <input
@@ -129,7 +145,14 @@
                     <div class="formRow__title f-p"><span class="text f-p">{{ __('reservation.form.tel.title') }}</span></div>
                     <div class="formRow__element">
                         <div class="formElement">
-                            <input type="tel" id="phone" name="contact_phone" class="fancyInput fancyInput--text f-h6" value="{{ old('contact_phone') }}" placeholder="">
+                            <input
+                                type="tel"
+                                id="phone"
+                                name="contact_phone"
+                                class="fancyInput fancyInput--text f-h6"
+                                value="{{ old('contact_phone') }}"
+                                placeholder="{{ __('reservation.form.tel.placeholder') }}"
+                            >
                         </div>
                     </div>
                     @error('contact_phone')
@@ -144,7 +167,14 @@
                     <div class="formRow__title f-p"><span class="text f-p">{{ __('reservation.form.email.title') }}</span></div>
                     <div class="formRow__element">
                         <div class="formElement">
-                            <input type="email" id="email" name="contact_email" class="fancyInput fancyInput--text f-h6 js-mailInput" value="{{ old('contact_email') }}" placeholder="">
+                            <input
+                                type="email"
+                                id="email"
+                                name="contact_email"
+                                class="fancyInput fancyInput--text f-h6 js-mailInput"
+                                value="{{ old('contact_email') }}"
+                                placeholder="{{ __('reservation.form.email.placeholder') }}"
+                            >
                         </div>
                     </div>
                     @error('contact_email')
@@ -158,7 +188,14 @@
                     <div class="formRow__title f-p"><span class="text f-p">{{ __('reservation.form.org.title') }}</span></div>
                     <div class="formRow__element">
                         <div class="formElement">
-                            <input type="text" id="org" name="contact_group_name" class="fancyInput fancyInput--text f-h6" value="{{ old('contact_group_name') }}" placeholder="">
+                            <input
+                                type="text"
+                                id="org"
+                                name="contact_group_name"
+                                class="fancyInput fancyInput--text f-h6"
+                                value="{{ old('contact_group_name') }}"
+                                placeholder="{{ __('reservation.form.org.placeholder') }}"
+                            >
                         </div>
                     </div>
                     @error('contact_group_name')
@@ -172,8 +209,13 @@
                     <div class="formRow__title f-p"><span class="text f-p">{{ __('reservation.form.count.title') }}</span></div>
                     <div class="formRow__element">
                         <div class="formElement formElement--select">
-                            <select id="sel-count" name="participants_quota" class="fancySelect">
-                                <option value="" disabled selected></option>
+                            <select
+                                id="sel-count"
+                                name="participants_quota"
+                                class="fancySelect"
+                                data-placeholder="{{ __('reservation.form.time.placeholder') }}"
+                            >
+                                <option value="" disabled selected>{{ __('reservation.form.time.placeholder') }}</option>
                             </select>
                         </div>
                     </div>
@@ -188,7 +230,13 @@
                     <div class="formRow__title f-p"><span class="text f-p">{{ __('reservation.form.remark.title') }}</span></div>
                     <div class="formRow__element">
                         <div class="formElement">
-                            <textarea id="remark" name="status_notes" rows="4" class="fancyTextarea f-h6">{{ old('status_notes') }}</textarea>
+                            <textarea
+                                id="remark"
+                                name="status_notes"
+                                rows="4"
+                                class="fancyTextarea f-h6"
+                                placeholder="{{ __('reservation.form.remark.placeholder') }}"
+                            >{{ old('status_notes') }}</textarea>
                         </div>
                     </div>
                 </div>
@@ -203,16 +251,31 @@
     <div class="form__foot">
         <div class="container">
             <div class="notice">
-                <div class="notice__title">{{ __('reservation.form.notices.title') }}</div>
-                <ul class="notice__list f-p">
-                    <li><span class="f-h5">{{ __('reservation.form.notices.lists.list-item1') }}</span></li>
-                    <li><span class="f-h5">{{ __('reservation.form.notices.lists.list-item2') }}</span></li>
-                    <li><span class="f-h5">{{ __('reservation.form.notices.lists.list-item3') }}</span></li>
-                    <li><span class="f-h5">{{ __('reservation.form.notices.lists.list-item4') }}</span></li>
-                    <li><span class="f-h5">{{ __('reservation.form.notices.lists.list-item5') }}</span></li>
-                    <li><span class="f-h5">{{ __('reservation.form.notices.lists.list-item6') }}</span></li>
-                    <li><span class="f-h5">{{ __('reservation.form.notices.lists.list-item7') }}</span></li>
-                </ul>
+                <div class="notice__title f-p">{{ __('reservation.form.notices.title') }}</div>
+                <div class="notice__content">
+                    <div class="notiGroup">
+                        <div class="notiGroup__title f-h5">{{ __('reservation.form.notices.content.reminders.title') }}</div>
+                        <ul class="notiGroup__list">
+                            <li><span class="f-h5">{{ __('reservation.form.notices.content.reminders.lists.list-item1') }}</span></li>
+                            <li><span class="f-h5">{{ __('reservation.form.notices.content.reminders.lists.list-item2') }}</span></li>
+                            <li><span class="f-h5">{{ __('reservation.form.notices.content.reminders.lists.list-item3') }}</span></li>
+                        </ul>
+                    </div>
+                    <div class="notiGroup">
+                        <div class="notiGroup__title f-h5">{{ __('reservation.form.notices.content.adjustments.title') }}</div>
+                        <ul class="notiGroup__list">
+                            <li><span class="f-h5">{{ __('reservation.form.notices.content.adjustments.lists.list-item1') }}</span></li>
+                            <li><span class="f-h5">{{ __('reservation.form.notices.content.adjustments.lists.list-item2') }}</span></li>
+                        </ul>
+                    </div>
+                    <div class="notiGroup">
+                        <div class="notiGroup__title f-h5">{{ __('reservation.form.notices.content.other.title') }}</div>
+                        <ul class="notiGroup__list">
+                            <li><span class="f-h5">{{ __('reservation.form.notices.content.other.lists.list-item1') }}</span></li>
+                            <li><span class="f-h5">{{ __('reservation.form.notices.content.other.lists.list-item2') }}</span></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
 
             @include('captcha::captcha_reservation', [
@@ -227,16 +290,6 @@
                     <div class="errMsg f-h6">{{ $message }}</div>
                 </div>
             @enderror
-
-{{--            <div class="captcha">--}}
-{{--                <div class="captcha__image">--}}
-{{--                    <div class="img"><img src="https://picsum.photos/id/236/143/40" class="js-captcha-image"></div>--}}
-{{--                    <div class="refresh"><button class="btn btn--refresh js-captcha-image">refresh captcha</button></div>--}}
-{{--                </div>--}}
-{{--                <div class="captcha__input">--}}
-{{--                    <input type="text" class="fancyInput fancyInput--captcha f-h6 js-captch-input" placeholder="{{ __('reservation.form.captcha.placeholder') }}">--}}
-{{--                </div>--}}
-{{--            </div>--}}
             <ul class="actions">
                 <li><button id="submit" type="submit" class="btn btn--submit is-dark"><span class="btn__text">{{ __('reservation.form.actions.submit') }}</span></button></li>
             </ul>
