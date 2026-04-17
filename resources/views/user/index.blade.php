@@ -134,7 +134,7 @@
                     <span class="title f-title-primary is-pageTitle">{{ __('index.section-title.exhibition-area') }}</span>
                     <ul class="action">
                         <li>
-                            <a href="#" class="btn btn--goSubpage is-dark"><span class="btn__text">MORE</span></a>
+                            <a href="{{ lang_route('user.about.overview.list') }}" class="btn btn--goSubpage is-dark"><span class="btn__text">MORE</span></a>
                         </li>
                     </ul>
                 </div>
