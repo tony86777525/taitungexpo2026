@@ -23,7 +23,9 @@ $path: '../../../../images/about';
 .m-subPage {
 	&__head {
 		.title {
-			max-width: calc(100% - rem(130));
+			@include rwd-min(769px) {
+				max-width: calc(100% - rem(130));
+			}
 		}
 	}
 }
