@@ -61,7 +61,13 @@ function init() {
             return findDate && findTime
         });
 
-        selectQuota.innerHTML = '<option value="">　</option>';
+        selectQuota.innerHTML = ``;
+        const firstOpt = document.createElement('option');
+        firstOpt.value = '';
+        firstOpt.textContent = selectQuota.dataset.placeholder;
+        firstOpt.disabled = true;
+        firstOpt.selected = true;
+        selectQuota.appendChild(firstOpt);
 
         if (currentSelect === selectTime) {
             if (window.filterActivitySessions.length === 1) {
@@ -88,12 +94,17 @@ function init() {
     }
 
     function renewSelect(currentSelect, newOptions, currentValue) {
-        currentSelect.innerHTML = `<option value="">${currentSelect.dataset.placeholder}</option>`;
+        currentSelect.innerHTML = ``;
+        const firstOpt = document.createElement('option');
+        firstOpt.value = '';
+        firstOpt.textContent = currentSelect.dataset.placeholder;
+        firstOpt.disabled = true;
+        firstOpt.selected = true;
+        currentSelect.appendChild(firstOpt);
+
         newOptions.forEach(newOption => {
             // simply omit non-allowed options
-            const opt = document.createElement('option');
-            opt.value = newOption.value;
-            opt.textContent = newOption.label;
+            const opt = new Option(newOption.label, newOption.value);
             // if (newOption.value === currentValue) {
             //     opt.selected = true;
             // }
@@ -108,7 +119,7 @@ init();
 window.addEventListener('DOMContentLoaded', (event) => {
     const oldInput = window.oldInput;
 
-    if (oldInput) {
+    if (oldInput.length !== 0) {
         const selectDate = document.getElementById('datepicker');
         const selectTime = document.getElementById('sel-time');
         const selectQuota = document.getElementById('sel-count');

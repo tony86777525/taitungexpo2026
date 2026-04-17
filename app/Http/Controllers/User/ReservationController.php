@@ -252,11 +252,17 @@ class ReservationController extends Controller
             ->find($validated['activity_session_id']);
 
         if (empty($activitySession)) {
-            return redirect()->route('user.reservation.complete')->with('isClosed', '您預約的場次已結束報名，歡迎再看看其他場次!');
+            return redirect()->route('user.reservation.complete')->with([
+                'isClosed' => '您預約的場次已結束報名，歡迎再看看其他場次!',
+                'linkForm' => route('user.reservation.project', ['id' => $validated['venue']]),
+            ]);
         }
 
         if (!$activitySession->can_book) {
-            return redirect()->route('user.reservation.complete')->with('isFull', '您預約的場次名額已滿，歡迎再看看其他場次!');
+            return redirect()->route('user.reservation.complete')->with([
+                'isFull' => '您預約的場次名額已滿，歡迎再看看其他場次!',
+                'linkForm' => route('user.reservation.project', ['id' => $validated['venue']]),
+            ]);
         }
 
         $reservation = new ActivityReservationNormal($validated);

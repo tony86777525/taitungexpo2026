@@ -67,7 +67,7 @@ return [
         */
         'use_svg' => env('CAPTCHA_USE_SVG', true),
 
-        'width' => 200,
+        'width' => 143,
         'height' => 60,
         'length' => [
             'easy' => 4,

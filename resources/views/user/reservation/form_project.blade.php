@@ -213,7 +213,7 @@
                                 id="sel-count"
                                 name="participants_quota"
                                 class="fancySelect"
-                                data-placeholder="{{ __('reservation.form.time.placeholder') }}"
+                                data-placeholder="{{ __('reservation.form.count.placeholder') }}"
                             >
                                 <option value="" disabled selected>{{ __('reservation.form.time.placeholder') }}</option>
                             </select>
