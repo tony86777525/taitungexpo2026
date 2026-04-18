@@ -20,7 +20,7 @@
                         </div>
                     </div>
                     @error('zone')
-                        <div class="formRow__hint">
+                        <div class="formRow__hint is-active">
                             <div class="errMsg f-h6">{{ $message }}</div>
                         </div>
                     @enderror
@@ -39,7 +39,7 @@
                         </div>
                     </div>
                     @error('venue')
-                        <div class="formRow__hint">
+                        <div class="formRow__hint is-active">
                             <div class="errMsg f-h6">{{ $message }}</div>
                         </div>
                     @enderror
@@ -60,7 +60,7 @@
                         </div>
                     </div>
                     @error('date')
-                        <div class="formRow__hint">
+                        <div class="formRow__hint is-active">
                             <div class="errMsg f-h6">{{ $message }}</div>
                         </div>
                     @enderror
@@ -72,14 +72,11 @@
                         <div class="formElement formElement--select">
                             <select id="sel-time" name="time_range" class="fancySelect" data-placeholder="{{ __('reservation.form.time.placeholder') }}">
                                 <option value="" disabled selected>{{ __('reservation.form.time.placeholder') }}</option>
-                                @foreach($sessionTimeOptions as $sessionTimeOption)
-                                    <option value="{{ $sessionTimeOption['value'] }}">{{ $sessionTimeOption['label'] }}</option>
-                                @endforeach
                             </select>
                         </div>
                     </div>
                     @error('time_range')
-                        <div class="formRow__hint">
+                        <div class="formRow__hint is-active">
                             <div class="errMsg f-h6">{{ $message }}</div>
                         </div>
                     @enderror
@@ -115,7 +112,7 @@
                                 name="contact_sex"
                                 class="fancyInput fancyInput--radio"
                                 value="{{ \App\Enums\ContactSex::MAN->value }}"
-                                {{ empty(old('contact_sex')) || old('contact_sex') === \App\Enums\ContactSex::MAN->value ? 'checked' : '' }}
+                                {{ empty(old('contact_sex')) || old('contact_sex') == \App\Enums\ContactSex::MAN->value ? 'checked' : '' }}
                             >
                             <label for="gender-mr" class="fancyLabel"><span class="fancyLabel__text f-p">{{ __('reservation.form.name.gender.male') }}</span></label>
                             <input
@@ -124,18 +121,18 @@
                                 name="contact_sex"
                                 class="fancyInput fancyInput--radio"
                                 value="{{ \App\Enums\ContactSex::WOMAN->value }}"
-                                {{ old('contact_sex') === \App\Enums\ContactSex::WOMAN->value ? 'checked' : '' }}
+                                {{ !empty(old('contact_sex')) && old('contact_sex') == \App\Enums\ContactSex::WOMAN->value ? 'checked' : '' }}
                             >
                             <label for="gender-ms" class="fancyLabel"><span class="fancyLabel__text f-p">{{ __('reservation.form.name.gender.female') }}</span></label>
                         </div>
                     </div>
                     @error('contact_name')
-                        <div class="formRow__hint">
+                        <div class="formRow__hint is-active">
                             <div class="errMsg f-h6">{{ $message }}</div>
                         </div>
                     @enderror
                     @error('contact_sex')
-                        <div class="formRow__hint">
+                        <div class="formRow__hint is-active">
                             <div class="errMsg f-h6">{{ $message }}</div>
                         </div>
                     @enderror
@@ -156,7 +153,7 @@
                         </div>
                     </div>
                     @error('contact_phone')
-                        <div class="formRow__hint">
+                        <div class="formRow__hint is-active">
                             <div class="errMsg f-h6">{{ $message }}</div>
                         </div>
                     @enderror
@@ -177,8 +174,13 @@
                             >
                         </div>
                     </div>
+                    <div class="formRow__hint">
+                        <div class="mailValid js-mailValid is-valid" data-valid-text="{{ __('reservation.form.email.valid.true') }}"  data-invalid-text="{{ __('reservation.form.email.valid.false') }}">
+                            <span class="f-h6 js-mailValid-text"></span>
+                        </div>
+                    </div>
                     @error('contact_email')
-                        <div class="formRow__hint">
+                        <div class="formRow__hint is-active">
                             <div class="errMsg f-h6">{{ $message }}</div>
                         </div>
                     @enderror
@@ -199,7 +201,7 @@
                         </div>
                     </div>
                     @error('contact_group_name')
-                        <div class="formRow__hint">
+                        <div class="formRow__hint is-active">
                             <div class="errMsg f-h6">{{ $message }}</div>
                         </div>
                     @enderror
@@ -220,7 +222,7 @@
                         </div>
                     </div>
                     @error('participants_quota')
-                        <div class="formRow__hint">
+                        <div class="formRow__hint is-active">
                             <div class="errMsg f-h6">{{ $message }}</div>
                         </div>
                     @enderror
@@ -241,7 +243,7 @@
                     </div>
                 </div>
                 @error('status_notes')
-                    <div class="formRow__hint">
+                    <div class="formRow__hint is-active">
                         <div class="errMsg f-h6">{{ $message }}</div>
                     </div>
                 @enderror
@@ -285,11 +287,6 @@
                 'colors' => 'noise',
                 'lines' => 'hard',
             ])
-            @error('captcha')
-                <div class="formRow__hint">
-                    <div class="errMsg f-h6">{{ $message }}</div>
-                </div>
-            @enderror
             <ul class="actions">
                 <li><button id="submit" type="submit" class="btn btn--submit is-dark"><span class="btn__text">{{ __('reservation.form.actions.submit') }}</span></button></li>
             </ul>

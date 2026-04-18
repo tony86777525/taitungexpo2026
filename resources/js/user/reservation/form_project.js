@@ -1,13 +1,42 @@
 import '@chenfengyuan/datepicker';
 function init() {
+    /* ── Email validation ────────────────────────────────────────────────────── */
+    const emailRule = /^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$/;
+
+    document.querySelectorAll('.js-mailInput').forEach(function(input) {
+        input.addEventListener('blur', function() {
+            const mailContent = this.value;
+            const formRowHint = this.closest('.formRow__element').nextElementSibling;
+            const mailValid = formRowHint.querySelector('.js-mailValid');
+            const mailValidText = mailValid.querySelector('.js-mailValid-text');
+
+            if (mailContent === '') {
+                formRowHint.classList.remove('is-active');
+                return;
+            }
+
+            formRowHint.classList.add('is-active');
+
+            if (emailRule.test(mailContent)) {
+                mailValid.classList.remove('is-invalid');
+                mailValid.classList.add('is-valid');
+                mailValidText.textContent = mailValid.dataset.validText;
+            } else {
+                mailValid.classList.remove('is-valid');
+                mailValid.classList.add('is-invalid');
+                mailValidText.textContent = mailValid.dataset.invalidText;
+            }
+        });
+    });
+
     /* ── Data ──────────────────────────────────────────────────────────── */
     if (!window.canBookActivitySessions) {
         return;
     }
 
     window.filterParams = {
-        'date': '',
-        'time_range': '',
+        date: '',
+        time_range: '',
     };
 
     const canBookActivitySessions = Object.values(window.canBookActivitySessions || {});
@@ -39,6 +68,7 @@ function init() {
             window.filterParams.zone_id = '';
             window.filterParams.project_id = '';
             window.filterParams.time_range = '';
+
             filterSelect(e.target)
         });
 
@@ -98,25 +128,26 @@ function init() {
         const firstOpt = document.createElement('option');
         firstOpt.value = '';
         firstOpt.textContent = currentSelect.dataset.placeholder;
+        if (!currentValue) {
+            firstOpt.selected = true;
+        }
         firstOpt.disabled = true;
-        firstOpt.selected = true;
+
         currentSelect.appendChild(firstOpt);
 
         newOptions.forEach(newOption => {
             // simply omit non-allowed options
             const opt = new Option(newOption.label, newOption.value);
-            // if (newOption.value === currentValue) {
-            //     opt.selected = true;
-            // }
+            if (newOption.value === currentValue) {
+                opt.selected = true;
+            }
             currentSelect.appendChild(opt);
         });
-
-        currentSelect.value = currentValue;
     }
 }
-init();
 
 window.addEventListener('DOMContentLoaded', (event) => {
+    init();
     const oldInput = window.oldInput;
 
     if (oldInput.length !== 0) {
@@ -124,14 +155,23 @@ window.addEventListener('DOMContentLoaded', (event) => {
         const selectTime = document.getElementById('sel-time');
         const selectQuota = document.getElementById('sel-count');
 
+        // 觸發事件
+        if (oldInput.date) {
+            window.filterParams.date = oldInput.date;
+            $('#datepicker').datepicker('pick');
+        }
+
         // 建立一個 change 事件
         const changeEvent = new Event('change');
 
-        // 觸發事件
-        selectDate.dispatchEvent(changeEvent);
-        selectTime.dispatchEvent(changeEvent);
+        if (oldInput.time_range) {
+            selectTime.value = oldInput.time_range;
+            selectTime.dispatchEvent(changeEvent);
+        }
 
-        selectTime.value = oldInput.time_range;
-        selectQuota.value = oldInput.participants_quota;
+        if (oldInput.participants_quota) {
+            selectQuota.value = oldInput.participants_quota;
+        }
     }
 });
+

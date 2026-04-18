@@ -4,7 +4,7 @@ namespace App\Enums;
 enum ContactSex: int
 {
     case MAN = 1;
-    case WOMAN = 0;
+    case WOMAN = 2;
 
     public function label(): ?string
     {

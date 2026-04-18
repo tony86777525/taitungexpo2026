@@ -39,6 +39,11 @@
                 autocomplete="off"
             >
         </div>
+        @error('captcha')
+            <div class="captcha__hint is-active">
+                <div class="errMsg f-h6">{{ $message }}</div>
+            </div>
+        @enderror
     </div>
 </div>
 
