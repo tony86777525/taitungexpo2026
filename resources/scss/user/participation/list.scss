@@ -231,18 +231,55 @@ $path: '../../../images/participation';
 		}
 	}
 
-	.section__title {
-		margin-bottom: rem(30);
+	.reviewGroup {
+		margin-bottom: rem(60);
 
-		.title {
-			color: $secondary
+		@include rwd-min(769px) {
+			margin-bottom: rem(80);
 		}
-	}
 
-	.section__content {
-		.intro {
-			.paragraph {
-				color: $secondary;
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		.reviewGroup__title {
+			text-align: center;
+			margin-bottom: rem(30);
+
+			.title {
+				color: $primary-hover
+			}
+		}
+
+		.reviewGroup__content {
+			.intro {
+				.paragraph {
+					color: $secondary;
+				}
+			}
+
+			.list {
+				@include list-reset;
+
+				& > li {
+					position: relative;
+                    padding-left: rem(26);
+
+					&:before {
+						content: '';
+						position: absolute;
+						left: rem(9);
+						width: rem(3);
+						height: rem(3);
+						border-radius: 50%;
+						background-color: $secondary;
+					}
+
+					span {
+                        display: block;
+						color: $secondary;
+					}
+				}
 			}
 		}
 	}
@@ -268,6 +305,43 @@ $path: '../../../images/participation';
 
 		.pagination {
 			margin-top: rem(40);
+		}
+	}
+}
+
+
+.lang {
+	&--en {
+		.section--review {
+			.reviewGroup {
+				&__content {
+					.list {
+						li {
+                            &:before {
+                                top: rem(10);
+                            }
+						}
+					}
+				}
+			}
+		}
+
+		
+	}
+
+	&--zh {
+		.section--review {
+			.reviewGroup {
+				&__content {
+					.list {
+						li {
+                            &:before {
+                                top: rem(14);
+                            }
+						}
+					}
+				}
+			}
 		}
 	}
 }

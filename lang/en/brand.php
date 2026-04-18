@@ -7,7 +7,7 @@ return [
         'paragraph2' => "Through authorized use of the Expo’s core identity elements — including the logo, logotype, supporting graphics, and designated colors —partners can develop distinctive, story-driven products and collaborations that reflect their own brand identity.",
         'paragraph3' => "In this way, the spirit of the Expo continues beyond the exhibition period — entering the market, daily life, and wider public awareness.",
         'paragraph4' => "For detailed licensing procedures and design principles, please refer to the <span class='highlight'>“2026 Taitung Expo Brand Trademark Licensing Procedures”</span> and the <span class='highlight'>“2026 Taitung Expo Brand Manual.”</span>",
-        'note' => 'Phase Two applications have closed. For inquiries, please contact: ',
+        'note' => 'The application period for this program has closed. For any related inquiries, please contact: ',
         'buttons' => [
             'btnText1' => 'Licensing Procedures',
             'btnText2' => 'Brand Manual & Assets',
@@ -16,9 +16,9 @@ return [
     ],
     'event' => [
         'event1' => [
-            'title' => 'Joint Launch Press Conference',
+            'title' => 'Brand Licensing Products & Pop-up Store Launch Press Conference',
             'topic1' => [
-                'date' => 'Date: May 8, 2026 (Fri)',
+                'date' => 'Date: May 8, 2026 (Fri) 14:30－15:30',
                 'location' => 'Venue: Taiwan Excellence Plaza, Zone D, Restricted Area, Terminal 2, Taoyuan International Airport',
             ],
             'buttons' => [
@@ -38,7 +38,7 @@ return [
         'event3' => [
             'title' => 'Pop-up Events Outside Taitung',
             'topic1' => [
-                'topic' => 'Taoyuan Airport Pop-up Store',
+                'topic' => '[2026 Taitung Expo: SLOW FOR LIFE Pop-up Store]',
                 'date' => ' Date: May 8 (Fri) – May 31 (Sun), 2026',
                 'location' => 'Venue: Ever Rich Duty Free Shop, Zone D, Restricted Area, Terminal 2, Taoyuan International Airport'
             ],

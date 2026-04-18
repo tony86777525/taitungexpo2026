@@ -28,8 +28,8 @@ return [
     'statement' => [
         'page-title' => '策展論述',
         'hero' => [
-            'title1' => '10 大策展議題 X <br class="display--mb">超過30 檔官方展覽與活動 X<br>台東 14 活動品牌聯動 X<br>22 件民間參與提案 X <br class="display--mb">150 件以上品牌授權商品',
-            'title2' => '2026年，邀您一起體驗台東的多元精彩！',
+            'title1' => '10 大策展議題 X <br class="display--mb">22檔主題展覽、200場限定活動 X<br>台東 14 活動品牌 X<br class="display--mb"> 22 件民間參與提案',
+            'title2' => '2026，邀您一起體驗台東的多元精彩！',
             'paragraph1' => '由一顆落下台東土地的慢經濟種子開始，向下扎根，向上展望，逐漸萌芽、延展出「空氣」、「水」、「自然力量」、「聲音」、「漂流」、「生活」、「慢經濟體」、「台東品牌」與「永續台東」等策展議題，一層層勾勒出台東獨有的慢經濟想像藍圖。',
             'hint' => '點擊策展議題查看詳情',
         ],
@@ -102,7 +102,7 @@ return [
                     ],
                     'events3' => [
                         'locate' => 'I9',
-                        'name' => 'Face Taitung 台東臉譜：台東博覽會開幕音樂會',
+                        'name' => '2026台東博覽會開幕音樂會',
                         'href' => '#'
                     ],
                 ]
@@ -115,7 +115,7 @@ return [
                 'events' => [
                     'events1' => [
                         'locate' => 'A4',
-                        'name' => '東Go！台東人漂移拼搏主題展',
+                        'name' => '微光流金戲院-台東人漂移拼搏主題展',
                         'href' => '#',
                     ]
                 ]
@@ -148,7 +148,7 @@ return [
                     ],
                     'events5' => [
                         'locate' => 'F1',
-                        'name' => '潮界帶 IN-BETWEEN',
+                        'name' => '潮界帶 IN BETWEEN',
                         'href' => '#'
                     ],
                     'events6' => [
@@ -194,7 +194,7 @@ return [
                 'events' => [
                     'events1' => [
                         'locate' => 'A5',
-                        'name' => '夢想東升 熱氣球WALK IN',
+                        'name' => '夢想東升 WALK IN熱氣球',
                         'href' => '#'
                     ],
                     'events2' => [
@@ -298,7 +298,7 @@ return [
         'page-title' => '展會概覽',
         'section1' => [
             'title' => '主題展區',
-            'desc' => '橫跨台東市區5大主展區＋全台衛星展區，共21檔官方主題展，等您來探索！',
+            'desc' => '橫跨台東市區7大展區＋全台東衛星展區，共22檔官方主題展，等您來探索！',
             'filters' => [
                 'filterTxt1' => '舊站特區',
                 'filterTxt2' => '就藝會區',
