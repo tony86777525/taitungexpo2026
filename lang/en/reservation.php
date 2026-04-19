@@ -118,10 +118,11 @@ return [
                     ]
                 ],
             ]
-            
+
         ],
         'captcha' => [
             'refresh' => '',
+            'errMsg' => 'Please enter the captcha',
             'placeholder' => 'Type the word above'
         ],
         'actions' => [
@@ -142,5 +143,5 @@ return [
         'btnText1' => 'Back to Application Page',
         'btnText2' => 'Back to “Overview”',
         'btnText3' => 'Back to “Event Calendar”',
-    ],    
+    ],
 ];

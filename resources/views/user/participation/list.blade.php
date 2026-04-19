@@ -19,7 +19,8 @@
                     <div class="intro wow fadeIn" data-wow-duration="0.3s" data-wow-delay="0.5s">
                         <div class="paragraph f-p">{!! __('participation.intro.paragraph1') !!}</div>
                         <div class="paragraph f-p">{!! __('participation.intro.paragraph2') !!}</div>
-                        <div class="paragraph f-p">{!! __('participation.intro.paragraph3') !!}</div>
+                        <div class="paragraph f-p display--en">{!! __('participation.intro.paragraph3') !!}</div>
+                        <div class="paragraph f-p display--en">{!! __('participation.intro.paragraph4') !!}</div>
                     </div>
                     <div class="imageList imageSwiper wow fadeIn" data-wow-duration="0.3s" data-wow-delay="0.8s">
                         <div class="swiper js-singleImgSwiper">
@@ -43,18 +44,39 @@
         </div>
         <div class="section section--review">
             <div class="container">
-                <div class="section__title wow fadeIn" data-wow-duration="0.3s" data-wow-delay="0.2s">
-                    <span class="title f-title-primary">{{ __('participation.review.review1.title') }}</span>
-                </div>
-                <div class="section__content f-p wow fadeIn" data-wow-duration="0.3s" data-wow-delay="0.5s">
-                    <div class="intro">
-                        <div class="paragraph f-p">{!! __('participation.review.review1.paragraph1') !!}</div>
-                        <div class="paragraph f-p display--en">{!! __('participation.review.review1.paragraph2') !!}</div>
+                <div class="section__content">
+                    <div class="reviewGroup">
+                        <div class="reviewGroup__title wow fadeIn" data-wow-duration="0.3s" data-wow-delay="0.2s">
+                            <span class="title f-title-primary">{{ __('participation.review.review1.title') }}</span>
+                        </div>
+                        <div class="reviewGroup__content f-p wow fadeIn" data-wow-duration="0.3s" data-wow-delay="0.5s">
+                            <ul class="list">
+                                <li class="f-p">{{ __('participation.review.review1.list.listItem1') }}</li>
+                                <li class="f-p">{{ __('participation.review.review1.list.listItem2') }}</li>
+                                <li class="f-p">{{ __('participation.review.review1.list.listItem3') }}</li>
+                                <li class="f-p">{{ __('participation.review.review1.list.listItem4') }}</li>
+                                <li class="f-p">{{ __('participation.review.review1.list.listItem5') }}</li>
+                            </ul>
+                            <ul class="action">
+                                <li><a href="https://www.taitung.gov.tw/News_Content.aspx?n=13370&s=141371" class="btn btn--blank is-dark" target="_blank"><span class="btn__text">{{ __('participation.review.review1.buttons.btnText1') }}</span></a></li>
+                                <li><a href="https://drive.google.com/drive/folders/1FoZpIRXDxo6eMBjc4iV-QrxW42lT15sX" class="btn btn--blank is-dark" target="_blank"><span class="btn__text">{{ __('participation.review.review1.buttons.btnText2') }}</span></a></li>
+                            </ul>
+                        </div>
                     </div>
-                    <ul class="action">
-                        <li><a href="https://www.taitung.gov.tw/News_Content.aspx?n=13370&s=141371" class="btn btn--blank is-dark" target="_blank"><span class="btn__text">{{ __('participation.review.review1.buttons.btnText1') }}</span></a></li>
-                        <li><a href="https://drive.google.com/drive/folders/1FoZpIRXDxo6eMBjc4iV-QrxW42lT15sX" class="btn btn--blank is-dark" target="_blank"><span class="btn__text">{{ __('participation.review.review1.buttons.btnText2') }}</span></a></li>
-                    </ul>
+                    <div class="reviewGroup">
+                        <div class="reviewGroup__title wow fadeIn" data-wow-duration="0.3s" data-wow-delay="0.2s">
+                            <span class="title f-title-primary">{{ __('participation.review.review2.title') }}</span>
+                        </div>
+                        <div class="reviewGroup__content f-p wow fadeIn" data-wow-duration="0.3s" data-wow-delay="0.5s">
+                            <div class="intro">
+                                <div class="paragraph f-p">{!! __('participation.review.review2.paragraph1') !!}</div>
+                            </div>
+                            <ul class="action">
+                                <li><a href="https://culture.taitung.gov.tw/search?keyword=%E6%B0%91%E9%96%93%E5%8F%83%E8%88%87%E8%A8%88%E7%95%AB" class="btn btn--blank is-dark" target="_blank"><span class="btn__text">{{ __('participation.review.review2.buttons.btnText1') }}</span></a></li>
+                                <li><a href="https://www.youtube.com/watch?v=GH7F2yjHaYY&list=PLwLIA_jIHfyqxgdE0RD1SifHH7i8i0BSP" class="btn btn--blank is-dark" target="_blank"><span class="btn__text">{{ __('participation.review.review2.buttons.btnText2') }}</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

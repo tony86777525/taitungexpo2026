@@ -118,10 +118,11 @@ return [
                     ]
                 ],
             ]
-            
+
         ],
         'captcha' => [
             'refresh' => '',
+            'errMsg' => '請輸入驗證碼',
             'placeholder' => '請輸入驗證字母'
         ],
         'actions' => [

@@ -243,7 +243,7 @@ class ReservationController extends Controller
                 'contact_email.required' => __('reservation.form.email.errMsg'),
                 'contact_group_name.required' => __('reservation.form.org.errMsg'),
                 'participants_quota.required' => __('reservation.form.count.errMsg'),
-//                'captcha.required' => __('reservation.form.date.errMsg'),
+                'captcha.required' => __('reservation.form.captcha.errMsg'),
             ]
         );
 

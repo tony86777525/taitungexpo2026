@@ -185,6 +185,9 @@ return [
         'email' => [
             'Invalid Email',
         ],
+        'captcha' => [
+            'Invalid Captcha',
+        ],
     ],
 
     /*

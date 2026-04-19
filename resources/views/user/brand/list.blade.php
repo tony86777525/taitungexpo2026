@@ -22,7 +22,7 @@
                         <div class="paragraph f-p display--en">{!! __('brand.intro.paragraph3') !!}</div>
                         <div class="paragraph f-p display--en">{!! __('brand.intro.paragraph4') !!}</div>
                         <ul class="list">
-                            <li>{{ __('brand.intro.note') }}<a href="mailto:info@taitung2026.com.tw">info@taitung2026.com.tw</a> / LINE：<a href="https://lin.ee/xC0cxGi" target="_blank">＠ttexpo</a></li>
+                            <li>{{ __('brand.intro.note') }}<br><a href="mailto:info@taitung2026.com.tw">info@taitung2026.com.tw</a> / LINE：<a href="https://lin.ee/xC0cxGi" target="_blank">＠ttexpo</a></li>
                         </ul>
                     </div>
                     <div class="imageList imageSwiper wow fadeIn" data-wow-duration="0.3s" data-wow-delay="0.8s">
