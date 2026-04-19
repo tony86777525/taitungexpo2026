@@ -18,8 +18,8 @@ return [
             'title' => '展會紀錄專書將於展後出版。',
             'intro' => '本書將系統整理策展理念、展區成果與實踐歷程，透過完整紀錄，回望這段關於慢經濟與永續行動的集體經驗，為台東留下可被閱讀、也可被再思考的文本。',
             'btnText1' => 'coming soon',
-            'btnText1' => '線上瀏覽',
-            'btnText1' => 'Download',
+            'btnText2' => '線上瀏覽',
+            'btnText3' => 'Download',
         ]
     ]
 ];
