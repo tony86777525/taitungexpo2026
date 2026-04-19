@@ -3,8 +3,6 @@
 namespace App\Filament\Resources\ActivityReservationVips\Tables;
 
 use App\Enums\ActivityReservationStatus;
-use App\Enums\ActivityReservationType;
-use App\Models\ActivitySession;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;

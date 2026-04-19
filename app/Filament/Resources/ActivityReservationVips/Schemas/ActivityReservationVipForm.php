@@ -4,18 +4,14 @@ namespace App\Filament\Resources\ActivityReservationVips\Schemas;
 
 use App\Enums\ActivitySessionType;
 use App\Enums\ContactSex;
-use App\Models\ActivitySessionVip;
 use App\Models\Project;
-use App\Models\User;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Hidden;
-use Filament\Forms\Components\Placeholder;
 use Filament\Forms\Components\Radio;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\TimePicker;
-use Filament\Forms\Components\Toggle;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Group;
