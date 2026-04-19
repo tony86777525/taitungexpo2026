@@ -165,8 +165,8 @@ Route::group([
         ->whereNumber('id');
 
     // 預約表單（第二批）
-    Route::get('/reservation', [ReservationController::class, 'index'])
-        ->name('reservation.index');
+//    Route::get('/reservation', [ReservationController::class, 'index'])
+//        ->name('reservation.index');
     Route::get('/reservation/{id}', [ReservationController::class, 'project'])
         ->name('reservation.project')
         ->whereNumber('id');

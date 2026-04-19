@@ -171,16 +171,31 @@
     <div class="form__foot">
         <div class="container">
             <div class="notice">
-                <div class="notice__title">{{ __('reservation.form.notices.title') }}</div>
-                <ul class="notice__list f-p">
-                    <li><span class="f-h5">{{ __('reservation.form.notices.lists.list-item1') }}</span></li>
-                    <li><span class="f-h5">{{ __('reservation.form.notices.lists.list-item2') }}</span></li>
-                    <li><span class="f-h5">{{ __('reservation.form.notices.lists.list-item3') }}</span></li>
-                    <li><span class="f-h5">{{ __('reservation.form.notices.lists.list-item4') }}</span></li>
-                    <li><span class="f-h5">{{ __('reservation.form.notices.lists.list-item5') }}</span></li>
-                    <li><span class="f-h5">{{ __('reservation.form.notices.lists.list-item6') }}</span></li>
-                    <li><span class="f-h5">{{ __('reservation.form.notices.lists.list-item7') }}</span></li>
-                </ul>
+                <div class="notice__title f-p">{{ __('reservation.form.notices.title') }}</div>
+                <div class="notice__content">
+                    <div class="notiGroup">
+                        <div class="notiGroup__title f-h5">{{ __('reservation.form.notices.content.reminders.title') }}</div>
+                        <ul class="notiGroup__list">
+                            <li><span class="f-h5">{{ __('reservation.form.notices.content.reminders.lists.list-item1') }}</span></li>
+                            <li><span class="f-h5">{{ __('reservation.form.notices.content.reminders.lists.list-item2') }}</span></li>
+                            <li><span class="f-h5">{{ __('reservation.form.notices.content.reminders.lists.list-item3') }}</span></li>
+                        </ul>
+                    </div>
+                    <div class="notiGroup">
+                        <div class="notiGroup__title f-h5">{{ __('reservation.form.notices.content.adjustments.title') }}</div>
+                        <ul class="notiGroup__list">
+                            <li><span class="f-h5">{{ __('reservation.form.notices.content.adjustments.lists.list-item1') }}</span></li>
+                            <li><span class="f-h5">{{ __('reservation.form.notices.content.adjustments.lists.list-item2') }}</span></li>
+                        </ul>
+                    </div>
+                    <div class="notiGroup">
+                        <div class="notiGroup__title f-h5">{{ __('reservation.form.notices.content.other.title') }}</div>
+                        <ul class="notiGroup__list">
+                            <li><span class="f-h5">{{ __('reservation.form.notices.content.other.lists.list-item1') }}</span></li>
+                            <li><span class="f-h5">{{ __('reservation.form.notices.content.other.lists.list-item2') }}</span></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
             <div class="captcha">
                 <div class="captcha__image">
