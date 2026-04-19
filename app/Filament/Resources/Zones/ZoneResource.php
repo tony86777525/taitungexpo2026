@@ -29,7 +29,7 @@ class ZoneResource extends Resource
 
     protected static UnitEnum|string|null $navigationGroup = 'Projects';
 
-    protected static ?int $navigationSort = 120;
+    protected static ?int $navigationSort = 340;
 
     public static function form(Schema $schema): Schema
     {

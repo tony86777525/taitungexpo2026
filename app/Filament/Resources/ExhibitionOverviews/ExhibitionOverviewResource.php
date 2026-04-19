@@ -31,7 +31,7 @@ class ExhibitionOverviewResource extends Resource
 
     protected static UnitEnum|string|null $navigationGroup = 'Projects';
 
-    protected static ?int $navigationSort = 100;
+    protected static ?int $navigationSort = 310;
 
     public static function form(Schema $schema): Schema
     {

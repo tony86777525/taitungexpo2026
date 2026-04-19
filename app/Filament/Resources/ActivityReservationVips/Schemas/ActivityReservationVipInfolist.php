@@ -4,6 +4,7 @@ namespace App\Filament\Resources\ActivityReservationVips\Schemas;
 
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Schema;
+use Illuminate\Support\HtmlString;
 
 class ActivityReservationVipInfolist
 {
@@ -12,31 +13,42 @@ class ActivityReservationVipInfolist
         return $schema
             ->components([
                 TextEntry::make('activitySession.project.display_type_and_venue_number_name')
-                    ->label('計畫活動'),
+                    ->label('計畫'),
                 TextEntry::make('activitySession.display_info')
                     ->label('場次資訊'),
-                TextEntry::make('guide_leader_name')
-                    ->label('導覽領隊人'),
-                TextEntry::make('guide_leader_contact')
-                    ->label('領隊人聯絡方式'),
-                TextEntry::make('display_contact_dear_name')
-                    ->label('vip團體聯絡人'),
-                TextEntry::make('contact_phone')
-                    ->label('聯絡電話'),
-                TextEntry::make('contact_email')
-                    ->label('電子郵件'),
+                TextEntry::make('activitySession.group_max')
+                    ->label('可預約總組數'),
                 TextEntry::make('contact_group_name')
                     ->label('預約團體名稱'),
+                TextEntry::make('display_contact_dear_name')
+                    ->label('聯絡人'),
+                TextEntry::make('contact_phone')
+                    ->label('聯絡人電話'),
+                TextEntry::make('contact_email')
+                    ->label('聯絡信箱'),
                 TextEntry::make('participants_quota')
                     ->label('預計參與人數'),
                 TextEntry::make('notes')
-                    ->label('備註（選填）')
+                    ->label('預約備註（選填）')
                     ->formatStateUsing(fn (string $state) => nl2br($state))
                     ->html(),
-//                TextEntry::make('status_notes')
-//                    ->label('未通過原因（選填）')
-//                    ->formatStateUsing(fn (string $state) => nl2br($state))
-//                    ->html(),
+                TextEntry::make('divider')
+                    ->hiddenLabel()
+                    ->state(new HtmlString('<hr style="border-top: 1px solid #e5e7eb; margin: 20px 0;">')),
+                TextEntry::make('guide_leader_name')
+                    ->label('導覽領隊人'),
+                TextEntry::make('guide_leader_phone')
+                    ->label('領隊人聯絡電話'),
+                TextEntry::make('guide_leader_email')
+                    ->label('領隊人聯絡信箱'),
+                TextEntry::make('activitySession.tour_venue_note')
+                    ->label('預約注意事項（選填）')
+                    ->formatStateUsing(fn (string $state) => nl2br($state))
+                    ->html(),
+                TextEntry::make('vip_staff_only_notes')
+                    ->label('內部備註（選填）')
+                    ->formatStateUsing(fn (string $state) => nl2br($state))
+                    ->html(),
                 TextEntry::make('display_status')
                     ->label('狀態')
                     ->placeholder('-'),

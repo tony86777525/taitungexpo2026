@@ -29,7 +29,7 @@ class CurationNatureResource extends Resource
 
     protected static UnitEnum|string|null $navigationGroup = 'Projects';
 
-    protected static ?int $navigationSort = 150;
+    protected static ?int $navigationSort = 370;
 
     public static function form(Schema $schema): Schema
     {

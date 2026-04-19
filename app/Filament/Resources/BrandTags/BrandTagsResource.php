@@ -29,7 +29,7 @@ class BrandTagsResource extends Resource
 
     protected static UnitEnum|string|null $navigationGroup = 'Brands';
 
-    protected static ?int $navigationSort = 200;
+    protected static ?int $navigationSort = 520;
 
     public static function form(Schema $schema): Schema
     {

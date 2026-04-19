@@ -31,7 +31,7 @@ class PrivateSectorProjectResource extends Resource
 
     protected static UnitEnum|string|null $navigationGroup = 'Projects';
 
-    protected static ?int $navigationSort = 110;
+    protected static ?int $navigationSort = 320;
 
     public static function form(Schema $schema): Schema
     {

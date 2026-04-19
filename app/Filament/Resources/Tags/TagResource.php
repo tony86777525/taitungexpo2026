@@ -27,6 +27,8 @@ class TagResource extends Resource
 
     protected static ?string $modelLabel = '消息分類';
 
+    protected static ?int $navigationSort = 420;
+
     protected static UnitEnum|string|null $navigationGroup = 'News';
 
     public static function form(Schema $schema): Schema

@@ -29,7 +29,7 @@ class HomeBannerResource extends Resource
 
     protected static UnitEnum|string|null $navigationGroup = 'Home';
 
-    protected static ?int $navigationSort = 10;
+    protected static ?int $navigationSort = 20;
 
     public static function form(Schema $schema): Schema
     {

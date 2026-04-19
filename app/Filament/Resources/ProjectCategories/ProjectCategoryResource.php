@@ -29,7 +29,7 @@ class ProjectCategoryResource extends Resource
 
     protected static UnitEnum|string|null $navigationGroup = 'Projects';
 
-    protected static ?int $navigationSort = 130;
+    protected static ?int $navigationSort = 350;
 
     public static function form(Schema $schema): Schema
     {

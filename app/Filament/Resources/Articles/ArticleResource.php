@@ -29,6 +29,8 @@ class ArticleResource extends Resource
 
     protected static UnitEnum|string|null $navigationGroup = 'News';
 
+    protected static ?int $navigationSort = 410;
+
     public static function form(Schema $schema): Schema
     {
         return ArticleForm::configure($schema);

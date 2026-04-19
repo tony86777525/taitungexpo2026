@@ -124,11 +124,21 @@
                                 @if(!empty($projectContent->getLinks()))
                                     <ul class="links">
                                         @foreach($projectContent->getLinks() as $projectContentLink)
-                                            <li><a
+                                            <li>
+                                                <a
                                                     href="{{ $projectContentLink->display_url }}"
                                                     class="btn btn--customLink"
-                                                ><span class="btn__text">{{ $projectContentLink->display_name }}</span></a></li>
+                                                ><span class="btn__text">{{ $projectContentLink->display_name }}</span></a>
+                                            </li>
                                         @endforeach
+                                        @if($loop->last && $project->show_tour_info === true)
+                                            <li>
+                                                <a
+                                                    href="{{ $project->display_reservation_url }}"
+                                                    class="btn btn--customLink"
+                                                ><span class="btn__text">{{ __('event.cards.group-tour.link-text') }}</span></a>
+                                            </li>
+                                        @endif
                                     </ul>
                                 @endif
                             </div>

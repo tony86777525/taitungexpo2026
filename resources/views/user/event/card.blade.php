@@ -35,6 +35,11 @@
                 @else
                     <li class="f-h5">自由參加</li>
                 @endif
+                @if($activity->show_tour_info === true)
+                    <li class="f-h5">
+                        <a href="{{ $activity->project->display_reservation_url }}" class="reserveLink" target="_blank"><span class="reserveLink__text">{{ __('event.cards.group-tour.link-text') }}</span></a>
+                    </li>
+                @endif
             </ul>
         </div>
     </div>

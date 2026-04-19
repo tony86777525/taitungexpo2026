@@ -29,6 +29,8 @@ class ProjectTypeResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'ProjectType';
 
+    protected static ?int $navigationSort = 230;
+
     public static function form(Schema $schema): Schema
     {
         return ProjectTypeForm::configure($schema);

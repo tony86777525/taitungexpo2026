@@ -26,9 +26,11 @@ class ActivitySessionNormalResource extends Resource
 
 //    protected static ?string $recordTitleAttribute = 'ActivitySessionNormal';
 
-    protected static ?string $modelLabel = '【一般】團體導覽預約場次';
+    protected static ?string $modelLabel = '【一般】團體導覽-場次管理';
 
     protected static UnitEnum|string|null $navigationGroup = 'Activity Sessions';
+
+    protected static ?int $navigationSort = 120;
 
     public static function form(Schema $schema): Schema
     {

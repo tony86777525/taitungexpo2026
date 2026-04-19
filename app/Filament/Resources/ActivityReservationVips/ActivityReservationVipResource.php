@@ -26,9 +26,11 @@ class ActivityReservationVipResource extends Resource
 
 //    protected static ?string $recordTitleAttribute = 'ActivityReservationVip';
 
-    protected static ?string $modelLabel = '【VIP】團體導覽預約申請';
+    protected static ?string $modelLabel = '【VIP】團體導覽-預約管理';
 
     protected static UnitEnum|string|null $navigationGroup = 'Activity Sessions';
+
+    protected static ?int $navigationSort = 130;
 
     public static function form(Schema $schema): Schema
     {

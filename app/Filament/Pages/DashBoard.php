@@ -28,11 +28,11 @@ class DashBoard extends Page implements HasForms, HasTable
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
-    protected static ?string $title = '2026台東博覽會-團體導覽預約申請';
+    protected static ?string $title = '台東博覽會-團體導覽管理儀表板';
 
     protected static UnitEnum|string|null $navigationGroup = 'Home';
 
-    protected static ?int $navigationSort = 20;
+    protected static ?int $navigationSort = 10;
 
     public function getBookedInfo(): array
     {

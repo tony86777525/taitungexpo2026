@@ -45,6 +45,8 @@ class Project extends Model
         'project_location_en',
         // 地圖連結
         'map_link',
+        // 顯示導覽預約資訊
+        'show_tour_info',
         // 縮略圖
         'thumbnail_url',
         // 執行單位
@@ -58,6 +60,7 @@ class Project extends Model
     protected $casts = [
         'is_active' => 'boolean',
         'type' => ProjectType::class,
+        'show_tour_info' => 'boolean',
     ];
 
     /**
@@ -304,6 +307,14 @@ class Project extends Model
         }
 
         return null;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getDisplayReservationUrlAttribute(): ?string
+    {
+        return lang_route('user.reservation.project', ['id' => $this->id]);
     }
 
     /**

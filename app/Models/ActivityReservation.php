@@ -19,6 +19,10 @@ class ActivityReservation extends Model
         'guide_leader_name',
         // 導覽領隊人聯絡方式
         'guide_leader_contact',
+        // 導覽領隊人聯絡電話
+        'guide_leader_phone',
+        // 導覽領隊人聯絡信箱
+        'guide_leader_email',
         // 聯絡人姓名
         'contact_name',
         // 聯絡人性別
@@ -33,6 +37,8 @@ class ActivityReservation extends Model
         'participants_quota',
         // 備註（選填）
         'notes',
+        // vip團隊內部備註
+        'vip_staff_only_notes',
         // 未通過原因（選填）
         'status_notes',
         // 活動預約場次

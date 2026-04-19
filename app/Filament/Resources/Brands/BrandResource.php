@@ -29,6 +29,8 @@ class BrandResource extends Resource
 
     protected static UnitEnum|string|null $navigationGroup = 'Brands';
 
+    protected static ?int $navigationSort = 510;
+
     public static function form(Schema $schema): Schema
     {
         return BrandForm::configure($schema);

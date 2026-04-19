@@ -54,6 +54,9 @@ class ExhibitionOverviewInfolist
                     ->label('地圖連結')
                     ->openUrlInNewTab()
                     ->placeholder('-'),
+                IconEntry::make('show_tour_info')
+                    ->label('顯示導覽預約資訊')
+                    ->boolean(),
                 RepeatableEntry::make('projectNatures')
                     ->label('計劃性質')
                     ->schema([

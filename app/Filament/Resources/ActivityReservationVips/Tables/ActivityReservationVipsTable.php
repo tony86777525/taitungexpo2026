@@ -25,11 +25,8 @@ class ActivityReservationVipsTable
                     ->label('計畫活動'),
                 TextColumn::make('activitySession.display_info')
                     ->label('場次資訊'),
-                TextColumn::make('guide_leader_name')
-                    ->label('導覽領隊人')
-                    ->searchable(),
-                TextColumn::make('guide_leader_contact')
-                    ->label('領隊人聯絡方式')
+                TextColumn::make('contact_group_name')
+                    ->label('預約團體名稱')
                     ->searchable(),
                 TextColumn::make('display_contact_dear_name')
                     ->label('聯絡人')
@@ -38,14 +35,20 @@ class ActivityReservationVipsTable
                     ->label('聯絡電話')
                     ->searchable(),
                 TextColumn::make('contact_email')
-                    ->label('電子郵件')
-                    ->searchable(),
-                TextColumn::make('contact_group_name')
-                    ->label('預約團體名稱')
+                    ->label('聯絡信箱')
                     ->searchable(),
                 TextColumn::make('participants_quota')
                     ->label('預計參與人數')
                     ->sortable(),
+                TextColumn::make('guide_leader_name')
+                    ->label('導覽領隊人')
+                    ->searchable(),
+                TextColumn::make('guide_leader_phone')
+                    ->label('領隊人聯絡電話')
+                    ->searchable(),
+                TextColumn::make('guide_leader_email')
+                    ->label('領隊人聯絡信箱')
+                    ->searchable(),
                 TextColumn::make('display_status')
                     ->label('狀態')
                     ->color(fn ($record) => $record->status->color()),
@@ -61,7 +64,6 @@ class ActivityReservationVipsTable
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->modifyQueryUsing(fn (Builder $query) => $query
-                ->orderBy('sort_order', 'asc') // 第一排序條件
                 ->orderBy('id', 'desc') // 第二排序條件
             )
             ->filters([

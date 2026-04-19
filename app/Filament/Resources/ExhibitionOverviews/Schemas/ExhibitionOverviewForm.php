@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\ExhibitionOverviews\Schemas;
 
 use Carbon\Carbon;
+use Filament\Forms\Components\Checkbox;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Filament\Forms\Components\DatePicker;
@@ -91,6 +92,9 @@ class ExhibitionOverviewForm
                 TextInput::make('map_link')
                     ->label('地圖連結')
                     ->url(),
+                Checkbox::make('show_tour_info')
+                    ->label('顯示導覽預約資訊')
+                    ->default(false),
                 Select::make('projectNatures')
                     ->label('計劃性質')
                     ->relationship(

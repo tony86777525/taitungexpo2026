@@ -29,6 +29,8 @@ class ActivitySessionVipResource extends Resource
 
     protected static UnitEnum|string|null $navigationGroup = 'Activity Sessions';
 
+    protected static bool $shouldRegisterNavigation = false;
+
     public static function form(Schema $schema): Schema
     {
         return ActivitySessionVipForm::configure($schema);
