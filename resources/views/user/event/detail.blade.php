@@ -21,7 +21,7 @@
                         @endif
                     </div>
                     <div class="wrapper">
-                        <div class="team"><a href="#">{{ $activity->display_project_name }}</a></div>
+                        <div class="team"><a href="{{ $activity->display_project_url }}">{{ $activity->display_project_name }}</a></div>
                         <div class="title f-title-primary is-pageTitle">{{ $activity->display_title }}</div>
                         <ul class="datas">
                             <li class="datas__item datas__item--date">

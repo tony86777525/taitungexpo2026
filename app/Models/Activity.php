@@ -224,6 +224,18 @@ class Activity extends Model
     /**
      * @return string|null
      */
+    public function getDisplayProjectUrlAttribute(): ?string
+    {
+        if ($this->relationLoaded('project') === false) {
+            return null;
+        }
+
+        return $this->project->display_url;
+    }
+
+    /**
+     * @return string|null
+     */
     public function getDisplayParticipationTypeNameAttribute(): ?string
     {
         if ($this->relationLoaded('participationType') === false) {
