@@ -30,10 +30,6 @@
                                 <div class="label"><div class="label__text f-h5">{{ __('event.sub-page.datas.dates') }}｜</div></div>
                                 <div class="content"><span class="content__text f-h5">{{ $project->display_date_range }}</span></div>
                             </li>
-                            <li class="datas__item datas__item--time">
-                                <div class="label"><div class="label__text f-h5">{{ __('event.sub-page.datas.time') }}｜</div></div>
-                                <div class="content"><span class="content__text f-h5">{{ $project->display_time_range }}</span></div>
-                            </li>
                             @if(!empty($project->display_project_location))
                                 <li class="datas__item datas__item--location">
                                     <div class="content"><a
