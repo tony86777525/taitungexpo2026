@@ -10,7 +10,7 @@ class ImageSwiper {
         this.swiper = null;
         this.options = options;
         this.type = options.type || 'editor';
-        
+
         this.element = document.querySelector(this.selector);
         if (!this.element) return;
 
@@ -29,7 +29,7 @@ class ImageSwiper {
                     if (this.swiper && this.swiper.autoplay) {
                         this.swiper.autoplay.stop();
                     }
-                    ImageSwiper._activeInstance = this; 
+                    ImageSwiper._activeInstance = this;
                     this.showPopup('popup', imgSrc);
                 }
             });
@@ -41,7 +41,7 @@ class ImageSwiper {
             const overlay = popup.querySelector('.popup__overlay');
 
             const closeHandler = () => {
-                const active = ImageSwiper._activeInstance; 
+                const active = ImageSwiper._activeInstance;
 
                 if (active) {
                     active.hidePopup();
@@ -113,7 +113,7 @@ class ImageSwiper {
 
         if (this.type === 'gallery') {
             // Gallery 邏輯：1024px 以上才啟動
-            const shouldBeActive = windowWidth >= 768;
+            const shouldBeActive = windowWidth >= 561;
             if (shouldBeActive && !this.swiper) {
                 this.init();
             } else if (!shouldBeActive && this.swiper) {
