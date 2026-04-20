@@ -37,7 +37,7 @@ return [
             'tags-title' => 'Themes',
             'wheel0' => [
                 'id' => '0',
-                'chapter' => 'Prologue | ｜Everything begins when a seed touches the land.',
+                'chapter' => 'Prologue | Everything begins when a seed touches the land.',
                 'desc' => 'In the Paiwan language, "vusam" (seed) signifies the origin and continuation of life and culture. It represents inclusiveness, diversity, and hope. Seeds of memory quietly take root in this fertile land and begin to grow.',
                 'tags' => ['＃Cultural Preservation', '＃Life Preservation'],
                 'events' => [

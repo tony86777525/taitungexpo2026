@@ -79,7 +79,7 @@ $modulePath: '/resources/images';
     div,
     p {
         color: $secondary;
-        word-break: break-all;
+        word-break: break-word;
     }
 }
 

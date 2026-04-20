@@ -9,9 +9,9 @@ class CardSwiper {
         this.swiper = null;
         this.options = options;
         this.debug = options.debug || false;
-        
+
         this.element = document.querySelector(this.selector);
-        
+
         if (!this.element) {
             return;
         }
@@ -64,7 +64,7 @@ class CardSwiper {
 
         let nextBtn = element.querySelector('.swiper-button-next');
         let prevBtn = element.querySelector('.swiper-button-prev');
-        
+
         if (!nextBtn && element.parentElement) {
             nextBtn = Array.from(element.parentElement.children).find(el => el.classList.contains('swiper-button-next'));
         }
@@ -76,7 +76,7 @@ class CardSwiper {
             modules: [Navigation, Autoplay],
             slidesPerView: 3,
             spaceBetween: 20,
-            loop: cardCount>3,
+            loop: cardCount > 3,
             autoplay: {
                 delay: 5000,
                 disableOnInteraction: false,
@@ -87,6 +87,7 @@ class CardSwiper {
                 prevEl: prevBtn,
             },
             breakpoints: {
+                561: { slidesPerView: 2 },
                 769: { slidesPerView: 3 }
             },
         };
@@ -101,7 +102,7 @@ class CardSwiper {
     destroy() {
         if (this.swiper) {
             this.swiper.destroy(true, true);
-            this.swiper = null; 
+            this.swiper = null;
             this.log(`Swiper 銷毀 [${this.selector}]`);
         }
 
