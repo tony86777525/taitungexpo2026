@@ -62,6 +62,8 @@ class OverviewController extends Controller
                 $query->where('code', ZoneCode::EVENT);
             })
             ->where('is_active', true)
+            ->orderBy('zone_id')
+            ->orderBy('project_number')
             ->get();
 
         return view('user.about.overview.list', compact(

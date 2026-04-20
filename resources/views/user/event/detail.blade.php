@@ -30,7 +30,7 @@
                             </li>
                             <li class="datas__item datas__item--time">
                                 <div class="label"><div class="label__text f-h5">{{ __('event.sub-page.datas.time') }}｜</div></div>
-                                <div class="content"><span class="content__text f-h5">{{ $activity->display_time_range }}</span></div>
+                                <div class="content"><span class="content__text f-h5">{{ $activity->display_time_range_and_note }}</span></div>
                             </li>
                             @if(!empty($activity->display_activity_location))
                                 <li class="datas__item datas__item--location">

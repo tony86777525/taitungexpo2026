@@ -174,6 +174,18 @@ class Activity extends Model
     }
 
     /**
+     * @return string
+     */
+    public function getDisplayTimeRangeAndNoteAttribute(): string
+    {
+        if (!empty($this->display_activity_time_note)) {
+            return "{$this->display_time_range}（{$this->display_activity_time_note}）";
+        }
+
+        return $this->display_time_range;
+    }
+
+    /**
      * @return string|null
      */
     public function getDisplayTitleAttribute(): ?string
@@ -246,6 +258,10 @@ class Activity extends Model
      */
     public function getDisplayUrlAttribute(): string
     {
+        if (!empty($this->url)) {
+            return $this->url;
+        }
+
         return lang_route('user.event.detail', ['id' => $this->id]);
     }
 

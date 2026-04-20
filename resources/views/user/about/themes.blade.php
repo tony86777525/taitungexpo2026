@@ -54,10 +54,10 @@
             <div class="section__content">
                 <div class="container">
                     <div class="file">
+                        <div class="file__name wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s"><span class="text f-title-primary">{{ __('about.themes.file.title') }}</span></div>
                         <div class="file__cover wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s">
                             <div style="position:relative;padding-top:max(60%,324px);width:100%;height:0;"><iframe style="position:absolute;border:none;width:100%;height:100%;left:0;top:0;" src="https://online.fliphtml5.com/bxkaf/nysn/" title="《2026台東博覽會品牌手冊》 (3)" seamless="seamless" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" ></iframe></div>
                         </div>
-                        <div class="file__name wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s"><span class="text f-title-primary">{{ __('about.themes.file.title') }}</span></div>
                         <ul class="file__action wow fadeIn" data-wow-duration="0.5s" data-wow-delay="0.5s">
                             <li><a href="https://reurl.cc/DbRj3d" class="btn btn--blankPage is-dark" target="_blank"><span class="btn__text">DOWNLOAD</span></a></li>
                         </ul>

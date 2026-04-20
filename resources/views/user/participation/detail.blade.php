@@ -17,10 +17,34 @@
                         <div class="pageLabel"><span class="pageLabel__text">{{ $project->display_project_category_name }}</span></div>
                     @endif
                     <div class="wrapper">
-                        <div class="team">{{ $project->display_executing_unit_name }}</div>
+                        <div class="team">
+                            @if($project->display_executing_unit_link)
+                                <a href="{{ $project->display_executing_unit_link }}">{{ $project->display_executing_unit_name }}</a>
+                            @else
+                                {{ $project->display_executing_unit_name }}
+                            @endif
+                        </div>
                         <div class="title f-title-primary is-pageTitle">{{ $project->display_project_name }}</div>
-                        @if(!empty($project->getProjectNatures()))
-                            <ul class="datas">
+                        <ul class="datas">
+                            <li class="datas__item datas__item--date">
+                                <div class="label"><div class="label__text f-h5">{{ __('event.sub-page.datas.dates') }}｜</div></div>
+                                <div class="content"><span class="content__text f-h5">{{ $project->display_date_range }}</span></div>
+                            </li>
+                            <li class="datas__item datas__item--time">
+                                <div class="label"><div class="label__text f-h5">{{ __('event.sub-page.datas.time') }}｜</div></div>
+                                <div class="content"><span class="content__text f-h5">{{ $project->display_time_range }}</span></div>
+                            </li>
+                            @if(!empty($project->display_project_location))
+                                <li class="datas__item datas__item--location">
+                                    <div class="content"><a
+                                            @if(!empty($project->map_link))
+                                                href="{{ $project->map_link }}"
+                                            @endif
+                                            class="content__text f-h5"
+                                        >{{ $project->display_project_location }}</a></div>
+                                </li>
+                            @endif
+                            @if(!empty($project->getProjectNatures()))
                                 <li class="datas__item datas__item--natures">
                                     <div class="label"><div class="label__text f-h5">{{ __('event.sub-page.datas.natures') }}｜</div></div>
                                     <div class="content">
@@ -31,8 +55,8 @@
                                         </div>
                                     </div>
                                 </li>
-                            </ul>
-                        @endif
+                            @endif
+                        </ul>
                     </div>
                 </div>
             </div>

@@ -266,6 +266,18 @@ class Project extends Model
     }
 
     /**
+     * @return string
+     */
+    public function getDisplayTimeRangeAndNoteAttribute(): string
+    {
+        if (!empty($this->display_project_time_note)) {
+            return "{$this->display_time_range}（{$this->display_project_time_note}）";
+        }
+
+        return $this->display_time_range;
+    }
+
+    /**
      * @return string|null
      */
     public function getDisplayProjectLocationAttribute(): ?string
@@ -345,6 +357,18 @@ class Project extends Model
         }
 
         return $this->executingUnit?->display_name;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getDisplayExecutingUnitLinkAttribute(): ?string
+    {
+        if ($this->relationLoaded('executingUnit') === false) {
+            return null;
+        }
+
+        return $this->executingUnit?->link;
     }
 
     /**

@@ -28,7 +28,7 @@ class WeeklyCalendar {
 
     _initLanguages() {
         const isEn = document.body.classList.contains('lang--en');
-        
+
         if (isEn) {
             this.weekDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
         } else {
@@ -49,11 +49,17 @@ class WeeklyCalendar {
         const weekIndex = Math.floor(daysDiff / 7);
 
         if (this.swiper) {
-            this.swiper.slideTo(weekIndex, 0); 
+            this.swiper.slideTo(weekIndex, 0);
         }
 
         this.element.querySelectorAll('.dateBtn').forEach(el => el.classList.remove('is-selected'));
         $('[data-toggle="datepicker"]').datepicker('setDate', null);
+
+        const todayStr = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`;
+        const todayBtn = this.element.querySelector(`.dateBtn[data-date="${todayStr}"]`);
+        if (todayBtn && !todayBtn.disabled) {
+            todayBtn.click();
+        }
     }
 
     _getMonday(d) {
@@ -120,7 +126,7 @@ class WeeklyCalendar {
         }).on('pick.datepicker', (e) => {
             e.preventDefault();
             $(input).datepicker('hide');
-            
+
             this._handleDateSelect(e.date);
         });
     }
@@ -128,10 +134,10 @@ class WeeklyCalendar {
     _setupEventListeners() {
         $(this.element).off('click', '.dateBtn:not(:disabled)').on('click', '.dateBtn:not(:disabled)', (e) => {
             e.stopPropagation();
-            
+
             const btn = e.currentTarget;
             const dateStr = btn.getAttribute('data-date');
-            
+
             const parts = dateStr.split('-');
             const selectedDate = new Date(parts[0], parts[1] - 1, parts[2]);
 
@@ -159,7 +165,7 @@ class WeeklyCalendar {
     _handleDateSelect(date) {
         const dateStr = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
         const activeBtn = this.element.querySelector(`.dateBtn[data-date="${dateStr}"]`);
-        
+
         if (activeBtn && activeBtn.classList.contains('is-selected')) return;
 
         this.syncToSwiper(date);

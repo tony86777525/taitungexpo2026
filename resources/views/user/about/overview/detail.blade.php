@@ -13,8 +13,8 @@
         <div class="m-subPage">
             <div class="m-element m-subPage__head">
                 <div class="container">
-                    @if(!empty($project->display_project_nature_name))
-                        <div class="pageLabel"><span class="pageLabel__text">{{ $project->display_project_nature_name }}</span></div>
+                    @if(!empty($project->display_curation_nature_name))
+                        <div class="pageLabel"><span class="pageLabel__text">{{ $project->display_curation_nature_name }}</span></div>
                     @endif
                     <div class="logo">
                         <div class="imgWrap">
@@ -30,7 +30,7 @@
                             </li>
                             <li class="datas__item datas__item--time">
                                 <div class="label"><div class="label__text f-h5">{{ __('event.sub-page.datas.time') }}｜</div></div>
-                                <div class="content"><span class="content__text f-h5">{{ $project->display_time_range }}</span></div>
+                                <div class="content"><span class="content__text f-h5">{{ $project->display_time_range_and_note }}</span></div>
                             </li>
                             @if(!empty($project->display_project_location))
                                 <li class="datas__item datas__item--location">
