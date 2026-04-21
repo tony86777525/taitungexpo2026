@@ -86,14 +86,16 @@ $path: '/resources/images';
     }
 
     &--swiper {
+        .swiper-disabled {
+            & ~ .swiper-button-prev,
+            & ~ .swiper-button-next {
+                display: none;
+            }
+        }
 
         @include rwd-min(769px) {
 
             .swiper-disabled {
-                & ~ .swiper-button-prev,
-                & ~ .swiper-button-next {
-                    display: none;
-                }
 
                 .swiper-wrapper {
                     justify-content: center;

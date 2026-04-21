@@ -16,6 +16,7 @@ class WeeklyCalendar {
             endLimit: new Date(2026, 8, 30),
             eventDays: [],
             onDatePick: null,
+            onTodayPick: null,
             ...options
         };
 
@@ -54,6 +55,12 @@ class WeeklyCalendar {
 
         this.element.querySelectorAll('.dateBtn').forEach(el => el.classList.remove('is-selected'));
         $('[data-toggle="datepicker"]').datepicker('setDate', null);
+
+        const todayStr = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`;
+        const todayBtn = this.element.querySelector(`.dateBtn[data-date="${todayStr}"]`);
+        if (todayBtn && !todayBtn.disabled) {
+            todayBtn.click();
+        }
     }
 
     _getMonday(d) {

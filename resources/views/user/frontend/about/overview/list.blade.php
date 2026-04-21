@@ -126,7 +126,7 @@
                 </div>
                 <div class="eventGroup__content">
                     <div class="container">
-                        <div class="cardsList cardsList--collapseScroll js-collapse-list">
+                        <div class="cardsList cardsList--collapseScroll js-collapse-list" data-default-expand="true">
                             <a href="#" class="cardItem cardItem--overview" data-filter-target="exh-b">
                                 <div class="cardItem__image">
                                     <img src="https://picsum.photos/id/516/300/300" alt="brand_title">

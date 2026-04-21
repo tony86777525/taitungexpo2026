@@ -34,13 +34,82 @@ $path: '../../../images/about';
 		.container {
 			display: flex;
 			flex-direction: row;
-			flex-wrap: nowrap;
 			justify-content: center;
 			align-items: center;
+			flex-wrap: nowrap;
 			padding: 0 rem(30);
 
 			@include rwd-min(561px) {
 				padding: 0;
+			}
+		}
+	}
+}
+
+.waveWrap {
+	position: relative;
+
+	&--outside {
+		& > .decoWave {
+			display: none;
+
+			@include rwd-min(1024px) {
+				display: block;
+			}
+		}
+	}
+
+	&--inside {
+		& > .decoWave {
+			@include rwd-min(1024px) {
+				display: none;
+			}
+		}
+	}
+
+	.decoWave {
+		position: absolute;
+		width: 100%;
+		height: rem(123);
+		z-index: 10;
+
+		@include rwd-min(1024px) {
+			width: rem(175);
+			height: 100%;
+		}
+
+		&--before {
+			top: 0;
+			left: 0;
+		}
+
+		&--after {
+			right: 0;
+			bottom: 0;
+			@include scaleY(-1);
+
+			@include rwd-min(1024px) {
+				@include scaleX(-1);
+			}
+		}
+
+		&:after {
+			content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+			background-image: url('#{$path}/deco_wave-about-mb.svg');
+			background-repeat: repeat-x;
+			background-size: rem(389) rem(124);
+			animation: waveFlowMB 8s linear infinite;
+
+			@include rwd-min(1024px) {
+				background-image: url('#{$path}/deco_wave-about-pc.svg');
+				background-repeat: repeat-y;
+				background-size: 100% rem(864);
+				animation: waveFlowPC 8s linear infinite;
 			}
 		}
 	}
@@ -52,6 +121,10 @@ $path: '../../../images/about';
 	background-repeat: no-repeat;
 	background-size: cover;
 	padding: rem(80) 0 rem(260);
+
+	@include rwd-min(768px) {
+		padding-bottom: rem(500);
+	}
 
 	@include rwd-min(769px) {
 		background-image: url('#{$path}/bg_themes-topic-pc.jpg');
@@ -67,12 +140,45 @@ $path: '../../../images/about';
 		margin-bottom: rem(50);
 
 		.title {
+			position: relative;
 			color: $white;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+			flex-wrap: wrap;
+			gap: rem(10);
+
+			@include rwd-min(769px) {
+				flex-wrap: nowrap;
+				flex-direction: row;
+			}
+
+			&:after {
+				content: '';
+				display: block;
+				width: rem(44);
+				height: rem(45);
+				background-image: url('#{$path}/deco_title-themes.svg');
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: rem(44) rem(45);
+
+				@include rwd-min(769px) {
+					position: absolute;
+					top: 50%;
+					right: rem(-78);
+					width: rem(58);
+					height: rem(60);
+					background-size: rem(58) rem(60);
+					@include translateY(-50%);
+				}
+			}
 		}
 	}
 
 	.topic {
-		max-width: rem(580);
+		max-width: rem(780);
 		margin-left: auto;
 		margin-right: auto;
 
@@ -115,53 +221,6 @@ $path: '../../../images/about';
 
 	@include rwd-min(769px) {
 		padding: rem(100) 0;
-	}
-
-	.decoWave {
-		position: absolute;
-		width: 100%;
-		height: rem(123);
-		z-index: 1;
-
-		@include rwd-min(768px) {
-			width: rem(175);
-			height: 100%;
-		}
-
-		&--before {
-			top: 0;
-			left: 0;
-		}
-
-		&--after {
-			right: 0;
-			bottom: 0;
-			@include scaleY(-1);
-
-			@include rwd-min(768px) {
-				@include scaleX(-1);
-			}
-		}
-
-		&:after {
-			content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-			background-image: url('#{$path}/deco_wave-about-mb.svg');
-			background-repeat: repeat-x;
-			background-size: rem(389) rem(124);
-			animation: waveFlowMB 8s linear infinite;
-
-			@include rwd-min(768px) {
-				background-image: url('#{$path}/deco_wave-about-pc.svg');
-				background-repeat: repeat-y;
-				background-size: 100% rem(864);
-				animation: waveFlowPC 8s linear infinite;
-			}
-		}
 	}
 
 	.container {
@@ -211,19 +270,19 @@ $path: '../../../images/about';
 		max-width: rem(776);
 		margin: 0 auto;
 
-		&__cover {
-			position: relative;
-			margin-bottom: rem(30);
-		}
-
 		&__name {
 			color: $secondary;
 			text-align: center;
+			margin-bottom: rem(30);
+		}
+
+		&__cover {
+			position: relative;
 		}
 
 		&__action {
 			@include list-reset;
-			margin-top: rem(20);
+			margin-top: rem(30);
 			display: flex;
 			justify-content: center;
 			align-items: center;

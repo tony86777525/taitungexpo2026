@@ -166,17 +166,22 @@
 						</div>
 						<div class="swiper-slide">
 							<div class="imgWrap">
-								<img src="https://picsum.photos/id/238/300/300" alt="">
+								<img src="https://picsum.photos/id/238/300/225" alt="">
 							</div>
 						</div>
 						<div class="swiper-slide">
 							<div class="imgWrap">
-								<img src="https://picsum.photos/id/240/300/300" alt="">
+								<img src="https://picsum.photos/id/240/800/400" alt="">
 							</div>
 						</div>
 						<div class="swiper-slide">
 							<div class="imgWrap">
-								<img src="https://picsum.photos/id/242/300/300" alt="">
+								<img src="https://picsum.photos/id/242/400/800" alt="">
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="imgWrap">
+								<img src="https://picsum.photos/id/244/900/675" alt="">
 							</div>
 						</div>
 					</div>
