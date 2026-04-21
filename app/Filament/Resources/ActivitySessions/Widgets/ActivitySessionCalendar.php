@@ -133,10 +133,16 @@ class ActivitySessionCalendar extends CalendarWidget
      */
     public function getHeaderActions(): array
     {
+        $currentUser = auth()->user();
+
         $venues = Project::query()
             ->with([
                 'zone'
             ])
+            ->when($currentUser->hasRole('venue_reservation_system_admin') && !empty($currentUser->project_id), function ($query) use ($currentUser) {
+                $query
+                    ->where('id', $currentUser->project_id);
+            })
             ->get()
             ->pluck(function ($data) {
                 return $data->display_venue_number;

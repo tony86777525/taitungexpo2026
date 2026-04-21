@@ -20,6 +20,8 @@ class ActivityReservationNormalForm
 {
     public static function configure(Schema $schema): Schema
     {
+        $currentUser = auth()->user();
+
         return $schema
             ->components([
                 Select::make('activity_session_id')
@@ -34,6 +36,10 @@ class ActivityReservationNormalForm
                             ->withCount([
                                 'bookedActivityReservations',
                             ])
+                            ->when($currentUser->hasRole('venue_reservation_system_admin') && !empty($currentUser->project_id), function ($query) use ($currentUser) {
+                                $query
+                                    ->where('project_id', $currentUser->project_id);
+                            })
                     )
                     ->searchable()
                     ->preload()

@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\ActivitySessionNormals\Schemas;
 
 use App\Enums\ActivitySessionType;
+use App\Enums\ProjectType;
 use App\Models\Project;
 use Carbon\Carbon;
 use Filament\Forms\Components\DatePicker;
@@ -24,6 +25,8 @@ class ActivitySessionNormalBatchForm
 {
     public static function configure(Schema $schema): Schema
     {
+        $currentUser = auth()->user();
+
         return $schema
             ->components([
                 Hidden::make('type')
@@ -33,7 +36,14 @@ class ActivitySessionNormalBatchForm
                     ->relationship(
                         name: 'project',
                         titleAttribute: 'id',
-                        modifyQueryUsing: fn (Builder $query) => $query->orderBy('id'),
+                        modifyQueryUsing: function (Builder $query) use ($currentUser) {
+                            return $query
+                                ->when($currentUser->hasRole('venue_reservation_system_admin') && !empty($currentUser->project_id), function ($query) use ($currentUser) {
+                                    $query
+                                        ->where('id', $currentUser->project_id);
+                                })
+                                ->orderBy('id');
+                        },
                     )
                     ->getOptionLabelFromRecordUsing(fn (Model $record) => "{$record->display_type_and_venue_number_name}")
                     ->live()
