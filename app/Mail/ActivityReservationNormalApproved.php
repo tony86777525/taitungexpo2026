@@ -20,7 +20,7 @@ class ActivityReservationNormalApproved extends Mailable
 
     public function build()
     {
-        return $this->subject("【預約審核結果通知】2026台東博覽會｜團體導覽申請已通過（預約編號：{$this->reservation->order_number}）")
-            ->view('emails.activity-reservation-normal-approved');
+        return $this->subject("【預約成功通知】2026台東博覽會｜團體導覽預約申請已通過（No.:{$this->reservation->order_number}）")
+            ->view('emails.reservation.normal.approved');
     }
 }

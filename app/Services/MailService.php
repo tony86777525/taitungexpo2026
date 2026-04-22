@@ -16,37 +16,33 @@ use Illuminate\Support\Facades\Mail;
 class MailService
 {
     /**
-     * @param ActivityReservation $activityReservation
+     * @param Model|null $activityReservation
      * @return void
      */
-    public static function SendMailWhenApproveActivityReservation(ActivityReservation $activityReservation): void
+    public static function SendMailWhenPendingActivityReservationNormal(?Model $activityReservation): void
     {
-        if ($activityReservation->status === ActivityReservationStatus::PENDING) {
+        if ($activityReservation->status !== ActivityReservationStatus::PENDING) {
             return;
         }
 
-        $activityReservation->load([
-            'activitySession',
-            'activitySession.activity',
-            'activitySession.activity.project',
-            'activitySession.activity.project.zone',
-        ]);
+        $projectId = $activityReservation->activitySession->project->id;
 
-        if ($activityReservation->status === ActivityReservationStatus::CONFIRMED) {
-            $subject = "【預約審核結果通知】2026台東博覽會｜團體導覽申請已通過（預約編號：{$activityReservation->id}）";
-        } else {
-            $subject = "【預約審核結果通知】2026台東博覽會｜團體導覽申請未通過（預約編號：{$activityReservation->id}）";
-        }
+        $bccMails = User::role('venue_reservation_system_admin')
+            ->where('project_id', $projectId)
+            ->pluck('email')
+            ->unique()
+            ->toArray();
 
-        // 可以在此執行寄信邏輯
-        Mail::to($activityReservation->contact_email)->send(new \App\Mail\ActivityReservationConfirmation($activityReservation, $subject));
+        Mail::to($activityReservation->contact_email)
+            ->bcc($bccMails ?? [])
+            ->send(new \App\Mail\ActivityReservationNormalPending($activityReservation));
     }
 
     /**
      * @param Model|null $activityReservation
      * @return void
      */
-    public static function SendMailWhenApproveActivityReservationNormal(?Model $activityReservation): void
+    public static function SendMailWhenApprovedActivityReservationNormal(?Model $activityReservation): void
     {
         if ($activityReservation->status !== ActivityReservationStatus::CONFIRMED) {
             return;
@@ -61,7 +57,7 @@ class MailService
             ->toArray();
 
         Mail::to($activityReservation->contact_email)
-            ->bcc($bccMails)
+            ->bcc($bccMails ?? [])
             ->send(new \App\Mail\ActivityReservationNormalApproved($activityReservation));
     }
 
@@ -85,7 +81,7 @@ class MailService
 
         // 可以在此執行寄信邏輯
         Mail::to($activityReservation->contact_email)
-            ->bcc($bccMails)
+            ->bcc($bccMails ?? [])
             ->send(new \App\Mail\ActivityReservationNormalRejected($activityReservation));
     }
 
@@ -93,9 +89,9 @@ class MailService
      * @param Model|null $activityReservation
      * @return void
      */
-    public static function SendMailWhenCreateActivityReservationVip(?Model $activityReservation): void
+    public static function SendMailInternalActivityReservationVip(?Model $activityReservation): void
     {
-        if ($activityReservation->status !== ActivityReservationStatus::CANCELLED) {
+        if ($activityReservation->status !== ActivityReservationStatus::CONFIRMED) {
             return;
         }
 
@@ -115,8 +111,23 @@ class MailService
             // 轉為陣列給 Mail 寄出
             ->toArray();
 
-        Mail::to($activityReservation->contact_email)
-            ->bcc($bccMails)
+        Mail::to($activityReservation->guide_leader_email)
+            ->bcc($bccMails ?? [])
             ->send(new ActivityReservationVipCreated($activityReservation));
     }
+
+    /**
+     * @param Model|null $activityReservation
+     * @return void
+     */
+    public static function SendMailExternalActivityReservationVip(?Model $activityReservation): void
+    {
+        if ($activityReservation->status !== ActivityReservationStatus::CONFIRMED) {
+            return;
+        }
+
+        Mail::to($activityReservation->contact_email)
+            ->send(new ActivityReservationVipCreated($activityReservation));
+    }
+
 }

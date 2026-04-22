@@ -8,6 +8,7 @@ use App\Models\ActivityReservation;
 use App\Models\ActivityReservationNormal;
 use App\Models\ActivitySessionNormal;
 
+use App\Services\MailService;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -230,7 +231,7 @@ class ReservationController extends Controller
                 'contact_email' => 'required|email|max:100',
                 'contact_group_name' => 'required|string|max:100',
                 'participants_quota' => 'required|integer|min:1',
-                'status_notes' => 'nullable|string|max:255',
+                'notes' => 'nullable|string|max:255',
                 'captcha' => 'required|captcha',
             ],
             [
@@ -268,6 +269,17 @@ class ReservationController extends Controller
         $reservation->status = ActivityReservationStatus::PENDING;
         $reservation->save();
 
-        return redirect()->route('user.reservation.complete')->with('isSuccess', '預約成功!');
+        $reservation->load([
+            'activitySession',
+            'activitySession.project',
+            'activitySession.project.zone',
+        ]);
+
+        MailService::SendMailWhenPendingActivityReservationNormal($reservation);
+
+        return redirect()->route('user.reservation.complete')->with([
+            'isSuccess' => '預約成功!',
+            'linkForm' => route('user.reservation.project', ['id' => $validated['venue']]),
+        ]);
     }
 }

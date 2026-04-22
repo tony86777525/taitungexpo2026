@@ -234,15 +234,15 @@
                         <div class="formElement">
                             <textarea
                                 id="remark"
-                                name="status_notes"
+                                name="notes"
                                 rows="4"
                                 class="fancyTextarea f-h6"
                                 placeholder="{{ __('reservation.form.remark.placeholder') }}"
-                            >{{ old('status_notes') }}</textarea>
+                            >{{ old('notes') }}</textarea>
                         </div>
                     </div>
                 </div>
-                @error('status_notes')
+                @error('notes')
                     <div class="formRow__hint is-active">
                         <div class="errMsg f-h6">{{ $message }}</div>
                     </div>
