@@ -7,7 +7,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class ActivityReservationApproved extends Mailable
+class ActivityReservationVipInternal extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -20,7 +20,7 @@ class ActivityReservationApproved extends Mailable
 
     public function build()
     {
-        return $this->subject('【預約審核結果通知】2026台東博覽會｜團體導覽申請已通過')
-            ->view('emails.activity-reservation-approved');
+        return $this->subject("2026台東博覽會｜貴賓導覽預約確認（No.:{$this->reservation->order_number}）")
+            ->view('emails.reservation.vip.internal');
     }
 }

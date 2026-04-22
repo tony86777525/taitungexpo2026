@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\ActivityReservationVips\Pages;
 
+use App\Enums\ActivityReservationStatus;
 use App\Filament\Resources\ActivityReservationVips\ActivityReservationVipResource;
 use App\Models\ActivitySessionVip;
 use App\Services\MailService;
@@ -14,14 +15,16 @@ class CreateActivityReservationVip extends CreateRecord
 
     protected function afterCreate(): void
     {
-        $this->record->load([
-            'activitySession',
-            'activitySession',
-            'activitySession.project',
-            'activitySession.project.zone',
-        ]);
+        if ($this->record->status === ActivityReservationStatus::CONFIRMED) {
+            $this->record->load([
+                'activitySession',
+                'activitySession.project',
+                'activitySession.project.zone',
+            ]);
 
-        MailService::SendMailWhenCreateActivityReservationVip($this->record);
+            MailService::SendMailInternalActivityReservationVip($this->record);
+            MailService::SendMailExternalActivityReservationVip($this->record);
+        }
     }
 
     // 在 CreateResource 頁面檔案中

@@ -173,6 +173,16 @@ Route::group([
     Route::post('/reservation/store', [ReservationController::class, 'store'])
         ->name('reservation.store');
     Route::get('/reservation/complete', function () {
-        return view('user.frontend.reservation.complete');
+        return view('user.reservation.complete');
     })->name('reservation.complete');
+
+    Route::get('/emails/reservation/normal/1', function () {
+        return view('emails.reservation.normal.pending');
+    });
+    Route::get('/emails/reservation/normal/2', function () {
+        return view('emails.reservation.normal.approved');
+    });
+    Route::get('/emails/reservation/normal/3', function () {
+        return view('emails.reservation.normal.rejected');
+    });
 });

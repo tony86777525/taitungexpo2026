@@ -154,18 +154,16 @@ class ApproveActivityReservationNormal extends EditRecord
     {
         $this->record->load([
             'activitySession',
-            'activitySession',
             'activitySession.project',
             'activitySession.project.zone',
         ]);
 
-        MailService::SendMailWhenApproveActivityReservationNormal($this->record);
+        MailService::SendMailWhenApprovedActivityReservationNormal($this->record);
     }
 
     public function sendMailReject(): void
     {
         $this->record->load([
-            'activitySession',
             'activitySession',
             'activitySession.project',
             'activitySession.project.zone',

@@ -330,6 +330,22 @@ class Project extends Model
     }
 
     /**
+     * @return string|null
+     */
+    public function getDisplayReservationUrlFromEventAttribute(): ?string
+    {
+        return lang_route('user.reservation.project', ['id' => $this->id, 'from' => 'event']);
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getDisplayReservationUrlFromOverviewAttribute(): ?string
+    {
+        return lang_route('user.reservation.project', ['id' => $this->id, 'from' => 'overview']);
+    }
+
+    /**
      * 展場編號
      *
      * @return string
