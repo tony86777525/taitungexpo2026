@@ -134,7 +134,7 @@
                                         @if($loop->last && $project->show_tour_info === true)
                                             <li>
                                                 <a
-                                                    href="{{ $project->display_reservation_url }}"
+                                                    href="{{ $project->display_reservation_url_from_overview }}"
                                                     class="btn btn--customLink"
                                                 ><span class="btn__text">{{ __('event.cards.group-tour.link-text') }}</span></a>
                                             </li>

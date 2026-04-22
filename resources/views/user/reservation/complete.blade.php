@@ -17,8 +17,12 @@
                         </div>
                         <ul class="action">
                             <li><a href="{{ session('linkForm') }}" class="btn btn--submit is-dark"><span class="btn__text">{{ __('reservation.complete.btnText1') }}</span></a></li>
-                            <li><a href="{{ route('user.about.overview.list') }}" class="btn btn--submit is-dark"><span class="btn__text">{{ __('reservation.complete.btnText2') }}</span></a></li>
-                            <li><a href="{{ route('user.event.list') }}" class="btn btn--submit is-dark"><span class="btn__text">{{ __('reservation.complete.btnText3') }}</span></a></li>
+                            @if(session('showOverviewLink'))
+                                <li><a href="{{ route('user.about.overview.list') }}" class="btn btn--submit is-dark"><span class="btn__text">{{ __('reservation.complete.btnText2') }}</span></a></li>
+                            @endif
+                            @if(session('showEventLink'))
+                                <li><a href="{{ route('user.event.list') }}" class="btn btn--submit is-dark"><span class="btn__text">{{ __('reservation.complete.btnText3') }}</span></a></li>
+                            @endif
                         </ul>
                     @elseif(session('isFull'))
                         {{-- 額滿 --}}
@@ -26,8 +30,12 @@
                             <p class="f-h4">{!! __('reservation.complete.full.p1') !!}</p>
                         </div>
                         <ul class="action">
-                            <li><a href="{{ route('user.about.overview.list') }}" class="btn btn--submit is-dark"><span class="btn__text">{{ __('reservation.complete.btnText2') }}</span></a></li>
-                            <li><a href="{{ route('user.event.list') }}" class="btn btn--submit is-dark"><span class="btn__text">{{ __('reservation.complete.btnText3') }}</span></a></li>
+                            @if(session('showOverviewLink'))
+                                <li><a href="{{ route('user.about.overview.list') }}" class="btn btn--submit is-dark"><span class="btn__text">{{ __('reservation.complete.btnText2') }}</span></a></li>
+                            @endif
+                            @if(session('showEventLink'))
+                                <li><a href="{{ route('user.event.list') }}" class="btn btn--submit is-dark"><span class="btn__text">{{ __('reservation.complete.btnText3') }}</span></a></li>
+                            @endif
                         </ul>
                     @elseif(session('isClosed'))
                         {{-- 截止 --}}
@@ -35,8 +43,12 @@
                             <p class="f-h4">{!! __('reservation.complete.closed.p1') !!}</p>
                         </div>
                         <ul class="action">
-                            <li><a href="{{ route('user.about.overview.list') }}" class="btn btn--submit is-dark"><span class="btn__text">{{ __('reservation.complete.btnText2') }}</span></a></li>
-                            <li><a href="{{ route('user.event.list') }}" class="btn btn--submit is-dark"><span class="btn__text">{{ __('reservation.complete.btnText3') }}</span></a></li>
+                            @if(session('showOverviewLink'))
+                                <li><a href="{{ route('user.about.overview.list') }}" class="btn btn--submit is-dark"><span class="btn__text">{{ __('reservation.complete.btnText2') }}</span></a></li>
+                            @endif
+                            @if(session('showEventLink'))
+                                <li><a href="{{ route('user.event.list') }}" class="btn btn--submit is-dark"><span class="btn__text">{{ __('reservation.complete.btnText3') }}</span></a></li>
+                            @endif
                         </ul>
                     @endif
                 </div>

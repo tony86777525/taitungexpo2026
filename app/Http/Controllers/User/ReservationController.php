@@ -8,6 +8,7 @@ use App\Models\ActivityReservation;
 use App\Models\ActivityReservationNormal;
 use App\Models\ActivitySessionNormal;
 
+use App\Models\Project;
 use App\Services\MailService;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -138,13 +139,25 @@ class ReservationController extends Controller
             ->where('project_id', $currentProjectId)
             ->get();
 
-        abort_if($activitySessions->isEmpty(), 404);
+        if ($activitySessions->isEmpty()) {
+            $reservationFormData = $this->getEmptyFormData($currentProjectId);
+            return view('user.reservation.index', compact(
+                'reservationFormData',
+            ));
+        }
+//        abort_if($activitySessions->isEmpty(), 404);
 
         $canBookActivitySessions = $activitySessions->filter(function ($activitySession) {
             return $activitySession->can_book;
         });
 
-        abort_if($canBookActivitySessions->isEmpty(), 404);
+        if ($canBookActivitySessions->isEmpty()) {
+            $reservationFormData = $this->getEmptyFormData($currentProjectId);
+            return view('user.reservation.index', compact(
+                'reservationFormData',
+            ));
+        }
+//        abort_if($canBookActivitySessions->isEmpty(), 404);
 
         $sessionDateOptions = $canBookActivitySessions
             ->sortBy('date')
@@ -255,6 +268,8 @@ class ReservationController extends Controller
             return redirect()->route('user.reservation.complete')->with([
                 'isClosed' => '您預約的場次已結束報名，歡迎再看看其他場次!',
                 'linkForm' => route('user.reservation.project', ['id' => $validated['venue']]),
+                'showOverviewLink' => request()->query('from') === 'overview',
+                'showEventLink' => request()->query('from') === 'event',
             ]);
         }
 
@@ -262,6 +277,8 @@ class ReservationController extends Controller
             return redirect()->route('user.reservation.complete')->with([
                 'isFull' => '您預約的場次名額已滿，歡迎再看看其他場次!',
                 'linkForm' => route('user.reservation.project', ['id' => $validated['venue']]),
+                'showOverviewLink' => request()->query('from') === 'overview',
+                'showEventLink' => request()->query('from') === 'event',
             ]);
         }
 
@@ -275,11 +292,59 @@ class ReservationController extends Controller
             'activitySession.project.zone',
         ]);
 
-        MailService::SendMailWhenPendingActivityReservationNormal($reservation);
+//        MailService::SendMailWhenPendingActivityReservationNormal($reservation);
 
         return redirect()->route('user.reservation.complete')->with([
             'isSuccess' => '預約成功!',
             'linkForm' => route('user.reservation.project', ['id' => $validated['venue']]),
+            'showOverviewLink' => request()->query('from') === 'overview',
+            'showEventLink' => request()->query('from') === 'event',
         ]);
+    }
+
+    private static function getEmptyFormData($currentProjectId)
+    {
+        $reservationFormData = [
+            'currentProject' => [],
+            'canBookActivitySessions' => [],
+            'sessionDateOptions' => [],
+            'zoneOptions' => [],
+            'projectOptions' => [],
+            'sessionTimeOptions' => [],
+        ];
+
+        $projects = Project::with('zone')
+            ->whereHas('zone', function ($query) {
+                $query->where('is_active', true);
+            })
+            ->where('id', $currentProjectId)
+            ->where('is_active', true)
+            ->get();
+
+        abort_if($projects->isEmpty(), 404);
+
+        $reservationFormData['currentProject'] = $projects->first();
+        $reservationFormData['zoneOptions'] = $projects
+            ->sortBy('zone.code')
+            ->map(function ($data) {
+                return [
+                    'value' => $data->zone->id,
+                    'label' => $data->zone->display_code_name,
+                ];
+            })
+            ->unique()
+            ->toArray();
+        $reservationFormData['projectOptions'] = $projects
+            ->sortBy(['zone.code', 'id'])
+            ->map(function ($data) {
+                return [
+                    'value' => $data->id,
+                    'label' => $data->display_venue_number_and_name,
+                ];
+            })
+            ->unique()
+            ->toArray();
+
+        return $reservationFormData;
     }
 }

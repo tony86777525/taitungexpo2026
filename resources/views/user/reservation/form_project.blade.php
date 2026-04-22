@@ -1,8 +1,8 @@
-<form id="reservation" action="{{ route('user.reservation.store') }}" method="POST" class="form form--reservation">
+<form id="reservation" action="{{ lang_route('user.reservation.store', ['from' => request()->query('from')]) }}" method="POST" class="form form--reservation">
     @csrf
     <input type="hidden" id="activity_session_id" name="activity_session_id" value="{{ old('activity_session_id') }}">
-    <input type="hidden" name="zone" value="{{ old('zone') ?? $currentProject->zone->id }}">
-    <input type="hidden" name="venue" value="{{ old('venue') ?? $currentProject->id }}">
+    <input type="hidden" name="zone" value="{{ old('zone') ?? $currentProject->zone->id ?? '' }}">
+    <input type="hidden" name="venue" value="{{ old('venue') ?? $currentProject->id ?? '' }}">
     <div class="form__body">
         <div class="wrap">
             <div class="container">
@@ -288,7 +288,7 @@
                 'lines' => 'hard',
             ])
             <ul class="actions">
-                <li><button id="submit" type="submit" class="btn btn--submit is-dark"><span class="btn__text">{{ __('reservation.form.actions.submit') }}</span></button></li>
+                <li><button id="submit" type="submit" class="btn btn--submit is-dark" disabled><span class="btn__text">{{ __('reservation.form.actions.submit') }}</span></button></li>
             </ul>
         </div>
     </div>

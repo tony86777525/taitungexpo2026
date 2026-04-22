@@ -121,6 +121,12 @@ function init() {
 
             renewSelect(selectTime, filterSessionTimeOptions, window.filterParams.time_range);
         }
+
+        if (selectDate.value && selectTime.value) {
+            document.getElementById('submit').disabled = false;
+        } else {
+            document.getElementById('submit').disabled = true;
+        }
     }
 
     function renewSelect(currentSelect, newOptions, currentValue) {
