@@ -165,6 +165,6 @@ class ApproveActivityReservation extends EditRecord
 
     public function sendMail(): void
     {
-        MailService::SendMailWhenApproveActivityReservation($this->record);
+//        MailService::SendMailWhenApproveActivityReservation($this->record);
     }
 }

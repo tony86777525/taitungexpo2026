@@ -3,11 +3,11 @@
 namespace App\Services;
 
 use App\Enums\ActivityReservationStatus;
-use App\Mail\ActivityReservationApproved;
-use App\Mail\ActivityReservationVipCreated;
-use App\Models\ActivityReservation;
-use App\Models\ActivityReservationNormal;
-use App\Models\ActivityReservationVip;
+use App\Mail\ActivityReservationNormalApproved;
+use App\Mail\ActivityReservationNormalPending;
+use App\Mail\ActivityReservationNormalRejected;
+use App\Mail\ActivityReservationVipExternal;
+use App\Mail\ActivityReservationVipInternal;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Mail;
@@ -35,7 +35,7 @@ class MailService
 
         Mail::to($activityReservation->contact_email)
             ->bcc($bccMails ?? [])
-            ->send(new \App\Mail\ActivityReservationNormalPending($activityReservation));
+            ->send(new ActivityReservationNormalPending($activityReservation));
     }
 
     /**
@@ -58,7 +58,7 @@ class MailService
 
         Mail::to($activityReservation->contact_email)
             ->bcc($bccMails ?? [])
-            ->send(new \App\Mail\ActivityReservationNormalApproved($activityReservation));
+            ->send(new ActivityReservationNormalApproved($activityReservation));
     }
 
     /**
@@ -82,7 +82,7 @@ class MailService
         // 可以在此執行寄信邏輯
         Mail::to($activityReservation->contact_email)
             ->bcc($bccMails ?? [])
-            ->send(new \App\Mail\ActivityReservationNormalRejected($activityReservation));
+            ->send(new ActivityReservationNormalRejected($activityReservation));
     }
 
     /**
@@ -113,7 +113,7 @@ class MailService
 
         Mail::to($activityReservation->guide_leader_email)
             ->bcc($bccMails ?? [])
-            ->send(new ActivityReservationVipCreated($activityReservation));
+            ->send(new ActivityReservationVipInternal($activityReservation));
     }
 
     /**
@@ -127,7 +127,6 @@ class MailService
         }
 
         Mail::to($activityReservation->contact_email)
-            ->send(new ActivityReservationVipCreated($activityReservation));
+            ->send(new ActivityReservationVipExternal($activityReservation));
     }
-
 }

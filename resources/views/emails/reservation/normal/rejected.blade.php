@@ -7,7 +7,7 @@
 <html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
-    <title>2026台東博覽會-團體導覽預約申請</title>
+    <title>【預約未成功】2026台東博覽會｜團體導覽預約申請未通過</title>
 </head>
 <body style="margin: 0; padding: 20px; background-color: #ffffff;">
 

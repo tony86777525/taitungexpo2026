@@ -20,7 +20,7 @@ class ActivityReservationNormalRejected extends Mailable
 
     public function build()
     {
-        return $this->subject("【預約結果通知】2026台東博覽會｜團體導覽預約申請通過（No.:{$this->reservation->order_number}）")
+        return $this->subject("【預約未成功】2026台東博覽會｜團體導覽預約申請未通過（No.:{$this->reservation->order_number}）")
             ->view('emails.reservation.normal.rejected');
     }
 }

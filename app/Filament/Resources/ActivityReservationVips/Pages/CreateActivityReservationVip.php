@@ -16,12 +16,12 @@ class CreateActivityReservationVip extends CreateRecord
     {
         $this->record->load([
             'activitySession',
-            'activitySession',
             'activitySession.project',
             'activitySession.project.zone',
         ]);
 
-        MailService::SendMailWhenCreateActivityReservationVip($this->record);
+        MailService::SendMailInternalActivityReservationVip($this->record);
+        MailService::SendMailExternalActivityReservationVip($this->record);
     }
 
     // 在 CreateResource 頁面檔案中
