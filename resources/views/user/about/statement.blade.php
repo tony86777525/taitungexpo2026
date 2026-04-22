@@ -202,8 +202,12 @@
                                 <ul class="text__events">
                                     @foreach ($wheel['events'] as $event)
                                         <li>
-                                            @if (!empty($event['href']))
-                                                <a href="{{ $event['href'] }}" class="eventLink">
+                                            @php
+                                                $routeUrl = lang_route('user.frontend.about.overview.detail');
+                                                [$path, $query] = array_pad(explode('?', $routeUrl), 2, null);
+                                                $fullUrl = rtrim($path, '/') . '/' . $event['href'] . ($query ? '?' . $query : '');
+                                            @endphp
+                                            <a href="{{ $fullUrl }}" class="eventLink">
                                                     <span class="eventLink__locate">{{ $event['locate'] }}</span>
                                                     <span class="eventLink__name">{{ $event['name'] }}</span>
                                                 </a>

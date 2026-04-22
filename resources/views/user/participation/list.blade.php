@@ -27,7 +27,22 @@
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide">
                                     <div class="imgWrap">
-                                        <img src="{{ asset('images/participation/banner.webp') }}" alt="">
+                                        <img src="{{ asset('images/participation/img_banner-1.jpg') }}" alt="">
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="imgWrap">
+                                        <img src="{{ asset('images/participation/img_banner-2.jpg') }}" alt="">
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="imgWrap">
+                                        <img src="{{ asset('images/participation/img_banner-3.jpg') }}" alt="">
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="imgWrap">
+                                        <img src="{{ asset('images/participation/img_banner-4.jpg') }}" alt="">
                                     </div>
                                 </div>
                             </div>

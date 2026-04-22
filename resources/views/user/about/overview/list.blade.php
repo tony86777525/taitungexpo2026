@@ -91,7 +91,7 @@
                     </div>
                     <div class="eventGroup__content">
                         <div class="container">
-                            <div class="cardsList cardsList--collapseScroll js-collapse-list">
+                            <div class="cardsList cardsList--collapseScroll js-collapse-list" data-default-expand="true">
                                 @foreach($eventProjects as $project)
                                     <a href="{{ $project->display_url }}" class="cardItem cardItem--overview" data-filter-target="{{ $zone->display_html_tag }}">
                                         <div class="cardItem__image">
