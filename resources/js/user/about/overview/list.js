@@ -73,6 +73,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
         window.addEventListener("resize", handleResize);
         handleResize();
+
+        if (list.dataset.defaultExpand === 'true') {
+            button.click();
+        }
     }
 
     document.querySelectorAll(".js-collapse-list").forEach(function (list) {

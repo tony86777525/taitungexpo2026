@@ -124,7 +124,7 @@ $path: '../../images/index';
 				&:before {
 					content: '';
 					display: block;
-					padding-top: calc((124 / 171) * 100%);
+					padding-top: calc((203 / 279) * 100%);
 				}
 
 				img {
@@ -132,7 +132,7 @@ $path: '../../images/index';
 				}
 
 				@include rwd-min(769px) {
-					width: rem(171);
+					width: rem(279);
 				}
             }
         }
@@ -244,8 +244,8 @@ $path: '../../images/index';
 			position: relative;
 			z-index: 5;
 
-			@include rwd-min(561px) {
-				padding: 0 rem(0);
+			@include rwd-min(769px) {
+				padding: 0;
 			}
 		}
 	}
@@ -390,7 +390,7 @@ $path: '../../images/index';
 			}
 		}
 
-		@include rwd-min(561px) {
+		@include rwd-min(769px) {
 			overflow-x: visible;
 			padding-left: 0;
 			@include box-sizing(border-box);
@@ -457,7 +457,7 @@ $path: '../../images/index';
 		}
 	}
 
-	@include rwd-min(561px) {
+	@include rwd-min(769px) {
 		.swiper-button-next,
 		.swiper-button-prev {
 			display: block;
@@ -508,7 +508,7 @@ $path: '../../images/index';
 		.container {
 			padding: 0;
 
-			@include rwd-min(561px) {
+			@include rwd-min(769px) {
 				padding: 0 rem(40);
 			}
 		}
@@ -669,7 +669,7 @@ $path: '../../images/index';
 		.container {
 			padding: 0;
 
-			@include rwd-min(561px) {
+			@include rwd-min(769px) {
 				padding: 0 rem(40);
 			}
 		}

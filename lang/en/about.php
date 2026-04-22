@@ -28,7 +28,7 @@ return [
     'statement' => [
         'page-title' => 'Expo Themes',
         'hero' => [
-            'title1' => '10 Themes X<br>22 Featured Exhibitions X<br>200+ Special Events X<br>14 Taitung Event Brands<br>22 Community Proposals',
+            'title1' => '10 Themes X<br>23 Featured Exhibitions X<br>200+ Special Events X<br>14 Taitung Event Brands<br>22 Community Proposals',
             'title2' => 'In 2026, you are invited to experience the diverse vitality of Taitung.',
             'paragraph1' => 'Beginning with a Slow Economy seed planted in Taitung’s soil, ideas take root, reach upward, and gradually unfold into themes: including "Air", "Water", "Natural Power", "Sound", "Drift", "Life", "Slow Economy", "The Taitung Brand", and "Sustainable Taitung". Together, layer by layer, they outline a vision of Slow Economy that is uniquely Taitung.',
             'hint' => 'Click a theme to learn more',
@@ -44,12 +44,12 @@ return [
                     'events1' => [
                         'locate' => 'A2',
                         'name' => 'Super Taitung：Back to the Nature',
-                        'href' => '#'
+                        'href' => '3'
                     ],
                     'events2' => [
                         'locate' => 'A3',
                         'name' => "The Memory Bank: A Harvest of Taitung’s Collective Life",
-                        'href' => '#'
+                        'href' => '4'
                     ]
                 ]
             ],
@@ -75,7 +75,7 @@ return [
                     'events1' => [
                         'locate' => 'C1',
                         'name' => 'Pan-Pacific Triennial: Archipelagic Encounters',
-                        'href' => '#'
+                        'href' => '41'
                     ]
                 ]
             ],
@@ -94,17 +94,17 @@ return [
                     'events1' => [
                         'locate' => 'C2',
                         'name' => 'Taitung Sound Art Festival',
-                        'href' => '#'
+                        'href' => '22'
                     ],
                     'events2' => [
                         'locate' => 'E1',
                         'name' => "Oh! You've Got It",
-                        'href' => '#'
+                        'href' => '25'
                     ],
                     'events3' => [
                         'locate' => 'I9',
                         'name' => '2026 Taitung Expo Opening Concert',
-                        'href' => '#'
+                        'href' => '6'
                     ],
                 ]
             ],
@@ -117,7 +117,7 @@ return [
                     'events1' => [
                         'locate' => 'A4',
                         'name' => 'TTwilight Granden Theater –The Stories of Drifting and Striving in Taitun',
-                        'href' => '#',
+                        'href' => '3',
                     ]
                 ]
             ],
@@ -130,47 +130,47 @@ return [
                     'events1' => [
                         'locate' => 'A6',
                         'name' => 'Awaken Your Potential',
-                        'href' => '#'
+                        'href' => '17'
                     ],
                     'events2' => [
                         'locate' => 'B1',
                         'name' => 'Austronesian Cultural Living Room: Connecting Action',
-                        'href' => '#'
+                        'href' => '37'
                     ],
                     'events3' => [
                         'locate' => 'C3',
                         'name' => 'Taitung Craft Exhibition',
-                        'href' => '#'
+                        'href' => '42'
                     ],
                     'events4' => [
                         'locate' => 'D2',
                         'name' => 'Mi casa Music & Art Festival',
-                        'href' => '#'
+                        'href' => '24'
                     ],
                     'events5' => [
                         'locate' => 'F1',
                         'name' => 'In Between',
-                        'href' => '#'
+                        'href' => '26'
                     ],
                     'events6' => [
                         'locate' => 'G1',
                         'name' => 'Co-Editing TAITUNG',
-                        'href' => '#'
+                        'href' => '26'
                     ],
                     'events7' => [
                         'locate' => 'H1',
                         'name' => 'Baseball on Red Clay Exhibition',
-                        'href' => '#'
+                        'href' => '29'
                     ],
                     'events8' => [
                         'locate' => 'I7',
                         'name' => 'Austro Daily',
-                        'href' => '#'
+                        'href' => '34'
                     ],
                     'events9' => [
                         'locate' => 'I8',
                         'name' => 'Taitung Expo Bento',
-                        'href' => '#'
+                        'href' => '35'
                     ],
                 ]
             ],
@@ -183,7 +183,7 @@ return [
                     'events1' => [
                         'locate' => 'I6',
                         'name' => 'Tau Tau a Taitung slow guide',
-                        'href' => '#'
+                        'href' => '33'
                     ]
                 ]
             ],
@@ -196,22 +196,22 @@ return [
                     'events1' => [
                         'locate' => 'A5',
                         'name' => 'Walk‑In Taitung',
-                        'href' => '#'
+                        'href' => '16'
                     ],
                     'events2' => [
                         'locate' => 'G2',
                         'name' => 'Taitung Fringe Festival: A Performing Arts Retrospective',
-                        'href' => '#'
+                        'href' => '28'
                     ],
                     'events3' => [
                         'locate' => 'I3',
                         'name' => 'Taitung Fringe Festival-Taitung Expo Circus Zone',
-                        'href' => '#'
+                        'href' => '31'
                     ],
                     'events4' => [
                         'locate' => 'I5',
                         'name' => 'Taitung Spirit Festival',
-                        'href' => '#'
+                        'href' => '40'
                     ],
                 ]
             ],
@@ -224,12 +224,12 @@ return [
                     'events1' => [
                         'locate' => 'A1',
                         'name' => 'Taitung Expo Main Venue: The Living School',
-                        'href' => '#'
+                        'href' => '1'
                     ],
                     'events2' => [
                         'locate' => 'A7',
                         'name' => 'Taitung Old Station → TAITUNG Line',
-                        'href' => '#'
+                        'href' => '18'
                     ],
                     'events3' => [
                         'locate' => 'E2',
@@ -239,7 +239,7 @@ return [
                     'events4' => [
                         'locate' => 'I1',
                         'name' => 'Taitung Go Sun',
-                        'href' => '#'
+                        'href' => '5'
                     ],
                 ]
             ],
@@ -300,7 +300,7 @@ return [
         'page-title' => 'Exhibition Overview',
         'section1' => [
             'title' => 'Theme Exhibitions',
-            'desc' => 'Across 7 exhibition zones in Taitung City and satellite exhibitions across Taitung, 22 official exhibitions are waiting to be explored!',
+            'desc' => 'Across 7 exhibition zones in Taitung City and satellite exhibitions across Taitung, 23 official exhibitions are waiting to be explored!',
             'filters' => [
                 'filterTxt1' => 'Central Taitung District',
                 'filterTxt2' => 'Just Art',

@@ -28,7 +28,7 @@ return [
     'statement' => [
         'page-title' => '策展論述',
         'hero' => [
-            'title1' => '10 大策展議題 X <br class="display--mb">22檔主題展覽、200場限定活動 X<br>台東 14 活動品牌 X<br class="display--mb"> 22 件民間參與提案',
+            'title1' => '10 大策展議題 X <br class="display--mb">23檔主題展覽、200場限定活動 X<br>台東 14 活動品牌 X<br class="display--mb"> 22 件民間參與提案',
             'title2' => '2026，邀您一起體驗台東的多元精彩！',
             'paragraph1' => '由一顆落下台東土地的慢經濟種子開始，向下扎根，向上展望，逐漸萌芽、延展出「空氣」、「水」、「自然力量」、「聲音」、「漂流」、「生活」、「慢經濟體」、「台東品牌」與「永續台東」等策展議題，一層層勾勒出台東獨有的慢經濟想像藍圖。',
             'hint' => '點擊策展議題查看詳情',
@@ -44,12 +44,12 @@ return [
                     'events1' => [
                         'locate' => 'A2',
                         'name' => '這超台東：未來超市',
-                        'href' => '#'
+                        'href' => '2'
                     ],
                     'events2' => [
                         'locate' => 'A3',
                         'name' => '記憶提取所-我們有滋有味的生活',
-                        'href' => '#'
+                        'href' => '4'
                     ]
                 ]
             ],
@@ -74,7 +74,7 @@ return [
                     'events1' => [
                         'locate' => 'C1',
                         'name' => '2026泛太平洋國際駐村交流展',
-                        'href' => '#'
+                        'href' => '41'
                     ]
                 ]
             ],
@@ -93,17 +93,17 @@ return [
                     'events1' => [
                         'locate' => 'C2',
                         'name' => '臺東聲音藝術節',
-                        'href' => '#'
+                        'href' => '22'
                     ],
                     'events2' => [
                         'locate' => 'E1',
                         'name' => '凹！你是有的',
-                        'href' => '#'
+                        'href' => '25'
                     ],
                     'events3' => [
                         'locate' => 'I9',
                         'name' => '2026台東博覽會開幕音樂會',
-                        'href' => '#'
+                        'href' => '6'
                     ],
                 ]
             ],
@@ -116,7 +116,7 @@ return [
                     'events1' => [
                         'locate' => 'A4',
                         'name' => '微光流金戲院-台東人漂移拼搏主題展',
-                        'href' => '#',
+                        'href' => '3',
                     ]
                 ]
             ],
@@ -129,47 +129,47 @@ return [
                     'events1' => [
                         'locate' => 'A6',
                         'name' => '未來人孵化器 教育展',
-                        'href' => '#'
+                        'href' => '17'
                     ],
                     'events2' => [
                         'locate' => 'B1',
                         'name' => '南島文化客廳連線行動計畫',
-                        'href' => '#'
+                        'href' => '37'
                     ],
                     'events3' => [
                         'locate' => 'C3',
                         'name' => '臺東工藝展',
-                        'href' => '#'
+                        'href' => '42'
                     ],
                     'events4' => [
                         'locate' => 'D2',
                         'name' => '藝起來我家',
-                        'href' => '#'
+                        'href' => '24'
                     ],
                     'events5' => [
                         'locate' => 'F1',
                         'name' => '潮界帶 IN BETWEEN',
-                        'href' => '#'
+                        'href' => '26'
                     ],
                     'events6' => [
                         'locate' => 'G1',
                         'name' => '共編台東',
-                        'href' => '#'
+                        'href' => '27'
                     ],
                     'events7' => [
                         'locate' => 'H1',
                         'name' => '紅土之上：棒球特展',
-                        'href' => '#'
+                        'href' => '29'
                     ],
                     'events8' => [
                         'locate' => 'I7',
                         'name' => '日日南島：南島開箱',
-                        'href' => '#'
+                        'href' => '34'
                     ],
                     'events9' => [
                         'locate' => 'I8',
                         'name' => '東博限定便當',
-                        'href' => '#'
+                        'href' => '35'
                     ]
                 ]
             ],
@@ -182,7 +182,7 @@ return [
                     'events1' => [
                         'locate' => 'I6',
                         'name' => '台東慢經濟指南-島島生活提案所',
-                        'href' => '#'
+                        'href' => '33'
                     ]
                 ]
             ],
@@ -195,22 +195,22 @@ return [
                     'events1' => [
                         'locate' => 'A5',
                         'name' => '夢想東升 WALK IN熱氣球',
-                        'href' => '#'
+                        'href' => '16'
                     ],
                     'events2' => [
                         'locate' => 'G2',
                         'name' => '臺東藝穗節靜態回顧展',
-                        'href' => '#'
+                        'href' => '28'
                     ],
                     'events3' => [
                         'locate' => 'I3',
                         'name' => '臺東藝穗節馬戲特區',
-                        'href' => '#'
+                        'href' => '31'
                     ],
                     'events4' => [
                         'locate' => 'I5',
                         'name' => '自然醒慢活祭',
-                        'href' => '#'
+                        'href' => '40'
                     ],
                 ]
             ],
@@ -223,12 +223,12 @@ return [
                     'events1' => [
                         'locate' => 'A1',
                         'name' => '台東博覽會主場館：活的學校',
-                        'href' => '#'
+                        'href' => '1'
                     ],
                     'events2' => [
                         'locate' => 'A7',
                         'name' => '台東舊站 >>> 台東線',
-                        'href' => '#'
+                        'href' => '18'
                     ],
                     'events3' => [
                         'locate' => 'E2',
@@ -238,7 +238,7 @@ return [
                     'events4' => [
                         'locate' => 'I1',
                         'name' => '東日晒桑-台東老城區散策計畫',
-                        'href' => '#'
+                        'href' => '5'
                     ],
                 ]
             ],
@@ -298,7 +298,7 @@ return [
         'page-title' => '展會概覽',
         'section1' => [
             'title' => '主題展區',
-            'desc' => '橫跨台東市區7大展區＋全台東衛星展區，共22檔官方主題展，等您來探索！',
+            'desc' => '橫跨台東市區7大展區＋全台東衛星展區，共23檔官方主題展，等您來探索！',
             'filters' => [
                 'filterTxt1' => '舊站特區',
                 'filterTxt2' => '就藝會區',
@@ -316,7 +316,7 @@ return [
         ],
         'section3' => [
             'title' => '民間展區',
-            'desc' => '呼應聯合國 2030 SDGs並落實公民參與，展開23件涵蓋多元領域的民間參與提案！',
+            'desc' => '呼應聯合國 2030 SDGs並落實公民參與，展開22件涵蓋多元領域的民間參與提案！',
         ],
         'section4' => [
             'title' => '響應展區',

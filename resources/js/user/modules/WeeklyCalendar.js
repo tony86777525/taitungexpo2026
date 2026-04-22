@@ -16,6 +16,7 @@ class WeeklyCalendar {
             endLimit: new Date(2026, 8, 30),
             eventDays: [],
             onDatePick: null,
+            onTodayPick: null,
             ...options
         };
 

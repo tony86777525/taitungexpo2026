@@ -87,8 +87,8 @@ class CardSwiper {
                 prevEl: prevBtn,
             },
             breakpoints: {
-                561: { slidesPerView: 2 },
-                769: { slidesPerView: 3 }
+                769: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 }
             },
         };
 

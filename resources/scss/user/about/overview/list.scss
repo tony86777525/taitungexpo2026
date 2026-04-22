@@ -253,7 +253,7 @@ $path: '../../../../images/about';
 			}
 		}
 
-		@include rwd-min(561px) {
+		@include rwd-min(769px) {
 			overflow-x: visible;
 			padding-left: 0;
 			@include box-sizing(border-box);
