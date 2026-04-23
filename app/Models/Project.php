@@ -222,6 +222,10 @@ class Project extends Model
      */
     public function getDisplayDateRangeAttribute(): string
     {
+        if (empty($this->project_start_date) || empty($this->project_end_date)) {
+            return '';
+        }
+
         $startDate = Carbon::create($this->project_start_date)->translatedFormat('Y.n.j（D）');
         $endDate = Carbon::create($this->project_end_date)->translatedFormat('Y.n.j（D）');
 
@@ -235,6 +239,10 @@ class Project extends Model
      */
     public function getDisplayTimeRangeAttribute(): string
     {
+        if (empty($this->project_start_time) || empty($this->project_end_time)) {
+            return '';
+        }
+
         $startTime = Carbon::create($this->project_start_time)->translatedFormat('H:i');
         $endTime = Carbon::create($this->project_end_time)->translatedFormat('H:i');
 
@@ -270,6 +278,10 @@ class Project extends Model
      */
     public function getDisplayTimeRangeAndNoteAttribute(): string
     {
+        if (empty($this->display_time_range)) {
+            return '';
+        }
+
         if (!empty($this->display_project_time_note)) {
             return "{$this->display_time_range}（{$this->display_project_time_note}）";
         }

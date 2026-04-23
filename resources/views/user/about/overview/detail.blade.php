@@ -24,14 +24,18 @@
                     <div class="wrapper">
                         <div class="title f-title-primary is-pageTitle">{{ $project->display_project_name }}</div>
                         <ul class="datas">
-                            <li class="datas__item datas__item--date">
-                                <div class="label"><div class="label__text f-h5">{{ __('event.sub-page.datas.dates') }}｜</div></div>
-                                <div class="content"><span class="content__text f-h5">{{ $project->display_date_range }}</span></div>
-                            </li>
-                            <li class="datas__item datas__item--time">
-                                <div class="label"><div class="label__text f-h5">{{ __('event.sub-page.datas.time') }}｜</div></div>
-                                <div class="content"><span class="content__text f-h5">{{ $project->display_time_range_and_note }}</span></div>
-                            </li>
+                            @if(!empty($project->display_date_range))
+                                <li class="datas__item datas__item--date">
+                                    <div class="label"><div class="label__text f-h5">{{ __('event.sub-page.datas.dates') }}｜</div></div>
+                                    <div class="content"><span class="content__text f-h5">{{ $project->display_date_range }}</span></div>
+                                </li>
+                            @endif
+                            @if(!empty($project->display_time_range_and_note))
+                                <li class="datas__item datas__item--time">
+                                    <div class="label"><div class="label__text f-h5">{{ __('event.sub-page.datas.time') }}｜</div></div>
+                                    <div class="content"><span class="content__text f-h5">{{ $project->display_time_range_and_note }}</span></div>
+                                </li>
+                            @endif
                             @if(!empty($project->display_project_location))
                                 <li class="datas__item datas__item--location">
                                     <div class="content"><a
@@ -42,7 +46,7 @@
                                         >{{ $project->display_project_location }}</a></div>
                                 </li>
                             @endif
-                            @if(!empty($project->getProjectNatures()))
+                            @if($project->getProjectNatures()->isNotEmpty())
                                 <li class="datas__item datas__item--natures">
                                     <div class="label"><div class="label__text f-h5">{{ __('event.sub-page.datas.natures') }}｜</div></div>
                                     <div class="content">
