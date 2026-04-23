@@ -39,7 +39,7 @@ class ParticipationController extends Controller
                 });
             })
             ->orderBy('zone_id')
-            ->orderBy('project_number')
+            ->orderByRaw('LENGTH(project_number) ASC, project_number ASC')
             ->paginate(9)
             ->withQueryString()
             ->onEachSide(1);
