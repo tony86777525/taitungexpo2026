@@ -13,8 +13,8 @@
         <div class="m-subPage">
             <div class="m-element m-subPage__head">
                 <div class="container">
-                    @if(!empty($project->display_project_category_name))
-                        <div class="pageLabel"><span class="pageLabel__text">{{ $project->display_project_category_name }}</span></div>
+                    @if(!empty($project->display_project_category_hashtag_name))
+                        <div class="pageLabel"><span class="pageLabel__text">{{ $project->display_project_category_hashtag_name }}</span></div>
                     @endif
                     <div class="wrapper">
                         <div class="team">

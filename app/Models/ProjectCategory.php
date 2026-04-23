@@ -46,10 +46,22 @@ class ProjectCategory extends Model
     public function getDisplayNameAttribute(): ?string
     {
         if (app()->getLocale() === Language::EN->value && !empty($this->name_en)) {
-            return "＃{$this->name_en}";
+            return "{$this->name_en}";
         }
 
-        return "＃{$this->name_tw}";
+        return "{$this->name_tw}";
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getDisplayHashtagNameAttribute(): ?string
+    {
+        if (empty($this->display_name)) {
+            return '';
+        }
+
+        return "＃{$this->display_name}";
     }
 
     public function getDisplayUrlAttribute()

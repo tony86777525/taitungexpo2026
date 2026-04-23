@@ -390,7 +390,7 @@ class Project extends Model
     /**
      * @return string|null
      */
-    public function getDisplayProjectCategoryNameAttribute(): ?string
+    public function getDisplayProjectCategoryHashtagNameAttribute(): ?string
     {
         if ($this->relationLoaded('projectCategories') === false) {
             return null;
@@ -402,7 +402,7 @@ class Project extends Model
 
         $projectCategory = $this->projectCategories->first();
 
-        return "{$projectCategory->display_name}" ?: null;
+        return "{$projectCategory->display_hashtag_name}" ?: null;
     }
 
     /**
