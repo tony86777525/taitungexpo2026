@@ -32,7 +32,7 @@
     <div style="{{ $fontStyle }}">
         日期 / Date：{{ $reservation->activitySession->display_date_for_datepicker }}<br>
         場館 / Venue：{{ $reservation->activitySession->project->display_venue_number_and_name }}<br>
-        時段 / Time Slot：{{ $reservation->activitySession->project->display_display_time_range }}<br>
+        時段 / Time Slot：{{ $reservation->activitySession->display_time_range }}<br>
         預約人數 / Number of Participants：{{ $reservation->participants_quota }} 人<br>
         團體名稱 / Group：{{ $reservation->contact_group_name }}<br>
         聯絡人 / Contact：{{ $reservation->display_contact_dear_name }}<br>
