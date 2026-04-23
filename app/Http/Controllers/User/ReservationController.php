@@ -292,7 +292,7 @@ class ReservationController extends Controller
             'activitySession.project.zone',
         ]);
 
-//        MailService::SendMailWhenPendingActivityReservationNormal($reservation);
+        MailService::SendMailWhenPendingActivityReservationNormal($reservation);
 
         return redirect()->route('user.reservation.complete')->with([
             'isSuccess' => '預約成功!',
