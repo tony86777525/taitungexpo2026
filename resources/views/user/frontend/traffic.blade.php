@@ -40,10 +40,11 @@
                                 <div class="paragraph f-p">{{ __('traffic.transpor.goal2.transporGroup1.paragraph') }}</div>
                                 <ul class="list">
                                     <li><span class="text">{{ __('traffic.transpor.goal2.transporGroup1.list.list1') }}</span></li>
+                                    <li><span class="text">{{ __('traffic.transpor.goal2.transporGroup1.list.list2') }}</span></li>
                                 </ul>
-                                <ul class="action">
+                                {{-- <ul class="action">
                                     <li><a href="#" class="btn btn--blank is-dark" target="_blank"><span class="btn__text">{{ __('traffic.transpor.goal2.transporGroup1.actions.btnText1') }}</span></a></li>
-                                </ul>
+                                </ul> --}}
                             </div>
                             <div class="transporGroup__image">
                                 <div class="imgWrap">

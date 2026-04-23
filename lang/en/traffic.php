@@ -11,9 +11,10 @@ return [
             'desc' => 'Recommended transportation options within Taitung City',
             'transporGroup1' => [
                 'title' => 'Official Shuttle Bus',
-                'paragraph' => 'During the Taitung Expo period (July 3–August 20), additional shuttle services will run between the main exhibition area and key points around the city. Shuttles are the recommended way to get between venues.',
+                'paragraph' => 'During the Taitung Expo period, additional shuttle services connect major venues. Shuttle service is recommended.',
                 'list' => [
-                    'list1' => 'Route and timetable will be announced soon.'
+                    'list1' => 'Service Period: July 3–August 20',
+                    'list2' => 'Operating Hours: Daily 9:00–18:00 (Lunch break: 12:00–13:30)'
                 ],
                 'actions' => [
                     'btnText1' => 'Schedule & Routes'

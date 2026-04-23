@@ -264,7 +264,7 @@ $filter-themes: (
 
         .filterOption {
 
-            @include rwd-min(768px) {
+            @include rwd-min(1281px) {
                 flex-wrap: wrap;
             }
         }
