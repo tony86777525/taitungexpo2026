@@ -1,7 +1,7 @@
 @php
-    $fontStyle = "font-size: 11px; line-height: 1; color: #4d4d4d; font-family: 'Microsoft JhengHei', '微軟正黑體', sans-serif;";
-    $noticeFontStyle = "font-size: 11px; line-height: 1; color: #ff0000; font-family: 'Microsoft JhengHei', '微軟正黑體', sans-serif;";
-    $linkFontStyle = "font-size: 11px; line-height: 1; font-family: 'Microsoft JhengHei', '微軟正黑體', sans-serif;";
+    $fontStyle = "font-size: 11px; line-height: 1.5; color: #4d4d4d; font-family: 'Microsoft JhengHei', '微軟正黑體', sans-serif;";
+    $noticeFontStyle = "font-size: 11px; line-height: 1.5; color: #ff0000; font-family: 'Microsoft JhengHei', '微軟正黑體', sans-serif;";
+    $linkFontStyle = "font-size: 11px; line-height: 1.5; font-family: 'Microsoft JhengHei', '微軟正黑體', sans-serif;";
 @endphp
 <!DOCTYPE html>
 <html lang="zh-Hant">
