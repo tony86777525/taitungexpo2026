@@ -41,6 +41,7 @@
                                 <li class="subMenu__item"><a href="{{ lang_route('user.about.themes') }}" class="menuText"><span>{{ __('layout.navigation.nav4-1') }}</span></a></li>
                                 <li class="subMenu__item"><a href="{{ lang_route('user.about.statement') }}" class="menuText"><span>{{ __('layout.navigation.nav4-2') }}</span></a></li>
                                 <li class="subMenu__item"><a href="{{ lang_route('user.about.vi') }}" class="menuText"><span>{{ __('layout.navigation.nav4-3') }}</span></a></li>
+                                <li class="subMenu__item"><a href="{{ lang_route('user.style') }}#guide" class="menuText"><span>{{ __('layout.navigation.nav7-2') }}</span></a></li>
                             </ul>
                         </li>
                         <li class="mainMenu__item mainMenu__item--parent js-submenu-switcher">
@@ -61,7 +62,6 @@
                             <div class="menuText"><span>{{ __('layout.navigation.nav7') }}</span></div>
                             <ul class="subMenu">
                                 <li class="subMenu__item"><a href="{{ lang_route('user.style') }}" class="menuText"><span>{{ __('layout.navigation.nav7-1') }}</span></a></li>
-                                <li class="subMenu__item"><a href="{{ lang_route('user.style') }}#guide" class="menuText"><span>{{ __('layout.navigation.nav7-2') }}</span></a></li>
                                 <li class="subMenu__item"><a href="{{ lang_route('user.style') }}#documentary" class="menuText"><span>{{ __('layout.navigation.nav7-3') }}</span></a></li>
                             </ul>
                         </li>
