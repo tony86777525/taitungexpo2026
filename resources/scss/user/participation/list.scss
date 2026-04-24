@@ -79,6 +79,21 @@ $path: '../../../images/participation';
 	}
 }
 
+.pcm {
+    @include list-reset;
+	text-align: center;
+
+    .pcm__item,
+    .label,
+    .content {
+        color: $secondary;
+        font-size: rem(14);
+        line-height: 1.75;
+        letter-spacing: rem(2);
+        font-weight: 300;
+    }
+}
+
 .section {
 
 	&__title {
@@ -306,9 +321,16 @@ $path: '../../../images/participation';
 		.pagination {
 			margin-top: rem(40);
 		}
+
+		.pcm {
+			margin-top: rem(50);
+
+			@include rwd-min(769px) {
+				margin-top: rem(40);
+			}
+		}
 	}
 }
-
 
 .lang {
 	&--en {

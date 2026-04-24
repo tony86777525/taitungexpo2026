@@ -46,5 +46,23 @@ return [
             'filterTxt6' => 'Society',
             'filterTxt7' => 'Living',
         ]
+    ],
+    'pcm' => [
+        'implemented-by' => [
+            'label' => 'Implemented by',
+            'content' => 'TripleS Life Consulting Co., Ltd.',
+        ],
+        'phone' => [
+            'label' => 'Phone',
+            'content' => '+886-89-327168 (Ms. Kao / Ms. Lee)',
+        ],
+        'service-hours' => [
+            'label' => 'Service Hours',
+            'content' => 'Monday–Friday, 8:30–12:00 / 13:00–17:30',
+        ],
+        'line' => [
+            'label' => 'Official LINE',
+            'content' => '@838kolye',
+        ]
     ]
 ];

@@ -45,5 +45,6 @@ return [
             'executed-value' => 'Wonderful Design Studio',
         ]
     ],
-    'fixedTraffic' => 'images/btn-map-en.svg'
+    'fixedTraffic' => 'images/btn-map-en.svg',
+    'group-reservation' => 'Group Tour Reservation',
 ];

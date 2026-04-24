@@ -239,13 +239,21 @@ $modulePath: '/resources/images';
                     display: flex;
                     flex-wrap: wrap;
                     color: $secondary;
-                    gap: rem(10);
+                    column-gap: rem(10);
 
                     span {
                         display: inline-block;
                     }
                 }
             }
+        }
+
+        .action {
+            @include list-reset;
+            margin-top: rem(30);
+            display: flex;
+            flex-direction: column;
+            gap: rem(10);
         }
     }
 
@@ -325,11 +333,16 @@ $modulePath: '/resources/images';
     }
 
     &__summary {
+        .title {
+            margin-bottom: rem(20);
+            color: $secondary;
+        }
 
         .summary {
             display: flex;
             flex-direction: column;
             flex-wrap: wrap;
+            align-items: center;
             gap: rem(30);
 
             .summary__text {
@@ -365,11 +378,6 @@ $modulePath: '/resources/images';
             img {
                 @include fit-cover;
             }
-        }
-
-        .title {
-            margin-bottom: rem(20);
-            color: $secondary;
         }
 
         .list {
