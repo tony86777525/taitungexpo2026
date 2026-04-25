@@ -3,7 +3,9 @@
 namespace App\Filament\Resources\Activities\Schemas;
 
 use App\Models\Project;
+use Carbon\Carbon;
 use Filament\Forms\Components\Checkbox;
+use Filament\Forms\Components\CheckboxList;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Repeater;
@@ -13,6 +15,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\TimePicker;
 use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Components\Grid;
+use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Utilities\Get;
 use Filament\Schemas\Components\Utilities\Set;
 use Filament\Schemas\Schema;
@@ -77,6 +80,7 @@ class ActivityForm
                                 // 查詢該專案的結束日期
                                 return Project::find($projectId)?->project_end_date;
                             })
+                            ->live()
                             ->maxWidth('sm'),
                         DatePicker::make('activity_end_date')
                             ->label('活動結束日期')
@@ -97,6 +101,40 @@ class ActivityForm
                                 // 查詢該專案的結束日期
                                 return Project::find($projectId)?->project_end_date;
                             })
+                            ->live()
+                            ->maxWidth('sm'),
+                    ]),
+                Section::make('排除規則')
+                    ->description('選取的日期或是星期將不會顯示在活動行事曆上')
+                    ->schema([
+                        CheckboxList::make('exclusion_rules.exclusion_days')
+                            ->label('排除星期')
+                            ->options(
+                                collect(range(0, 6))->mapWithKeys(function ($i) {
+                                    // ISO-8601 週一為 0，週日為 6
+                                    return [$i => Carbon::now()->startOfWeek()->addDays($i - 1)->getTranslatedDayName()];
+                                })
+                            )
+                            ->columns(4)
+                            ->gridDirection('row'),
+
+                        Repeater::make('exclusion_rules.exclusion_dates')
+                            ->label('排除日期')
+                            ->simple(
+                                DatePicker::make('date')
+                                    ->minDate(function (Get $get) {
+                                        return $get('../../../activity_start_date');
+                                    })
+                                    ->maxDate(function (Get $get) {
+                                        return $get('../../../activity_end_date');
+                                    })
+                                    ->displayFormat('Y-m-d')
+                                    ->closeOnDateSelection()
+                                    ->required(),
+                            )
+                            ->addActionLabel('新增排除日期')
+                            ->default([])
+                            ->reorderable(false)
                             ->maxWidth('sm'),
                     ]),
                 Grid::make(6)

@@ -21,6 +21,8 @@ class Activity extends Model
         // 活動日期
         'activity_start_date',
         'activity_end_date',
+        // 排除規則（日期、星期）
+        'exclusion_rules',
         // 活動開始時間
         'activity_start_time',
         // 活動結束時間
@@ -54,6 +56,7 @@ class Activity extends Model
     protected $casts = [
         'is_active' => 'boolean',
         'show_tour_info' => 'boolean',
+        'exclusion_rules' => 'array',
     ];
 
     /**

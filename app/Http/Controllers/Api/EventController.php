@@ -23,6 +23,9 @@ class EventController extends Controller
         if (empty($date)) {
             $activities = collect();
         } else {
+            $currentDate = Carbon::parse($date)->format('Y-m-d');
+            $currentDay = Carbon::parse($date)->dayOfWeek;
+
             $activities = Activity::query()
                 ->with([
                     'activityNatures',
@@ -30,12 +33,13 @@ class EventController extends Controller
                     'projectTypes',
                     'project',
                 ])
-                ->where('activity_start_date', '<=', Carbon::parse($date)->format('Y-m-d'))
-                ->where('activity_end_date', '>=', Carbon::parse($date)->format('Y-m-d'))
+                ->where('activity_start_date', '<=', $currentDate)
+                ->where('activity_end_date', '>=', $currentDate)
+                ->whereJsonDoesntContain('exclusion_rules->exclusion_days', $currentDay)
+                ->whereJsonDoesntContain('exclusion_rules->exclusion_dates', $currentDate)
                 ->where('is_active', true)
                 ->get();
         }
-
 
         $html = view('user.event.search-result', [
             'activities' => $activities
