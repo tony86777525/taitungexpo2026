@@ -16,7 +16,6 @@ return [
             'list' => [
                 'list-item1' => 'Each group may apply for <span class="highlight">only one guided tour per venue per day</span>. Submitting duplicate applications under different contact names to circumvent this limit is not permitted.Applications submitted under different contact names to bypass limits are not permitted.',
                 'list-item2' => 'Capacity limits vary by venue. Available slots are subject to system display. Group size must fall within the capacity range posted for each session.The number of applicants must fall within the stated capacity range for each session.',
-                'list-item3' => 'Government agency visits: please contact the dedicated hotline: XXXXXX.',
             ],
         ],
         'step3' => [

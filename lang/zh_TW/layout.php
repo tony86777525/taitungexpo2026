@@ -45,5 +45,6 @@ return [
             'executed-value' => '玩美文創設計工作室',
         ]
     ],
-    'fixedTraffic' => 'images/btn-map-zh.svg'
+    'fixedTraffic' => 'images/btn-map-zh.svg',
+    'group-reservation' => '團體導覽預約',
 ];

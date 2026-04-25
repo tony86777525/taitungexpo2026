@@ -46,5 +46,23 @@ return [
             'filterTxt6' => '社會系統',
             'filterTxt7' => '生活提案',
         ]
+    ],
+    'pcm' => [
+        'implemented-by' => [
+            'label' => '承辦單位',
+            'content' => '微慢城鄉生活顧問有限公司',
+        ],
+        'phone' => [
+            'label' => '聯絡電話',
+            'content' => '089-327168 高小姐、李小姐',
+        ],
+        'service-hours' => [
+            'label' => '服務時間',
+            'content' => '週一至週五，8:30-12:00，13:00-17:30',
+        ],
+        'line' => [
+            'label' => '官方Line',
+            'content' => '@838kolye',
+        ]
     ]
 ];

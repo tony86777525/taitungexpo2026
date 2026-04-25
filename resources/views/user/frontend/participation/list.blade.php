@@ -178,6 +178,7 @@
                             <li class="pagination__item pagination__item--ellipsis"><span class="text">...</span></li>
                             <li class="pagination__item pagination__item--next"><a href="#" class="text">NEXT</a></li>
                         </ul>
+                        @include('user.frontend.participation.pcm')
                     </div>
                 </div>
             </div>

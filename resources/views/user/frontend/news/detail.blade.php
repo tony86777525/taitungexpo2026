@@ -66,10 +66,10 @@
 		{{-- 消息內容：無圖片輪播 --}}
 		<div class="m-element m-subPage__summary">
 			<div class="container">
+				{{-- 標題 --}}
+				<div class="title"><span class="f-title-secondary">標題一</span></div>
 				<div class="summary">
 					<div class="summary__text">
-						{{-- 標題 --}}
-						<div class="title"><span class="f-title-secondary">標題一</span></div>
 						{{-- 內文 --}}
 						<div class="intro">
 							<div class="customEditor">

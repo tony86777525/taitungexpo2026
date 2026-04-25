@@ -76,10 +76,11 @@ $path: '../../../images/reservation';
 
     .declaration {
         color: $bg-3;
-        margin-top: rem(10);
+        margin-top: rem(40);
+        text-align: center;
 
         @include rwd-min(769px) {
-            padding: 0 rem(40);
+            margin-top: rem(50);
         }
     }
 

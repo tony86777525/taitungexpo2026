@@ -1,4 +1,4 @@
-const MOBILE_BREAKPOINT = 768;
+const MOBILE_BREAKPOINT = 1281;
 
 class SelectTab {
 

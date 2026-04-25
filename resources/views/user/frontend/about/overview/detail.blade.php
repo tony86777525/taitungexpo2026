@@ -47,6 +47,9 @@
 							</div>
 						</li>
 					</ul>
+					<ul class="action">
+						<li><a href="#" class="btn btn--reservation"><span class="btn__text">{{ __('layout.group-reservation') }}</span></a></li>
+					</ul>
 				</div>
 			</div>
 		</div>
@@ -86,6 +89,8 @@
 		{{-- 活動內容：有圖片輪播 --}}
 		<div class="m-element m-subPage__summary">
 			<div class="container">
+				{{-- 標題 --}}
+				<div class="title"><span class="f-title-secondary">標題一</span></div>
 				<div class="summary">
 					<div class="summary__image">
 						<div class="imageList imageList--editor imageSwiper">
@@ -118,8 +123,6 @@
 						</div>
 					</div>
 					<div class="summary__text">
-						{{-- 標題 --}}
-						<div class="title"><span class="f-title-secondary">標題一</span></div>
 						{{-- 內文 --}}
 						<div class="intro">
 							<div class="customEditor">
@@ -144,10 +147,10 @@
 		{{-- 活動內容：無圖片輪播 --}}
 		<div class="m-element m-subPage__summary">
 			<div class="container">
+				{{-- 標題 --}}
+				<div class="title"><span class="f-title-secondary">標題一</span></div>
 				<div class="summary">
 					<div class="summary__text">
-						{{-- 標題 --}}
-						<div class="title"><span class="f-title-secondary">標題一</span></div>
 						{{-- 內文 --}}
 						<div class="intro">
 							<div class="customEditor">

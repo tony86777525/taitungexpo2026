@@ -16,7 +16,6 @@ return [
             'list' => [
                 'list-item1' => '同一團體於<span class="highlight">同一場館、同一日以申請 1 場為原則</span>，請避免以不同聯絡人重複申請。',
                 'list-item2' => '各場館導覽人數限制不同，實際可預約名額以系統顯示為準；<span class="highlight">請依各場次公告之人數範圍填寫</span>。',
-                'list-item3' => '如為政府機關團體參訪，歡迎另洽專線：XXXXXX。',
             ],
         ],
         'step3' => [
