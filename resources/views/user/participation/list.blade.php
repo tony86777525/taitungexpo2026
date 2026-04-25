@@ -152,6 +152,7 @@
                                 @endforeach
                             </div>
                             {{ $projects->links() }}
+                            @include('user.participation.pcm')
                         </div>
                     </div>
                 </div>

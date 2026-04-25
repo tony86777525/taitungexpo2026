@@ -59,6 +59,11 @@
                                 </li>
                             @endif
                         </ul>
+                        @if($project->show_tour_info === true)
+                            <ul class="action">
+                                <li><a href="{{ $project->display_reservation_url_from_overview }}" class="btn btn--reservation"><span class="btn__text">{{ __('layout.group-reservation') }}</span></a></li>
+                            </ul>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -88,9 +93,10 @@
             @foreach($project->getContents() ?: collect() as $projectContent)
                 <div class="m-element m-subPage__summary">
                     <div class="container">
+                        {{-- 標題 --}}
+                        <div class="title"><span class="f-title-secondary">{{ $projectContent->display_title }}</span></div>
                         <div class="summary">
                             @if(!empty($projectContent->getImages()))
-
                                 <div class="summary__image">
                                     <div class="imageList imageList--editor imageSwiper">
                                         <div class="swiper js-editorImgSwiper">
@@ -110,8 +116,6 @@
                                 </div>
                             @endif
                             <div class="summary__text">
-                                {{-- 標題 --}}
-                                <div class="title"><span class="f-title-secondary">{{ $projectContent->display_title }}</span></div>
                                 {{-- 內文 --}}
                                 <div class="intro">
                                     <div class="customEditor">
@@ -135,14 +139,6 @@
                                                 ><span class="btn__text">{{ $projectContentLink->display_name }}</span></a>
                                             </li>
                                         @endforeach
-                                        @if($loop->last && $project->show_tour_info === true)
-                                            <li>
-                                                <a
-                                                    href="{{ $project->display_reservation_url_from_overview }}"
-                                                    class="btn btn--customLink"
-                                                ><span class="btn__text">{{ __('event.cards.group-tour.link-text') }}</span></a>
-                                            </li>
-                                        @endif
                                     </ul>
                                 @endif
                             </div>

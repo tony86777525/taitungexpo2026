@@ -47,7 +47,6 @@
                             <ul class="stepItem__list">
                                 <li class="f-h5">{!! __('reservation.steps.step2.list.list-item1') !!}</li>
                                 <li class="f-h5">{!! __('reservation.steps.step2.list.list-item2') !!}</li>
-                                <li class="f-h5">{!! __('reservation.steps.step2.list.list-item3') !!}</li>
                             </ul>
                         </div>
                         <div class="steps__item stepItem stepItem--step3">

@@ -63,9 +63,10 @@
             @foreach($activity->getContents() ?: collect() as $activityContent)
                 <div class="m-element m-subPage__summary">
                     <div class="container">
+                        {{-- 標題 --}}
+                        <div class="title"><span class="f-title-secondary">{{ $activityContent->display_title }}</span></div>
                         <div class="summary">
                             @if(!empty($activityContent->getImages()))
-
                                 <div class="summary__image">
                                     <div class="imageList imageList--editor imageSwiper">
                                         <div class="swiper js-editorImgSwiper">
@@ -85,8 +86,6 @@
                                 </div>
                             @endif
                             <div class="summary__text">
-                                {{-- 標題 --}}
-                                <div class="title"><span class="f-title-secondary">{{ $activityContent->display_title }}</span></div>
                                 {{-- 內文 --}}
                                 <div class="intro">
                                     <div class="customEditor">

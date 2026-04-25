@@ -26,6 +26,8 @@
             @foreach($article->getContents() ?: collect() as $articleContent)
                 <div class="m-element m-subPage__summary">
                 <div class="container">
+                    {{-- 標題 --}}
+                    <div class="title"><span class="f-title-secondary">{{ $articleContent->display_title }}</span></div>
                     <div class="summary">
                         @if(!empty($articleContent->getImages()))
                             <div class="summary__image">
@@ -47,8 +49,6 @@
                             </div>
                         @endif
                         <div class="summary__text">
-                            {{-- 標題 --}}
-                            <div class="title"><span class="f-title-secondary">{{ $articleContent->display_title }}</span></div>
                             {{-- 內文 --}}
                             <div class="intro">
                                 <div class="customEditor">
