@@ -2,14 +2,14 @@
 
 return [
     'page-title' => '交通資訊',
-    'transpor' => [
+    'transport' => [
         'goal1' => [
             'title' => '如何抵達台東',
         ],
         'goal2' => [
             'title' => '如何抵達主展區？',
             'desc' => '台東市區內建議交通方式',
-            'transporGroup1' => [
+            'transportGroup1' => [
                 'title' => '大會接駁車',
                 'paragraph' => '台東博覽會展覽期間特別加開大會接駁車班次，串聯主展區與市區重要節點，方便民眾輕鬆往返各展區，建議優先搭乘。',
                 'list' => [
@@ -20,7 +20,7 @@ return [
                     'btnText1' => '接駁車時刻與路線'
                 ]
             ],
-            'transporGroup2' => [
+            'transportGroup2' => [
                 'title' => '市區公車/客運',
                 'paragraph' => '喜歡搭乘大眾運輸、彈性安排行程的旅人，可選擇台東市區公車與客運路線，路線涵蓋車站、機場與市區重要節點，適合慢慢移動、沿途探索。',
                 'actions' => [
@@ -30,28 +30,28 @@ return [
                     'btnText4' => '公路客運即時動態資訊網'
                 ]
             ],
-            'transporGroup3' => [
+            'transportGroup3' => [
                 'title' => '單車漫遊',
                 'paragraph' => '想用自己的節奏感受台東市區的慢活氛圍，單車是最貼近生活的移動方式。沿著市區街道與綠蔭路線前行，在移動之間體驗台東的日常風景，並可善用市區 YouBike，輕鬆串聯各展區與周邊景點！',
                 'actions' => [
                     'btnText1' => '台東YouBike站點查詢'
                 ]
             ],
-            'transporGroup4' => [
+            'transportGroup4' => [
                 'title' => '自行開車',
                 'paragraph' => '偏好自由掌握時間、彈性走走停停的旅客，可選擇自行開車前往主展區。台東火車站與機場周邊皆有租車服務，適合規劃多點參觀或延伸行程。',
                 'actions' => [
                     'btnText1' => '停車與租車資訊'
                 ]
             ],
-            'transporGroup5' => [
+            'transportGroup5' => [
                 'title' => '復康巴士服務',
                 'paragraph' => '為提供行動不便者更便利的交通選擇，臺東縣設有復康巴士接送服務。服務以輪椅使用者及就醫需求者優先，非設籍民眾亦可依規定自費搭乘，提升整體參與與移動的便利性。',
                 'actions' => [
                     'btnText1' => '復康巴士預約'
                 ]
             ],
-            'transporGroup6' => [
+            'transportGroup6' => [
                 'title' => '步行',
                 'paragraph' => '主展區周邊展點集中，若住宿於市區或鄰近場域，可選擇步行方式，沿途感受台東街區節奏，讓移動本身成為展覽體驗的一部分！',
             ]

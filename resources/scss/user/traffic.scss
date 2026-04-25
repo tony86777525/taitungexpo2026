@@ -18,7 +18,7 @@ $path: '../../images/traffic';
 	}
 }
 
-.section--transpor {
+.section--transport {
 	position: relative;
 	z-index: 1;
 	padding-top: rem(80);
@@ -61,7 +61,7 @@ $path: '../../images/traffic';
             }
 		}
 
-		&--transpor {
+		&--transport {
 			padding-top: rem(80);
 
 			@include rwd-min(768px) {
@@ -94,7 +94,7 @@ $path: '../../images/traffic';
 				margin-top: rem(20);
 			}
 
-            .transporGroup {
+            .transportGroup {
                 margin-bottom: rem(60);
 
                 @include rwd-min(769px) {
@@ -108,7 +108,7 @@ $path: '../../images/traffic';
         }
 	}
 
-	.transporGroup {
+	.transportGroup {
 		display: flex;
         gap: rem(30);
 		flex-direction: column;
@@ -389,8 +389,8 @@ $path: '../../images/traffic';
 
 .lang {
 	&--en {
-		.section--transpor {
-			.transporGroup {
+		.section--transport {
+			.transportGroup {
 				&__text {
 					.list {
 						li {
@@ -443,8 +443,8 @@ $path: '../../images/traffic';
 	}
 
 	&--zh {
-		.section--transpor {
-			.transporGroup {
+		.section--transport {
+			.transportGroup {
 				&__text {
 					.list {
 						li {
