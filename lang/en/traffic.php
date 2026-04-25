@@ -2,14 +2,14 @@
 
 return [
     'page-title' => 'Getting Here',
-    'transpor' => [
+    'transport' => [
         'goal1' => [
             'title' => 'Transportation Options',
         ],
         'goal2' => [
             'title' => 'How to Get to the Main Exhibition Area?',
             'desc' => 'Recommended transportation options within Taitung City',
-            'transporGroup1' => [
+            'transportGroup1' => [
                 'title' => 'Official Shuttle Bus',
                 'paragraph' => 'During the Taitung Expo period, additional shuttle services connect major venues. Shuttle service is recommended.',
                 'list' => [
@@ -20,7 +20,7 @@ return [
                     'btnText1' => 'Schedule & Routes'
                 ]
             ],
-            'transporGroup2' => [
+            'transportGroup2' => [
                 'title' => 'City Bus / Intercity Bus',
                 'paragraph' => 'For travelers who prefer public transportation and flexible scheduling, Taitung’s city and intercity bus services connect the train station, airport, and major city hubs. A great way to take things slow and explore along the way.',
                 'actions' => [
@@ -30,28 +30,28 @@ return [
                     'btnText4' => 'Bus Real-Time Information'
                 ]
             ],
-            'transporGroup3' => [
+            'transportGroup3' => [
                 'title' => 'Cycling',
                 'paragraph' => 'To experience the relaxed rhythm of Taitung at your own pace, cycling is the best way to get around. Ride through tree-lined streets and urban routes, and make use of the city’s YouBike system to easily connect exhibition venues and nearby attractions.',
                 'actions' => [
                     'btnText1' => 'YouBike Station Map'
                 ]
             ],
-            'transporGroup4' => [
+            'transportGroup4' => [
                 'title' => 'By Car',
                 'paragraph' => 'Visitors who prefer flexibility and control over their schedule may choose to drive to the main exhibition area. Car rental services are available near Taitung Railway Station and Taitung Airport, ideal for visiting multiple venues or extending your trip.',
                 'actions' => [
                     'btnText1' => 'Parking & Car Rental Information'
                 ]
             ],
-            'transporGroup5' => [
+            'transportGroup5' => [
                 'title' => 'Accessible Transport',
                 'paragraph' => 'To provide more convenient transportation for people with mobility needs, Taitung County offers accessible shuttle services. Priority is given to wheelchair users and those with medical needs. Non-residents may also use the service for a fee, subject to local regulations.',
                 'actions' => [
                     'btnText1' => 'Accessible Transport Booking'
                 ]
             ],
-            'transporGroup6' => [
+            'transportGroup6' => [
                 'title' => 'Walking',
                 'paragraph' => 'Exhibition venues around the main area are within walking distance of one another. If staying nearby, visitors may choose to walk and experience the city’s pace firsthand, making the journey itself to a part of the expo experience.',
             ]
